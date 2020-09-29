@@ -1,0 +1,128 @@
+@import "../../css/common.css";
+
+* {box-sizing: border-box;}
+
+/* ======================슬라이드 ========================*/
+#home_img_bar {
+    height: 300px;
+    text-align: center;
+    background-color: #2092aa;
+}
+
+#home_img_bar .slide_image_box img {
+    /*height: calc( 300px - 10px)*/
+    width: 100%;
+}
+
+.slideBox {
+    min-width: 600px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+}
+
+.slide_image_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide_image_box a {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+}
+
+.slide_nav a {
+    width: 71px;
+    height: 71px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+    background: url('../img/sprites.png') no-repeat;
+    text-indent: -9999em;
+}
+
+.slide_nav a:first-child {
+    background-position: 0 -20px;
+    margin-left: -300px;
+}
+
+.slide_nav a:last-child {
+    background-position: -80px -20px;
+    margin-left: 300px;
+}
+
+.slide_indicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    text-align: center;
+}
+
+.slide_indicator a {
+    background: url('../img/sprites.png') no-repeat -113px -4px;
+    width: 9px;
+    height: 8px;
+    margin-right: 8px;
+    display: inline-block;
+    text-indent: -9999em;
+}
+
+.slide_indicator a.active {
+    background: url('../img/sprites.png') no-repeat -133px -4px;
+}
+
+
+
+
+/* ==========================검색 박스 ================================*/
+.container {
+    /*width: 1000px;*/
+    margin: 2em auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.search {
+    margin-bottom: 2em;
+    /*height: 45px;*/
+}
+.search input[type=text] {
+    width: 600px;
+    height: 45px;
+    padding: .8em;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+.search input[type=text]:hover {
+    outline: none;
+}
+
+.search button {
+    margin-left: -50px;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+.search button img {
+    width: 25px;
+    height: 25px;
+}
+
+/*===============메인 컨텐츠 =====================*/
+.content1, .content2{
+    height: 350px;
+}

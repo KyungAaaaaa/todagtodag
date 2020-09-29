@@ -1,5 +1,6 @@
 /* 마진 패딩 초기화 */
-* { padding: 0; margin: 0; }
+* {box-sizing: border-box; padding: 0; margin: 0; }
+
 /* 페이지 기본 글꼴과 크기 설정 */
 body { font-family: "나눔";   font-size: 14px; }
 img { border: 0;}
@@ -15,9 +16,8 @@ a:active { text-decoration:none; color: black; }
 #top h3 { position: absolute; top: 10px; left: 40px; font-size: 25px; }
 #top #top_menu { float: right; margin: 15px 60px 0 0;}
 #top #top_menu li { display: inline; margin-left: 60px;}
-/* 메인 이미지 */
-#main_img_bar { height: 230px; text-align: center; background-color: #2092aa; }
-#main_img_bar img { margin-top: 30px; }
+
+
 /* 하단 푸터 */
 footer { height: 100%; background-color: black; }
 #footer_content {position: relative; width: 100%; color: #dddddd; padding: 30px;}

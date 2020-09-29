@@ -20,11 +20,11 @@ function create_table($con, $table_name)
                 $sql = "CREATE TABLE `members` (
                     `num` int(11) NOT NULL AUTO_INCREMENT,
                     `id` char(15) NOT NULL,
-                    `pass` char(15) NOT NULL,
+                    `password` char(15) NOT NULL,
                     `name` char(10) NOT NULL,
                     `phone` char(13) NOT NULL,
                     `email` char(80) DEFAULT NULL,
-                    `regist_day` char(20) DEFAULT NULL,
+                    `address` char(50),
                     `level` int(11) DEFAULT NULL,
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";

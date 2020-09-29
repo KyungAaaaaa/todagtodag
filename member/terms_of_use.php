@@ -1,48 +1,40 @@
 <?php $page = $_GET["page"] ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-      <meta charset="utf-8">
-      <title>HELF :: 약관 상세 페이지</title>
-      <link rel="stylesheet" href="./css/member.css">
-      <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
-      <script src="./js/member_form.js" charset="utf-8"></script>
-      <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
-      <link
-          rel="stylesheet"
-          type="text/css"
-          href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/css/common.css">
-      <link
-          rel="stylesheet"
-          type="text/css"
-          href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/css/main.css">
-      <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 
-      <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,500,700|Nanum+Gothic+Coding:400,700|Nanum+Gothic:400,700,800|Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
-      <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/js/main.js"></script>
-  </head>
-  <body>
-    <header>
-        <?php include $_SERVER['DOCUMENT_ROOT']."/helf/common/lib/header.php";?>
-    </header>
-    <section>
-      <div id="tou_main_content">
-        <div id="title_tou">
-          <?php
-            if ($page === "tou1") {
-              echo "<h1>이용 약관</h1>";
-            } else if ($page === "tou2") {
-              echo "<h1>개인 정보 수집 및 이용 동의</h1>";
-            } else {
-              echo "<h1>마케팅 수신 동의</h1>";
-            }
-           ?>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <title>토닥토닥 :: 약관 상세 페이지</title>
+  <link rel="stylesheet" href="./css/member.css">
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
+  <script src="./js/member_form.js" charset="utf-8"></script>
+  <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,500,700|Nanum+Gothic+Coding:400,700|Nanum+Gothic:400,700,800|Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+  </header>
+  <section>
+    <div id="tou_main_content">
+      <div id="title_tou">
         <?php
-          if($page === "tou1") {
-            echo '
+        if ($page === "tou1") {
+          echo "<h1>이용 약관</h1>";
+        } else if ($page === "tou2") {
+          echo "<h1>개인 정보 수집 및 이용 동의</h1>";
+        } else {
+          echo "<h1>마케팅 수신 동의</h1>";
+        }
+        ?>
+      </div>
+      <?php
+      if ($page === "tou1") {
+        echo '
               제 1 장 총 칙 <br>
               <br>
               제 1 조 (목적) <br>
@@ -146,8 +138,8 @@
               서비스와 관련하여 사이트와 회원간에 분쟁이 발생할 경우 사이트의 본사 소재지를 관할하는 법원을 관할법원으로 합니다. <br>
               <br>
             ';
-          } else if($page === "tou2") {
-            echo '
+      } else if ($page === "tou2") {
+        echo '
             1. 개인정보의 수집항목 및 이용 목적 <br>
             <br>
             A. 회사는 다음과 같이 개인정보를 수집하여 이용합니다. <br>
@@ -180,8 +172,8 @@
             이 과정에서 명의도용 등의 행위가 발생하는 것을 방지하기 위한 목적으로 서비스 탈회 후 6개월 동안 사용자의 식별정보를 보관합니다. <br>
             D. 가입자가 서비스 사용을 종료하신 이후 서비스 제공과 관련된 각종 문의사항에 응대하기 위해 서비스 사용로그는 서비스 종료 후 12개월간 보관하며, 위치정보 이용, 제공사실 확인자료는 6개월간 보관합니다. <br>
             ';
-          } else {
-            echo '
+      } else {
+        echo '
             1. 광고성 정보의 이용목적 <br>
             회사가 제공하는 이용자 맞춤형 서비스 및 상품 추천, 각종 경품 행사, 이벤트 등의 광고성 정보를 전자우편이나 서신우편, 문자(SMS 또는 카카오 알림톡), 푸시, 전화 등을 통해 이용자에게 제공합니다. <br>
              <br>
@@ -194,12 +186,13 @@
             3. 서비스 정보 수신 동의 철회 <br>
             회사에서 제공하는 마케팅 정보를 원하지 않을 경우 ‘내 정보 수정 > 추가 정보’에서 철회를 요청할 수 있습니다. 또한 향후 마케팅 활용에 새롭게 동의하고자 하는 경우에는 ‘내 정보 수정 > 추가 정보’에서 동의하실 수 있습니다. <br>
             ';
-          }
-         ?>
-      </div>
-    </section>
-    <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT']."/helf/common/lib/footer.php";?>
-    </footer>
-  </body>
+      }
+      ?>
+    </div>
+  </section>
+  <footer>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
+  </footer>
+</body>
+
 </html>

@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <title>토닥토닥</title>
-    <link rel="stylesheet" type="text/css" href="./css/common.css?ver=1">
+    <link rel="stylesheet" type="text/css" href="./css/common.css?ver=2">
 </head>
 
 <body>

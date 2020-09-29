@@ -3,16 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>HELF :: 로그인</title>
+  <title>토닥토닥</title>
   <link rel="stylesheet" href="./css/login.css">
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
-  <!-- <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/css/main.css"> -->
+  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=2">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
   <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,500,700|Nanum+Gothic+Coding:400,700|Nanum+Gothic:400,700,800|Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
-  <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/js/main.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {
@@ -165,7 +163,7 @@
         <div id="naver_id_login"></div>
         <!-- //네이버아이디로로그인 버튼 노출 영역 -->
         <script type="text/javascript">
-          var naver_id_login = new naver_id_login("imJpReP1ZuJ368WTaKMU", "http://localhost/todagtodag/member/member_form.php");
+          var naver_id_login = new naver_id_login("imJpReP1ZuJ368WTaKMU", "http://127.0.0.1/todagtodag/member/member_form.php");
           var state = naver_id_login.getUniqState();
           naver_id_login.setButton("green", 3, 43);
           naver_id_login.setDomain("./login_form.php");

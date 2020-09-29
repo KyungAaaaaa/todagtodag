@@ -1,5 +1,5 @@
 <?php
-  include $_SERVER['DOCUMENT_ROOT']."/helf/common/lib/db_connector.php";
+  include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
 
   $kakao_name = $_POST["kakao_name"];
   $kakao_email = $_POST["kakao_email"];
@@ -9,7 +9,8 @@
   $kakao_email = str_replace("\"", "", $kakao_email);
 
   $sql = "select * from members where name='$kakao_name' and email='$kakao_email';";
-  $result = mysqli_query($conn,$sql);
+  $result = mysqli_query($con,$sql);
+  mysqli_close($con);
 
   echo $kakao_name;
   echo $test;

@@ -1,9 +1,9 @@
 <?php
-if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
+if (isset($_SESSION["user_id"])) $userid = $_SESSION["user_id"];
 else $userid = "";
-if (isset($_SESSION["username"])) $username = $_SESSION["username"];
+if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
 else $username = "";
-if (isset($_SESSION["userlevel"])) $userlevel = $_SESSION["userlevel"];
+if (isset($_SESSION["user_level"])) $userlevel = $_SESSION["user_level"];
 else $userlevel = "";
 ?>
 <div id="top">
@@ -18,17 +18,16 @@ else $userlevel = "";
         <?php
         if (!$userid) {
         ?>
-
             <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/member/member_form.php">회원가입</a> </li>
             <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/login_form.php">로그인</a></li>
         <?php
         } else {
-            $logged = $username . "(" . $userid . ")님[Level:" . $userlevel . "]";
+            $logged = $username . "(" . $userid . ")님  [Level:" . $userlevel . "]";
             // $logged = "홍길동"."(" . "aaaa" . ")님[Level:" . "9" . ", Point:" . "100" . "]";
         ?>
             <li><?= $logged ?> </li>
-            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">로그아웃</a> </li>
-            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">정보수정</a></li>
+            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/logout.php">로그아웃</a> </li>
+            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag//member/member_form.php?modify=modify">정보수정</a></li>
         <?php
         }
         ?>

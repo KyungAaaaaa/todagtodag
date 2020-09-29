@@ -1,11 +1,11 @@
 <?php
-  include $_SERVER['DOCUMENT_ROOT']."/helf/common/lib/db_connector.php";
+  include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
 
   $id   = $_POST["id"];
   $password = $_POST["password"];
 
  $sql = "select * from members where id='$id'";
- $result = mysqli_query($conn, $sql);
+ $result = mysqli_query($con, $sql);
 
  $num_match = mysqli_num_rows($result);
 
@@ -20,7 +20,7 @@
       $row = mysqli_fetch_array($result);
       $db_pass = $row["password"];
 
-      mysqli_close($conn);
+      mysqli_close($con);
 
       if ($password != $db_pass) {
           echo("
@@ -34,7 +34,7 @@
           session_start();
           $_SESSION["user_id"] = $row["id"];
           $_SESSION["user_name"] = $row["name"];
-          $_SESSION["user_grade"] = $row["grade"];
+          $_SESSION["user_level"] = $row["level"];
 
           echo("
             <script>

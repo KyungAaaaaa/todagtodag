@@ -95,7 +95,7 @@
     $email = $email_one."@".$email_two;
 
     $sql = "select * from members where name='$name' and email='$email';";
-    $result = mysqli_query($conn,$sql) or die("실패원인 : ".mysqli_error($con));
+    $result = mysqli_query($con,$sql) or die("실패원인 : ".mysqli_error($con));
 
     if(mysqli_num_rows($result)==0){
       echo "ok";

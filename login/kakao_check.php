@@ -16,13 +16,13 @@
   echo $test;
   echo $kakao_email;
   
-  // $rowcount=mysqli_num_rows($result);
-  // if(!$rowcount){
-  //   $s = '[{"kakao_id":"실패"}]';
-  // }else{
-  //   $row = mysqli_fetch_array($result);
-  //   $_SESSION['userid']=$row['id'];
-  //   $_SESSION['username']=$row['name'];
-  //   $s = '[{"kakao_id":"성공"}]';
-  // }
+  $rowcount=mysqli_num_rows($result);
+  if(!$rowcount){
+    $s = '[{"kakao_id":"실패"}]';
+  }else{
+    $row = mysqli_fetch_array($result);
+    $_SESSION['user_id']=$row['id'];
+    $_SESSION['user_name']=$row['name'];
+    $s = '[{"kakao_id":"성공"}]';
+  }
  ?>

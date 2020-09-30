@@ -96,7 +96,7 @@
           <script type='text/javascript'>
             //<![CDATA[
             // 사용할 앱의 JavaScript 키를 설정해 주세요.
-            Kakao.init('2b354742bdf569e3d564614db25e1689');
+            Kakao.init('334f732821b6fdb02350960deec88f02');
             // 카카오 로그인 버튼을 생성합니다.
             Kakao.Auth.createLoginButton({
               container: '#kakao-login-btn',
@@ -105,9 +105,9 @@
                 Kakao.API.request({
                   url: '/v2/user/me',
                   success: function(res) {
-                    // console.log(JSON.stringify(res));
-                    // console.log(JSON.stringify(res));
-                    // console.log(JSON.stringify(authObj));
+                    console.log(JSON.stringify(res));
+                    console.log(JSON.stringify(res));
+                    console.log(JSON.stringify(authObj));
 
                     var kakao_name = res["kakao_account"]["profile"]["nickname"];
                     var kakao_email = res["kakao_account"]["email"];
@@ -119,33 +119,35 @@
                       alert("카카오톡 로그인 오류입니다!")
                     }
 
-                    // $("#hidden_kakao_name").val(JSON.stringify(res.properties.nickname));
-                    // $("#hidden_kakao_email").val(JSON.stringify(res.kakao_account.email));
-                    // console.log( JSON.stringify(res.properties.nickname));
-                    // console.log( JSON.stringify(res.kakao_account.email));
-                    //
-                    // $.ajax({
-                    //   url: './kakao_check.php',
-                    //   type: 'POST',
-                    //   data: {kakao_name: JSON.stringify(res.properties.nickname),
-                    //         kakao_email: JSON.stringify(res.kakao_account.email)}
-                    // })
-                    // .done(function(result) {
-                    //   console.log(result);
-                    //   result = result.split("#");
-                    //   console.log(result[0]);
-                    //   console.log(result[1]);
-                    //   $("#hidden_kakao").val("kakao");
-                    //   $("#hidden_kakao_name").val(result[0]);
-                    //   $("#hidden_kakao_email").val(result[1]);
-                    //   $('#hidden_kakao_login_form').submit();
-                    // })
-                    // .fail(function() {
-                    //   console.log("error");
-                    // })
-                    // .always(function() {
-                    //   console.log("complete");
-                    // });
+                    $("#hidden_kakao_name").val(JSON.stringify(res.properties.nickname));
+                    $("#hidden_kakao_email").val(JSON.stringify(res.kakao_account.email));
+                    console.log(JSON.stringify(res.properties.nickname));
+                    console.log(JSON.stringify(res.kakao_account.email));
+
+                    $.ajax({
+                        url: './kakao_check.php',
+                        type: 'POST',
+                        data: {
+                          kakao_name: JSON.stringify(res.properties.nickname),
+                          kakao_email: JSON.stringify(res.kakao_account.email)
+                        }
+                      })
+                      .done(function(result) {
+                        console.log(result);
+                        result = result.split("#");
+                        console.log(result[0]);
+                        console.log(result[1]);
+                        $("#hidden_kakao").val("kakao");
+                        $("#hidden_kakao_name").val(result[0]);
+                        $("#hidden_kakao_email").val(result[1]);
+                        $('#hidden_kakao_login_form').submit();
+                      })
+                      .fail(function() {
+                        console.log("error");
+                      })
+                      .always(function() {
+                        console.log("complete");
+                      });
 
                   },
                   fail: function(error) {
@@ -163,7 +165,7 @@
         <div id="naver_id_login"></div>
         <!-- //네이버아이디로로그인 버튼 노출 영역 -->
         <script type="text/javascript">
-          var naver_id_login = new naver_id_login("imJpReP1ZuJ368WTaKMU", "http://127.0.0.1/todagtodag/member/member_form.php");
+          var naver_id_login = new naver_id_login("oTiDPiE8zHoaVttCf0a_", "http://127.0.0.1/todagtodag/member/member_form.php");
           var state = naver_id_login.getUniqState();
           naver_id_login.setButton("green", 3, 43);
           naver_id_login.setDomain("./login_form.php");

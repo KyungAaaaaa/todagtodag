@@ -227,10 +227,13 @@ $page = $_GET["page"];
             <input id="password_certification_button" type="button" name="" value="확인"> <br>
           <?php
           } else {
-            alert("아이디 / 비밀번호 찾기 페이지 오류입니다.");
+          ?>
+          <script>
+            alert('아이디 / 비밀번호 찾기 페이지 오류입니다.');
+          </script>
+          <?php 
           }
           ?>
-
         </form>
       </div>
     </div>

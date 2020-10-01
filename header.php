@@ -8,24 +8,20 @@ else $userlevel = "";
 ?>
 <div id="top">
     <h3>
-        <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">토닥토닥♥</a>
+        <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">♥토닥토닥</a>
     </h3>
     <ul id="top_menu">
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">HOME</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">진료/예약</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">건강정보</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">공지사항</a></li>
         <?php
         if (!$userid) {
         ?>
-            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/member/member_form.php">회원가입</a> </li>
+            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/member/member_form.php">회원가입</a></li>
             <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/login_form.php">로그인</a></li>
         <?php
         } else {
             $logged = $username . "(" . $userid . ")님  [Level:" . $userlevel . "]";
             // $logged = "홍길동"."(" . "aaaa" . ")님[Level:" . "9" . ", Point:" . "100" . "]";
         ?>
-            <li><?= $logged ?> </li>
+            <li><?= $logged ?></li>
             <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/logout.php">로그아웃</a> </li>
             <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag//member/member_form.php?modify=modify">정보수정</a></li>
         <?php
@@ -38,5 +34,11 @@ else $userlevel = "";
         <?php
         }
         ?>
+    </ul>
+    <ul id="top_menu2">
+        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">HOME</a></li>
+        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">진료/예약</a></li>
+        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">건강정보</a></li>
+        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">공지사항</a></li>
     </ul>
 </div>

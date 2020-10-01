@@ -1,5 +1,5 @@
 <?php
-  include $_SERVER['DOCUMENT_ROOT']."/helf/common/lib/db_connector.php";
+  include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
 
   if(isset($_GET["type"])) {
     $type = $_GET["type"];
@@ -8,7 +8,6 @@
   }
 
   if($type === "insert") {
-
     $id   = $_POST["id"];
     $password = $_POST["password"];
     $name = $_POST["name"];
@@ -25,19 +24,19 @@
     $email = $email_one."@".$email_two;
     $address = $address_one."$".$address_two."$".$address_three;
 
-    $id = mysqli_real_escape_string($conn, $id);
-    $password = mysqli_real_escape_string($conn, $password);
-    $name = mysqli_real_escape_string($conn, $name);
-    $phone = mysqli_real_escape_string($conn, $phone);
-    $email = mysqli_real_escape_string($conn, $email);
-    $address = mysqli_real_escape_string($conn, $address);
+    $id = mysqli_real_escape_string($con, $id);
+    $password = mysqli_real_escape_string($con, $password);
+    $name = mysqli_real_escape_string($con, $name);
+    $phone = mysqli_real_escape_string($con, $phone);
+    $email = mysqli_real_escape_string($con, $email);
+    $address = mysqli_real_escape_string($con, $address);
 
-    $sql = "insert into members (id, password, name, phone, email, address, grade) ";
-    $sql .= "values('$id', '$password', '$name', '$phone', '$email', '$address', 'user')";
+    $sql = "insert into members (id, password, name, phone, email, address, level) ";
+    $sql .= "values('$id', '$password', '$name', '$phone', '$email', '$address', 2)";
 
-    mysqli_query($conn, $sql);  // $sql 에 저장된 명령 실행
+    mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
 
-    mysqli_close($conn);
+    mysqli_close($con);
 
     echo "
       <script>
@@ -62,19 +61,19 @@
     $email = $email_one."@".$email_two;
     $address = $address_one."$".$address_two."$".$address_three;
 
-    $id = mysqli_real_escape_string($conn, $id);
-    $password = mysqli_real_escape_string($conn, $password);
-    $name = mysqli_real_escape_string($conn, $name);
-    $phone = mysqli_real_escape_string($conn, $phone);
-    $email = mysqli_real_escape_string($conn, $email);
-    $address = mysqli_real_escape_string($conn, $address);
+    $id = mysqli_real_escape_string($con, $id);
+    $password = mysqli_real_escape_string($con, $password);
+    $name = mysqli_real_escape_string($con, $name);
+    $phone = mysqli_real_escape_string($con, $phone);
+    $email = mysqli_real_escape_string($con, $email);
+    $address = mysqli_real_escape_string($con, $address);
 
     $sql = "update members set password='$password', name='$name' , phone='$phone', email='$email', address='$address'";
     $sql .= " where id='$id'";
 
-    mysqli_query($conn, $sql);  // $sql 에 저장된 명령 실행
+    mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
 
-    mysqli_close($conn);
+    mysqli_close($con);
 
     echo "
       <script>

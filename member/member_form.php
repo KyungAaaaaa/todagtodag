@@ -1,5 +1,7 @@
 <?php
 session_start();
+include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
+
 
 if (isset($_SESSION["user_id"])) {
     $id = $_SESSION["user_id"];
@@ -31,17 +33,15 @@ if (isset($_POST["hidden_kakao_email"])) {
 
 <head>
     <meta charset="utf-8">
-    <title>HELF :: 회원가입</title>
+    <title>토닥토닥 :: 회원가입</title>
     <link rel="stylesheet" href="./css/member.css">
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
     <script src="./js/member_form.js" charset="utf-8"></script>
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
-    <!-- <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/css/main.css"> -->
+    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,500,700|Nanum+Gothic+Coding:400,700|Nanum+Gothic:400,700,800|Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
-    <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/js/main.js"></script>
     <!-- 우편번호 api 참조 스크립트 -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <!-- 네이버 아이디로 로그인 api 참조 스크립트 -->
@@ -55,6 +55,7 @@ if (isset($_POST["hidden_kakao_email"])) {
                 object.value = object.value.slice(0, object.maxLength);
             }
         }
+
         // 우편번호 api
         function address_input() {
             new daum
@@ -133,7 +134,7 @@ if (isset($_POST["hidden_kakao_email"])) {
         }
     </script>
     <script type="text/javascript">
-        var naver_id_login = new naver_id_login("imJpReP1ZuJ368WTaKMU", "http://localhost/todagtodag/member/member_form.php");
+        var naver_id_login = new naver_id_login("imJpReP1ZuJ368WTaKMU", "http://localhost/helf/member/member_form.php");
         // 접근 토큰 값 출력 alert(naver_id_login.oauthParams.access_token); 네이버 사용자 프로필 조회
         naver_id_login.get_naver_userprofile("naverSignInCallback()");
         // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
@@ -169,7 +170,7 @@ if (isset($_POST["hidden_kakao_email"])) {
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
-            history.pushState(null, null, "http://localhost/todagtodag/member/member_form.php");
+            history.pushState(null, null, "http://127.0.0.1/todagtodag/member/member_form.php");
         })
     </script>
 </head>
@@ -186,11 +187,11 @@ if (isset($_POST["hidden_kakao_email"])) {
                 $modify = $_GET["modify"];
 
                 $sql    = "select * from members where id='$id'";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($con, $sql);
                 $row    = mysqli_fetch_array($result);
 
-                $password = $row["password"];
                 $name = $row["name"];
+                $password = $row["password"];
 
                 $phone = $row["phone"];
                 $phone = explode("-", $row["phone"]);
@@ -284,9 +285,9 @@ if (isset($_POST["hidden_kakao_email"])) {
                                     <option value="011">011</option>
                                 </select>
                                 -
-                                <input type="number" name="phone_two" id="phone_two" placeholder=" 0000 " maxlength="4" oninput="max_length_check(this)">
+                                <input type="number" name="phone_two" id="phone_two" placeholder=" 0000 " maxlength="4" oninput="maxLengthCheck(this);">
                                 -
-                                <input type="number" name="phone_three" id="phone_three" placeholder=" 0000 " maxlength="4" oninput="max_length_check(this)">
+                                <input type="number" name="phone_three" id="phone_three" placeholder=" 0000 " maxlength="4" oninput="maxLengthCheck(this);">
                             <?php
                             } else {
                             ?>
@@ -359,33 +360,13 @@ if (isset($_POST["hidden_kakao_email"])) {
                         <br>
                         <p id="input_email_confirm"></p>
                     </div>
-                    <?php
-                    if ($modify === "") {
-                    ?>
-                        <div id="email_certification_check">
-                            <input type="text" id="input_email_certification" placeholder=" 이메일 인증 번호 입력 ">
-                            <div id="email_certification_check_button">
-                                <a href="#" id="input_email_certification_check">
-                                    <p>확 인</p>
-                                </a>
-                            </div>
-                            <div id="email_certification">
-                                <a href="#" id="email_check">
-                                    <p>인증 요청</p>
-                                </a>
-                            </div>
-                            <p id="input_email_certification_confirm"></p>
-                        </div>
-                    <?php
-                    }
-                    ?>
                 </div>
                 <?php
                 if ($modify === "") {
                 ?>
                     <div id="address">
                         <input type="number" name="address_one" id="address_one" placeholder=" 우편번호 " onclick="address_input();">
-                        <input type="text" name="address_two" id="address_two" placeholder=" 주소 " onclick="address_input();">
+                        <input type="text" name="address_two" id="address_two" placeholder=" 주소 ">
                         <input type="text" name="address_three" id="address_three" placeholder=" 상세주소 ">
                         <br>
                         <p id="input_address_confirm"></p>

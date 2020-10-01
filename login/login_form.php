@@ -3,16 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>HELF :: 로그인</title>
+  <title>토닥토닥</title>
   <link rel="stylesheet" href="./css/login.css">
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
-  <!-- <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/css/main.css"> -->
+  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
   <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,500,700|Nanum+Gothic+Coding:400,700|Nanum+Gothic:400,700,800|Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
-  <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/js/main.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {
@@ -98,7 +96,7 @@
           <script type='text/javascript'>
             //<![CDATA[
             // 사용할 앱의 JavaScript 키를 설정해 주세요.
-            Kakao.init('2b354742bdf569e3d564614db25e1689');
+            Kakao.init('334f732821b6fdb02350960deec88f02');
             // 카카오 로그인 버튼을 생성합니다.
             Kakao.Auth.createLoginButton({
               container: '#kakao-login-btn',
@@ -107,9 +105,9 @@
                 Kakao.API.request({
                   url: '/v2/user/me',
                   success: function(res) {
-                    // console.log(JSON.stringify(res));
-                    // console.log(JSON.stringify(res));
-                    // console.log(JSON.stringify(authObj));
+                    console.log(JSON.stringify(res));
+                    console.log(JSON.stringify(res));
+                    console.log(JSON.stringify(authObj));
 
                     var kakao_name = res["kakao_account"]["profile"]["nickname"];
                     var kakao_email = res["kakao_account"]["email"];
@@ -121,33 +119,35 @@
                       alert("카카오톡 로그인 오류입니다!")
                     }
 
-                    // $("#hidden_kakao_name").val(JSON.stringify(res.properties.nickname));
-                    // $("#hidden_kakao_email").val(JSON.stringify(res.kakao_account.email));
-                    // console.log( JSON.stringify(res.properties.nickname));
-                    // console.log( JSON.stringify(res.kakao_account.email));
-                    //
-                    // $.ajax({
-                    //   url: './kakao_check.php',
-                    //   type: 'POST',
-                    //   data: {kakao_name: JSON.stringify(res.properties.nickname),
-                    //         kakao_email: JSON.stringify(res.kakao_account.email)}
-                    // })
-                    // .done(function(result) {
-                    //   console.log(result);
-                    //   result = result.split("#");
-                    //   console.log(result[0]);
-                    //   console.log(result[1]);
-                    //   $("#hidden_kakao").val("kakao");
-                    //   $("#hidden_kakao_name").val(result[0]);
-                    //   $("#hidden_kakao_email").val(result[1]);
-                    //   $('#hidden_kakao_login_form').submit();
-                    // })
-                    // .fail(function() {
-                    //   console.log("error");
-                    // })
-                    // .always(function() {
-                    //   console.log("complete");
-                    // });
+                    $("#hidden_kakao_name").val(JSON.stringify(res.properties.nickname));
+                    $("#hidden_kakao_email").val(JSON.stringify(res.kakao_account.email));
+                    console.log(JSON.stringify(res.properties.nickname));
+                    console.log(JSON.stringify(res.kakao_account.email));
+
+                    $.ajax({
+                        url: './kakao_check.php',
+                        type: 'POST',
+                        data: {
+                          kakao_name: JSON.stringify(res.properties.nickname),
+                          kakao_email: JSON.stringify(res.kakao_account.email)
+                        }
+                      })
+                      .done(function(result) {
+                        console.log(result);
+                        result = result.split("#");
+                        console.log(result[0]);
+                        console.log(result[1]);
+                        $("#hidden_kakao").val("kakao");
+                        $("#hidden_kakao_name").val(result[0]);
+                        $("#hidden_kakao_email").val(result[1]);
+                        $('#hidden_kakao_login_form').submit();
+                      })
+                      .fail(function() {
+                        console.log("error");
+                      })
+                      .always(function() {
+                        console.log("complete");
+                      });
 
                   },
                   fail: function(error) {
@@ -165,7 +165,7 @@
         <div id="naver_id_login"></div>
         <!-- //네이버아이디로로그인 버튼 노출 영역 -->
         <script type="text/javascript">
-          var naver_id_login = new naver_id_login("imJpReP1ZuJ368WTaKMU", "http://localhost/todagtodag/member/member_form.php");
+          var naver_id_login = new naver_id_login("oTiDPiE8zHoaVttCf0a_", "http://127.0.0.1/todagtodag/member/member_form.php");
           var state = naver_id_login.getUniqState();
           naver_id_login.setButton("green", 3, 43);
           naver_id_login.setDomain("./login_form.php");

@@ -39,14 +39,14 @@ function SocketPost($posts) {
 if($mode == "send") {
 	//UTF-8로 데이터를 전송해야 합니다.
 	$hp = $phone;
-	$name = "HELF";
-	$title = "HELF에서 발송하는 문자 인증 요청 입니다.";
+	$name = "토닥토닥";
+	$title = "토닥토닥에서 발송하는 문자 인증 요청 입니다.";
 
 	//랜덤 인증 번호
 	srand((double)microtime()*1000000); //난수값 초기화
 	$code=rand(100000,999999);
 
-	$message = "HELF 문자 인증번호 입니다.\n인증번호 : ".$code."\n정확히 입력해주세요.";
+	$message = "토닥토닥 문자 인증번호 입니다.\n인증번호 : ".$code."\n정확히 입력해주세요.";
 	$id = "a980721";
 	$pw = "635d401afedb9ccfcb347288094ccc";
 
@@ -63,4 +63,4 @@ if($mode == "send") {
 	else echo "발송 실패";
 	exit;
 }
- ?>
+?>

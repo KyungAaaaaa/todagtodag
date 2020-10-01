@@ -1,5 +1,5 @@
 <?php
-  include $_SERVER['DOCUMENT_ROOT']."/helf/common/lib/db_connector.php";
+  include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
 
   $find_type = $_POST["find_type"];
 
@@ -16,11 +16,11 @@
       $email = "";
     }
 
-    $name = mysqli_real_escape_string($conn, $name);
-    $email = mysqli_real_escape_string($conn, $email);
+    $name = mysqli_real_escape_string($con, $name);
+    $email = mysqli_real_escape_string($con, $email);
 
     $sql = "select * from members where name='$name' and email='$email';";
-    $result = mysqli_query($conn,$sql) or die("실패원인 : ".mysqli_error($conn));
+    $result = mysqli_query($con,$sql) or die("실패원인 : ".mysqli_error($con));
 
     if(mysqli_num_rows($result)==0){
       echo "fail";
@@ -54,11 +54,11 @@
 
       $phone = $phone_one."-".$phone_two."-".$phone_three;
 
-      $id = mysqli_real_escape_string($conn, $id);
-      $phone = mysqli_real_escape_string($conn, $phone);
+      $id = mysqli_real_escape_string($con, $id);
+      $phone = mysqli_real_escape_string($con, $phone);
 
       $sql = "select * from members where id='$id' and phone='$phone';";
-      $result = mysqli_query($conn,$sql) or die("실패원인 : ".mysqli_error($conn));
+      $result = mysqli_query($con,$sql) or die("실패원인 : ".mysqli_error($con));
 
       if(mysqli_num_rows($result)==0){
         echo "fail";
@@ -88,14 +88,14 @@
 
 
 
-    $name = mysqli_real_escape_string($conn, $name);
-    $email_one = mysqli_real_escape_string($conn, $email_one);
-    $email_two = mysqli_real_escape_string($conn, $email_two);
+    $name = mysqli_real_escape_string($con, $name);
+    $email_one = mysqli_real_escape_string($con, $email_one);
+    $email_two = mysqli_real_escape_string($con, $email_two);
 
     $email = $email_one."@".$email_two;
 
     $sql = "select * from members where name='$name' and email='$email';";
-    $result = mysqli_query($conn,$sql) or die("실패원인 : ".mysqli_error($conn));
+    $result = mysqli_query($con,$sql) or die("실패원인 : ".mysqli_error($con));
 
     if(mysqli_num_rows($result)==0){
       echo "ok";
@@ -105,5 +105,5 @@
     }
   }
 
-  mysqli_close($conn);
+  mysqli_close($con);
  ?>

@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/common.css?ver=1">
 	</head>
 
+
 	<body>
 		<header>
             <?php include "./header.php"; ?>

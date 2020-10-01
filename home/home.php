@@ -26,8 +26,8 @@
 
 <div class="container">
 	<div class="search">
-		<form action="" method="post">
-			<input type="text" placeholder="검색어를 입력하세요 ex)병원명..">
+		<form action="http://localhost/todagtodag/hospital/hospital.php" method="GET">
+			<input type="text" placeholder="검색어를 입력하세요 ex)병원명.." name="keyword">
 			<button><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/search.png" alt="검색"></button>
 		</form>
 	</div>

@@ -1,4 +1,5 @@
 <?php
+// session_start();
 if (isset($_SESSION["user_id"])) $userid = $_SESSION["user_id"];
 else $userid = "";
 if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
@@ -6,6 +7,7 @@ else $username = "";
 if (isset($_SESSION["user_level"])) $userlevel = $_SESSION["user_level"];
 else $userlevel = "";
 ?>
+
 <div id="top">
     <!-- <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag.png"> -->
     <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag2.png">
@@ -16,10 +18,7 @@ else $userlevel = "";
     </h3>
 
     <ul id="top_menu">
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">HOME</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">진료/예약</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php">건강정보</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/notice_list.php">공지사항</a></li>
+
         <?php
         if (!$userid) {
         ?>
@@ -47,7 +46,7 @@ else $userlevel = "";
     <ul id="top_menu2">
         <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">HOME</a></li>
         <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">진료/예약</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">건강정보</a></li>
+        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php">건강정보</a></li>
         <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/notice_list.php">공지사항</a></li>
     </ul>
 </div>

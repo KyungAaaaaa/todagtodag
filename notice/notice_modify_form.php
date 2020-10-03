@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -50,7 +54,7 @@
 			$content    = $row["content"];
 			$file_name  = $row["file_name"];
 			?>
-			<form name="board_form" method="post" action="notice_modify.php?num=<?= $num ?>&page=<?= $page ?>" enctype="multipart/form-data">
+			<form name="board_form" method="post" action="dmi_notice.php?num=<?= $num ?>&page=<?= $page ?>&mode=modify" enctype="multipart/form-data">
 				<ul id="board_form">
 					<li>
 						<span class="col1">이름 : </span>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 
 
 if (isset($_SESSION["user_id"])) {
@@ -34,11 +34,11 @@ if (isset($_POST["hidden_kakao_email"])) {
 <head>
     <meta charset="utf-8">
     <title>토닥토닥 :: 회원가입</title>
-    <link rel="stylesheet" href="./css/member.css">
+    <link rel="stylesheet" href="./css/member.css?ver=1">
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
     <script src="./js/member_form.js" charset="utf-8"></script>
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=1">
+    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,500,700|Nanum+Gothic+Coding:400,700|Nanum+Gothic:400,700,800|Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
@@ -80,6 +80,7 @@ if (isset($_POST["hidden_kakao_email"])) {
                 .getElementById("email_two")
                 .focus();
         }
+
         // 가입버튼 눌렀을 때
         function action_signup() {
             document.member_form.action = "member_insert.php";
@@ -424,7 +425,7 @@ if (isset($_POST["hidden_kakao_email"])) {
                     if ($modify === "") {
                     ?>
                         <div id="signup">
-                            <input type="button" id="button_submit" value="가 입" onclick="action_signup();">
+                            <input type="button" id="button_submit" value="가 입" onclick="action_signup();" disabled="disabled">
                         </div>
                     <?php
                     } else {

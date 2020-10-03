@@ -59,7 +59,9 @@ $(document).ready(function () {
     tou_one_pass = true;
     tou_two_pass = true;
     isAllPass();
+
   } else {
+
     input_id.blur(function () {
       if (input_name.attr("readonly")) {
         name_pass = true;
@@ -359,16 +361,15 @@ $(document).ready(function () {
     console.log("tou_two");
     isAllPass();
   });
+}); //document ready end
 
-  function isAllPass() {
-    console.log("isAllPass()");
-    if (id_pass && pw_pass && pw_check_pass && name_pass && phone_two_pass && phone_three_pass
-      && email_one_pass && email_two_pass && address_one_pass && address_two_pass && address_three_pass
-      && phone_code_pass && tou_one_pass && tou_two_pass) {
+function isAllPass() {
+  console.log("isAllPass()");
+  if (id_pass && pw_pass && pw_check_pass && name_pass && phone_two_pass && phone_three_pass
+    && email_one_pass && email_two_pass && address_one_pass && address_two_pass && address_three_pass
+    && phone_code_pass && tou_one_pass && tou_two_pass) {
       $("#button_submit").attr("disabled", false);
     } else {
       $("#button_submit").attr("disabled", true);
-    }
   }
-
-}); //document ready end
+}

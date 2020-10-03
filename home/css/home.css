@@ -107,7 +107,7 @@
 }
 
 .search button {
-    margin-left: -50px;
+    margin-left: -45px;
     cursor: pointer;
     width: 45px;
     height: 45px;
@@ -122,6 +122,10 @@
 }
 
 /*===============메인 컨텐츠 =====================*/
-.content1, .content2{
+.location, .today_health_info,.notice{
     height: 350px;
 }
+.location h1{display: inline-block;}
+.location span {margin-left: 30px;}
+.location span img{width: 13px}
+.location span p{display: inline-block;}

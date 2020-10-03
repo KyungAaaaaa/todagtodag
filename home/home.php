@@ -23,24 +23,28 @@
 		</div>
 	</div>
 </div>
-
+<?php
+	include_once $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
+	include_once $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/create_table.php";
+	create_table($con,"hospital");
+?>
 <div class="container">
 	<div class="search">
-		<form action="http://localhost/todagtodag/hospital/hospital.php" method="GET">
+		<form action="http://localhost/todagtodag/hospital/hospital.php" method="POST">
 			<input type="text" placeholder="검색어를 입력하세요 ex)병원명.." name="keyword">
 			<button><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/search.png" alt="검색"></button>
 		</form>
 	</div>
 
-	<div class="content1">
-		<h1>내 주변 병원</h1>
+	<div class="location">
+		<h1>내 주변 병원</h1><span><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/placeholder.png"></span>
 		<div></div>
 	</div>
-	<div class="content2">
+	<div class="today_health_info">
 		<h1>오늘의 건강 정보</h1>
 		<div></div>
 	</div>
-	<div class="content1">
+	<div class="notice">
 		<h1>공지사항</h1>
 		<div></div>
 	</div>

@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <title>토닥토닥</title>
   <link rel="stylesheet" href="./css/login.css">
-  <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=1">
+  <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
+  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=6">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
   <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
@@ -87,8 +87,8 @@
             window.open('forgot_id_pw.php?page=password', '비밀번호찾기', 'width=470, height=400, top=' + popup_y + ', left=' + popup_x + ', menubar=no, status=no, toolbar=no');
           }
         </script>
-        <a href="#" onclick="find_id_popup();">아이디 찾기</a>
-        <a href="#" onclick="find_password_popup();">비밀번호 찾기</a>
+        <a href="#" onclick="find_id_popup();" style="font-size: 16px;">아이디 찾기</a>
+        <a href="#" onclick="find_password_popup();" style="font-size: 16px;">비밀번호 찾기</a>
       </div>
       <div id="sns_login">
         <div id="kakao_login">

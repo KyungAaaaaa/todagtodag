@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
 }
+#btn{cursor: pointer;}
 .hospital_list{
     width: 700px;
 }
@@ -19,4 +20,7 @@
     padding: 1em;
     margin-bottom: 3px;
     border: 1px solid #bababa;
+}
+.menu div{
+    cursor: pointer;
 }

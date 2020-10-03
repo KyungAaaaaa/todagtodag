@@ -1,6 +1,6 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 
 
 if (isset($_SESSION["user_id"])) {
@@ -34,11 +34,11 @@ if (isset($_POST["hidden_kakao_email"])) {
 <head>
     <meta charset="utf-8">
     <title>토닥토닥 :: 회원가입</title>
-    <link rel="stylesheet" href="./css/member.css">
+    <link rel="stylesheet" href="./css/member.css?ver=2">
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
     <script src="./js/member_form.js" charset="utf-8"></script>
-    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/helf/common/img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=1">
+    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
+    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=4">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
     <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,500,700|Nanum+Gothic+Coding:400,700|Nanum+Gothic:400,700,800|Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
@@ -80,6 +80,7 @@ if (isset($_POST["hidden_kakao_email"])) {
                 .getElementById("email_two")
                 .focus();
         }
+
         // 가입버튼 눌렀을 때
         function action_signup() {
             document.member_form.action = "member_insert.php";
@@ -96,6 +97,7 @@ if (isset($_POST["hidden_kakao_email"])) {
         }
 
         function signup_duplicate_check() {
+            console.log("signup_duplicate_check");
             var input_name = $("#input_name"),
                 email_one = $("#email_one"),
                 email_two = $("#email_two");
@@ -116,8 +118,12 @@ if (isset($_POST["hidden_kakao_email"])) {
                     success: function(data) {
                         console.log(data);
                         if (data === "ok") {} else {
+                            console.log("function");
                             alert("이미 가입하신 내용이 있습니다. 아이디는 " + data + " 입니다.");
-                            history.go(-2);
+                            document.member_form.action = "../login/kakao_login.php?id=" + data;
+                            document
+                                .member_form
+                                .submit();
                         }
                     }
                 })
@@ -134,7 +140,7 @@ if (isset($_POST["hidden_kakao_email"])) {
         }
     </script>
     <script type="text/javascript">
-        var naver_id_login = new naver_id_login("imJpReP1ZuJ368WTaKMU", "http://localhost/helf/member/member_form.php");
+        var naver_id_login = new naver_id_login("oTiDPiE8zHoaVttCf0a_", "http://127.0.0.1/todagtodag/member/member_form.php");
         // 접근 토큰 값 출력 alert(naver_id_login.oauthParams.access_token); 네이버 사용자 프로필 조회
         naver_id_login.get_naver_userprofile("naverSignInCallback()");
         // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
@@ -165,7 +171,41 @@ if (isset($_POST["hidden_kakao_email"])) {
                 .getElementById("email_two")
                 .focus();
 
-            signup_duplicate_check();
+            console.log("signup_duplicate_check");
+
+            var name_value = naver_name,
+                email_one_value = naver_email_arr[0];
+            email_two_value = naver_email_arr[1];
+
+            $.ajax({
+                    url: '../login/forgot_id_pw_check.php',
+                    type: 'POST',
+                    data: {
+                        "find_type": "signup_duplicate_check",
+                        "input_name": name_value,
+                        "email_one": email_one_value,
+                        "email_two": email_two_value
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        if (data === "ok") {} else {
+                            alert("이미 가입하신 내용이 있습니다. 아이디는 " + data + " 입니다.");
+                            document.member_form.action = "../login/kakao_login.php?id=" + data;
+                            document
+                                .member_form
+                                .submit();
+                        }
+                    }
+                })
+                .done(function() {
+                    console.log("done");
+                })
+                .fail(function() {
+                    console.log("error");
+                })
+                .always(function() {
+                    console.log("complete");
+                });
         }
     </script>
     <script type="text/javascript">
@@ -424,7 +464,7 @@ if (isset($_POST["hidden_kakao_email"])) {
                     if ($modify === "") {
                     ?>
                         <div id="signup">
-                            <input type="button" id="button_submit" value="가 입" onclick="action_signup();">
+                            <input type="button" id="button_submit" value="가 입" onclick="action_signup();" disabled="disabled">
                         </div>
                     <?php
                     } else {

@@ -8,7 +8,8 @@ $page = $_GET["page"];
 <head>
   <meta charset="utf-8">
   <title>토닥토닥 :: 아이디 / 비밀번호 찾기</title>
-  <link rel="stylesheet" href="./css/forgot_id_pw.css">
+  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=6">
+  <link rel="stylesheet" href="./css/forgot_id_pw.css?ver=1">
   <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
   <script>
     $(document).ready(function() {
@@ -194,7 +195,9 @@ $page = $_GET["page"];
   <section>
     <div id="forgot_main_content">
       <div id="title_forgot">
+        <br>
         <h1>아이디 / 비밀번호 찾기</h1>
+        <br>
       </div>
       <div id="forgot_form">
         <form name="forgot_form" action="forgot_id_pw.php" method="post">
@@ -204,8 +207,10 @@ $page = $_GET["page"];
             <p>아이디를 잊어버리셨나요?</p>
             <p>이름과 이메일을 입력해주세요</p>
             <p class="point_p">가입하실때 입력하셨던 정보여야 합니다!</p>
+            <br>
             <input type="text" id="find_id_name" name="find_id_name" placeholder=" 이름 입력 "> <br>
             <input type="text" id="find_id_email" name="find_id_email" placeholder=" 이메일 입력"> <br>
+            <br>
             <input id="find_id_button" type="button" value="아이디 찾기">
           <?php
           } elseif ($page === "password") {
@@ -213,6 +218,7 @@ $page = $_GET["page"];
             <p>비밀번호를 잊어버리셨나요?</p>
             <p>아이디와 휴대폰번호를 입력해주세요</p>
             <p class="point_p">가입하실때 입력하셨던 정보여야 합니다!</p>
+            <br>
             <input type="text" id="find_password_id" name="find_password_id" placeholder=" 아이디 입력 "> <br>
             <div id="phone_input">
               <select name="phone_one" id="phone_one">
@@ -228,10 +234,10 @@ $page = $_GET["page"];
           <?php
           } else {
           ?>
-          <script>
-            alert('아이디 / 비밀번호 찾기 페이지 오류입니다.');
-          </script>
-          <?php 
+            <script>
+              alert('아이디 / 비밀번호 찾기 페이지 오류입니다.');
+            </script>
+          <?php
           }
           ?>
         </form>

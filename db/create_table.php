@@ -32,16 +32,18 @@ function create_table($con, $table_name)
 
             case 'notice':
                 $sql = "CREATE TABLE `notice` (
-                                `num` int NOT NULL AUTO_INCREMENT,
-                                `id` char(15) NOT NULL,
-                                `name` char(10) NOT NULL,
-                                `subject` char(200) NOT NULL,
-                                `content` text NOT NULL,
-                                `regist_day` char(20) NOT NULL,
-                                `hit` int NOT NULL,
-                                PRIMARY KEY (`num`)
-                              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-                            ";
+                    `num` int(11) NOT NULL AUTO_INCREMENT,
+                    `id` char(15) NOT NULL,
+                    `name` char(10) NOT NULL,
+                    `subject` char(200) NOT NULL,
+                    `content` text NOT NULL,
+                    `regist_day` char(20) NOT NULL,
+                    `hit` int(11) NOT NULL,
+                    `file_name` char(40) DEFAULT NULL,
+                    `file_type` char(40) DEFAULT NULL,
+                    `file_copied` char(40) DEFAULT NULL,
+                    PRIMARY KEY (`num`)
+                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
             default:
                 echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";

@@ -1,11 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION["user_id"])) $userid = $_SESSION["user_id"];
-else $userid = "";
-if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
-else $username = "";
-if (isset($_SESSION["user_level"])) $userlevel = $_SESSION["user_level"];
-else $userlevel = "";
 ?>
 <!DOCTYPE html>
 <html>

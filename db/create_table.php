@@ -28,9 +28,9 @@
                     `level` int(11) DEFAULT NULL,
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-                    break;
-                case 'notice':
-                    $sql = "CREATE TABLE `notice` (
+                break;
+            case 'notice':
+                $sql = "CREATE TABLE `notice` (
                     `num` int(11) NOT NULL AUTO_INCREMENT,
                     `id` char(15) NOT NULL,
                     `name` char(10) NOT NULL,

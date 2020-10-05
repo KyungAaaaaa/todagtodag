@@ -23,9 +23,9 @@ a:active { text-decoration:none; color: rgb(44, 55, 68); }
 #top #top_menu2 li { display: inline; margin-left: 60px; }
 
 /* 하단 푸터 */
-footer { height: 100%; background-color: rgb(44, 55, 68); }
-#footer_content {position: relative; width: 100%; color: #dddddd; padding: 30px;}
+footer { height: 100%; background-color: rgb(44, 55, 68);}
+#footer_content {position: relative; width: 100%; color: #dddddd; padding: 40px;}
 #footer_logo { font-size: 36px; margin-bottom: 30px; }
-#footer_logo_side { position: absolute; top: 40px; right: 100px; font-size: 20px; color: #dddddd;}
-#footer_logo_side > a { font-size: 20px; color: #dddddd; }
+#footer_logo_side { position: absolute; top: 40px; right: 100px; font-size: 20px; color: #dddddd; }
+#footer_logo_side > a { font-size: 20px; color: #dddddd; text-decoration: underline;}
 .footer_text { font-size: 20px;}

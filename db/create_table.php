@@ -44,29 +44,29 @@
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                     break;
-                case 'hospital':
-                    $sql = "CREATE TABLE `hospital` (
-                      `id` char(10) NOT NULL,
-                      `name` char(50) NOT NULL,
-                      `addr` varchar(200) NOT NULL,
-                      `tel` char(15) NOT NULL,
-                      `department` text NULL,
-                      `mon` char(10) DEFAULT NULL,
-                      `tue` char(10) DEFAULT NULL,
-                      `wed` char(10) DEFAULT NULL,
-                      `thu` char(10) DEFAULT NULL,
-                      `fri` char(10) DEFAULT NULL,
-                      `sat` char(10) DEFAULT NULL,
-                      `sun` char(10) DEFAULT NULL,
-                      `holiday` char(10) DEFAULT NULL,
-                      `mapx` char(25) NOT NULL,
-                      `mapy` char(25) NOT NULL,
-                      `map_description` char(100) DEFAULT NULL,
-                      `file_name_0` char(40) DEFAULT NULL,
-                      `file_copied_0` char(30) DEFAULT NULL,
-                      `file_type_0` char(30) DEFAULT NULL,
-                      PRIMARY KEY (`id`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+            case 'hospital':
+                $sql = "CREATE TABLE `hospital` (
+                    `id` char(10) NOT NULL,
+                    `name` char(50) NOT NULL,
+                    `addr` varchar(200) NOT NULL,
+                    `tel` char(15) NOT NULL,
+                    `department` text NULL,
+                    `mon` char(10) DEFAULT NULL,
+                    `tue` char(10) DEFAULT NULL,
+                    `wed` char(10) DEFAULT NULL,
+                    `thu` char(10) DEFAULT NULL,
+                    `fri` char(10) DEFAULT NULL,
+                    `sat` char(10) DEFAULT NULL,
+                    `sun` char(10) DEFAULT NULL,
+                    `holiday` char(10) DEFAULT NULL,
+                    `mapx` char(25) NOT NULL,
+                    `mapy` char(25) NOT NULL,
+                    `map_description` char(100) DEFAULT NULL,
+                    `file_name_0` char(40) DEFAULT NULL,
+                    `file_copied_0` char(30) DEFAULT NULL,
+                    `file_type_0` char(30) DEFAULT NULL,
+                    PRIMARY KEY (`id`)
+                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                     break;
                 default:
                     echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";

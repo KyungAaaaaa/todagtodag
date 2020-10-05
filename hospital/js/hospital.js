@@ -32,7 +32,7 @@ function cat1_change(key, sel) {
     }
 }
 
-//위치선택후 확인 버튼 클릭시 위치별 병원목록 로딩 ajax
+//검색 조건 설정후 확인 버튼 클릭시 위치별 병원목록 로딩 ajax
 $("#btn").on("click", function () {
         $.ajax({
             type   : "POST",
@@ -40,7 +40,9 @@ $("#btn").on("click", function () {
             data   : {
                 area_1: $('#h_area1 option:selected').attr('value2'),
                 area_2: $('#h_area2 option:selected').attr('value'),
-                search: $('#search').val()
+                search: $('#search').val(),
+                department: $('#department option:selected').attr('value'),
+                val:true
             },
             success: function (data) {
                 $result = jQuery.parseJSON(data);
@@ -52,26 +54,3 @@ $("#btn").on("click", function () {
             }
         })
 })
-
-//병원정보탭 진입시 기본데이터(서울특별시 병원정보)
-function init() {
-    $.ajax({
-        type   : "POST",
-        url    : "hospital_list.php",
-        data   : {
-            area_1: "서울특별시",
-            area_2: "",
-            search: ""
-        },
-        success: function (data) {
-            $result = jQuery.parseJSON(data);
-            $str = "";
-            for ($i in $result) {
-                $str += `<li><h3>${$result[$i][0]}</h3>${$result[$i][1]}</li>`;
-            }
-            $(".hospital_list").find("ul").html($str);
-        }
-    })
-}
-
-// init();

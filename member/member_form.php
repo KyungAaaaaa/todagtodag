@@ -1,14 +1,9 @@
 <?php
-session_start();
-include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
-
-
-if (isset($_SESSION["user_id"])) {
-    $id = $_SESSION["user_id"];
-} else {
-    $id = "";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 
+include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 
 // 카카오 로그인버튼 누른 후 회원가입 폼으로 들어온것인지 판별
 if (isset($_POST["hidden_kakao_name"])) {
@@ -226,7 +221,7 @@ if (isset($_POST["hidden_kakao_email"])) {
             if (isset($_GET["modify"])) {
                 $modify = $_GET["modify"];
 
-                $sql    = "select * from members where id='$id'";
+                $sql    = "select * from members where id='$userid'";
                 $result = mysqli_query($con, $sql);
                 $row    = mysqli_fetch_array($result);
 
@@ -282,7 +277,7 @@ if (isset($_POST["hidden_kakao_email"])) {
                     <?php
                     } else {
                     ?>
-                        <input type="text" name="id" id="input_id" value="<?= $id ?>" readonly="readonly">
+                        <input type="text" name="id" id="input_id" value="<?= $userid ?>" readonly="readonly">
                         <br>
                         <p id="input_id_confirm"></p>
                         <input type="password" name="password" id="input_password" value="<?= $password ?>">

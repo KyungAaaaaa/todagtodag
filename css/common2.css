@@ -7,16 +7,16 @@ img { border: 0;}
 ul { list-style-type: none; }
 /* <a> 태그 기본 설정 */
 a { display: inline-block; text-decoration: none; }
-a:link { text-decoration:none; color: rgb(44, 55, 68); }
-a:hover { text-decoration:none; color: rgb(44, 55, 68); }
-a:visited { text-decoration:none; color: rgb(44, 55, 68); }
-a:active { text-decoration:none; color: rgb(44, 55, 68); }
+a:link { text-decoration:none; color: #dddddd; }
+a:hover { text-decoration:none; color: #dddddd; }
+a:visited { text-decoration:none; color:  #dddddd; }
+a:active { text-decoration:none; color: #dddddd; }
 /* 상단 헤더 */
 #top { position: relative; width: 100%; height: 60px; margin: 0 auto; }
 #top > img { position: absolute; top: 15px; left: 40px; }
 #top h3 { position: absolute; top: 9px; left: 75px; font-size: 36px;}
-#top h3 > a{ color: #F23005; }
-#top > #top_menu { float: right; margin: 11px 60px 0 0; border-radius: 30px; border: 1px solid rgb(44, 55, 68); 
+#top h3 > a{ color: #dddddd; }
+#top > #top_menu { float: right; margin: 11px 60px 0 0; border-radius: 30px; border: 1px solid #dddddd; 
     font-size: 16px; }
 #top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px;}
 #top #top_menu2 { float: right; margin: 20px 60px 0 0; }

@@ -1,0 +1,26 @@
+@import "../../css/common.css";
+
+.container {
+    /*width: 1000px;*/
+    margin: 2em auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#btn{cursor: pointer;}
+.hospital_list{
+    width: 700px;
+}
+.hospital_list ul{
+    height: 600px;
+    overflow-y: scroll;
+}
+.hospital_list li{
+    padding: 1em;
+    margin-bottom: 3px;
+    border: 1px solid #bababa;
+}
+.menu div{
+    cursor: pointer;
+}

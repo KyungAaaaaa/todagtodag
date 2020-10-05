@@ -1,0 +1,28 @@
+@import "../../css/common.css";
+
+.container {
+
+    margin: 2em auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container:not(:first-child){background-color: #DFDFDF;}
+.hospital_info{width:70%;font-size: 30px}
+.hospital_info img{width: 90px; margin-right: 20px}
+.hospital_info div{display: inline-block; }
+.menu{width:70%;margin-top: 20px}
+.menu ul{margin:10px;display: flex; border-bottom: 1px solid #808080
+}
+.menu ul li{margin-right: 40px;font-size: 25px;cursor: pointer;}
+.menu ul .current{font-weight: bolder;padding-bottom:20px;border-bottom: 3px solid #d65030}
+.content{ width:65%;
+   }
+.subject{font-size: 30px;
+    margin-top: 20px;
+margin-bottom: 5px}
+.subject img{width: 20px; margin-right: 10px}
+
+
+#map{width:600px;height:500px;}

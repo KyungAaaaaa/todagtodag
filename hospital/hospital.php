@@ -73,21 +73,22 @@
                         if ($row[0] !== '1') {
                             $query = "insert into hospital (id,name,addr,tel,mon,tue,wed,thu,fri,sat,sun,holiday,mapx,mapy,map_description) ";
                             $query .= "values('$item->hpid','$item->dutyName','$item->dutyAddr','$item->dutyTel1',";
-                            $query .= "'$item->dutyTime1s~$item->dutyTime1c','$item->dutyTime2s~$item->dutyTime2c',";
-                            $query .= "'$item->dutyTime3s~$item->dutyTime3c','$item->dutyTime4s~$item->dutyTime4c',";
-                            $query .= "'$item->dutyTime5s~$item->dutyTime5c','$item->dutyTime6s~$item->dutyTime6c',";
-                            $query .= "'$item->dutyTime7s~$item->dutyTime7c','$item->dutyTime8s~$item->dutyTime8c',";
+                            $query .= "'$item->dutyTime1s-$item->dutyTime1c','$item->dutyTime2s-$item->dutyTime2c',";
+                            $query .= "'$item->dutyTime3s-$item->dutyTime3c','$item->dutyTime4s-$item->dutyTime4c',";
+                            $query .= "'$item->dutyTime5s-$item->dutyTime5c','$item->dutyTime6s-$item->dutyTime6c',";
+                            $query .= "'$item->dutyTime7s-$item->dutyTime7c','$item->dutyTime8s-$item->dutyTime8c',";
                             $query .= "'$item->wgs84Lon','$item->wgs84Lat','$item->dutyMapimg');";
                             $result = mysqli_query($con, $query) or die(mysqli_error($con));
+                            echo "<script>alert('데이터 받아오기완료')</script>";
                         }
                     }
                     $hpid = $con->query("select id from hospital;");
                     while ($row = mysqli_fetch_row($hpid)) {
-                        $query = "select EXISTS (select department from hospital where id='$item->hpid') as success;";
-
-                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                        $row2 = mysqli_fetch_row($result);
-                        if ($row2[0] !== '1') {
+//                        echo "<script>alert(".print_r($row[0]).")</script>";
+//                        $query = "select EXISTS (select department from hospital where id='$row[0]') as success;";
+//                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+//                        $row2 = mysqli_fetch_row($result);
+//                        if ($row2[0] !== '1') {
                             $ch = curl_init();
                             $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire'; /*URL*/
                             $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
@@ -102,7 +103,8 @@
 
                             $query = "update hospital set department='$items->dgidIdName' where id='{$row[0]}'; ";
                             $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                        }
+//                            echo "<script>alert('진료과목 받아오기완료')</script>";
+//                        }
                     }
                 }
 
@@ -110,7 +112,6 @@
 			<div class="container">
 				<h1>병원 찾기</h1>
 				<div class="menu">
-
 					<div class="select_box">
 						<select id="h_area1" name="h_area1" onChange="cat1_change(this.value,h_area2)">
 							<option value="none">전체</option>

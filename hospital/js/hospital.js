@@ -48,7 +48,7 @@ $("#btn").on("click", function () {
                 $result = jQuery.parseJSON(data);
                 $str = "";
                 for ($i in $result) {
-                    $str += `<li><h3>${$result[$i][0]}</h3>${$result[$i][1]}</li>`;
+                    $str += `<li><a href='hospital_info.php?hospital_id=${$result[$i][0]}'><h3>${$result[$i][1]}</h3>${$result[$i][2]}</a></li>`;
                 }
                 $(".hospital_list").find("ul").html($str);
             }

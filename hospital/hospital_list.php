@@ -17,17 +17,17 @@
 
     function select_area($area_1, $area_2, $search,$department, $con)
     {
-        $query = "select name,addr from hospital where addr like '%{$area_1} {$area_2}%' and (addr like '%{$search}%' or name like '%{$search}%') and department like '%{$department}%';";
+        $query = "select id,name,addr from hospital where addr like '%{$area_1} {$area_2}%' and (addr like '%{$search}%' or name like '%{$search}%') and department like '%{$department}%';";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         echo json_encode(mysqli_fetch_all($result));
     }
 
     function select_area2($search, $con)
     {
-        $query = "select name,addr from hospital where addr like'%{$search}%' or name like'%{$search}%';";
+        $query = "select id,name,addr from hospital where addr like'%{$search}%' or name like'%{$search}%';";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<li><h3>{$row['name']}</h3>{$row['addr']}</li>";
+            echo "<li><a href='hospital_info.php?hospital_id={$row['id']}'><h3>{$row['name']}</h3>{$row['addr']}</a></li>";
         }
     }
 

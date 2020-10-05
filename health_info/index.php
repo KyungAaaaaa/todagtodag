@@ -1,5 +1,8 @@
 <?php
 session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
+create_table($con, 'members');
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +13,7 @@ session_start();
     <meta charset="utf-8">
     <title>토닥토닥</title>
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=8">
-    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=4">
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=5">
 </head>
 
 <body>

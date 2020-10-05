@@ -187,7 +187,7 @@ box-sizing: border-box;
 .list_header small {
     display: block;
 margin-bottom: 0.6em;
-font-size: 16px;
+font-size: 20px;
 letter-spacing: 1px;
 line-height: 1.75;
 color: rgb(128, 135, 143);
@@ -195,7 +195,7 @@ text-align: center;
 box-sizing: border-box;
 }
 .list_header h3 {
-    font-size: 32px;
+    font-size: 38px;
 font-weight: bold;
 letter-spacing: 3px;
 line-height: 1.31;

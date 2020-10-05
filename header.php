@@ -1,5 +1,7 @@
 <?php
-// session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION["user_id"])) $userid = $_SESSION["user_id"];
 else $userid = "";
 if (isset($_SESSION["user_name"])) $username = $_SESSION["user_name"];
@@ -38,15 +40,15 @@ else $userlevel = "";
         <?php
         if ($userlevel == 1) {
         ?>
-            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/admin/admin_program_payment.php">관리자모드</a></li>
+            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/admin/admin_user.php">관리자모드</a></li>
         <?php
         }
         ?>
     </ul>
     <ul id="top_menu2">
         <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">HOME</a></li>
-        <!-- <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">진료/예약</a></li> -->
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital.php">진료/예약</a></li>
+        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">진료/예약</a></li>
+        <!-- <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital.php">진료/예약</a></li> -->
         <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php">건강정보</a></li>
         <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/notice_list.php">공지사항</a></li>
     </ul>

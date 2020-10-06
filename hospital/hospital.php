@@ -79,7 +79,7 @@
                             $query .= "'$item->dutyTime7s-$item->dutyTime7c','$item->dutyTime8s-$item->dutyTime8c',";
                             $query .= "'$item->wgs84Lon','$item->wgs84Lat','$item->dutyMapimg');";
                             $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                            echo "<script>alert('데이터 받아오기완료')</script>";
+                            // echo "<script>alert('데이터 받아오기완료')</script>";
                         }
                     }
                     $hpid = $con->query("select id from hospital;");

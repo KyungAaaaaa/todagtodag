@@ -1,8 +1,5 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
-create_table($con, 'members');
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +11,7 @@ create_table($con, 'members');
     <title>토닥토닥</title>
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=8">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=5">
+    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
 </head>
 
 <body>
@@ -96,7 +94,7 @@ create_table($con, 'members');
                 <li class="img_list_item"><a href="#" class="item_info">건강정보</a></li>
             </ul>
             <div class="list_footer">
-                <a class="total_info_list" href="#">더보기</a>
+                <a class="total_info_list" href="health_info_list.php">더보기</a>
             </div>
         </div>
     </section>

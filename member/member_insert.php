@@ -34,7 +34,7 @@
     $sql = "insert into members (id, password, name, phone, email, address, level) ";
     $sql .= "values('$id', '$password', '$name', '$phone', '$email', '$address', 2)";
 
-    mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
+    mysqli_query($con, $sql) or die("삽입 ERROR". mysqli_error($con));  // $sql 에 저장된 명령 실행
 
     mysqli_close($con);
 

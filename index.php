@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
 create_table($con,"members");
@@ -18,7 +20,6 @@ create_table($con,"notice");
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
 
 </head>
-
 
 	<body>
 		<header>

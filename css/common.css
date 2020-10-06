@@ -39,7 +39,6 @@ a:active { text-decoration:none; color: rgb(44, 55, 68); }
 #top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px;}
 #top #top_menu2 { float: right; margin: 20px 60px 0 0; }
 #top #top_menu2 li { display: inline; margin-left: 60px; }
-
 /* 하단 푸터 */
 footer { height: 100%; background-color: rgb(44, 55, 68);}
 #footer_content {position: relative; width: 100%; color: #dddddd; padding: 40px;}

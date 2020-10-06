@@ -72,7 +72,7 @@
                     echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";
                     break;
             } //end of switch
-
+            
             if (mysqli_query($con, $sql)) {
                 echo "<script>alert('{$table_name} 테이블이 생성되었습니다.');</script>";
             } else {

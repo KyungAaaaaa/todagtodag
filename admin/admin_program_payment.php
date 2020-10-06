@@ -6,7 +6,7 @@ session_start();
 
 <head>
     <meta charset="utf-8">
-    <title>HELF :: 관리자페이지</title>
+    <title>토닥토닥 :: 관리자페이지</title>
     <link rel="stylesheet" type="text/css" href="./css/admin.css?ver=4">
     <link rel="stylesheet" href="./css/program_manager.css?ver=4">
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>

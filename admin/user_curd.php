@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include $_SERVER['DOCUMENT_ROOT']."/helf/common/lib/db_connector.php";
+  include $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
 
   if (isset($_GET["mode"])) $mode = $_GET["mode"];
   else $mode = "";
@@ -23,37 +23,37 @@
   if (isset($_POST["address"])) $phone_number = $_POST["address"];
   else $phone_number = "";
 
-  if (isset($_POST["grade"])) $grade = $_POST["grade"];
-  else $grade = "왜안떠";
+  if (isset($_POST["level"])) $level = $_POST["level"];
+  else $level = "왜안떠";
 
 
 
  //게시글 등록
-  function program_insert($conn, $shop, $type, $subject, $content, $phone_number, $end_day, $choose, $price, $location,
+  function program_insert($con, $shop, $type, $subject, $content, $phone_number, $end_day, $choose, $price, $location,
     $upfile_name, $upfile_type, $copied_file_name, $regist_day)
   {
       $sql = "insert into program (shop , type, subject, content, phone_number, end_day, choose, price, location, file_name, file_type, file_copied, regist_day) ";
       $sql .= "values('$shop', '$type', '$subject', '$content', $phone_number,'$end_day','$choose', $price,'$location', ";
       $sql .= "'$upfile_name', '$upfile_type', '$copied_file_name','$regist_day')";
 
-      mysqli_query($conn, $sql);
+      mysqli_query($con, $sql);
   }
 
   //유저삭제
-  function user_delete($conn, $delete_id)
+  function user_delete($con, $delete_id)
   {
     $sql = "delete from members where id = '$delete_id';";
 
-    mysqli_query($conn, $sql);
-    mysqli_close($conn);
+    mysqli_query($con, $sql);
+    mysqli_close($con);
 
   }
 
 //유저등급
-  function user_modify($conn, $id, $grade)
+  function user_modify($con, $id, $level)
   {
-    $sql = "update members set grade ='$grade' where id = '$id'";
-    $result = mysqli_query($conn, $sql);
+    $sql = "update members set level ='$level' where id = '$id'";
+    $result = mysqli_query($con, $sql);
 
     if ($result) {
       echo "수정 완료";
@@ -65,7 +65,7 @@
 
   switch ($mode) {
     case 'delete':
-      user_delete($conn, $delete_id);
+      user_delete($con, $delete_id);
       echo "
          <script>
           alert('탈퇴되었습니다.');
@@ -74,7 +74,7 @@
        ";
       break;
     case 'modify':
-        user_modify($conn, $id, $grade);
+        user_modify($con, $id, $level);
       // echo "
       //    <script>
       //        location.href = 'admin_user.php';
@@ -82,7 +82,7 @@
       //  ";
       break;
     case 'insert':
-     program_insert($conn, $shop, $type, $subject, $content, $phone_number, $end_day, $choose, $price, $location, $upfile_name, $upfile_type, $copied_file_name, $regist_day);
+     program_insert($con, $shop, $type, $subject, $content, $phone_number, $end_day, $choose, $price, $location, $upfile_name, $upfile_type, $copied_file_name, $regist_day);
      echo "
    	   <script>
    	    location.href = 'admin_page.php';

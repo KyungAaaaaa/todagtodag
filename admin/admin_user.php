@@ -17,7 +17,7 @@ if (isset($_GET["page"])) {
   <link rel="stylesheet" type="text/css" href="./css/admin.css?ver=4">
   <link rel="stylesheet" type="text/css" href="./css/admin_user.css?ver=4">
 
-  <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
+  <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
   <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 

@@ -28,9 +28,9 @@
                     `level` int(11) DEFAULT NULL,
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-                break;
-            case 'notice':
-                $sql = "CREATE TABLE `notice` (
+                    break;
+                case 'notice':
+                    $sql = "CREATE TABLE `notice` (
                     `num` int(11) NOT NULL AUTO_INCREMENT,
                     `id` char(15) NOT NULL,
                     `name` char(10) NOT NULL,
@@ -44,8 +44,8 @@
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                     break;
-            case 'hospital':
-                $sql = "CREATE TABLE `hospital` (
+                case 'hospital':
+                    $sql = "CREATE TABLE `hospital` (
                     `id` char(10) NOT NULL,
                     `name` char(50) NOT NULL,
                     `addr` varchar(200) NOT NULL,
@@ -68,13 +68,24 @@
                     PRIMARY KEY (`id`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                     break;
+                case 'review':
+                    $sql = "CREATE TABLE `review` (
+                   `no` int(11) NOT NULL AUTO_INCREMENT,
+                    `hospital_id` char(10) NOT NULL,
+                    `user_no` int(11) NOT NULL,
+                    `star_rating` int(1) NOT NULL,
+                    `content` text NOT NULL,
+                    `regist_day` char(20) NOT NULL,
+                    PRIMARY KEY (`no`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                    break;
                 default:
-                    echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";
+                    echo " <script>alert('해당테이블명이 없습니다. 점검요망!');</script > ";
                     break;
             } //end of switch
-            
+
             if (mysqli_query($con, $sql)) {
-                echo "<script>alert('{$table_name} 테이블이 생성되었습니다.');</script>";
+                echo "<script > alert('{$table_name} 테이블이 생성되었습니다.');</script > ";
             } else {
                 echo "테이블 생성 실패원인" . mysqli_error($con);
             }

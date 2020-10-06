@@ -7,6 +7,7 @@
 		      href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital.css">
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital.js" defer></script>
+		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 	</head>
 
 	<body>

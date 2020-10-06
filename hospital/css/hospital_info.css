@@ -35,3 +35,11 @@ table{
 th{  border-bottom: 1px solid black;}
 th,td{width: 130px}
 #map{width:600px;height:500px;}
+
+.hospital_review p img{width: 27px; margin: 15px 0;}
+.hospital_review h4 {display: inline-block}
+.hospital_review .user_info img{width: 20px;  margin-right: 10px}
+.hospital_review .review_content{padding-left: 25px;}
+.hospital_review li{margin: 20px 0}
+.hospital_review .user_info{display: flex; align-items: center}
+.hospital_review .regist_day{font-size: 14px; color: #9b9b9b; margin-top: 5px;}

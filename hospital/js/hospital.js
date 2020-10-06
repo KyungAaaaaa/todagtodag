@@ -50,6 +50,7 @@ $("#btn").on("click", function () {
                 for ($i in $result) {
                     $str += `<li><a href='hospital_info.php?hospital_id=${$result[$i][0]}'><h3>${$result[$i][1]}</h3>${$result[$i][2]}</a></li>`;
                 }
+                if ($str==="")$str="<li>찾으시는 병원이 존재하지 않습니다.</li>";
                 $(".hospital_list").find("ul").html($str);
             }
         })

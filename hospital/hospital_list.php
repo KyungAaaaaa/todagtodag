@@ -12,10 +12,10 @@
     elseif (!isset($_POST['val'])) {
         $keyword = "";
         select_area2($keyword, $con);
-    } else select_area($area_1, $area_2, $search,$department, $con);
+    } else select_area($area_1, $area_2, $search, $department, $con);
 
 
-    function select_area($area_1, $area_2, $search,$department, $con)
+    function select_area($area_1, $area_2, $search, $department, $con)
     {
         $query = "select id,name,addr from hospital where addr like '%{$area_1} {$area_2}%' and (addr like '%{$search}%' or name like '%{$search}%') and department like '%{$department}%';";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
@@ -26,9 +26,12 @@
     {
         $query = "select id,name,addr from hospital where addr like'%{$search}%' or name like'%{$search}%';";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
+        $str = "";
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<li><a href='hospital_info.php?hospital_id={$row['id']}'><h3>{$row['name']}</h3>{$row['addr']}</a></li>";
+            $str = "<li><a href='hospital_info.php?hospital_id={$row['id']}'><h3>{$row['name']}</h3>{$row['addr']}</a></li>";
+            echo $str;
         }
+        if ($str === "") echo "<li>찾으시는 병원이 존재하지 않습니다.</li>";
     }
 
 ?>

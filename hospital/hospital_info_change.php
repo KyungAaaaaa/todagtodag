@@ -12,16 +12,14 @@
         echo "<div class='hospital_detail'>
             <div class='hospital_operating_ours'>
             <div class='subject'><img src='img/clock.png'>운영시간</div>
-            <ul>
-            <li> 월요일 {$row['mon']} </li>
-            <li> 화요일 {$row['tue']}</li>
-            <li> 수요일 {$row['wed']}</li>
-            <li> 목요일 {$row['thu']}</li>
-            <li> 금요일 {$row['fri']}</li>
-            <li> 토요일 {$row['sat']}</li>
-            <li> 일요일 {$row['sun']}</li>
-            <li> 공휴일 {$row['holiday']}</li>
-            </ul
+             <table>
+            <tr><th>월요일</th><th>화요일</th><th>수요일</th><th>목요일</th><th>금요일</th></tr>
+            <tr><td>{$row['mon']}</td><td>{$row['tue']}</td><td>{$row['wed']}</td><td>{$row['thu']}</td><td>{$row['fri']}</td></tr>
+            </table>
+            <table>
+            <tr><th>토요일</th><th>일요일</th><th>공휴일</th></tr>
+            <tr><td>{$row['sat']}</td><td>{$row['sun']}</td><td>{$row['holiday']}</td></tr>
+            </table>           
             </div>
             <div class='hospital_tel'>
             <div class='subject'><img src='img/call.png'>전화번호</div>

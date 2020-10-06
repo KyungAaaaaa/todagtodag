@@ -6,13 +6,16 @@
 		<link rel="stylesheet" type="text/css"
 		      href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital_info.css">
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
-		<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=4a9b86a6ef0cefc3bf4d293322310ba3&libraries=services"></script>
+		<script type="text/javascript"
+		        src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=4a9b86a6ef0cefc3bf4d293322310ba3&libraries=services"></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital_info.js" defer></script>
 	</head>
 
 	<body>
 		<header>
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+            <?php
+                session_start();
+                include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
 		<section>
 			<div class="container">
@@ -42,9 +45,10 @@
 					</ul>
 				</div>
 				<div class="content">
-					<form method="post"><input type="hidden" name="hospital_id" id="hospital_id" value="<?=$hospital_id?>"></form>
-                    <?php include "hospital_info_change.php"?>
-			</div>
+					<form method="post"><input type="hidden" name="hospital_id" id="hospital_id"
+					                           value="<?= $hospital_id ?>"></form>
+                    <?php include "hospital_info_change.php" ?>
+				</div>
 		</section>
 		<footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>

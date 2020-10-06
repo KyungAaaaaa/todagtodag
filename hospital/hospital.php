@@ -11,7 +11,9 @@
 
 	<body>
 		<header>
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+            <?php
+                session_start();
+                include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
 		<section>
 			<form method="post">

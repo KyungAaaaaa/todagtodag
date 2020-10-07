@@ -22,7 +22,7 @@
         <?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
     </header>
     <section style="position: relative; top: -60px;  z-index: 1;">
-        <div class="slideshow" style="min-height: 755px;">
+        <div class="slideshow" >
             <div class="slideshow_slides">
                 <a href="#" style="background-image: url(https://cdn.imweb.me/thumbnail/20190516/5cdcfae3db63e.jpg);">
                     <p>병원 예약 필수 사이트<br>토닥토닥</p>

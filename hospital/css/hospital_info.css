@@ -42,6 +42,6 @@ th,td{width: 130px}
 .hospital_review h4 {display: inline-block}
 .hospital_review .user_info img{width: 20px;  margin-right: 10px}
 .hospital_review .review_content{padding-left: 25px;}
-.hospital_review li{margin: 20px 0; padding-bottom:10px;border-bottom: 1px dashed slategray;width: 80%}
+.hospital_review li{margin: 20px 0; padding-bottom:10px;border-bottom: 1px dashed var(--sub--color);width: 80%}
 .hospital_review .user_info{display: flex; align-items: center}
-.hospital_review .regist_day{font-size: 14px; color: #9b9b9b; margin-top: 5px;}
+.hospital_review .regist_day{font-size: 14px; color: var(--sub--color); margin-top: 5px;}

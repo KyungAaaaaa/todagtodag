@@ -1,6 +1,23 @@
+body {
+    overflow-y: hidden;
+}
+
+header {
+    position: relative; 
+    z-index: 2; 
+    color: #dddddd;
+}
+
+section {
+    position: relative; 
+    top: -60px;  
+    z-index: 1;
+}
+
 .slideshow {
     background: #000;
     min-width: 100%;
+    min-height: 775px;
     overflow: hidden;
     position: relative;
 }

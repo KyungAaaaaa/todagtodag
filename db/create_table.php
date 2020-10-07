@@ -72,7 +72,7 @@ function create_table($con, $table_name)
                 $sql = "CREATE TABLE `health_info` (
                             `num` int(11) NOT NULL AUTO_INCREMENT,
                             `id` char(15) NOT NULL,
-                            `subject` varchar(100) NOT NULL,
+                            `subject` varchar(30) NOT NULL,
                             `content` text NOT NULL,
                             `category` char(50) NOT NULL,
                             `regist_day` char(20) DEFAULT NULL,

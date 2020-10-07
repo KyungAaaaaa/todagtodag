@@ -260,7 +260,6 @@ border: 1px solid rgb(229, 229, 229);
 transition: box-shadow 0.1s ease-in 0s;
 cursor: pointer;
 }
-
 .list_box h2 {
     margin-top: 40px;
     text-align: center;
@@ -273,4 +272,22 @@ cursor: pointer;
 	overflow:hidden;
 	line-height:150%;
 	border-bottom:solid 1px #cccccc;
+}
+
+.list_view_anchor {
+    border: 1px solid #cccccc;
+    margin-bottom: 20px;
+	transition: box-shadow 0.1s ease-in 0s;
+}
+.list_view_anchor:hover {
+    box-shadow: 2px 2px 20px lightgrey;
+}
+.contentBox{
+    position: relative; height: 50px; margin: 10px;
+}
+.contentBox h3 {
+    margin-left: 10px; overflow: hidden; font-size: 32px;
+}
+.contentBox .content_explain{
+    text-align: left; position: absolute; width: 280px; bottom: 0px; margin-left: 10px; color: rgb(128, 135, 143);
 }

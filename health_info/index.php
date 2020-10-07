@@ -1,5 +1,15 @@
 <?php
 session_start();
+
+include_once $_SERVER["DOCUMENT_ROOT"]."/todagtodag/db/db_connector.php";
+
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+}else{
+    $page = "";
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +19,11 @@ session_start();
 <head>
     <meta charset="utf-8">
     <title>토닥토닥</title>
-    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=8">
-    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=5">
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=9">
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=10">
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
 </head>
 
 <body>
@@ -19,6 +31,7 @@ session_start();
         <?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
     </header>
     <section>
+        <a id="btn_top" href="#">TOP</a>
         <div class="health_info">
             <div class="info_main">
                 <h2>어떤 건강정보를 찾으시나요?</h2>
@@ -86,12 +99,38 @@ session_start();
                 <h3>많이 찾는 건강정보</h3>
             </header>
             <ul class="img_list">
-                <li class="img_list_item"><a href="#" class="item_info">건강정보</a></li>
-                <li class="img_list_item"><a href="#" class="item_info">건강정보</a></li>
-                <li class="img_list_item"><a href="#" class="item_info">건강정보</a></li>
-                <li class="img_list_item"><a href="#" class="item_info">건강정보</a></li>
-                <li class="img_list_item"><a href="#" class="item_info">건강정보</a></li>
-                <li class="img_list_item"><a href="#" class="item_info">건강정보</a></li>
+                <?php
+
+                $sql = "select * from health_info order by hit desc limit 4";
+                $result = mysqli_query($con, $sql); //결과값을 레코드셋으로 돌려준다
+
+                if (!$result)
+                echo "<li>게시판 DB 테이블이 생성 전이거나 아직 게시글이 없습니다! </li>";
+                else {
+                while ($row = mysqli_fetch_array($result)) //레코드셋 안의 객체들을 배열로 하나씩 가져온다
+                {
+                
+                ?>
+
+                <li class="list_view_anchor">
+                <a href='./health_info_view.php?page=<?=$page?>&num=<?=$row['num']?>&hit=<?=$row['hit']+1?>'>
+                            <span class='imageBox'>
+                                <img src='http://<?php echo $_SERVER['HTTP_HOST']?>/todagtodag/health_info/img/<?=$row['category']?>.png' alt="<?=$row['category']?>">
+                            </span>
+                            <span class='contentBox'>
+                                <h3>
+                                    <?=$row['category']?></h3>
+                                <span class="content_explain">
+                                    <p>
+                                        <?=$row['subject']?></p>
+                                </span>
+                            </span>
+                </a>
+                </li>
+                <?php
+                }
+            }
+            ?>
             </ul>
             <div class="list_footer">
                 <a class="total_info_list" href="health_info_list.php">더보기</a>

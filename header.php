@@ -40,7 +40,7 @@ else $userlevel = "";
         <?php
         if ($userlevel == 1) {
         ?>
-            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/admin/admin_user.php">관리자모드</a></li>
+            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/admin/admin_members.php">관리자모드</a></li>
         <?php
         }
         ?>

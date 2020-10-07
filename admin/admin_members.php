@@ -1,5 +1,6 @@
 <?php
 session_start();
+include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 
 if (isset($_GET["page"])) {
   $page = $_GET["page"];
@@ -15,7 +16,7 @@ if (isset($_GET["page"])) {
   <meta charset="utf-8">
   <title>토닥토닥 :: 관리자페이지</title>
   <link rel="stylesheet" type="text/css" href="./css/admin.css?ver=4">
-  <link rel="stylesheet" type="text/css" href="./css/admin_user.css?ver=4">
+  <link rel="stylesheet" type="text/css" href="./css/admin_members.css?ver=4">
 
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
   <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
@@ -55,19 +56,19 @@ if (isset($_GET["page"])) {
         <div id="admin_menu_bar">
           <h2>회원관리</h2><!-- /.menu-title -->
           <ul>
-            <li><a href="admin_user.php">회원관리</a></li>
+            <li><a href="admin_members.php">회원관리</a></li>
           </ul>
 
-          <h2>게시글 관리</h2>
+          <h2>병원관리</h2>
           <ul>
-            <li><a href="admin_board_free.php">자유게시판</a></li>
+            <li><a href="admin_hospital.php">병원관리</a></li>
             <li><a href="admin_board_review.php">후기게시판</a></li>
             <li><a href="admin_board_together.php">같이할건강</a></li>
           </ul>
 
-          <h2>프로그램 관리</h2>
+          <h2>게시글 관리</h2>
           <ul>
-            <li><a href="admin_program_regist.php">프로그램 등록</a></li>
+            <li><a href="admin_notice.php">공지사항 관리</a></li>
             <li><a href="admin_program_manage.php">프로그램 관리</a></li>
             <li><a href="admin_program_payment.php">결제 관리</a></li>
 
@@ -87,8 +88,6 @@ if (isset($_GET["page"])) {
         <ul class="collapsible" data-collapsible="accordion">
 
           <?php
-          include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
-
           if (isset($_GET["page"])) {
             $page = $_GET["page"];
           } else {
@@ -98,7 +97,6 @@ if (isset($_GET["page"])) {
           $sql = "select * from members";
           $result = mysqli_query($con, $sql);
           $total_record = mysqli_num_rows($result); // 전체 글 수
-
           $scale = 10;
 
           // 전체 페이지 수($total_page) 계산
@@ -125,7 +123,6 @@ if (isset($_GET["page"])) {
             $email          = $row["email"];
             $address        = $row["address"];
             $level          = $row["level"];
-
           ?>
             <li>
               <div class="collapsible-header"><span><?= $id ?></span></div>
@@ -196,7 +193,7 @@ if (isset($_GET["page"])) {
           <?php
             $number--;
           }
-
+          mysqli_close($con);
           ?>
         </ul>
 
@@ -204,7 +201,7 @@ if (isset($_GET["page"])) {
           <?php
           if ($total_page >= 2 && $page >= 2) {
             $new_page = $page - 1;
-            echo "<li><a href='admin_user.php?page=$new_page'>◀ 이전</a> </li>";
+            echo "<li><a href='admin_members.php?page=$new_page'>◀ 이전</a> </li>";
           } else {
             echo "<li>&nbsp;</li>";
           }
@@ -214,13 +211,13 @@ if (isset($_GET["page"])) {
             if ($page == $i) {     // 현재 페이지 번호 링크 안함
               echo "<li><b> $i </b></li>";
             } else {
-              echo "<li><a href='admin_user.php?page=$i'>  $i  </a><li>";
+              echo "<li><a href='admin_members.php?page=$i'>  $i  </a><li>";
             }
           }
           if ($total_page >= 2 && $page != $total_page) {
             $new_page = $page + 1;
 
-            echo "<li> <a href='admin_user.php?page=$new_page'>다음 ▶</a> </li>";
+            echo "<li> <a href='admin_members.php?page=$new_page'>다음 ▶</a> </li>";
           } else {
             echo "<li>&nbsp;</li>";
           }

@@ -104,6 +104,7 @@
         <?php
         $query = "select * from review where hospital_id='{$hospital_id}'";
         $review_result = $con->query($query) or die(mysqli_error($con));
+        if (mysqli_num_rows($review_result)!==0):
         while ($reviews = mysqli_fetch_assoc($review_result)) :
             ?>
 			<li>
@@ -132,7 +133,9 @@
 					<p class="regist_day"><?= $reviews['regist_day'] ?></p>
 			</div>
 
-        <?php endwhile; ?>
+        <?php endwhile;
+        else: echo "<li>리뷰가 존재하지 않습니다</li>";
+        endif;?>
 		</li>
 		</ul>
 

@@ -25,15 +25,21 @@
                     if (isset($_GET['hospital_id'])) $hospital_id = $_GET['hospital_id'];
                     else alert_back("올바르지 않은 접근입니다.");
 
-                    $query = "select `id`,`name`,`addr` from hospital where id='{$hospital_id}'";
+                    $query = "select `id`,`name`,`addr`,`file_name_0`,`file_copied_0`,`file_type_0` from hospital where id='{$hospital_id}'";
                     $result = mysqli_query($con, $query);
                     $num_row = mysqli_num_rows($result);
                     if ($num_row === 0) alert_back("올바르지 않은 접근입니다.");
                     $row = mysqli_fetch_assoc($result);
-                ?>
+
+                    $file_name = $row['file_name_0'];
+                    $file_copied = $row['file_copied_0'];
+                    $file_type = $row['file_type_0'];
+				?>
 
 				<div class="hospital_info">
-					<img src="img/hospital.png">
+					<?php
+                        if (strpos($file_type, "image") !== false) echo "<img src='../admin/data/$file_copied'>";
+                        else echo "<img src='img/hospital.png'>" ?>
 					<div><h2><?= $row['name'] ?></h2>
                         <?= $row['addr'] ?>
 					</div>

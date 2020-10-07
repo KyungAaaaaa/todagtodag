@@ -78,7 +78,7 @@
     echo "
       <script>
         alert('정보가 변경되셨습니다.');
-        location.href = '../index.php';
+        location.href = 'member_mypage.php';
       </script>
     ";
   }

@@ -48,7 +48,6 @@ footer { height: 100%; background-color: rgb(44, 55, 68);}
 
 .footer_text { font-size: 18px;font-family: "S-CoreDream-2ExtraLight";}
 
-.footer_text { font-size: 20px;}
 /* 맨위로 버튼 */
 a#btn_top {
     color: red;

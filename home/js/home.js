@@ -1,5 +1,3 @@
-
-
 function askLocation() {
     navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
 }
@@ -16,10 +14,18 @@ function handleGeoSuccess(position) {
     }
     let $location_text = $(".location").find("span");
     $location_text.append($(`<p>${$lat} / ${$lng}</p>`));
+    //
+    // var geocoder = new google.maps.Geocoder;
+    // var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)};
+    // geocoder.geocode({'location': latlng}, function (results, status) {
+    //     console.dir(results);
+    // });
 
 }
 
 
 askLocation();
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

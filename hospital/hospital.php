@@ -7,11 +7,14 @@
 		      href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital.css">
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital.js" defer></script>
+		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 	</head>
 
 	<body>
 		<header>
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+            <?php
+                session_start();
+                include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
 		<section>
 			<form method="post">
@@ -79,16 +82,15 @@
                             $query .= "'$item->dutyTime7s-$item->dutyTime7c','$item->dutyTime8s-$item->dutyTime8c',";
                             $query .= "'$item->wgs84Lon','$item->wgs84Lat','$item->dutyMapimg');";
                             $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                            // echo "<script>alert('데이터 받아오기완료')</script>";
                         }
                     }
                     $hpid = $con->query("select id from hospital;");
                     while ($row = mysqli_fetch_row($hpid)) {
-//                        echo "<script>alert(".print_r($row[0]).")</script>";
 //                        $query = "select EXISTS (select department from hospital where id='$row[0]') as success;";
-//                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
-//                        $row2 = mysqli_fetch_row($result);
-//                        if ($row2[0] !== '1') {
+                        $query = "select count(department) from hospital where id='$row[0]';";
+                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+                        $row2 = mysqli_fetch_row($result);
+                        if ($row2[0] !== '1') {
                             $ch = curl_init();
                             $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire'; /*URL*/
                             $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
@@ -103,11 +105,9 @@
 
                             $query = "update hospital set department='$items->dgidIdName' where id='{$row[0]}'; ";
                             $result = mysqli_query($con, $query) or die(mysqli_error($con));
-//                            echo "<script>alert('진료과목 받아오기완료')</script>";
-//                        }
+                        }
                     }
                 }
-
             ?>
 			<div class="container">
 				<h1>병원 찾기</h1>
@@ -174,5 +174,4 @@
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
 		</footer>
 	</body>
-
 </html>

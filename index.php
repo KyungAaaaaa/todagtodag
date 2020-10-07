@@ -4,6 +4,10 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
+create_table($con,"members");
+create_table($con,"hospital");
+create_table($con,"notice");
+create_table($con,"review");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +18,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
     <meta charset="utf-8">
     <title>토닥토닥</title>
     <link rel="stylesheet" type="text/css" href="./css/common.css?ver=7">
-    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
+    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 
 </head>
 

@@ -2,27 +2,46 @@
 
 .container {
 
-    margin: 2em auto;
+    margin: 5em auto;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.container:not(:first-child){background-color: #DFDFDF;}
-.hospital_info{width:70%;font-size: 30px}
-.hospital_info img{width: 90px; margin-right: 20px}
+/*.container:not(:first-child){background-color: #DFDFDF;}*/
+.container h2{font-family: "S-CoreDream-6Bold";}
+.hospital_info{width:60%;font-size: 24px}
+.hospital_info img{width: 75px; margin-right: 20px}
 .hospital_info div{display: inline-block; }
-.menu{width:70%;margin-top: 20px}
-.menu ul{margin:10px;display: flex; border-bottom: 1px solid #808080
+.menu{width:60%;margin-top: 20px}
+.menu ul{margin:10px;display: flex; border-bottom: 1px solid #d7d7d7
 }
-.menu ul li{margin-right: 40px;font-size: 25px;cursor: pointer;}
-.menu ul .current{font-weight: bolder;padding-bottom:20px;border-bottom: 3px solid #d65030}
-.content{ width:65%;
+.menu ul li{margin-right: 40px;font-size: 18px;cursor: pointer;}
+.menu ul .current{font-weight: bolder;padding-bottom:20px;border-bottom: 3px solid var(--main--color)}
+.content{ width:57%;
    }
-.subject{font-size: 30px;
+.subject{
+    font-family: "S-CoreDream-5Medium";
+    font-size: 27px;
     margin-top: 20px;
 margin-bottom: 5px}
-.subject img{width: 20px; margin-right: 10px}
+.subject img{width:24px; margin-right: 10px}
 
+table{
+    text-align: center;
+    font-family: "S-CoreDream-3Light";
 
+}
+th{  border-bottom: 1px solid black;}
+th,td{width: 130px}
 #map{width:600px;height:500px;}
+
+
+.hospital_review{max-height: 700px;overflow-y: auto}
+.hospital_review p img{width: 27px; margin: 15px 0;}
+.hospital_review h4 {display: inline-block}
+.hospital_review .user_info img{width: 20px;  margin-right: 10px}
+.hospital_review .review_content{padding-left: 25px;}
+.hospital_review li{margin: 20px 0; padding-bottom:10px;border-bottom: 1px dashed slategray;width: 80%}
+.hospital_review .user_info{display: flex; align-items: center}
+.hospital_review .regist_day{font-size: 14px; color: #9b9b9b; margin-top: 5px;}

@@ -1,8 +1,25 @@
-/* 마진 패딩 초기화 */
-* {box-sizing: border-box; padding: 0; margin: 0; }
+:root{
+    --main--color:#ff4b23;
+}
 
+/* 마진 패딩 초기화 */
+* {box-sizing: border-box; padding: 0; margin: 0;}
+
+@font-face { font-family: 'S-CoreDream-2ExtraLight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'S-CoreDream-3Light'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'S-CoreDream-4Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'S-CoreDream-5Medium'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'S-CoreDream-6Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'S-CoreDream-8Heavy'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); font-weight: normal; font-style: normal; }
+/*@font-face { font-family: 'BMJUA'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff'); font-weight: normal; font-style: normal; }*/
+/*@font-face { font-family: 'ImcreSoojin'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff'); font-weight: normal; font-style: normal; }*/
+/*@font-face { font-family: 'MaplestoryOTFBold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff'); font-weight: normal; font-style: normal; }*/
+/*@font-face { font-family: 'CookieRunOTF-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff'); font-weight: normal; font-style: normal; }*/
+@font-face { font-family: 'TmonMonsori'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff'); font-weight: normal; font-style: normal; }
 /* 페이지 기본 글꼴과 크기 설정 */
-body { font-family: "나눔손글씨 펜";   font-size: 20px; }
+/*body { font-family: "Noto Sans KR";   font-size: 18px; }*/
+body {font-size: 18px; font-family: "S-CoreDream-3Light";}
+input{font-family: "S-CoreDream-3Light";}
 img { border: 0;}
 ul { list-style-type: none; }
 /* <a> 태그 기본 설정 */
@@ -13,9 +30,10 @@ a:visited { text-decoration:none; color: rgb(44, 55, 68); }
 a:active { text-decoration:none; color: rgb(44, 55, 68); }
 /* 상단 헤더 */
 #top { position: relative; width: 100%; height: 60px; margin: 0 auto; }
-#top > img { position: absolute; top: 15px; left: 40px; }
-#top h3 { position: absolute; top: 9px; left: 75px; font-size: 36px;}
-#top h3 > a{ color: #F23005; }
+#top > img { position: absolute; top: 15px; left: 40px; width: 35px;}
+#top h3 {  font-family: "TmonMonsori"; position: absolute; top: 9px; left: 75px; font-size: 36px; margin-left: 5px}
+/*#top h3 {  font-family: "나눔손글씨 펜"; position: absolute; top: 9px; left: 75px; font-size: 36px;}*/
+#top h3 > a{ color: var(--main--color) }
 #top > #top_menu { float: right; margin: 11px 60px 0 0; border-radius: 30px; border: 1px solid rgb(44, 55, 68); 
     font-size: 16px; }
 #top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px;}
@@ -24,9 +42,10 @@ a:active { text-decoration:none; color: rgb(44, 55, 68); }
 /* 하단 푸터 */
 footer { height: 100%; background-color: rgb(44, 55, 68);}
 #footer_content {position: relative; width: 100%; color: #dddddd; padding: 40px;}
-#footer_logo { font-size: 36px; margin-bottom: 30px; }
+#footer_logo { font-family: "S-CoreDream-4Regular"; font-size: 25px; margin-bottom: 30px; }
 #footer_logo_side { position: absolute; top: 40px; right: 100px; font-size: 20px; color: #dddddd; }
 #footer_logo_side > a { font-size: 20px; color: #dddddd; text-decoration: underline;}
+
 .footer_text { font-size: 20px;}
 /* 맨위로 버튼 */
 a#btn_top {
@@ -42,3 +61,5 @@ a#btn_top {
 	font-size: 28px;
 	font-weight: bolder;
 }
+
+.footer_text { font-size: 18px;font-family: "S-CoreDream-2ExtraLight";}

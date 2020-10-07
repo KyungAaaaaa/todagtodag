@@ -11,8 +11,8 @@ else $userlevel = "";
 ?>
 
 <div id="top">
-    <!-- <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag.png"> -->
-    <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag2.png">
+<!--     <img src="http://--><?//= $_SERVER['HTTP_HOST'] ?><!--/todagtodag/img/todagtodag.png">-->
+    <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag3.png">
     <h3>
         <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">
             토닥토닥
@@ -33,7 +33,7 @@ else $userlevel = "";
         ?>
             <li><?= $logged ?></li>
             <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/logout.php">로그아웃</a> </li>
-            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag//member/member_form.php?modify=modify">정보수정</a></li>
+            <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag//member/member_mypage.php">마이페이지</a></li>
         <?php
         }
         ?>

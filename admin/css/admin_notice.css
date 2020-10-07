@@ -24,6 +24,10 @@ button, input[type=button], input[type=submit] {
   float: right;
 }
 
+.checkbox_div span {
+  font-size: 13px;
+}
+
 .checkbox_div input {
   width: 14px;
   height: 14px;
@@ -34,7 +38,7 @@ button, input[type=button], input[type=submit] {
 #all_check {
   clear: both;
   width: 100%;
-  height: 25px;
+  height: 35px;
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 13px;
@@ -43,16 +47,16 @@ button, input[type=button], input[type=submit] {
 
 #all_check span {
   float: right;
-  padding-top: 5px;
+  padding-top: 8px;
   margin-left: 10px;
 }
 
 #all_check #btn_submit {
   width: 90px;
-  height: 28px;
-  padding: 3px 15px;
+  height: 30px;
+  padding: 3px 10px;
   font-size: 13px;
-  border-radius: 2px;
+  border-radius: 30px;
   border: 0.5px solid black;
   background-color: white;
   margin: 0;

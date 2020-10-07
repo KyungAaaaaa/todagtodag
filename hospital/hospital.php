@@ -108,7 +108,6 @@
                         }
                     }
                 }
-
             ?>
 			<div class="container">
 				<h1>병원 찾기</h1>
@@ -175,5 +174,4 @@
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
 		</footer>
 	</body>
-
 </html>

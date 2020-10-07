@@ -79,13 +79,30 @@
                     PRIMARY KEY (`no`)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                     break;
+                case 'health_info':
+                    $sql = "CREATE TABLE `health_info` (
+                     `num` int(11) NOT NULL AUTO_INCREMENT,
+                     `id` char(15) NOT NULL,
+                     `subject` varchar(100) NOT NULL,
+                     `content` text NOT NULL,
+                     `category` char(50) NOT NULL,
+                     `regist_day` char(20) DEFAULT NULL,
+                     `hit` int(11) DEFAULT NULL,
+                     `file_name_1` char(40) DEFAULT NULL,
+                     `file_copied_1` char(30) DEFAULT NULL,
+                     `file_type_1` char(30) DEFAULT NULL,
+                     `image_name_0` char(40) DEFAULT NULL,
+                     `image_copied_0` char(30) DEFAULT NULL,
+                     `image_type_0` char(30) DEFAULT NULL,
+                     PRIMARY KEY (`num`)
+                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                    break;
                 default:
-                    echo " <script>alert('해당테이블명이 없습니다. 점검요망!');</script > ";
+                    echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";
                     break;
             } //end of switch
-
             if (mysqli_query($con, $sql)) {
-                echo "<script > alert('{$table_name} 테이블이 생성되었습니다.');</script > ";
+                echo "<script>alert('{$table_name} 테이블이 생성되었습니다.');</script>";
             } else {
                 echo "테이블 생성 실패원인" . mysqli_error($con);
             }

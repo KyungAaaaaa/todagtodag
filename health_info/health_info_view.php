@@ -4,18 +4,17 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/todagtodag/db/db_connector.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/health_info/lib/code_func.php";
 $num = $id = $subject = $content = $day = $hit = $image_width = $q_num = "";
 $file_type_0 = "";
-if (empty($_POST['page'])) {
+if (empty($_GET['page'])) {
     $page = 1;
 } else {
-    $page = $_POST['page'];
+    $page = $_GET['page'];
 }
 
-
 //get으로 보내는 것도 있고, post로 보내는 것도 있어서 둘다 받을 수 있도록 설계
-switch (isset($_POST["num"])) {
+switch (isset($_GET["num"])) {
     case true:
-        $postAndget_num = $_POST["num"];
-        $postAndget_hit = $_POST["hit"];
+        $postAndget_num = $_GET["num"];
+        $postAndget_hit = $_GET["hit"];
         break;
     case false:
         $postAndget_num = $_GET["num"];

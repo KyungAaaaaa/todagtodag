@@ -69,6 +69,11 @@ if (isset($_GET["page"])) {
         ";
   } else {
     $items = "";
+    echo "
+        <script>
+          console.log('선택되지 않았습니다.');
+        </script>
+        ";
   }
   ?>
   <section>

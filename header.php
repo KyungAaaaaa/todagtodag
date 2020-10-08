@@ -11,7 +11,7 @@ else $userlevel = "";
 ?>
 
 <div id="top">
-<!--     <img src="http://--><?//= $_SERVER['HTTP_HOST'] ?><!--/todagtodag/img/todagtodag.png">-->
+    <!-- <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag.png"> -->
     <img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag3.png">
     <h3>
         <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">

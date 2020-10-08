@@ -311,7 +311,7 @@ if (isset($_GET["page"])) {
             if ($page == $i) {     // 현재 페이지 번호 링크 안함
               echo "<li><b> $i </b></li>";
             } else {
-              echo "<li><a href='admin_hospital.php?page=$i'>  $i  </a><li>";
+              echo "<li><a href='admin_hospital.php?page=$i'>&nbsp;$i&nbsp;</a><li>";
             }
           }
 

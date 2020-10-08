@@ -81,7 +81,7 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
     <meta charset="utf-8">
     <title>토닥토닥</title>
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=9">
-    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=7">
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=9">
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
     <script type="text/javascript" src="./js/member_form.js?ver=2"></script>
     <title></title>
@@ -91,11 +91,12 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
     <header>
         <?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
     </header>
+    
     <div id="wrap">
         <div id="content">
             <div id="col2">
                 <div id="title">
-                    <h3>건강정보</h3>
+                    <h3><div class="col2"><?= $subject ?></div></h3>
                 </div>
                 <div class="clear"></div>
                 <div id="write_form_title"></div>
@@ -103,25 +104,19 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
                 <div id="write_form">
                     <div class="write_line"></div>
                     <div id="write_row1">
-                        
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 조회 :
+                            작성자 :
+                            <?= $id ?>
+                            <div class="col1">
+                            조회 :
                             <?= $hit ?>
                             &nbsp;&nbsp;&nbsp; 작성일:
                             <?= $day ?>
+                            </div>
                         </div>
                     </div>
                     <!--end of write_row1 -->
                     <div class="write_line"></div>
-
-                    <div id="write_row2">
-                        <div class="col1">제&nbsp;&nbsp;목</div>
-                        <div class="col2"><input type="text" name="subject" value="<?= $subject ?>" readonly="readonly"></div>
-                    </div>
-                    <!--end of write_row2 -->
-                    <div class="write_line"></div>
-
                     <div id="write_row3">
-                        <div class="col1">내&nbsp;&nbsp;용</div>
                         <div class="col2">
                             <?php
                             if ($file_type_0 == "image") {
@@ -131,19 +126,29 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
                                 $file_size = filesize($file_path);
                             }
                             ?>
-                            <?= $content ?>
                         </div>
+                        <p><?= $content ?></p>
+                        <br>
                     </div>
                     <!--end of write_row3 -->
                     <div class="write_line"></div>
-                    <br>
                     <br>
                 </div>
                 <!--end of write_form -->
                 <div class="write_line"></div>
 
                 <div id="write_button">
+                    <?php 
+                        if(isset($_GET['category'])){
+                    ?>
+                    <a href="./health_info_list.php?page=<?= $page ?>&category=<?=$_GET['category']?>"><img src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/list.png"></a>
+                <?php        
+                } else {
+                    ?>
                     <a href="./health_info_list.php?page=<?= $page ?>"><img src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/list.png"></a>
+                    <?php
+                }
+                    ?>    
                     <?php
                     //관리자이거나 해당된 작성자일경우 수정, 삭제가 가능하도록 설정
                     if ($_SESSION['user_id'] == "ksskss" || $_SESSION['user_id'] == $id) {

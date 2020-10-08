@@ -82,13 +82,13 @@ if(isset($postAndget_mode)&&$postAndget_mode=="insert"){
           default:alert_back('3. gif jpg png 확장자가아닙니다.');
         }
         //6 업로드된 파일사이즈(2mb)를 체크해서 넘어버리면 돌려보낸다.
-        if($upfile_size>2000000){
-          alert_back('2. 이미지파일사이즈가 2MB이상입니다.');
+        if($upfile_size>3000000){
+          alert_back('2. 이미지파일사이즈가 3MB이상입니다.');
         }
     }else{
         //5 업로드된 파일사이즈(500kb)를 체크해서 넘어버리면 돌려보낸다.
-        if($upfile_size>500000){
-            alert_back('2. 파일사이즈가 500KB이상입니다.');
+        if($upfile_size>1000000){
+            alert_back('2. 파일사이즈가 1MB이상입니다.');
         }
     }
 

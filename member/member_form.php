@@ -261,7 +261,7 @@
                     <?php
                 } else {
                     ?>
-					<div class="content_title"><h1 class="my_page">마이페이지 > </h1>
+					<div class="content_title">
 						<h1> 내 정보 수정</h1></div>
                     <?php
                 }

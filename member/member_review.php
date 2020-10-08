@@ -13,7 +13,6 @@
         <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
         <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
         <script src="./js/member_form.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="./css/member.css">
         <link rel="stylesheet" href="./css/mypage.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
         <script src="./js/mypage.js" defer></script>
@@ -25,17 +24,19 @@
         </header>
         <section>
             <?php
-                $_POST['mode']='review_write';
+                $_POST['mode']='review_list';
                 $_POST['category']='appointment';
                     include "member_mypage.php";
 
                     ?>
-                    <div class="content_title"><h1 class="my_page">마이페이지 > </h1>
-                        <h1> 리뷰 작성 </h1></div>
+                    <div class="content_title">
+                        <h1> 리뷰 관리 </h1></div>
+	                <div>
 
-            </div>
-            </div>
-            </div>
+	                </div>
+<!--            </div>-->
+<!--            </div>-->
+<!--            </div>-->
 
         </section>
         <footer>

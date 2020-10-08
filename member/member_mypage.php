@@ -33,6 +33,7 @@
 		</div>
 		<div class="nav_list">
 			<ul>
+				<li><h4 class="my_page">마이페이지</h4></li>
                 <?php
                     if (isset($category) && $category == "member") { ?>
 			<li class="nav_menu"><span class="nav_title current_category">내 정보</span>
@@ -62,18 +63,14 @@
 				<li class="nav_menu"><span class="nav_title current_category">예약</span> <? } else{ ?>
 				<li class="nav_menu"><span class="nav_title">예약</span> <? } ?>
 					<ul>   <?php if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "appointment_list")) { ?>
-							<li><a href="#" class="current_page">예약 조회</a></li>
+							<li><a href="member_appointment.php" class="current_page">예약 조회</a></li>
                         <? } else { ?>
-							<li><a href="#">예약 조회</a></li>
+							<li><a href="member_appointment.php">예약 조회</a></li>
                         <? }
-                            if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "review_write")) { ?>
-								<li><a href="member_review.php" class="current_page">리뷰 작성</a></li>
-                            <? } else { ?>
-								<li><a href="member_review.php">리뷰 작성</a></li>  <? }
                             if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "review_list")) { ?>
-								<li><a href="#" class="current_page">리뷰 관리</a></li>
+								<li><a href="member_review.php" class="current_page">리뷰 관리</a></li>
                             <? } else { ?>
-								<li><a href="#">리뷰 관리</a></li>  <? } ?>
+								<li><a href="member_review.php">리뷰 관리</a></li>  <? } ?>
 					</ul>
 				</li>
 				<li class="nav_menu"><span class="nav_title">병원</span>
@@ -93,7 +90,7 @@
 	<div class="content"><?
     if (!isset($mode)) {
         ?>
-		<h1 class="content_title">마이페이지</h1>
+		<h1 class="content_title">메인</h1>
 		<div>
 			<span class="content_item"><h4>프로필</h4></span>
 			<span class="content_item"><h4>최근 예약 > </h4></span>

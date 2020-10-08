@@ -1,5 +1,5 @@
 function check_delete(num) {
-  var result=confirm("삭제하시겠습니까?\n Either OK or Cancel.");
+  var result=confirm("삭제하시겠습니까?");
   if(result){
         window.location.href='./dml_board.php?mode=delete&num='+num;
   }

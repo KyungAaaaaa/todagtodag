@@ -11,7 +11,7 @@
 }
 /* 이미지가 포함된 list들 각 하나 */
 .list_box .code_view_anchor{
-    width: 280px; height: 230px; margin: 17px; background-color: #ffffff; 
+    width: 280px; height: 255px; margin: 17px; background-color: #ffffff; 
 	float: left; overflow: hidden; border: 1px solid rgb(229, 229, 229);
 	border-radius: 20px;
 	transition: box-shadow 0.1s ease-in 0s;
@@ -26,10 +26,14 @@
     position: relative; height: 50px; margin: 10px;
 }
 .list_box .contentBox h3{
-	margin-left: 10px; overflow: hidden; font-size: 32px;
+	margin-left: 10px; overflow: hidden; font-size: 28px;
 }
 .list_box .contentBox .content_explain{
-    text-align: left; position: absolute; width: 280px; bottom: 0px; margin-left: 10px; color: rgb(128, 135, 143);
+	text-align: left; 
+	position: absolute; 
+	width: 245px; 
+	margin-left: 10px; 
+	color: rgb(128, 135, 143); 
 }
 #page_num{
     position: absolute; bottom: 20px; left: 400px;

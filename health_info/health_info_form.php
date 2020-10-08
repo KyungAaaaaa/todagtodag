@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>토닥토닥</title>
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=8">
-    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=6">
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=8">
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
     <script type="text/javascript" src="./js/member_form.js"></script>
 </head>
@@ -72,23 +72,26 @@
                 <input type="hidden" name="mode" value="<?= $mode ?>">
                 <input type="hidden" name="num" value="<?= $num ?>">
                 <input type="hidden" name="hit" value="<?= $hit ?>">
-                <table>
-                    <tr>
-                        <td>아이디</td>
-                        <td><?= $id ?></td>
-                    </tr>
+                <table id="content_insert">
                     <tr>
                         <td>분&nbsp;&nbsp;류</td>
                         <td>
-                            <select name="category">
+                            <select id="input_category" name="category">
                                 <option value="">--선택하세요--</option>
-                                <option value="감기" <?php if ($category == '감기') echo "SELECTED"; ?>>감기</option>
-                                <option value="javascript" <?php if ($category == 'default') echo "SELECTED"; ?>>javascript</option>
-                                <option value="kotlin" <?php if ($category == 'default') echo "SELECTED"; ?>>kotlin</option>
-                                <option value="html" <?php if ($category == 'default') echo "SELECTED"; ?>>html</option>
-                                <option value="css" <?php if ($category == 'default') echo "SELECTED"; ?>>css</option>
-                                <option value="php" <?php if ($category == 'default') echo "SELECTED"; ?>>php</option>
-                                <option value="mysql" <?php if ($category == 'default') echo "SELECTED"; ?>>mysql</option>
+                                <option value="치과" <?php if ($category == '치과') echo "SELECTED"; ?>>치과</option>
+                                <option value="안과" <?php if ($category == '안과') echo "SELECTED"; ?>>안과</option>
+                                <option value="정형외과" <?php if ($category == '정형외과') echo "SELECTED"; ?>>정형외과</option>
+                                <option value="피부과" <?php if ($category == '피부과') echo "SELECTED"; ?>>피부과</option>
+                                <option value="소아과" <?php if ($category == '소아과') echo "SELECTED"; ?>>소아과</option>
+                                <option value="내과" <?php if ($category == '내과') echo "SELECTED"; ?>>내과</option>
+                                <option value="비뇨기과" <?php if ($category == '비뇨기과') echo "SELECTED"; ?>>비뇨기과</option>
+                                <option value="이비인후과" <?php if ($category == '이비인후과') echo "SELECTED"; ?>>이비인후과</option>
+                                <option value="외과" <?php if ($category == '외과') echo "SELECTED"; ?>>외과</option>
+                                <option value="신경과" <?php if ($category == '신경외과') echo "SELECTED"; ?>>신경외과</option>
+                                <option value="정신과" <?php if ($category == '정신과') echo "SELECTED"; ?>>정신과</option>
+                                <option value="산부인과" <?php if ($category == '산부인과') echo "SELECTED"; ?>>산부인과</option>
+                                <option value="생활건강" <?php if ($category == '생활건강') echo "SELECTED"; ?>>생활건강</option>
+                                <option value="코로나" <?php if ($category == '코로나') echo "SELECTED"; ?>>코로나</option>
                             </select>
                         </td>
                     </tr>
@@ -101,7 +104,7 @@
                     <tr>
                         <td>내&nbsp;&nbsp;용</td>
                         <td>
-                            <textarea name="content" rows="15" cols="79"><?= $content ?></textarea>
+                            <textarea id="input_content" name="content" rows="15" cols="79"><?= $content ?></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -110,7 +113,7 @@
                             <?php
                             // 업데이트를 할지 삽입을 할지
                             if ($mode == "insert") {
-                                echo '<input type="file" name="upfile" >이미지(2MB)파일(0.5MB)';
+                                echo '<input type="file" name="upfile" >이미지(3MB)파일(1MB)';
                             } else if ($mode == "update") {
                             ?>
                                 <input type="file" name="upfile" onclick='document.getElementById("del_file").checked=true; document.getElementById("del_file").disabled=true'>

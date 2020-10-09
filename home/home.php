@@ -3,8 +3,10 @@
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/js/slide.js" defer></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/js/home.js" defer></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
 </head>
-
+<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png"
+                              class="to_the_top"></a>
 <div id="home_img_bar">
 	<div class="slideBox">
 		<div class="slide_image_box">
@@ -24,9 +26,9 @@
 	</div>
 </div>
 <?php
-	include_once $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/db_connector.php";
-	include_once $_SERVER['DOCUMENT_ROOT']."/todagtodag/db/create_table.php";
-	create_table($con,"hospital");
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
+    create_table($con, "hospital");
 ?>
 <div class="container">
 	<div class="search">

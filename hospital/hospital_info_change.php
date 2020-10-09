@@ -110,7 +110,7 @@
 			<li>
 				<div class="user_info"><img src='img/user.png'><h4>
                     <?php
-                        $query = "select `id` from members where num={$reviews['user_no']}";
+                        $query = "select `id` from members where num={$reviews['member_num']}";
                         $member_id = $con->query($query) or die(mysqli_error($con));
                         $member_id = mysqli_fetch_row($member_id);
                         ?>
@@ -122,7 +122,7 @@
                             echo "<img src='img/star.png'>";
                             $i++;
                         }
-                        if ($i < 5) {
+                        while ($i <5) {
                             echo "<img src='img/empty_star.png'>";
                             $i++;
                         }

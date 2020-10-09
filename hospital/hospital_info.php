@@ -11,13 +11,15 @@
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital_info.js" defer></script>
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 	</head>
-
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
 	<body>
 		<header>
             <?php
                 session_start();
                 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
+	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png"
+	                              class="to_the_top"></a>
 		<section>
 			<div class="container">
                 <?php

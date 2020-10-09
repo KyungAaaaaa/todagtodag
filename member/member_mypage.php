@@ -24,12 +24,20 @@
 		<header>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
-		<section><? } ?>
+		<section><? }
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
+    $query = "select `name`,`email`,`regist_day` from members where id='{$userid}';";
+    $result = $con->query($query) or die(mysqli_error($con));
+    $row = mysqli_fetch_assoc($result);
+    $member_name = $row['name'];
+    $member_email = $row['email'];
+    $member_regist_day = $row['regist_day'];
+?>
 	<div class="container">
 	<div class="left_box">
-		<div class="user_info"><p>김경아 님</p>
-			<p>아이디나 이메일</p>
-			<p>가입날짜나 레벨</p>
+		<div class="user_info"><p><?= $member_name ?> 님</p>
+			<p><?= $member_email ?></p>
+			<p>가입 <?= $member_regist_day ?></p>
 		</div>
 		<div class="nav_list">
 			<ul>

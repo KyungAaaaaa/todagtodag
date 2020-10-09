@@ -20,12 +20,16 @@
             $file_name = $row['file_name_0'];
             $file_copied = $row['file_copied_0'];
             $file_type = $row['file_type_0'];
+            $root="http://".$_SERVER['HTTP_HOST']."/todagtodag";
             ?>
 			<li><span>
                 	<?php
-                        if (strpos($file_type, "image") !== false) echo "<img src='../admin/data/$file_copied'>";
-                        else echo "<img src='../img/todagtodag3.png'>" ?>
+                        if (strpos($file_type, "image") !== false) echo "<img src='{$root}/admin/data/$file_copied'>";
+                        else echo "<img src='{$root}/img/todagtodag3.png'>" ?>
                 <a href='#'><h3><?= $row['name'] ?></h3><p>진료일 : 2020.09.20</p>
+	                <input type='hidden' class="userid" value='<?=$userid?>'>
+	                <input type='hidden' class="hospital_id" value='<?=$row['id']?>'>
+	                <button class="review_write">리뷰 작성</button>
                 <?
                     //                    if ($row['리뷰id'] === null) {
                     //이용완료 - 리뷰가 있을때
@@ -37,25 +41,31 @@
                         <?php
                         if ("리뷰아이디" === null) { ?>
 			                <p>이용이 완료 되었습니다.</p>
-			                <a href='#'><button>리뷰 작성</button></a>
+			                <a href='#'><button class="review_write">리뷰 작성</button></a>
                             <?
                         } else {
                             //리뷰관리페이지 이동 -
                             echo "<a href='#'><button>작성한 리뷰 보기</button></a>";
                         };
-                    } elseif ("상태" === "이용전") {
-                        echo "<a href='#'><button>자세히 보기</button></a>";
+                    } elseif ("상태" === "이용전") { ?>
+		                <!--	     위치 바꿔주기 -->
+		                <a href='#'><button>예약 취소</button></a>
+		                <a href='#'><button>자세히 보기</button></a>
+                        <?php
                     } elseif ("상태" === "예약취소") {
-					?>
-	                    <p>예약 취소</p>
-	                    <?
+                        ?>
+		                <p>예약 취소</p>
+                        <?
                     }
 
                 ?>
 				</a></span>
 			</li>
+
             <?php
         }
+
+
     } else
         echo "<li>해당 기간에 예약기록이 없습니다.</li>";
 ?>

@@ -25,6 +25,7 @@ function create_table($con, $table_name)
                     `phone` char(13) NOT NULL,
                     `email` char(80) DEFAULT NULL,
                     `address` char(50),
+                    `regist_day` char(20) NOT NULL,
                     `level` int(11) DEFAULT NULL,
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
@@ -72,7 +73,7 @@ function create_table($con, $table_name)
                     $sql = "CREATE TABLE `review` (
                    `no` int(11) NOT NULL AUTO_INCREMENT,
                     `hospital_id` char(10) NOT NULL,
-                    `user_no` int(11) NOT NULL,
+                    `member_num` int(11) NOT NULL,
                     `star_rating` int(1) NOT NULL,
                     `content` text NOT NULL,
                     `regist_day` char(20) NOT NULL,

@@ -16,7 +16,7 @@ if (isset($_GET["page"])) {
   <meta charset="utf-8">
   <title>토닥토닥 :: 관리자페이지</title>
   <link rel="stylesheet" type="text/css" href="./css/admin.css?ver=4">
-  <link rel="stylesheet" type="text/css" href="./css/admin_members.css?ver=4">
+  <link rel="stylesheet" type="text/css" href="./css/admin_members.css?ver=3">
 
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
   <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">

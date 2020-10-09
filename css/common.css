@@ -53,13 +53,18 @@ footer { height: 100%; background-color: rgb(44, 55, 68);}
 a#btn_top {
     color: red;
     position: fixed;
-    right: 2%;
-    bottom: 50px;
     display: none;
     z-index: 999;
     border: 1px solid #cccccc;
     border-radius: 40px;
     background-color: white;
-	font-size: 28px;
-	font-weight: bolder;
+    font-weight: bolder;
+    bottom: calc(28% - 30px);
+    right: 30px;
+    width: 40px;
+    height: 41px;
+}
+a#btn_top .to_the_top {
+    margin-left: 2.5px;
+    margin-top: 3px;
 }

@@ -59,8 +59,9 @@
 			<div class='hospital_map'>
 				<div class='subject'><img src='img/cursor.png'>상세 위치</div>
                 <?= $row['map_description'] ?>
-				<div id='map'>
 
+
+				<div id='map'>
 					<script>
                         const container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
                         const options = { //지도를 생성할 때 필요한 기본 옵션
@@ -92,8 +93,12 @@
 
                         // 마커가 지도 위에 표시되도록 설정합니다
                         marker.setMap(map);
+
+
+
 					</script>
 				</div>
+
 			</div>
 		</div>
         <?php

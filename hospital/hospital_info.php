@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>토닥토닥</title>
-		<link rel="stylesheet" type="text/css"
-		      href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital_info.css">
+		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital_info.css">
+		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		<script type="text/javascript"
 		        src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=4a9b86a6ef0cefc3bf4d293322310ba3&libraries=services"></script>
@@ -18,8 +18,8 @@
                 session_start();
                 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
-	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png"
-	                              class="to_the_top"></a>
+		<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png"
+		                              class="to_the_top"></a>
 		<section>
 			<div class="container">
                 <?php
@@ -36,10 +36,10 @@
                     $file_name = $row['file_name_0'];
                     $file_copied = $row['file_copied_0'];
                     $file_type = $row['file_type_0'];
-				?>
+                ?>
 
 				<div class="hospital_info">
-					<?php
+                    <?php
                         if (strpos($file_type, "image") !== false) echo "<img src='../admin/data/$file_copied'>";
                         else echo "<img src='img/hospital.png'>" ?>
 					<div><h2><?= $row['name'] ?></h2>

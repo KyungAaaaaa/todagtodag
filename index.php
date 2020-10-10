@@ -18,7 +18,7 @@ create_table($con,"health_info");
 <head>
     <meta charset="utf-8">
     <title>토닥토닥</title>
-    <link rel="stylesheet" type="text/css" href="./css/common.css?ver=7">
+	<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 
 </head>

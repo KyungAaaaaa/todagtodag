@@ -31,6 +31,7 @@
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 		<script src="./js/member_form.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
 		<link rel="stylesheet" href="./css/member.css">
 		<link rel="stylesheet" href="./css/mypage.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
@@ -221,8 +222,8 @@
 		<section>
             <?php
                 // 내 정보 수정인지 판별
-                if (isset($_GET["modify"])) {
-                    $modify = $_GET["modify"];
+                if (isset($_GET["mode"])) {
+                    $mode = $_GET["mode"];
 
                     $sql = "select * from members where id='$userid'";
                     $result = mysqli_query($con, $sql);
@@ -247,13 +248,13 @@
                     $address2 = $address[1];
                     $address3 = $address[2];
 
-	                $_POST['mode']='modify';
+	                $_POST['mode']='mode';
 	                $_POST['category']='member';
                     include "member_mypage.php";
                 } else {
-                    $modify = "";
+                    $mode = "";
                 }
-                if ($modify === "") {
+                if ($mode === "") {
                     ?>
 					<div id="title_member">
 						<h1>회원가입</h1>
@@ -270,7 +271,7 @@
 				<div id="member_form">
 					<form name="member_form" id="input_member_form" method="post">
                         <?php
-                            if ($modify === "") {
+                            if ($mode === "") {
                                 ?>
 								<input type="text" name="id" id="input_id" placeholder=" 아이디 입력 ">
 								<br>
@@ -307,7 +308,7 @@
 								       value=<?= $hidden_kakao_name ?> readonly>
 								<br>
                                 <?php
-                            } else if ($modify) {
+                            } else if ($mode) {
                                 ?>
 								<input type="text" name="name" id="input_name" value="<?= $name ?>">
 								<br>
@@ -324,7 +325,7 @@
 						<div id="phone">
 							<div id="phone_input">
                                 <?php
-                                    if ($modify === "") {
+                                    if ($mode === "") {
                                         ?>
 										<select name="phone_one" id="phone_one">
 											<option value="010" selected="selected">010</option>
@@ -357,7 +358,7 @@
                                 ?>
 							</div>
                             <?php
-                                if ($modify === "") {
+                                if ($mode === "") {
                             ?>
 							<div id="phone_certification_check">
 								<input type="text" id="input_phone_certification"
@@ -392,7 +393,7 @@
                                             signup_duplicate_check();
 										</script>
                                     <?php
-                                        } else if ($modify) {
+                                        } else if ($mode) {
                                     ?>
 									<input type="text" name="email_one" id="email_one"
 									       value="<?= $email1 ?>">
@@ -421,7 +422,7 @@
 							</div>
 						</div>
                         <?php
-                            if ($modify === "") {
+                            if ($mode === "") {
                                 ?>
 								<div id="address">
 									<input type="number" name="address_one" id="address_one"
@@ -450,7 +451,7 @@
                             }
                         ?>
                         <?php
-                            if ($modify === "") {
+                            if ($mode === "") {
                                 ?>
 								<div id="check_box">
 									<input type="checkbox" id="all_agree">
@@ -486,7 +487,7 @@
 								</a>
 							</div>
                             <?php
-                                if ($modify === "") {
+                                if ($mode === "") {
                                     ?>
 									<div id="signup">
 										<input type="button" id="button_submit" value="가 입"

@@ -14,6 +14,7 @@
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 		<script src="./js/member_form.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="./css/mypage.css">
+		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
 		<!--		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">-->
 		<script src="./js/mypage.js" defer></script>
 	</head>

@@ -14,6 +14,7 @@
 		<head>
 			<meta charset="utf-8">
 			<title>토닥토닥</title>
+			<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
 			<link rel="stylesheet" type="text/css" href="./css/mypage.css">
 			<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 			<script src="./js/mypage.js" defer></script>
@@ -50,9 +51,9 @@
                     <? } ?>
 					<ul>
                         <?php if ((isset($category) && $category === "member") && (isset($mode) && $mode = "modify")) { ?>
-							<li><a href="member_form.php?modify=modify" class="current_page">내 정보 수정</a></li>
+							<li><a href="member_form.php?mode=modify" class="current_page">내 정보 수정</a></li>
                         <? } else { ?>
-							<li><a href="member_form.php?modify=modify">내 정보 수정</a></li>
+							<li><a href="member_form.php?mode=modify">내 정보 수정</a></li>
                         <? }
                             if ((isset($category) && $category === "member") && (isset($mode) && $mode === "post")) { ?>
 								<li><a href="#" class="current_page">작성 글</a></li>

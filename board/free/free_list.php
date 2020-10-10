@@ -4,8 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=5">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/css/notice.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/css/free.css">
+    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js"></script>
 </head>
 
 <body>
@@ -14,9 +18,9 @@
 	</header>
 	<section>
 		<div id="board_box">
-			<h3>
-				공지사항
-			</h3>
+			<h2>
+				자유게시판
+			</h2>
 			<hr>
 			<ul id="board_list">
 				<li>
@@ -25,7 +29,7 @@
 					<span class="col3">글쓴이</span>
 					<span class="col4">첨부</span>
 					<span class="col5">등록일</span>
-					<!-- <span class="col6">조회</span> -->
+					<span class="col6">조회</span>
 				</li>
 				<?php
 				if (isset($_GET["page"]))
@@ -36,10 +40,10 @@
 				include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 				include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
 
-				create_table($con, 'notice');
+				create_table($con, 'free');
 				// $con = mysqli_connect("localhost", "user1", "12345", "sample");
 
-				$sql = "select * from notice order by num desc";
+				$sql = "select * from free order by num desc";
 				$result = mysqli_query($con, $sql);
 				$total_record = mysqli_num_rows($result); // 전체 글 수
 
@@ -74,11 +78,11 @@
 				?>
 					<li>
 						<span class="col1"><?= $number ?></span>
-						<span class="col2_1"><a href="notice_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
+						<span class="col2_1"><a href="free_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
 						<span class="col3"><?= $name ?></span>
 						<span class="col4"><?= $file_image ?></span>
 						<span class="col5"><?= $regist_day ?></span>
-						<!-- <span class="col6"><?= $hit ?></span> -->
+						<span class="col6"><?= $hit ?></span>
 					</li>
 				<?php
 					$number--;
@@ -91,7 +95,7 @@
 				<?php
 				if ($total_page >= 2 && $page >= 2) {
 					$new_page = $page - 1;
-					echo "<li><a href='notice_list.php?page=$new_page'>◀ 이전</a> </li>";
+					echo "<li><a href='free_list.php?page=$new_page'>◀ 이전</a> </li>";
 				} else
 					echo "<li>&nbsp;</li>";
 
@@ -101,20 +105,20 @@
 					{
 						echo "<li><b> $i </b></li>";
 					} else {
-						echo "<li><a href='notice_list.php?page=$i'> $i </a><li>";
+						echo "<li><a href='free_list.php?page=$i'> $i </a><li>";
 					}
 				}
 				if ($total_page >= 2 && $page != $total_page) {
 					$new_page = $page + 1;
-					echo "<li> <a href='notice_list.php?page=$new_page'>다음 ▶</a> </li>";
+					echo "<li> <a href='free_list.php?page=$new_page'>다음 ▶</a> </li>";
 				} else
 					echo "<li>&nbsp;</li>";
 				?>
 			</ul> <!-- page -->
 			<ul class="buttons">
-				<li><button onclick="location.href='notice_list.php'">목록</button></li>
+				<li><button onclick="location.href='free_list.php'">목록</button></li>
 				<li>
-					<button onclick="location.href='notice_form.php'">글쓰기</button>
+					<button onclick="location.href='free_form.php'">글쓰기</button>
 					<!-- <?php
 							if ($userid) {
 							?>

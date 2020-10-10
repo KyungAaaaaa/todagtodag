@@ -19,6 +19,8 @@ create_table($con,"health_info");
     <meta charset="utf-8">
     <title>토닥토닥</title>
 	<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 
 </head>

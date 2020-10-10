@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/css/notice.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/css/notice.css">
 	<script>
 		function check_input() {
 			if (!document.board_form.subject.value) {
@@ -30,9 +30,8 @@
 	<section>
 		<div id="board_box">
 			<h3 id="board_title">
-				공지사항
+				공지사항 > 수정
 			</h3>
-			<hr>
 			<?php
 			$num  = $_GET["num"];
 			$page = $_GET["page"];
@@ -68,8 +67,19 @@
 						</span>
 					</li>
 					<li>
+						<?php
+						if($file_name === '') {
+						?>
 						<span class="col1"> 첨부 파일</span>
 						<span class="col2"><input type="file" name="upfile"></span>
+						<?php
+						} else {
+						?>
+						<span class="col1"> 첨부 파일</span>
+						<span class="col2" onclick="location.href='notice_click.php?num=<?= $num ?>&page=<?= $page ?>'" ><?= $file_name ?></span>
+						<?php
+						}
+						?>
 					</li>
 				</ul>
 				<ul class="buttons">

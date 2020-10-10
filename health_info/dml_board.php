@@ -216,66 +216,66 @@ if(isset($postAndget_mode)&&$postAndget_mode=="insert"){
       }
 
       echo "<script>location.href='./health_info_view.php?num=$postAndget_num&page=1&hit=$hit';</script>";
+    }
+  //   }else if(isset($postAndget_mode
+  // )&&$postAndget_mode
+  // =="insert_ripple"){
+  //     if(empty($_POST["ripple_content"])){
+  //       echo "<script>alert('내용입력요망!');history.go(-1);</script>";
+  //       exit;
+  //     }
+  //     //"덧글을 다는사람은 로그인을 해야한다." 말한것이다.
+  //     $userid=$_SESSION['user_id'];
+  //     $q_userid = mysqli_real_escape_string($con, $userid);
+  //     $sql="select * from members where id = '$q_userid'";
+  //     $result = mysqli_query($con,$sql);
+  //     if (!$result) {
+  //       die('Error: ' . mysqli_error($con));
+  //     }
+  //     $rowcount=mysqli_num_rows($result);
 
-    }else if(isset($postAndget_mode
-  )&&$postAndget_mode
-  =="insert_ripple"){
-      if(empty($_POST["ripple_content"])){
-        echo "<script>alert('내용입력요망!');history.go(-1);</script>";
-        exit;
-      }
-      //"덧글을 다는사람은 로그인을 해야한다." 말한것이다.
-      $userid=$_SESSION['user_id'];
-      $q_userid = mysqli_real_escape_string($con, $userid);
-      $sql="select * from members where id = '$q_userid'";
-      $result = mysqli_query($con,$sql);
-      if (!$result) {
-        die('Error: ' . mysqli_error($con));
-      }
-      $rowcount=mysqli_num_rows($result);
+  //     if(!$rowcount){
+  //       echo "<script>alert('없는 아이디!!');history.go(-1);</script>";
+  //       exit;
+  //     }else{
+  //       $content = test_input($_POST["ripple_content"]);
+  //       $page = test_input($_POST["page"]);
+  //       //게시판의 primary key
+  //       $parent = test_input($_POST["parent"]);
+  //       $hit = test_input($_POST["hit"]);
+  //       $q_usernick = "";
+  //       $q_username = mysqli_real_escape_string($con, $_SESSION['username']);
+  //       $q_content = mysqli_real_escape_string($con, $content);
+  //       $q_parent = mysqli_real_escape_string($con, $parent);
+  //       $regist_day=date("Y-m-d (H:i)");
 
-      if(!$rowcount){
-        echo "<script>alert('없는 아이디!!');history.go(-1);</script>";
-        exit;
-      }else{
-        $content = test_input($_POST["ripple_content"]);
-        $page = test_input($_POST["page"]);
-        //게시판의 primary key
-        $parent = test_input($_POST["parent"]);
-        $hit = test_input($_POST["hit"]);
-        $q_usernick = "";
-        $q_username = mysqli_real_escape_string($con, $_SESSION['username']);
-        $q_content = mysqli_real_escape_string($con, $content);
-        $q_parent = mysqli_real_escape_string($con, $parent);
-        $regist_day=date("Y-m-d (H:i)");
+  //       $sql="INSERT INTO `code_ripple` VALUES (null,'$q_parent','$q_userid','$q_username', '$q_usernick','$q_content','$regist_day')";
+  //       $result = mysqli_query($con,$sql);
+  //       if (!$result) {
+  //         die('Error: ' . mysqli_error($con));
+  //       }
+  //       mysqli_close($con);
+  //       echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
+  //     }//end of if rowcount
+  //   }else if(isset($postAndget_mode
+  // )&&$postAndget_mode
+  // =="delete_ripple"){
+  //     $page= test_input($_POST["page"]);
+  //     $hit= test_input($_POST["hit"]);
+  //     $num = test_input($postAndget_num);
+  //     $parent = test_input($_POST["parent"]);
+  //     $q_num = mysqli_real_escape_string($con, $num);
 
-        $sql="INSERT INTO `code_ripple` VALUES (null,'$q_parent','$q_userid','$q_username', '$q_usernick','$q_content','$regist_day')";
-        $result = mysqli_query($con,$sql);
-        if (!$result) {
-          die('Error: ' . mysqli_error($con));
-        }
-        mysqli_close($con);
-        echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
-      }//end of if rowcount
-    }else if(isset($postAndget_mode
-  )&&$postAndget_mode
-  =="delete_ripple"){
-      $page= test_input($_POST["page"]);
-      $hit= test_input($_POST["hit"]);
-      $num = test_input($postAndget_num);
-      $parent = test_input($_POST["parent"]);
-      $q_num = mysqli_real_escape_string($con, $num);
+  //     $sql ="DELETE FROM `code_ripple` WHERE num=$q_num";
+  //     $result = mysqli_query($con,$sql);
+  //     if (!$result) {
+  //       die('Error: ' . mysqli_error($con));
+  //     }
+  //     mysqli_close($con);
+  //     echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
 
-      $sql ="DELETE FROM `code_ripple` WHERE num=$q_num";
-      $result = mysqli_query($con,$sql);
-      if (!$result) {
-        die('Error: ' . mysqli_error($con));
-      }
-      mysqli_close($con);
-      echo "<script>location.href='./view.php?num=$parent&page=$page&hit=$hit';</script>";
-
-    }else{
-      echo "<script>alert('asdasdasd!!');history.go(-1);</script>";
-    }//end of if insert
+  //   }else{
+  //     echo "<script>alert('asdasdasd!!');history.go(-1);</script>";
+  //   }//end of if insert
 
 ?>

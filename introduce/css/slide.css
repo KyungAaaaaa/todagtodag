@@ -5,7 +5,7 @@ body {
 header {
     position: relative; 
     z-index: 2; 
-    color: #dddddd;
+    color: white;
 }
 
 section {
@@ -33,27 +33,43 @@ section {
     width: 100%;
     height: 100%;
     text-align: center;
-    background-color: #dddddd;
+    background-color: white;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
 }
 
-.slideshow_slides p {
+
+/* slideshow1 태그 */
+#slideshow1 .p1 {
     position: absolute;
     width: 500px;
     height: 50px;
     text-align: left;
     font-size: 50px;
+    font-weight: bold;
     left: 50%;
     top: 50%;
     margin-left: -600px;
-    margin-top: -100px;
+    margin-top: -70px;
 }
 
-.slideshow_slides input{
+#slideshow1 .p2 {
     position: absolute;
-    width: 100px;
+    width: 500px;
+    height: 50px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: 5px;
+}
+
+#slideshow1 input{
+    position: absolute;
+    width: 150px;
     height: 50px;
     text-align: center;
     border-radius: 30px;
@@ -61,14 +77,130 @@ section {
     top: 50%;
     margin-left: -600px;
     margin-top: 50px;
-    border: 1px solid #dddddd;
-    color: #dddddd;
+    border: 1px solid white;
+    color: white;
     background-color: rgba(255, 255, 255, 0);
 }
 
-.slideshow_slides input:hover{
+#slideshow1 input:hover{
     background-color:#F23005;
 }
+
+
+/* slideshow2 태그 */
+#slideshow2 .p1 {
+    position: absolute;
+    width: 700px;
+    height: 50px;
+    text-align: left;
+    font-size: 50px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: -70px;
+}
+
+#slideshow2 input{
+    position: absolute;
+    width: 230px;
+    height: 50px;
+    text-align: center;
+    border-radius: 30px;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: 80px;
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#slideshow2 input:hover{
+    background-color:#F23005;
+}
+
+/* slideshow3 태그 */
+#slideshow3 .p1 {
+    position: absolute;
+    width: 700px;
+    height: 50px;
+    text-align: left;
+    font-size: 50px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: -150px;
+}
+
+#slideshow3 .p2 {
+    position: absolute;
+    width: 700px;
+    height: 50px;
+    text-align: left;
+    font-size: 50px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: 60px;
+}
+
+
+#slideshow3 input{
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    border-radius: 30px;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: 140px;
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#slideshow3 input:hover{
+    background-color:#F23005;
+}
+
+/* slideshow4 태그 */
+#slideshow4 .p1 {
+    position: absolute;
+    width: 700px;
+    height: 50px;
+    text-align: left;
+    font-size: 50px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: -70px;
+}
+
+#slideshow4 input{
+    position: absolute;
+    width: 140px;
+    height: 50px;
+    text-align: center;
+    border-radius: 30px;
+    left: 50%;
+    top: 50%;
+    margin-left: -600px;
+    margin-top: 80px;
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#slideshow4 input:hover{
+    background-color:#F23005;
+}
+
+
 
 /* 이미지 스프라이트 처리 */
 .slideshow_nav a.prev {

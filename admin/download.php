@@ -36,7 +36,7 @@ if(isset($_GET["mode"])&&$_GET["mode"]=="download"){
 if(empty($file_copied_0)|| $file_type_0 =="image"){
     alert_back(' 테이블에 파일명이 존재하지 않거나 이미지 파일입니다.!');
 }
-$file_path = "./data/$file_copied_0";
+$file_path = "../data/$file_copied_0";
 
 // //2. 서버에 Data영역에 실제 파일이 있는지 점검
 // if(file_exists($file_path)){

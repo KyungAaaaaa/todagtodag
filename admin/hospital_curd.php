@@ -53,7 +53,7 @@ if (!empty($_FILES['upfile']['name'])) {
     $file_extension = $file[1];         //확장자
 
     //3.업로드될 폴더를 지정한다.
-    $upload_dir = "./data/"; //업로드된파일을 저장하는장소지정
+    $upload_dir = "../data/"; //업로드된파일을 저장하는장소지정
 
     //4.파일업로드가성공되었는지 점검한다. 성공:0 실패:1
     //파일명이 중복되지 않도록 임의파일명을 정한다.
@@ -100,7 +100,7 @@ if (!empty($_FILES['upfile']['name'])) {
     $upfile_type = "";
 }
 
-// //게시글 등록
+//병원정보입력함수인데 안써서 비워놈.
 // function program_insert(
 //     $con,
 //     $shop,
@@ -125,7 +125,7 @@ if (!empty($_FILES['upfile']['name'])) {
 //     mysqli_close($con);
 // }
 
-// 병원정보삭제
+// 병원정보삭제함수
 function user_delete($con, $delete_id)
 {
     $sql = "DELETE from `hospital` where id = '$delete_id';";
@@ -133,7 +133,7 @@ function user_delete($con, $delete_id)
     mysqli_close($con);
 }
 
-// 병원정보수정
+// 병원정보수정함수
 function user_modify($con, $id, $name, $addr, $tel, $department, $mon, $tue, $wed, $thu, $fri, $sat, $sun, $holiday, $upfile_name, $copied_file_name, $upfile_type)
 {
     //삭제할 게시물의 이미지파일명을 가져와서 삭제한다.
@@ -146,7 +146,7 @@ function user_modify($con, $id, $name, $addr, $tel, $department, $mon, $tue, $we
     $row = mysqli_fetch_array($result);
     $file_copied_0 = $row['file_copied_0'];
     if (!empty($file_copied_0)) {
-        unlink("./data/" . $file_copied_0);
+        unlink("../data/" . $file_copied_0);
     }
 
     $type = explode("/", $upfile_type);
@@ -161,6 +161,7 @@ function user_modify($con, $id, $name, $addr, $tel, $department, $mon, $tue, $we
     }
 }
 
+//mode에 따라 함수가 실행됨.
 switch ($mode) {
     case 'delete':
         user_delete($con, $delete_id);
@@ -179,14 +180,14 @@ switch ($mode) {
         //    </script>
         //  ";
         break;
-    case 'insert':
-        program_insert($con, $shop, $type, $subject, $content, $phone_number, $end_day, $choose, $price, $location, $upfile_name, $upfile_type, $copied_file_name, $regist_day);
-        echo "
-   	    <script>
-   	     location.href = 'admin_page.php';
-   	    </script>
-   	    ";
-        break;
+    // case 'insert':
+    //     program_insert($con, $shop, $type, $subject, $content, $phone_number, $end_day, $choose, $price, $location, $upfile_name, $upfile_type, $copied_file_name, $regist_day);
+    //     echo "
+   	//     <script>
+   	//      location.href = 'admin_page.php';
+   	//     </script>
+   	//     ";
+    //     break;
     default: break;
 }
 ?>

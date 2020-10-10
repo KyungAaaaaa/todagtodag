@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/css/notice.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/css/notice.css">
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/js/notice.js"></script>
 </head>
 

@@ -6,7 +6,7 @@
     <title>토닥토닥</title>
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=8">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=8">
-    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
+    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
     <script type="text/javascript" src="./js/member_form.js"></script>
 </head>
 
@@ -48,8 +48,8 @@
         $content = htmlspecialchars($row['content']);
         $subject = str_replace("\n", "<br>", $subject);
         $subject = str_replace(" ", "&nbsp;", $subject);
-        $content = str_replace("\n", "<br>", $content);
-        $content = str_replace(" ", "&nbsp;", $content);
+        // $content = str_replace("\n", "<br>", $content);
+        // $content = str_replace(" ", "&nbsp;", $content);
         $file_name_0 = $row['file_name_1'];
         $file_copied_0 = $row['file_copied_1'];
         $day = $row['regist_day'];

@@ -6,10 +6,18 @@
 
     <meta charset="utf-8">
     <title>토닥토닥</title>
+
+
+<!--	<link rel="stylesheet" href="http://--><?//= $_SERVER['HTTP_HOST']; ?><!--/todagtodag/css/common.css">-->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
+	<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag3.png">
+
+
+
     <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/css/normalize.css">
     <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/css/slide.css">
-    <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/introduce/css/introduce.css">
-    <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
+    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/css/introduce.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/js/vendor/modernizr.custom.min.js"></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/js/vendor/jquery-1.10.2.min.js"></script>
@@ -24,7 +32,6 @@
     </header>
     <section>
         <div class="slideshow">
-
             <div class="slideshow_slides">
                 <a href="#" style="background-image: url(https://cdn.imweb.me/thumbnail/20190516/5cdcfae3db63e.jpg);" id="slideshow1">
                     <p class="p1">건강이 편해지다</p>

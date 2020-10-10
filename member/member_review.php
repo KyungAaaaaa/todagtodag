@@ -61,7 +61,8 @@
 								<span class="col3"><?= $regist_day ?></span>
 								<span class="col4"><?= $star_rating ?></span>
 								<span class="col5">
-									<button id="review_delete">삭제</button>
+									<input type="hidden" class="review_no" value=<?= $row['no'] ?>>
+									<button class="review_delete">삭제</button>
 								</span>
 							</li>
                             <?php
@@ -69,9 +70,9 @@
                     ?>
 				</ul>
 			</div>
-			<!--            </div>-->
-			<!--            </div>-->
-			<!--            </div>-->
+			<!--			</div>-->
+			<!--			</div>-->
+			<!--			</div>-->
 
 		</section>
 		<footer>

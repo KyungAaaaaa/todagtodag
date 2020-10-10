@@ -17,7 +17,6 @@ if (isset($_GET["page"])) {
   <title>토닥토닥 :: 관리자페이지</title>
   <link rel="stylesheet" type="text/css" href="./css/admin.css?ver=4">
   <link rel="stylesheet" type="text/css" href="./css/admin_members.css?ver=6">
-
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
   <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
@@ -85,6 +84,107 @@ if (isset($_GET["page"])) {
       <div id="content">
         <h1 id="content_title">병원관리 > 병원<p>병원명을 클릭하시면 해당 병원의 상세 정보를 보실 수 있습니다.</p>
         </h1><br>
+        <form method="POST">
+          <span class="butoon_col2">
+            <button type="submit" name="load_data">
+              API 업데이트<br>
+              <p>새로운 병원 데이터를 받아옵니다.</p>
+            </button>
+          </span>
+        </form>
+        <br>
+        <?php
+        // ==================api 데이터 받아오기=====================================관리자 페이지로 옮기기
+        if (isset($_POST['load_data'])) api_load($con);
+        function api_load($con)
+        {
+          @set_time_limit(0);
+          $ch = curl_init();
+          $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire'; /*URL*/
+          $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
+          //                $queryParams .= '&' . urlencode('Q0') . '=' . urlencode('서울특별시'); /**/
+          //                $queryParams .= '&' . urlencode('Q1') . '=' . urlencode('강남구'); /**/
+          $queryParams .= '&' . urlencode('QZ') . '=' . urlencode('B'); /**/
+          //                $queryParams .= '&' . urlencode('QD') . '=' . urlencode('D001'); /**/
+          //                $queryParams .= '&' . urlencode('QT') . '=' . urlencode('1'); /**/
+          //                $queryParams .= '&' . urlencode('QN') . '=' . urlencode('삼성병원'); /**/
+          //                $queryParams .= '&' . urlencode('ORD') . '=' . urlencode('NAME'); /**/
+          //                $queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
+          $queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('1'); /**/
+
+
+          curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+          $response = curl_exec($ch);
+          curl_close($ch);
+
+
+          $object = simplexml_load_string($response);
+          $total_count = $object->body->totalCount;
+
+          $ch = curl_init();
+          $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire'; /*URL*/
+          $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
+          $queryParams .= '&' . urlencode('QZ') . '=' . urlencode('B'); /**/
+          $queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode($total_count); /**/
+          curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+          $response = curl_exec($ch);
+          curl_close($ch);
+
+          $object = simplexml_load_string($response);
+          $items = $object->body->items->item;
+          //                var_dump($items);
+
+          foreach ($items as $item) {
+            $query = "select EXISTS (select * from hospital where id='$item->hpid') as success;";
+
+            $result = mysqli_query($con, $query) or die(mysqli_error($con));
+            $row = mysqli_fetch_row($result);
+            if ($row[0] !== '1') {
+              $query = "insert into hospital (id,name,addr,tel,mon,tue,wed,thu,fri,sat,sun,holiday,mapx,mapy,map_description) ";
+              $query .= "values('$item->hpid','$item->dutyName','$item->dutyAddr','$item->dutyTel1',";
+              $query .= "'$item->dutyTime1s-$item->dutyTime1c','$item->dutyTime2s-$item->dutyTime2c',";
+              $query .= "'$item->dutyTime3s-$item->dutyTime3c','$item->dutyTime4s-$item->dutyTime4c',";
+              $query .= "'$item->dutyTime5s-$item->dutyTime5c','$item->dutyTime6s-$item->dutyTime6c',";
+              $query .= "'$item->dutyTime7s-$item->dutyTime7c','$item->dutyTime8s-$item->dutyTime8c',";
+              $query .= "'$item->wgs84Lon','$item->wgs84Lat','$item->dutyMapimg');";
+              $result = mysqli_query($con, $query) or die(mysqli_error($con));
+            }
+          }
+          $hpid = $con->query("select id from hospital;");
+          while ($row = mysqli_fetch_row($hpid)) {
+            //                        $query = "select EXISTS (select department from hospital where id='$row[0]') as success;";
+            $query = "select count(department) from hospital where id='$row[0]';";
+            $result = mysqli_query($con, $query) or die(mysqli_error($con));
+            $row2 = mysqli_fetch_row($result);
+            if ($row2[0] !== '1') {
+              $ch = curl_init();
+              $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire'; /*URL*/
+              $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
+              $queryParams .= '&' . urlencode('HPID') . '=' . urlencode($row[0]);
+              curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+              $response = curl_exec($ch);
+              curl_close($ch);
+
+              $object = simplexml_load_string($response);
+              $items = $object->body->items->item;
+
+              $query = "update hospital set department='$items->dgidIdName' where id='{$row[0]}'; ";
+              $result = mysqli_query($con, $query) or die(mysqli_error($con));
+            }
+          }
+          echo "<script>alert('API 업데이트가 완료되었습니다.');</script>";
+        }
+        ?>
+        <form name="hospital_form" method="POST" action="admin_hospital.php">
+          <input type='text' placeholder='병원명을 입력하세요' name='search'>
+          <span class="butoon_col">
+            <button type="button" onclick="document.hospital_form.submit()">검색</button>
+          </span>
+        </form>
         <ul class="collapsible" data-collapsible="accordion">
           <?php
           if (isset($_GET["page"])) {
@@ -93,10 +193,33 @@ if (isset($_GET["page"])) {
             $page = 1;
           }
 
-          $sql = "SELECT * from hospital";
-          $result = mysqli_query($con, $sql);
-          $total_record = mysqli_num_rows($result); // 전체 글 수
+          //search값이 셋팅되어 있으면 검색해서 가져오고 셋팅 안되어 있으면 전체글을 가져온다. 
+          if (isset($_POST["search"])) {
+            $search = $_POST["search"];
+            if (!($search === "")) {
+              $sql = "SELECT * from hospital where name = '$search'";
+              $result = mysqli_query($con, $sql);
+              $total_record = mysqli_num_rows($result); // 전체 글 수
+              if ($total_record === 0) {
+                echo "
+                <script>
+                alert('병원명을 찾지 못하였습니다.')
+                history.go(-1);
+                </script>
+                ";
+              }
+            } else {
+              $sql = "SELECT * from hospital";
+              $result = mysqli_query($con, $sql);
+              $total_record = mysqli_num_rows($result); // 전체 글 수  
+            }
+          } else {
+            $sql = "SELECT * from hospital";
+            $result = mysqli_query($con, $sql);
+            $total_record = mysqli_num_rows($result); // 전체 글 수
+          }
 
+          //한 페이지 당 보여줄 갯수
           $scale = 20;
 
           // 전체 페이지 수($total_page) 계산
@@ -138,7 +261,7 @@ if (isset($_GET["page"])) {
             //숫자 0 " " '0' null 0.0   $a = array()
             if (!empty($file_copied_0) && $file_type_0 == "image") {
               //이미지 정보를 가져오기 위한 함수 width, height, type
-              $image_info = getimagesize("./data/" . $file_copied_0);
+              $image_info = getimagesize("../data/" . $file_copied_0);
               $image_width = $image_info[0];
               $image_height = $image_info[1];
               $image_type = $image_info[2];
@@ -156,15 +279,17 @@ if (isset($_GET["page"])) {
                   <table>
                     <tr>
                       <?php
+                      // 파일이 있으면 image사진 보여주기
                       if ($file_type_0 == "image") {
                       ?>
                         <td class="td1">이미지파일</td>
                         <td colspan="3" class="td2">
-                          <img src='./data/<?= $file_copied_0 ?>' width='<?= $image_width ?>' style='width: 100px; height: 100px;'><br>
+                          <img src='../data/<?= $file_copied_0 ?>' width='<?= $image_width ?>' style='width: 100px; height: 100px;'><br>
                         </td>
                       <?php
+                        //파일이 없으면 파일명이랑 저장버튼 보여주기
                       } else if (!empty($_SESSION['user_id']) && !empty($file_copied_0)) {
-                        $file_path = "./data/" . $file_copied_0;
+                        $file_path = "../data/" . $file_copied_0;
                         $file_size = filesize($file_path);
                       ?>
                         <td class="td1">첨부파일</td>
@@ -239,7 +364,7 @@ if (isset($_GET["page"])) {
                   </table>
                   <div class="butoon_col">
                     <button type="button" name="button" id="modify_btn_<?= $i ?>">수정</button>
-                    <button type="button" name="button" onclick="location.href='hospital_curd.php?mode=delete&delete_id=<?= $id ?>'">탈퇴</button>
+                    <button type="button" name="button" onclick="location.href='hospital_curd.php?mode=delete&delete_id=<?= $id ?>'">삭제</button>
                   </div>
                 </form>
                 <script type="text/javascript">

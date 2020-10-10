@@ -39,7 +39,84 @@ a:active { text-decoration:none; color: rgb(44, 55, 68); }
     font-size: 16px; }
 #top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px;}
 #top #top_menu2 { float: right; margin: 20px 60px 0 0; }
-#top #top_menu2 li { display: inline; margin-left: 60px; }
+#top #top_menu2>li { display: inline-block; margin-left: 60px; }
+
+.tab_down_menu1 {
+    position: relative;
+    display: inline-block;
+    margin-left: -5.5px;
+    /* width: 60px; */
+}
+.tab_down_menu1 ul a {
+    width: 110px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    color: black;
+
+    text-decoration: none;
+    background-repeat:  no-repeat;
+    background-size: 0% 90%;
+    transition: background-size 0.8s;
+}
+.tab_down_menu1 ul li :hover {
+    background-position: 50% bottom;
+    background-size: 80% 80%;
+    background-image: linear-gradient(transparent 80%, #f1896a 60%);
+}
+.tab_down_menu1 ul {
+    position: absolute;
+    display: none;
+    z-index: 999;
+    top: 20px;
+    left: -28px;
+    margin-top: 20px;
+    border-bottom: 0.5px solid #cccccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.tab_down_menu1 .down_menu1 li{
+    display: block;
+    color: black;
+    margin-left: 0px;
+    margin-bottom: 5px;
+}
+
+.tab_down_menu2 {
+    position: relative;
+    display: inline-block;
+    margin-left: -5.5px;
+}
+.tab_down_menu2 ul{
+    position: absolute;
+    display: none;
+    z-index: 999;
+    top: 20px;
+    left: -30px;
+    margin-top: 20px;
+    background-color: white;
+    /* background-image: url("../img/todagtodag3.png"); */
+    border-bottom: 0.5px solid #cccccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.tab_down_menu2 .down_menu2 li{
+    display: block;
+    color: black;
+    margin-left: 0px;
+    margin-bottom: 5px;
+}
+.tab_down_menu2 ul a {
+    width: 130px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    color: black;
+}
+.tab_down_menu2 ul li :hover {
+    
+}
+
 /* 하단 푸터 */
 footer { height: 100%; background-color: rgb(44, 55, 68);}
 #footer_content {position: relative; width: 100%; color: #dddddd; padding: 40px;}

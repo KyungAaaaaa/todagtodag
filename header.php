@@ -42,11 +42,23 @@ else $userlevel = "";
         <?php
         }
         ?>
-    </ul>
-    <ul id="top_menu2">
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/introduce.php">소개</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital.php">진료/예약</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php">건강정보</a></li>
-        <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/notice_list.php">공지사항</a></li>
-    </ul>
+	</ul>
+	<ul id="top_menu2">
+		<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/introduce.php">소개</a></li>
+		<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital.php">진료/예약</a></li>
+		<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php">건강정보</a></li>
+        <li class="tab_down_menu1"><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/free_list.php">게시판</a>
+            <ul class="down_menu1">
+                <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/free_list.php">자유게시판</a></li>
+                <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/media/media_list.php">영상게시판</a></li>
+            </ul>
+        </li>
+        <li class="tab_down_menu2"><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/notice_list.php">고객센터</a>
+            <ul class="down_menu2">
+                <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/notice_list.php">공지사항</a></li>
+                <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/faq_list.php">FAQ</a></li>
+                <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/question_list.php">문의게시판</a></li>
+            </ul>
+        </li>
+	</ul>
 </div>

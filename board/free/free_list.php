@@ -4,12 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
-    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/css/free.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css" defer>
+    <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/css/free.css" defer>
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
-    <script src="http://code.jquery.com/jquery-1.7.js"></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 					<span class="col3">글쓴이</span>
 					<span class="col4">첨부</span>
 					<span class="col5">등록일</span>
-					<span class="col6">조회</span>
+					<!-- <span class="col6">조회</span> -->
 				</li>
 				<?php
 				if (isset($_GET["page"]))

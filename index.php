@@ -14,20 +14,18 @@
 <!DOCTYPE html>
 
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<title>토닥토닥</title>
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/css/home.css">
-		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
+		<link rel="shortcut icon" href="http://<?=$_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/js/slide.js" defer></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/js/home.js" defer></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 		<script src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=4a9b86a6ef0cefc3bf4d293322310ba3&libraries=services"></script>
-
 	</head>
 
 	<body>

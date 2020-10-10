@@ -17,97 +17,10 @@
                 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
 		<section>
-			<form method="post">
-				<input type="submit" name="load_data" value="데이터 받아오기">
-			</form>
             <?php
                 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
                 if (isset($_POST['keyword'])) $keyword = $_POST['keyword'];
                 else $keyword = null;
-
-                // ==================api 데이터 받아오기=====================================관리자 페이지로 옮기기
-                if (isset($_POST['load_data'])) api_load($con);
-                function api_load($con)
-                {
-                    @set_time_limit(0);
-                    $ch = curl_init();
-                    $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire'; /*URL*/
-                    $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
-                    //                $queryParams .= '&' . urlencode('Q0') . '=' . urlencode('서울특별시'); /**/
-                    //                $queryParams .= '&' . urlencode('Q1') . '=' . urlencode('강남구'); /**/
-                    $queryParams .= '&' . urlencode('QZ') . '=' . urlencode('B'); /**/
-                    //                $queryParams .= '&' . urlencode('QD') . '=' . urlencode('D001'); /**/
-                    //                $queryParams .= '&' . urlencode('QT') . '=' . urlencode('1'); /**/
-                    //                $queryParams .= '&' . urlencode('QN') . '=' . urlencode('삼성병원'); /**/
-                    //                $queryParams .= '&' . urlencode('ORD') . '=' . urlencode('NAME'); /**/
-                    //                $queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
-                    $queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('1'); /**/
-
-
-                    curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-                    $response = curl_exec($ch);
-                    curl_close($ch);
-
-
-                    $object = simplexml_load_string($response);
-                    $total_count = $object->body->totalCount;
-
-                    $ch = curl_init();
-                    $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire'; /*URL*/
-                    $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
-                    $queryParams .= '&' . urlencode('QZ') . '=' . urlencode('B'); /**/
-                    $queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode($total_count); /**/
-                    curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                    $response = curl_exec($ch);
-                    curl_close($ch);
-
-                    $object = simplexml_load_string($response);
-                    $items = $object->body->items->item;
-                    //                var_dump($items);
-
-                    foreach ($items as $item) {
-                        $query = "select EXISTS (select * from hospital where id='$item->hpid') as success;";
-
-                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                        $row = mysqli_fetch_row($result);
-                        if ($row[0] !== '1') {
-                            $query = "insert into hospital (id,name,addr,tel,mon,tue,wed,thu,fri,sat,sun,holiday,mapx,mapy,map_description) ";
-                            $query .= "values('$item->hpid','$item->dutyName','$item->dutyAddr','$item->dutyTel1',";
-                            $query .= "'$item->dutyTime1s-$item->dutyTime1c','$item->dutyTime2s-$item->dutyTime2c',";
-                            $query .= "'$item->dutyTime3s-$item->dutyTime3c','$item->dutyTime4s-$item->dutyTime4c',";
-                            $query .= "'$item->dutyTime5s-$item->dutyTime5c','$item->dutyTime6s-$item->dutyTime6c',";
-                            $query .= "'$item->dutyTime7s-$item->dutyTime7c','$item->dutyTime8s-$item->dutyTime8c',";
-                            $query .= "'$item->wgs84Lon','$item->wgs84Lat','$item->dutyMapimg');";
-                            $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                        }
-                    }
-                    $hpid = $con->query("select id from hospital;");
-                    while ($row = mysqli_fetch_row($hpid)) {
-//                        $query = "select EXISTS (select department from hospital where id='$row[0]') as success;";
-                        $query = "select count(department) from hospital where id='$row[0]';";
-                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                        $row2 = mysqli_fetch_row($result);
-                        if ($row2[0] !== '1') {
-                            $ch = curl_init();
-                            $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire'; /*URL*/
-                            $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
-                            $queryParams .= '&' . urlencode('HPID') . '=' . urlencode($row[0]);
-                            curl_setopt($ch, CURLOPT_URL, $url . $queryParams);
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                            $response = curl_exec($ch);
-                            curl_close($ch);
-
-                            $object = simplexml_load_string($response);
-                            $items = $object->body->items->item;
-
-                            $query = "update hospital set department='$items->dgidIdName' where id='{$row[0]}'; ";
-                            $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                        }
-                    }
-                }
             ?>
 			<div class="container">
 				<h1>병원 찾기</h1>

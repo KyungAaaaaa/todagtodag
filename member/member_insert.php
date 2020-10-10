@@ -10,6 +10,7 @@
   if($type === "insert") {
     $id   = $_POST["id"];
     $password = $_POST["password"];
+    $password = sha1("todagtodag",$password);
     $name = $_POST["name"];
     $phone_one = $_POST["phone_one"];
     $phone_two = $_POST["phone_two"];
@@ -47,6 +48,7 @@
   } else {
     $id   = $_POST["id"];
     $password = $_POST["password"];
+    $password = sha1("todagtodag",$password);
     $name = $_POST["name"];
     $phone_one = $_POST["phone_one"];
     $phone_two = $_POST["phone_two"];

@@ -1,11 +1,7 @@
 @import "../../css/common_var.css";
 
-:root {
-	--right_box_width: 800px;
-}
-
 .container {
-	width: 1000px;
+	width: var(--content--width);
 	margin: 2em auto;
 	display: flex;
 	flex-direction: row;
@@ -38,7 +34,7 @@
 .current_category {color: var(--main--color)}
 .current_page {font-weight: bolder;color: black;}
 
-.right_box {width: var(--right_box_width);}
+.right_box {	--right_box_width: 800px;width: var(--right_box_width);}
 
 .content {display: flex;flex-direction: column;align-items: center;}
 .content_title {

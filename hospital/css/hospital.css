@@ -1,6 +1,6 @@
 
 .container {
-    /*width: 1000px;*/
+    width: var(--content--width);
     margin: 2em auto;
     align-items: center;
     display: flex;

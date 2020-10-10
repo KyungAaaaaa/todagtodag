@@ -1,13 +1,3 @@
-<head>
-	<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/css/home.css">
-	<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
-	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/js/slide.js" defer></script>
-	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/js/home.js" defer></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
-	<script type="text/javascript"
-	        src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=4a9b86a6ef0cefc3bf4d293322310ba3&libraries=services"></script>
-</head>
 <a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png"
                               class="to_the_top"></a>
 <div id="home_img_bar">
@@ -30,8 +20,6 @@
 </div>
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
-    include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
-    create_table($con, "hospital");
 ?>
 <div class="container">
 	<div class="search">
@@ -43,7 +31,13 @@
 
 	<div class="location">
 		<h1>내 주변 병원</h1><span><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/placeholder.png"></span>
-		<div></div>
+		<div>
+			<div></div>
+			<a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital.php">
+			<span id="hospital_more">
+				<h2>병원 찾기 ></h2>
+			</span></a>
+		</div>
 	</div>
 	<div class="today_health_info">
 		<h1>오늘의 건강 정보</h1>

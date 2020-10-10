@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>토닥토닥</title>
-		<link rel="stylesheet" type="text/css"
-		      href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital.css">
+		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital.css">
+		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital.js" defer></script>
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
@@ -78,7 +78,7 @@
 				<div class="hospital_list">
 					<ul>
                         <?php
-                           include "hospital_list.php"; ?>
+                            include "hospital_list.php"; ?>
 					</ul>
 				</div>
 			</div>

@@ -3,7 +3,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 
 $id   = $_POST["id"];
 $password = $_POST["password"];
-$password = sha1("todagtodag",$password);
 
 $sql = "select * from members where id='$id'";
 $result = mysqli_query($con, $sql);

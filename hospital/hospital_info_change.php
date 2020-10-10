@@ -59,10 +59,10 @@
 			<div class='hospital_map'>
 				<div class='subject'><img src='img/cursor.png'>상세 위치</div>
                 <?= $row['map_description'] ?>
-
-
 				<div id='map'>
+
 					<script>
+
                         const container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
                         const options = { //지도를 생성할 때 필요한 기본 옵션
                             center: new kakao.maps.LatLng(<?=$row['mapy'] . "," . $row['mapx']?>), //지도의 중심좌표.
@@ -95,32 +95,33 @@
                         marker.setMap(map);
 
 
-
 					</script>
 				</div>
-
 			</div>
 		</div>
         <?php
     } else if ($tab === "review") {
-        ?>
-		<div class='hospital_review'>
-		<ul>
-        <?php
-        $query = "select * from review where hospital_id='{$hospital_id}'";
-        $review_result = $con->query($query) or die(mysqli_error($con));
-        if (mysqli_num_rows($review_result)!==0):
-        while ($reviews = mysqli_fetch_assoc($review_result)) :
+?>
+    <div class='hospital_review'>
+        <ul>
+            <?php
+            $query = "select * from review where hospital_id='{$hospital_id}'";
+            $review_result = $con->query($query) or die(mysqli_error($con));
+            if (mysqli_num_rows($review_result) !== 0) :
+                while ($reviews = mysqli_fetch_assoc($review_result)) :
             ?>
-			<li>
-				<div class="user_info"><img src='img/user.png'><h4>
-                    <?php
-                        $query = "select `id` from members where num={$reviews['member_num']}";
-                        $member_id = $con->query($query) or die(mysqli_error($con));
-                        $member_id = mysqli_fetch_row($member_id);
-                        ?>
-                       <?=$member_id[0]?></h4></div>
-				<?php
+                    <li>
+                        <div class="user_info"><img src='img/user.png'>
+                            <h4>
+                                <?php
+                                $query = "select `id` from members where num={$reviews['member_num']}";
+                                $member_id = $con->query($query) or die(mysqli_error($con));
+                                $member_id = mysqli_fetch_row($member_id);
+                                ?>
+                                <?= $member_id[0] ?></h4>
+                        </div>
+                        <?php
+
                         $i = 0;
                         echo "<div class='review_content'><p>";
                         while ($i < $reviews['star_rating']) {
@@ -132,21 +133,184 @@
                             $i++;
                         }
                         echo "</p>";
-                    ?>
+                        ?>
 
-					<p><?= $reviews['content'] ?></p>
-					<p class="regist_day"><?= $reviews['regist_day'] ?></p>
-			</div>
+                        <p><?= $reviews['content'] ?></p>
+                        <p class="regist_day"><?= $reviews['regist_day'] ?></p>
+    </div>
 
-        <?php endwhile;
-        else: echo "<li>리뷰가 존재하지 않습니다</li>";
-        endif;?>
-		</li>
-		</ul>
+<?php endwhile;
+            else : echo "<li>리뷰가 존재하지 않습니다</li>";
+            endif; ?>
+</li>
+</ul>
 
-		</div>
+</div>
+<?php
+} else if ($tab === "appointment") {
+        ?>
         <?php
-    } else if ($tab === "appointment") {
-        echo "예약테이블 설계하기전!";
+        // POST으로 넘겨 받은 year값이 있다면 넘겨 받은걸 year변수에 적용하고 없다면 현재 년도
+        $year = isset($_POST['year']) ? $_POST['year'] : date('Y');
+        // POST으로 넘겨 받은 month값이 있다면 넘겨 받은걸 month변수에 적용하고 없다면 현재 월
+        $month = isset($_POST['month']) ? $_POST['month'] : date('m');
+
+        $date = "$year-$month-01"; // 현재 날짜
+        $time = strtotime($date); // 현재 날짜의 타임스탬프
+        $start_week = date('w', $time); // 1. 시작 요일
+        $total_day = date('t', $time); // 2. 현재 달의 총 날짜
+        $total_week = ceil(($total_day + $start_week) / 7);  // 3. 현재 달의 총 주차
+        ?>
+        <?php echo "$year 년 $month 월" ?>
+		<!-- 현재가 1월이라 이전 달이 작년 12월인경우 -->
+        <?php if ($month == 1) : ?>
+			<!-- 작년 12월 -->
+			<button id="hospital_calander1">이전 달</button>
+			<script>
+                $("#hospital_calander1").click(function () {
+                    $.ajax({
+                        url    : 'hospital_info_change.php',
+                        type   : 'POST',
+                        data   : {
+                            "hospital_id": "<?= $hospital_id ?>",
+                            "current_tab": "appointment",
+                            "year"       : <?= $year - 1 ?>,
+                            "month"      : 12
+                        },
+                        success: function (data) {
+                            $(".content").html(data);
+                        }
+                    })
+                        .done(function () {
+                            console.log("done");
+                        })
+                        .fail(function () {
+                            console.log("error");
+                        })
+                        .always(function () {
+                            console.log("complete");
+                        });
+                })
+			</script>
+        <?php else : ?>
+			<!-- 이번 년 이전 월 -->
+			<button id="hospital_calander2">이전 달</button>
+			<script>
+                $("#hospital_calander2").click(function () {
+                    $.ajax({
+                        url    : 'hospital_info_change.php',
+                        type   : 'POST',
+                        data   : {
+                            "hospital_id": "<?= $hospital_id ?>",
+                            "current_tab": "appointment",
+                            "year"       : <?= $year ?>,
+                            "month"      : <?= $month - 1 ?>
+                        },
+                        success: function (data) {
+                            $(".content").html(data);
+                        }
+                    })
+                        .done(function () {
+                            console.log("done");
+                        })
+                        .fail(function () {
+                            console.log("error");
+                        })
+                        .always(function () {
+                            console.log("complete");
+                        });
+                })
+			</script>
+        <?php endif ?>
+
+		<!-- 현재가 12월이라 다음 달이 내년 1월인경우 -->
+        <?php if ($month == 12) : ?>
+			<!-- 내년 1월 -->
+			<button id="hospital_calander3">다음 달</button>
+			<script>
+                $("#hospital_calander3").click(function () {
+                    $.ajax({
+                        url    : 'hospital_info_change.php',
+                        type   : 'POST',
+                        data   : {
+                            "hospital_id": "<?= $hospital_id ?>",
+                            "current_tab": "appointment",
+                            "year"       : <?= $year + 1 ?>,
+                            "month"      : 1
+                        },
+                        success: function (data) {
+                            $(".content").html(data);
+                        }
+                    })
+                        .done(function () {
+                            console.log("done");
+                        })
+                        .fail(function () {
+                            console.log("error");
+                        })
+                        .always(function () {
+                            console.log("complete");
+                        });
+                })
+			</script>
+        <?php else : ?>
+			<!-- 이번 년 다음 월 -->
+			<button id="hospital_calander3">다음 달</button>
+			<script>
+                $("#hospital_calander3").click(function () {
+                    $.ajax({
+                        url    : 'hospital_info_change.php',
+                        type   : 'POST',
+                        data   : {
+                            "hospital_id": "<?= $hospital_id ?>",
+                            "current_tab": "appointment",
+                            "year"       : <?= $year ?>,
+                            "month"      : <?= $month + 1 ?>
+                        },
+                        success: function (data) {
+                            $(".content").html(data);
+                        }
+                    })
+                        .done(function () {
+                            console.log("done");
+                        })
+                        .fail(function () {
+                            console.log("error");
+                        })
+                        .always(function () {
+                            console.log("complete");
+                        });
+                })
+			</script>
+        <?php endif ?>
+
+		<table border="1">
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+
+			<!-- 총 주차를 반복합니다. -->
+            <?php for ($n = 1, $i = 0; $i < $total_week; $i++) : ?>
+				<tr>
+					<!-- 1일부터 7일 (한 주) -->
+                    <?php for ($k = 0; $k < 7; $k++) : ?>
+						<td>
+							<!-- 시작 요일부터 마지막 날짜까지만 날짜를 보여주도록 -->
+                            <?php if (($n > 1 || $k >= $start_week) && ($total_day >= $n)) : ?>
+								<!-- 현재 날짜를 보여주고 1씩 더해줌 -->
+                                <?php echo $n++ ?>
+                            <?php endif ?>
+						</td>
+                    <?php endfor; ?>
+				</tr>
+            <?php endfor; ?>
+		</table>
+        <?php
     }
 ?>

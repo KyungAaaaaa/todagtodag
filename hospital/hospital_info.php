@@ -10,6 +10,14 @@
 		        src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=4a9b86a6ef0cefc3bf4d293322310ba3&libraries=services"></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital_info.js" defer></script>
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
+		<style type="text/css">
+			table {
+				border-spacing: 0;
+			}
+			table td {
+				text-align: center;
+			}
+		</style>
 	</head>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
 	<body>
@@ -37,12 +45,12 @@
                     $file_copied = $row['file_copied_0'];
                     $file_type = $row['file_type_0'];
                 ?>
-
 				<div class="hospital_info">
                     <?php
-                        if (strpos($file_type, "image") !== false) echo "<img src='../admin/data/$file_copied'>";
+                        if (strpos($file_type, "image") !== false) echo "<img src='../../admin/data/$file_copied'>";
                         else echo "<img src='img/hospital.png'>" ?>
-					<div><h2><?= $row['name'] ?></h2>
+					<div>
+						<h2><?= $row['name'] ?></h2>
                         <?= $row['addr'] ?>
 					</div>
 				</div>

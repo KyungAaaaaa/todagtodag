@@ -1,4 +1,12 @@
-@import "common_var.css";
+@import "common_font.css";
+
+:root{
+    --main--color:#ff4b23;
+    --sub--color: #9f9f9f;
+    --content--width:1000px;
+    --header--width:1500px;
+}
+
 
 /* 마진 패딩 초기화 */
 * {box-sizing: border-box; padding: 0; margin: 0;}

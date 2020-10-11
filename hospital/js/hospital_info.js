@@ -40,3 +40,23 @@ $appointment_tab.on("click", tab_change);
 $detail_tab.addClass("current");
 
 
+$(".like_btn").on("click", function () {
+    const $status = $(this).children("img").attr('value');
+    const $interest_no = $('#interest_no').val();
+    const $member_num = $('#member_num').val();
+    const $hospital_id = $('#hospital_id').val();
+    console.log($status);
+    $.ajax({
+        type   : "POST",
+        url    : "hospital_info_change.php",
+        data   : {
+            member_num : $member_num,
+            hospital_id: $hospital_id,
+            like_status: $status,
+            interest_no: $interest_no
+        },
+        success: function (data) {
+            $(".like_btn").html(data);
+        }
+    })
+});

@@ -5,6 +5,38 @@
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
 
+    if (isset($_POST['like_status'])) {
+        $status = $_POST['like_status'];
+        $interest_no = $_POST['interest_no'];
+        $member_num = $_POST['member_num'];
+        $hospital_id = $_POST['hospital_id'];
+
+        if ($status === "like") {
+            $query = "delete from interest where no={$interest_no}";
+            $result = mysqli_query($con, $query) or die(mysqli_error($con));
+            ?>
+	        <img src='img/unlike.png' value='unlike'>
+	        <input type='hidden' id='interest_no' name='interest_no' value=''>
+	        <?php
+            return;
+        } else {
+            $query = "insert into interest values (null,$member_num,'$hospital_id')";
+            $result = mysqli_query($con, $query) or die(mysqli_error($con));
+
+            $query = "select * from interest where `member_num`='{$member_num}' and `hospital_id`='{$hospital_id}'";
+            $result = mysqli_query($con, $query) or die(mysqli_error($con));
+            $num_row = mysqli_num_rows($result);
+            if ($num_row !== 0) {
+                $row = mysqli_fetch_assoc($result);
+                ?>
+				<img src='img/like.png' value='like'>
+				<input type='hidden' id='interest_no' name='interest_no' value='<?= $row['no'] ?>'>
+                <?php
+            }
+            return;
+        }
+    }
+
     if (isset($_POST['current_tab'])) $tab = $_POST['current_tab'];
     else $tab = "detail";
 

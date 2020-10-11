@@ -9,6 +9,7 @@
     create_table($con, "notice");
     create_table($con, "review");
     create_table($con, "health_info");
+    create_table($con, "interest");
 ?>
 
 <!DOCTYPE html>

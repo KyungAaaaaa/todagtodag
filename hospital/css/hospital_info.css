@@ -1,15 +1,16 @@
 .container {
-
+    min-width: var(--header--width);
     margin: 5em auto;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-/*.container:not(:first-child){background-color: #DFDFDF;}*/
 .container h2{font-family: "S-CoreDream-6Bold";}
-.hospital_info{width:60%;font-size: 24px}
-.hospital_info img{width: 75px; margin-right: 20px}
+.hospital_info{width:60%;font-size: 24px;display: flex;flex-direction: row;align-items: center;position: relative}
+.hospital_info img:first-child{width: 75px; margin-right: 20px}
+.hospital_info .like_btn{ position:absolute;right:10px;cursor: pointer}
+.hospital_info .like_btn img{width: 40px;}
 .hospital_info div{display: inline-block; }
 .menu{width:60%;margin-top: 20px}
 .menu ul{margin:10px;display: flex; border-bottom: 1px solid #d7d7d7

@@ -53,6 +53,31 @@
 						<h2><?= $row['name'] ?></h2>
                         <?= $row['addr'] ?>
 					</div>
+					<span class='like_btn'>
+                    <?php
+                        $query = "select num from members where `id`='{$userid}'";
+                        $result = mysqli_query($con, $query);
+                        $num_row = mysqli_num_rows($result);
+                        if ($num_row === 0) alert_back("올바르지 않은 접근입니다.");
+                        $row = mysqli_fetch_row($result);
+                        $member_num = $row[0];
+
+                        $query = "select * from interest where `member_num`='{$member_num}' and `hospital_id`='{$hospital_id}'";
+                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+                        $num_row = mysqli_num_rows($result);
+                        if ($num_row !== 0) {
+                            $row = mysqli_fetch_assoc($result);
+                            echo "<img src='img/like.png' value='like'>
+									<input type='hidden' id='interest_no' name='interest_no' value='{$row['no']}'>";
+                        } else {
+                            echo "<img src='img/unlike.png' value='unlike'>
+								<input type='hidden' id='interest_no' name='interest_no' value=''>";
+                        }
+                    ?>
+
+					</span>
+					<input type='hidden' id='member_num' name='member_num' value='<?= $member_num ?>'><input
+							type='hidden' id='hospital_id' name='hospital_id' value='<?= $hospital_id ?>'>
 				</div>
 				<div class="menu">
 					<ul>

@@ -116,6 +116,14 @@ function create_table($con, $table_name)
                             PRIMARY KEY (`num`)
                           ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
+                case 'interest':
+                $sql = "CREATE TABLE `interest` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `member_num` int(11) NOT NULL,
+  `hospital_id` char(10) NOT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                break;
             default:
                 echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";
                 break;

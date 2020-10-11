@@ -1,25 +1,35 @@
+body { background-image: url('https://cdn.imweb.me/thumbnail/20190418/5cb7cbd7546cf.png');
+    background-size : cover; background-repeat : no-repeat;  background-position : 50% 50%;
+    background-attachment: fixed; }
+section { background-color: white; }
 
-.container {
-    width: var(--content--width);
-    margin: 2em auto;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-#btn{cursor: pointer;}
-.hospital_list{
-    width: 700px;
-}
-.hospital_list ul{
-    height: 600px;
-    overflow-y: scroll;
-}
-.hospital_list li{
-    padding: 1em;
-    margin-bottom: 3px;
-    border: 1px solid #bababa;
-}
-.menu div{
-    cursor: pointer;
-}
+header { position: relative; color: white;}
+
+.background_image { height: 100vh; background-color: rgba( 255, 255, 255, 0 ); }
+.background_image #p1 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -500px;
+    margin-top: -50px; font-size: 50px; font-weight: bold;}
+.background_image #p2 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -490px;
+    margin-top: 20px; font-size: 20px; }
+
+/* container */
+.container { width: var(--content--width); margin: 0 auto; align-items: center; display: flex;
+    flex-direction: column; justify-content: center; }
+.container h1 { font-size: 50px; margin-top: 80px; }
+.container h4 { font-size: 22px; color: rgb(86, 95, 105); letter-spacing: 1px; margin-top: 30px;}
+
+/* menu & select_box */
+.menu { position: relative; cursor: pointer; margin-top: 30px; margin-bottom: 80px; margin-right: 80px; 
+    font-size: 18px; }
+.menu #h_area1 { width: 150px; height: 40px; font-size: 18px; border-radius: 20px; cursor: pointer; }
+.menu #h_area2 { width: 150px; height: 40px; font-size: 18px; border-radius: 20px; cursor: pointer; }
+.menu #department { width: 150px; height: 40px; font-size: 18px; border-radius: 20px; cursor: pointer; }
+.menu #search { width: 200px; height: 40px; font-size: 18px; border-radius: 20px; text-align: center;
+    cursor: pointer; }
+.menu #btn { position: absolute; top: 4px; left: 690px; height: 40px; cursor: pointer;}
+.menu #btn img { width: 30px; height: 30px; }
+
+/* hospital_list */
+.hospital_list{ width: 1000px; margin-bottom: 80px; }
+.hospital_list ul{ height: 600px; overflow-y: scroll; }
+.hospital_list li{ padding: 1em; margin-bottom: 3px; border: 1px solid #bababa; }
+.hospital_list li a { color: black;}

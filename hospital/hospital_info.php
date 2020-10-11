@@ -10,21 +10,14 @@
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital_info.js" defer></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
-		<style type="text/css">
-			table {
-				border-spacing: 0;
-			}
-			table td {
-				text-align: center;
-			}
-		</style>
 	</head>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
 	<body>
 		<header>
             <?php
                 session_start();
-                include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+				include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; 
+			?>
 		</header>
 		<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png"
 		                              class="to_the_top"></a>

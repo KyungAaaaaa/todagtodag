@@ -44,10 +44,11 @@
                     $file_name = $row['file_name_0'];
                     $file_copied = $row['file_copied_0'];
                     $file_type = $row['file_type_0'];
+                    $root = "http://" . $_SERVER['HTTP_HOST'] . "/todagtodag";
                 ?>
 				<div class="hospital_info">
                     <?php
-                        if (strpos($file_type, "image") !== false) echo "<img src='../../admin/data/$file_copied'>";
+                        if (strpos($file_type, "image") !== false) echo "<img src='{$root}/admin/data/$file_copied'>";
                         else echo "<img src='img/hospital.png'>" ?>
 					<div>
 						<h2><?= $row['name'] ?></h2>

@@ -2,12 +2,15 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
     $period_mode = "all";
     if (isset($_POST['period_mode'])) $period_mode = $_POST['period_mode'];
+
+    //기간을 선택해서 조회할때
     if ($period_mode === "select_date") {
         if (!empty($_POST['date_1']) && !empty($_POST['date_2'])) {
             $date1 = $_POST['date_1'];
             $date2 = $_POST['date_2'];
         } else {
-            alert_back("조회하실 날짜를 선택해주세요");
+            echo "<li>조회할 날짜를 선택하세요.</li>";
+            return;
         }
 
 //    if ( $period_mode==="a") $query = "select * from appointment where date between {$date_1} and {$date_2};";
@@ -27,7 +30,6 @@
                         if (strpos($file_type, "image") !== false) echo "<img src='{$root}/admin/data/$file_copied'>";
                         else echo "<img src='{$root}/img/todagtodag3.png'>" ?>
                 <a href='#'><h3><?= $row['name'] ?></h3><p>진료일 : 2020.09.20</p>
-	                <input type='hidden' class="userid" value='<?=$userid?>'>
 	                <input type='hidden' class="hospital_id" value='<?=$row['id']?>'>
 	                <button class="review_write">리뷰 작성</button>
                 <?
@@ -58,8 +60,8 @@
                         <?
                     }
 
-                ?>
-				</a></span>
+                ?></a>
+				</span>
 			</li>
 
             <?php

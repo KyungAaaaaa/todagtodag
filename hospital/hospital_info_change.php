@@ -169,7 +169,7 @@ if ($tab === "detail") {
                     <!-- 현재가 1월이라 이전 달이 작년 12월인경우 -->
                     <?php if ($month == 1) : ?>
                         <!-- 작년 12월 -->
-                        <button id="hospital_calander1">이전 달</button>
+                        <button id="hospital_calander1">&nbsp;▼&nbsp;</button>
                         <script>
                             $("#hospital_calander1").click(function() {
                                 $.ajax({
@@ -198,7 +198,7 @@ if ($tab === "detail") {
                         </script>
                     <?php else : ?>
                         <!-- 이번 년 이전 월 -->
-                        <button id="hospital_calander2">이전 달</button>
+                        <button id="hospital_calander2">&nbsp;▼&nbsp;</button>
                         <script>
                             $("#hospital_calander2").click(function() {
                                 $.ajax({
@@ -230,7 +230,7 @@ if ($tab === "detail") {
                     <!-- 현재가 12월이라 다음 달이 내년 1월인경우 -->
                     <?php if ($month == 12) : ?>
                         <!-- 내년 1월 -->
-                        <button id="hospital_calander3">다음 달</button>
+                        <button id="hospital_calander3">&nbsp;▲&nbsp;</button>
                         <script>
                             $("#hospital_calander3").click(function() {
                                 $.ajax({
@@ -259,7 +259,7 @@ if ($tab === "detail") {
                         </script>
                     <?php else : ?>
                         <!-- 이번 년 다음 월 -->
-                        <button id="hospital_calander3">다음 달</button>
+                        <button id="hospital_calander3">&nbsp;▲&nbsp;</button>
                         <script>
                             $("#hospital_calander3").click(function() {
                                 $.ajax({

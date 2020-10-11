@@ -41,7 +41,7 @@ th,td{ width: 130px }
 .hospital_calander_head { position: relative; width: 250px; height: 30px; background-color: rgb(44, 55, 68); 
     color: gray;} 
 .hospital_calander_year_month { position: absolute; top: 7px; left: 10px; font-size: 14px;}
-.hospital_calander_button { position: absolute; top: 2px; left: 140px;}
+.hospital_calander_button { position: absolute; top: 2px; left: 190px;}
 .hospital_calander_button button { background-color: rgb(44, 55, 68); color: gray; border: 1px solid rgb(44, 55, 68); 
     cursor: pointer;}
 .hospital_calander_button button:hover { background-color: gray; color: white;}

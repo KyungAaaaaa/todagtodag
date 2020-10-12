@@ -26,9 +26,14 @@
 <body>
 	<header>
 		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+		<div class="background_image">
+			<p id="p1">토닥토닥 공지사항을 알려드립니다.</p>
+			<p id="p2">↓ 아래로 드래그 해주세요.</p>
+		</div>
 	</header>
 	<section>
 		<div id="board_box">
+			<br><br><br>
 			<h3 id="board_title">
 				공지사항 > 수정
 			</h3>

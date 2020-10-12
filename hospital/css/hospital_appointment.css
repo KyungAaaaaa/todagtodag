@@ -1,0 +1,48 @@
+.container { width: var(--content--width); margin: 0 auto; align-items: center; display: flex; flex-direction: column; 
+    justify-content: center; height: 100vh; margin-top: 30px; margin-bottom: 30px; }
+
+.container_content { margin-top: 30px; width: 100vh; height: 700px; border: 3px solid rgb(44, 55, 68); text-align: center; 
+    padding: 40px; border-radius: 30px; }
+
+.container img { width: 100px; height: 100px; opacity: 0.7;}
+.container h2 { font-size: 30px; margin-top: 30px;}
+.container h1 { height: 80px; font-size: 36px; margin-top: 30px; background-color: #dddddd; padding: 15px; border-radius: 30px;}
+.container span { font-size: 38px; font-family: bold; }
+.container p { font-size: 30px; margin-top: 50px; }
+.container_button { margin-top: 50px; }
+.container #container_button1 { 
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid rgb(44, 55, 68);
+    background-color: white;
+    color: rgb(44, 55, 68);
+    cursor: pointer;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.container #container_button1:hover {
+    border: 1px solid rgb(44, 55, 68);
+    background-color: rgb(44, 55, 68);
+    color: white;
+}
+
+.container #container_button2 { 
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid rgb(44, 55, 68);
+    background-color: white;
+    color: rgb(44, 55, 68);
+    cursor: pointer;
+    border-radius: 30px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+.container #container_button2:hover {
+    border: 1px solid rgb(44, 55, 68);
+    background-color: rgb(44, 55, 68);
+    color: white;
+}

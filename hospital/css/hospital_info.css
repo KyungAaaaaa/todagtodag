@@ -6,8 +6,10 @@
 	flex-direction: column;
 	justify-content: center;
 }
-.container h2 {font-family: "S-CoreDream-6Bold";}
-.hospital_info {width: 60%;font-size: 24px;display: flex;flex-direction: row;align-items: center;position: relative}
+
+.container h2 { font-family: "S-CoreDream-6Bold"; }
+.hospital_info { width: 60%; font-size: 24px;display: flex;flex-direction: row;align-items: center;
+	position: relative; }
 .hospital_info img:first-child {width: 75px; margin-right: 20px}
 .hospital_info .like_btn { position: absolute;right: 10px;cursor: pointer}
 .hospital_info .like_btn img {width: 40px;}
@@ -37,7 +39,6 @@ th, td { width: 130px }
 .hospital_review .regist_day {font-size: 14px; color: var(--sub--color); margin-top: 5px;}
 
 /* hospital_appointment (appointment 전체를 감싸고 있는 div) */
-
 /* hospital_calander */
 .hospital_calander { float: left; position: relative; width: 250px; height: 350px; }
 .hospital_calander p { margin-top: 9px; font-size: 14px; }
@@ -57,18 +58,69 @@ th, td { width: 130px }
 	cursor: pointer;}
 .hospital_calander_body table td:hover { background-color: gray; }
 
+
+
 /* hospital_reservation_time */
-.hospital_reservation_time { position: relative; float: left; width: 250px; height: 350px;
+.hospital_appointment_time { position: relative; float: left; width: 250px; height: 350px;
 	margin-left: 50px; }
-.hospital_reservation_time select { width: 230px; height: 250px; margin-left: 10px; margin-top: 0px;
+.hospital_appointment_time select { width: 230px; height: 250px; margin-left: 10px; margin-top: 0px;
 	cursor: pointer; font-size: 16px;}
-.hospital_reservation_time p { margin-top: 9px; margin-left: 10px; font-size: 14px; }
-.hospital_reservation_time input { position: absolute; top: 320px; left: 105px; width: 100px; }
+.hospital_appointment_time p { margin-top: 9px; margin-left: 10px; font-size: 14px; }
+.hospital_appointment_time input { position: absolute; top: 320px; left: 105px; width: 100px; }
+
+
 
 /* hospital_reservation_department */
-.hospital_reservation_department { position: relative; float: left; width: 250px; height: 350px;
+.hospital_appointment_department { position: relative; float: left; width: 250px; height: 350px;
 	margin-left: 50px; }
-.hospital_reservation_department select { width: 230px; height: 250px; margin-left: 10px; margin-top: 0px;
+.hospital_appointment_department select { width: 230px; height: 250px; margin-left: 10px; margin-top: 0px;
 	cursor: pointer; font-size: 16px;}
-.hospital_reservation_department p { margin-top: 9px; margin-left: 10px; font-size: 14px; }
-.hospital_reservation_department input { position: absolute; top: 320px; left: 80px; width: 120px;}
+.hospital_appointment_department p { margin-top: 9px; margin-left: 10px; font-size: 14px; }
+.hospital_appointment_department input { position: absolute; top: 320px; left: 80px; width: 120px;}
+
+
+
+/* hospital_appointment_detail */
+.hospital_appointment_detail { margin-top: 380px; }
+.hospital_appointment_detail p { margin-left: 10px; margin-bottom: 10px; font-size: 14px; color: gray;}
+.hospital_appointment_detail textarea { width: 840px; height: 200px; resize: none; font-size: 16px; padding: 10px;}
+
+
+/* hospital_appointment_button */
+.hospital_appointment_button { text-align: center;  margin-top: 80px;}
+.hospital_appointment_button #hospital_appointment1 {  
+	width: 300px;
+    height: 100px;
+    font-size: 25px;
+    border: 2px solid rgb(44, 55, 68);
+    background-color: white;
+    color: rgb(44, 55, 68);
+    cursor: pointer;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.hospital_appointment_button #hospital_appointment1:hover {
+    border: 1px solid rgb(44, 55, 68);
+    background-color: rgb(44, 55, 68);
+    color: white;
+}
+
+.hospital_appointment_button #hospital_appointment2 {  
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+    border: 2px solid rgb(44, 55, 68);
+    background-color: white;
+    color: rgb(44, 55, 68);
+    cursor: pointer;
+    border-radius: 30px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+.hospital_appointment_button #hospital_appointment2:hover {
+    border: 1px solid rgb(44, 55, 68);
+    background-color: rgb(44, 55, 68);
+    color: white;
+}

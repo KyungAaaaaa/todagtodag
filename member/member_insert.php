@@ -20,6 +20,8 @@
     $address_two =  $_POST["address_two"];
     $address_three = $_POST["address_three"];
 
+    $regist_day = date("Y-m-d");
+
     $phone = $phone_one."-".$phone_two."-".$phone_three;
     $email = $email_one."@".$email_two;
     $address = $address_one."$".$address_two."$".$address_three;
@@ -31,8 +33,8 @@
     $email = mysqli_real_escape_string($con, $email);
     $address = mysqli_real_escape_string($con, $address);
 
-    $sql = "insert into members (id, password, name, phone, email, address, level) ";
-    $sql .= "values('$id', '$password', '$name', '$phone', '$email', '$address', 2)";
+    $sql = "insert into members (id, password, name, phone, email, address, regist_day, level) ";
+    $sql .= "values('$id', '$password', '$name', '$phone', '$email', '$address', '$regist_day', 2)";
 
     mysqli_query($con, $sql) or die("삽입 ERROR". mysqli_error($con));  // $sql 에 저장된 명령 실행
 

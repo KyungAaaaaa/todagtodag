@@ -1,47 +1,48 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 if (isset($_POST['hospital_id'])) $hospital_id = $_POST['hospital_id'];
+if (isset($_POST['user_id'])) $user_id = $_POST['user_id'];
 $query = "select * from hospital where id='{$hospital_id}'";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
 
-    if (isset($_POST['like_status'])) {
-        $status = $_POST['like_status'];
-        $interest_no = $_POST['interest_no'];
-        $member_num = $_POST['member_num'];
-        $hospital_id = $_POST['hospital_id'];
+if (isset($_POST['like_status'])) {
+    $status = $_POST['like_status'];
+    $interest_no = $_POST['interest_no'];
+    $member_num = $_POST['member_num'];
+    $hospital_id = $_POST['hospital_id'];
 
-        if ($status === "like") {
-            $query = "delete from interest where no={$interest_no}";
-            $result = mysqli_query($con, $query) or die(mysqli_error($con));
-            ?>
-	        <img src='img/unlike.png' value='unlike'>
-	        <input type='hidden' id='interest_no' name='interest_no' value=''>
-	        <?php
-            return;
-        } else {
-            $query = "insert into interest values (null,$member_num,'$hospital_id')";
-            $result = mysqli_query($con, $query) or die(mysqli_error($con));
+    if ($status === "like") {
+        $query = "delete from interest where no={$interest_no}";
+        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+?>
+        <img src='img/unlike.png' value='unlike'>
+        <input type='hidden' id='interest_no' name='interest_no' value=''>
+        <?php
+        return;
+    } else {
+        $query = "insert into interest values (null,$member_num,'$hospital_id')";
+        $result = mysqli_query($con, $query) or die(mysqli_error($con));
 
-            $query = "select * from interest where `member_num`='{$member_num}' and `hospital_id`='{$hospital_id}'";
-            $result = mysqli_query($con, $query) or die(mysqli_error($con));
-            $num_row = mysqli_num_rows($result);
-            if ($num_row !== 0) {
-                $row = mysqli_fetch_assoc($result);
-                ?>
-				<img src='img/like.png' value='like'>
-				<input type='hidden' id='interest_no' name='interest_no' value='<?= $row['no'] ?>'>
-                <?php
-            }
-            return;
+        $query = "select * from interest where `member_num`='{$member_num}' and `hospital_id`='{$hospital_id}'";
+        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+        $num_row = mysqli_num_rows($result);
+        if ($num_row !== 0) {
+            $row = mysqli_fetch_assoc($result);
+        ?>
+            <img src='img/like.png' value='like'>
+            <input type='hidden' id='interest_no' name='interest_no' value='<?= $row['no'] ?>'>
+    <?php
         }
+        return;
     }
+}
 
-    if (isset($_POST['current_tab'])) $tab = $_POST['current_tab'];
-    else $tab = "detail";
+if (isset($_POST['current_tab'])) $tab = $_POST['current_tab'];
+else $tab = "detail";
 
 if ($tab === "detail") {
-?>
+    ?>
     <div class='hospital_detail'>
         <div class='hospital_operating_ours'>
             <div class='subject'><img src='img/clock.png'>운영시간</div>
@@ -209,6 +210,7 @@ if ($tab === "detail") {
                                         type: 'POST',
                                         data: {
                                             "hospital_id": "<?= $hospital_id ?>",
+                                            "user_id": "<?= $user_id ?>",
                                             "current_tab": "appointment",
                                             "year": <?= $year - 1 ?>,
                                             "month": 12
@@ -238,6 +240,7 @@ if ($tab === "detail") {
                                         type: 'POST',
                                         data: {
                                             "hospital_id": "<?= $hospital_id ?>",
+                                            "user_id": "<?= $user_id ?>",
                                             "current_tab": "appointment",
                                             "year": <?= $year ?>,
                                             "month": <?= $month - 1 ?>
@@ -270,6 +273,7 @@ if ($tab === "detail") {
                                         type: 'POST',
                                         data: {
                                             "hospital_id": "<?= $hospital_id ?>",
+                                            "user_id": "<?= $user_id ?>",
                                             "current_tab": "appointment",
                                             "year": <?= $year + 1 ?>,
                                             "month": 1
@@ -299,6 +303,7 @@ if ($tab === "detail") {
                                         type: 'POST',
                                         data: {
                                             "hospital_id": "<?= $hospital_id ?>",
+                                            "user_id": "<?= $user_id ?>",
                                             "current_tab": "appointment",
                                             "year": <?= $year ?>,
                                             "month": <?= $month + 1 ?>
@@ -389,6 +394,7 @@ if ($tab === "detail") {
                                                         type: 'POST',
                                                         data: {
                                                             "hospital_id": "<?= $hospital_id ?>",
+                                                            "user_id": "<?= $user_id ?>",
                                                             "current_tab": "appointment",
                                                             "calander_data": "<?php echo "{$year}{$month}01" ?>",
                                                             "operating_time": "<?= $operating_time ?>",
@@ -456,6 +462,7 @@ if ($tab === "detail") {
                                                             type: 'POST',
                                                             data: {
                                                                 "hospital_id": "<?= $hospital_id ?>",
+                                                                "user_id": "<?= $user_id ?>",
                                                                 "current_tab": "appointment",
                                                                 "calander_data": "<?php echo "{$year}{$month}0{$n}" ?>",
                                                                 "operating_time": "<?= $operating_time ?>",
@@ -518,6 +525,7 @@ if ($tab === "detail") {
                                                             type: 'POST',
                                                             data: {
                                                                 "hospital_id": "<?= $hospital_id ?>",
+                                                                "user_id": "<?= $user_id ?>",
                                                                 "current_tab": "appointment",
                                                                 "calander_data": "<?php echo "{$year}{$month}{$n}" ?>",
                                                                 "operating_time": "<?= $operating_time ?>",
@@ -551,9 +559,9 @@ if ($tab === "detail") {
             }
             ?>
             <p>예약선택일 : </p>
-            <input type="text" id="calander_data" value="<?= $_POST["calander_data"] ?>">
+            <input type="text" id="calander_data" value="<?= $_POST["calander_data"] ?>" disabled>
         </div>
-        <div class="hospital_reservation_time">
+        <div class="hospital_appointment_time">
             <div class="subject">&nbsp;<img src="./img/clock.png">예약가능시간</div>
             <select size="10">
                 <option value="" disabled>--------시간을 선택하세요---------</option>
@@ -588,9 +596,9 @@ if ($tab === "detail") {
                 ?>
             </select>
             <p>예약선택시간 : </p>
-            <input type="text" id="calander_data2">
+            <input type="text" id="calander_data2" disabled>
         </div>
-        <div class="hospital_reservation_department">
+        <div class="hospital_appointment_department">
             <div class="subject">&nbsp;<img src="./img/description.png">진료과목</div>
             <select size="10">
                 <option value="" disabled>--------과목을 선택하세요--------------</option>
@@ -600,23 +608,104 @@ if ($tab === "detail") {
                 $row = mysqli_fetch_array($result);
 
                 $hospital_department = explode(",", $row["department"]);
+                $catagory = "가정의학과 > 내과 > 비교기과 > 피부과 > 정신과 > 정형외과 > 산부인과 > 신경외과 > 신경과 > 소아청소년과 
+                    > 성형외과 > 안과 > 치과";
                 for ($i = 0; $i < count($hospital_department); $i++) {
+                    if (strpos($catagory, $hospital_department[$i]) !== false) {
                 ?>
-                    <option value="" id="option<?php echo "{$i}" ?>"><?php echo "{$hospital_department[$i]}" ?></option>
-                    <script>
-                        $("#option<?php echo "{$i}" ?>").click(function() {
-                            $("#calander_data3").val("<?php echo "{$hospital_department[$i]}" ?>");
-                        })
-                    </script>
+                        <option value="" id="option<?php echo "{$i}" ?>"><?php echo "{$hospital_department[$i]}" ?></option>
+                        <script>
+                            $("#option<?php echo "{$i}" ?>").click(function() {
+                                $("#calander_data3").val("<?php echo "{$hospital_department[$i]}" ?>");
+                            })
+                        </script>
                 <?php
+                    }
                 }
                 ?>
             </select>
             <p>선택과목 : </p>
-            <input type="text" id="calander_data3">
+            <input type="text" id="calander_data3" disabled>
         </div>
+
+    </div> <!-- hospital_appointment end-->
+    <div class="hospital_appointment_detail">
+        <div class="subject">&nbsp;<img src="./img/description.png">세부사항</div>
+        <p>※진료받고 싶으신 내용을 간략하게 적어주세요.</P>
+        <textarea id="calander_data4" placeholder="진료내용을 입력해주세요."></textarea>
     </div>
 
+    <div class="hospital_appointment_button">
+        <button id="hospital_appointment1">▶ 진료/예약하기</button>
+        <button id="hospital_appointment2">▶ 예약정보 초기화</button>
+        <?php
+        $query = "SELECT * from members where id='{$user_id}'";
+        $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
+        $member_num = $row["num"];
+        ?>
+        <script>
+            $("#hospital_appointment1").click(function() {
+                var calander_data = $("#calander_data").val();
+                var calander_data2 = $("#calander_data2").val();
+                var calander_data3 = $("#calander_data3").val();
+                var calander_data4 = $("#calander_data4").val();
+
+                if (!(calander_data&&calander_data2&&calander_data3&&calander_data4)) {
+                    if(!calander_data4) {
+                        alert("세부사항을 입력해주세요.");
+                        $("#calander_data4").focus();   
+                    }
+                    if(!calander_data3) {
+                        alert("진료과목을 선택해주세요.");
+                        $("#calander_data3").focus();
+                    }
+                    if(!calander_data2) {
+                        alert("예약시간을 선택해주세요.");
+                        $("#calander_data2").focus();
+                    }
+                    if(!calander_data) {
+                        alert("예약날짜를 선택해주세요.");
+                        $("#calander_data").focus();
+                    }
+                    $("#hospital_appointment1").attr('disabled', true);
+                } else {
+                    $("#hospital_appointment1").attr('disabled', false);
+                    $.ajax({
+                            url: 'hospital_appointment.php',
+                            type: 'POST',
+                            data: {
+                                "member_num": "<?= $member_num ?>",
+                                "hospital_id": "<?= $hospital_id ?>",
+                                "appointment_date": calander_data,
+                                "appointment_time": calander_data2,
+                                "appointment_department": calander_data3,
+                                "appointment_detail": calander_data4
+                            },
+                            success: function(data) {
+                                $("section").html(data);
+                            }
+                        })
+                        .done(function() {
+                            console.log("done");
+                        })
+                        .fail(function() {
+                            console.log("error");
+                        })
+                        .always(function() {
+                            console.log("complete");
+                        });
+                }
+            })
+
+            $("#hospital_appointment2").click(function() {
+                $("#calander_data").val("");
+                $("#calander_data2").val("");
+                $("#calander_data3").val("");
+                $("#calander_data4").val("");
+            })
+        </script>
+    </div>
 <?php
 }
 ?>

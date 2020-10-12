@@ -411,7 +411,8 @@
                                     }
                                 ?>
 								<select name="email_option" onchange="mail_address_setting(this);">
-									<option value="gmail.com" selected="selected">gmail.com</option>
+									<option value="" disabled selected>---선택하세요---</option>
+									<option value="gmail.com">gmail.com</option>
 									<option value="naver.com">naver.com</option>
 									<option value="daum.net">daum.net</option>
 									<option value="nate.com">nate.com</option>

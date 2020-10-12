@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/css/introduce.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/css/free.css">
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/js/free.js"></script>
 </head>
@@ -12,6 +12,10 @@
 <body>
 	<header>
 		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+		<div class="background_image">
+            <p id="p1">토닥토닥의 게시판을 알려드립니다.</p>
+            <p id="p2">↓ 아래로 드래그 해주세요.</p>
+        </div>
 	</header>
 	<?php
 	if (!$userid) {
@@ -25,10 +29,11 @@
 	?>
 	<section>
 		<div id="board_box">
+			<br><br><br>
 			<h3 id="board_title">
 				자유게시판 > 글 쓰기
 			</h3>
-			<form name="board_form" method="post" action="dmi_free.php?mode=insert&id=<?=$userid?>&name=<?=$username?>" enctype="multipart/form-data">
+			<form name="board_form" method="post" action="dmi_free.php?mode=insert&id=<?= $userid ?>&name=<?= $username ?>" enctype="multipart/form-data">
 				<ul id="board_form">
 					<li>
 						<span class="col1">이름 : </span>

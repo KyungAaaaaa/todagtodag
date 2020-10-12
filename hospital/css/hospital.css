@@ -3,7 +3,7 @@ body { background-image: url('https://cdn.imweb.me/thumbnail/20190418/5cb7cbd754
     background-attachment: fixed; }
 section { background-color: white; }
 
-header { position: relative; color: white;}
+header { position: relative; color: white; }
 
 .background_image { height: 100vh; background-color: rgba( 255, 255, 255, 0 ); }
 .background_image #p1 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -500px;
@@ -20,12 +20,12 @@ header { position: relative; color: white;}
 /* menu & select_box */
 .menu { position: relative; cursor: pointer; margin-top: 30px; margin-bottom: 80px; margin-right: 80px; 
     font-size: 18px; }
-.menu #h_area1 { width: 150px; height: 40px; font-size: 18px; border-radius: 20px; cursor: pointer; }
-.menu #h_area2 { width: 150px; height: 40px; font-size: 18px; border-radius: 20px; cursor: pointer; }
-.menu #department { width: 150px; height: 40px; font-size: 18px; border-radius: 20px; cursor: pointer; }
-.menu #search { width: 200px; height: 40px; font-size: 18px; border-radius: 20px; text-align: center;
+.menu #h_area1 { width: 150px; height: 50px; font-size: 20px; border-radius: 20px; cursor: pointer; }
+.menu #h_area2 { width: 150px; height: 50px; font-size: 20px; border-radius: 20px; cursor: pointer; }
+.menu #department { width: 150px; height: 50px; font-size: 20px; border-radius: 20px; cursor: pointer; }
+.menu #search { width: 200px; height: 50px; font-size: 20px; border-radius: 20px; text-align: center;
     cursor: pointer; }
-.menu #btn { position: absolute; top: 4px; left: 690px; height: 40px; cursor: pointer;}
+.menu #btn { position: absolute; top: 8px; left: 690px; height: 50px; cursor: pointer;}
 .menu #btn img { width: 30px; height: 30px; }
 
 /* hospital_list */

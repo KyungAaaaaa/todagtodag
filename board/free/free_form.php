@@ -4,18 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-<<<<<<< HEAD
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/css/introduce.css">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/css/free.css">
-	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/js/free.js"></script>
-=======
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/css/notice.css">
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/js/notice.js" defer></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
->>>>>>> 34a1adc1a304200a6bd99079f58cbf1a8b036467
 </head>
 
 <body>

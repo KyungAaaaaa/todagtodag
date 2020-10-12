@@ -9,8 +9,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-	<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital.css">
 	<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
+	<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital.css">
 	<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital.js" defer></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>

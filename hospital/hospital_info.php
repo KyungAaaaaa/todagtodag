@@ -21,7 +21,6 @@ session_start();
 <body>
 	<header>
 		<?php
-		session_start();
 		include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php";
 		?>
 	</header>

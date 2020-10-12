@@ -27,7 +27,7 @@ th { border-bottom: 1px solid black; }
 th, td { width: 130px }
 #map { width: 600px; height: 500px; }
 
-.hospital_review {max-height: 700px;overflow-y: auto}
+.hospital_review {height: 100vh; overflow-y: auto}
 .hospital_review p img {width: 27px; margin: 15px 0;}
 .hospital_review h4 {display: inline-block}
 .hospital_review .user_info img {width: 20px; margin-right: 10px}

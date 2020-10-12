@@ -15,14 +15,18 @@
 <body>
 	<header>
 		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+		<div class="background_image">
+            <p id="p1">토닥토닥 게시판을 알려드립니다.</p>
+            <p id="p2">↓ 아래로 드래그 해주세요.</p>
+        </div>
 	</header>
 	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>
 		<div id="board_box">
+			<br><br><br>
 			<h3>
 				자유게시판
 			</h3>
-			<hr>
 			<ul id="board_list">
 				<li>
 					<span class="col1">번호</span>

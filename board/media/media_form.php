@@ -1,30 +1,45 @@
+<?php
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
+
+$num=$id=$subject=$content=$day=$hit=$video_name="";
+$mode="insert";
+$checked="";
+
+if (isset($_GET["mode"])&&$_GET["mode"]=="insert") {
+    $mode="insert";
+    $num = test_input($_GET["num"]);
+    $q_num = mysqli_real_escape_string($con, $num);
+
+    $sql="SELECT * from `media` where num ='$q_num';";
+    $result = mysqli_query($con, $sql);
+
+    $row=mysqli_fetch_array($result);
+    $video_name= htmlspecialchars($row['video_name']);
+    // $video_name=str_replace("\n", "<br>", $video_name);
+    // $video_name=str_replace(" ", "&nbsp;", $video_name);
+
+    mysqli_close($con);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-<<<<<<< HEAD
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/css/introduce.css">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/css/free.css">
-	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/js/free.js"></script>
-=======
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/css/notice.css">
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/js/notice.js" defer></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
->>>>>>> 34a1adc1a304200a6bd99079f58cbf1a8b036467
 </head>
 
 <body>
 	<header>
 		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
-		<div class="background_image">
-            <p id="p1">토닥토닥의 게시판을 알려드립니다.</p>
-            <p id="p2">↓ 아래로 드래그 해주세요.</p>
-        </div>
 	</header>
 	<?php
 	if (!$userid) {
@@ -38,11 +53,10 @@
 	?>
 	<section>
 		<div id="board_box">
-			<br><br><br>
 			<h3 id="board_title">
-				자유게시판 > 글 쓰기
+				영상게시판 > 글 쓰기
 			</h3>
-			<form name="board_form" method="post" action="dmi_free.php?mode=insert&id=<?= $userid ?>&name=<?= $username ?>" enctype="multipart/form-data">
+			<form name="board_form" method="post" action="dml_board.php?mode=insert&id=<?=$userid?>&name=<?=$username?>" enctype="multipart/form-data">
 				<ul id="board_form">
 					<li>
 						<span class="col1">이름 : </span>
@@ -59,13 +73,13 @@
 						</span>
 					</li>
 					<li>
-						<span class="col1"> 첨부 파일</span>
-						<span class="col2"><input type="file" name="upfile"></span>
+						<span class="col1">동영상 URL</span>
+						<span class="col2"><input type="text" name="video_name" value="<?=$video_name?>"></span>
 					</li>
 				</ul>
 				<ul class="buttons">
 					<li><button type="button" onclick="check_input()">완료</button></li>
-					<li><button type="button" onclick="location.href='free_list.php'">목록</button></li>
+					<li><button type="button" onclick="location.href='media_list.php'">목록</button></li>
 				</ul>
 			</form>
 		</div> <!-- board_box -->

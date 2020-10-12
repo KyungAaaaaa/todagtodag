@@ -110,16 +110,37 @@ function create_table($con, $table_name)
                             `content` text NOT NULL,
                             `regist_day` char(20) NOT NULL,
                             `hit` int(11) NOT NULL,
-                            `file_name_2` char(40) DEFAULT NULL,
-                            `file_type_2` char(40) DEFAULT NULL,
-                            `file_copied_2` char(40) DEFAULT NULL,
-                            `image_name_1` char(40) DEFAULT NULL,
-                            `image_copied_1` char(30) DEFAULT NULL,
-                            `image_type_1` char(30) DEFAULT NULL,
+                            `file_name_0` char(40) DEFAULT NULL,
+                            `file_type_0` char(40) DEFAULT NULL,
+                            `file_copied_0` char(40) DEFAULT NULL,
                             PRIMARY KEY (`num`)
                           ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
+            case 'free_ripple':
+                    $sql = "CREATE TABLE `free_ripple` (
+                        `num` int(11) NOT NULL AUTO_INCREMENT,
+                        `parent` int(11) NOT NULL,
+                        `id` char(15) NOT NULL,
+                        `name` char(10) NOT NULL,
+                        `content` text NOT NULL,
+                        `regist_day` char(20) DEFAULT NULL,
+                        PRIMARY KEY (`num`)
+                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                    break;
                 case 'interest':
+            case 'media':
+                        $sql = "CREATE TABLE `media` (
+                                    `num` int(11) NOT NULL AUTO_INCREMENT,
+                                    `id` char(15) NOT NULL,
+                                    `name` char(10) NOT NULL,
+                                    `subject` char(200) NOT NULL,
+                                    `content` text NOT NULL,
+                                    `regist_day` char(20) NOT NULL,
+                                    `hit` int(11) NOT NULL,
+                                    `video_name` char(200),
+                                    PRIMARY KEY (`num`)
+                                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                        break;
                 $sql = "CREATE TABLE `interest` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `member_num` int(11) NOT NULL,

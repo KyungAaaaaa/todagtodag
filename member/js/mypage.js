@@ -84,6 +84,9 @@ $("#popup_write").on("click", function () {
             hospital_id: $hospital_id,
             member_num : $member_num,
             star_rating: $("#star_grade").find(".on").length,
+            kindness   : $("input[name=kindness]:checked").val(),
+            wait_time  : $("input[name=wait_time]:checked").val(),
+            expense    : $("input[name=expense]:checked").val(),
             comment    : $("#review_pop_comment").val()
         },
         success: function (data) {

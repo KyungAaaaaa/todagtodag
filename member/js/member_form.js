@@ -373,3 +373,5 @@ function isAllPass() {
       $("#button_submit").attr("disabled", true);
   }
 }
+
+$("#cancel").on("click",function (){location.href="./member_mypage.php"})

@@ -38,6 +38,8 @@
 .right_box { --right_box_width: 800px;width: var(--right_box_width);}
 
 .content {display: flex;flex-direction: column;align-items: center;}
+.content>.content_layout{display: flex;flex-direction: row;}
+
 .content_title {
 	font-family: "S-CoreDream-4Regular";
 	width: 93%;
@@ -56,8 +58,11 @@
 	margin: 10px;
 	border-radius: 20px;
 	border: 1px solid #c3c3c3;
+	overflow: hidden;
 }
-
+.content_item h4{margin-bottom: 6px;}
+.content_item p{font-size: 16px;}
+.content_item a:hover{color: var(--main--color);}
 .content > span:last-child {width: calc(var(--right_box_width) - 30px);}
 
 button {cursor: pointer;}
@@ -99,20 +104,24 @@ button {cursor: pointer;}
 	transform: translate(-50%, -50%);text-align: center;}
 
 #review_pop_content #star_grade span {
-	background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+	background: url('../../hospital/img/empty_star.png');
 	background-size: auto 100%;
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	display: inline-block;
 	text-indent: -9999px;
 	cursor: pointer;
 }
 #review_pop_content #star_grade span.on {
-	background-position: 0 0;
+	background: url('../../hospital/img/star.png');
+	background-size: auto 100%;
 }
 
 #review_pop_content span {display: flex;flex-direction: row;padding: 10px}
-#review_pop_content textarea {width: 90%;height: 90%}
+#review_pop_content div {width: 100%;}
+#review_pop_content div>h2 {margin-top: 20px;}
+
+#review_pop_content textarea {margin-top:20px;width: 90%;height: 90%;font-family: "S-CoreDream-4Regular"}
 
 #review_pop #review_pop_content #popup_btn {position: absolute;left: 50%;
 	bottom: 10px; cursor: pointer;

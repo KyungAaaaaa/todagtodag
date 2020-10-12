@@ -32,6 +32,8 @@ th, td { width: 130px }
 .hospital_review .review_content {padding-left: 25px;}
 .hospital_review li {margin: 20px 0; padding-bottom: 10px;border-bottom: 1px dashed var(--sub--color);width: 80%}
 .hospital_review .user_info {display: flex; align-items: center}
+.hospital_review .review_etc { width:400px;font-size: 16px;margin-top: 20px;}
+.hospital_review .review_etc div>span:first-child{ display:inline-block;width:70px; font-weight: bolder}
 .hospital_review .regist_day {font-size: 14px; color: var(--sub--color); margin-top: 5px;}
 
 /* hospital_appointment (appointment 전체를 감싸고 있는 div) */

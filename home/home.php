@@ -50,10 +50,6 @@
                 while ($row = mysqli_fetch_row($result)) {
                     array_push($health_info_num, $row[0]);
                 }
-                $array = [];
-                for($i=0;$i<5;$i++){
-                    array_push($array, $i);
-                }
                 $num = array_rand($health_info_num);
                 $query = "select * from health_info where num={$health_info_num[$num]}";
                 $result = $con->query($query) or die($con);
@@ -76,8 +72,32 @@
 		</div>
         <? } ?>
 	</div>
-	<div class="notice">
-		<h1>공지사항</h1>
-		<div></div>
+	<div class="two_content">
+		<div class="notice">
+			<h1>공지사항</h1><a href="http://<?=$_SERVER['HTTP_HOST']?>/todagtodag/service/notice/notice_list.php">전체보기</a>
+			<div class="content">
+                <?
+                    $query = "select * from notice";
+                    $result = $con->query($query) or die($con);
+                    if ($num_rows = mysqli_num_rows($result) !== 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $num = $row['num'];
+                            $subject = $row['subject'];
+                            $regist_day = $row['regist_day'];
+                            ?>
+							<div>
+								<a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/notice_view.php?num=<?= $num ?>&page=1">
+                                    <?= $subject ?><span><?= $regist_day ?></span>
+								</a></div>
+                            <?
+                        }
+                    }
+                ?>
+
+			</div>
+		</div>
+		<div class="FAQ">
+			<h1>FAQ</h1><a href="http://<?=$_SERVER['HTTP_HOST']?>/todagtodag/service/notice/notice_list.php">전체보기</a>
+		</div>
 	</div>
 </div>

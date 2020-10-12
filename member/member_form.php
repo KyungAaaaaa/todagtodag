@@ -482,7 +482,11 @@
                         ?>
 						<div id="button">
 							<div id="cancel">
-								<a href="#" onclick="">
+								<? if ($mode==="modify"){?>
+								<a href="member_mypage.php">
+									<?}else{?>
+									<a href="http://<?=$_SERVER['HTTP_HOST']?>/todagtodag/index.php">
+										<?}?>
 									<p>취 소</p>
 								</a>
 							</div>

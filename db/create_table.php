@@ -71,14 +71,17 @@ function create_table($con, $table_name)
                 break;
             case 'review':
                 $sql = "CREATE TABLE `review` (
-                   `no` int(11) NOT NULL AUTO_INCREMENT,
-                    `hospital_id` char(10) NOT NULL,
-                    `member_num` int(11) NOT NULL,
-                    `star_rating` int(1) NOT NULL,
-                    `content` text NOT NULL,
-                    `regist_day` char(20) NOT NULL,
-                    PRIMARY KEY (`no`)
-                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                  `no` int(11) NOT NULL AUTO_INCREMENT,
+                  `hospital_id` char(10) NOT NULL,
+                  `member_num` int(11) NOT NULL,
+                  `star_rating` int(1) NOT NULL,
+                  `kindness` int(1) NOT NULL,
+                  `wait_time` int(1) NOT NULL,
+                  `expense` int(1) NOT NULL,
+                  `comment` text NOT NULL,
+                  `regist_day` char(20) NOT NULL,
+                  PRIMARY KEY (`no`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;";
                 break;
             case 'health_info':
                 $sql = "CREATE TABLE `health_info` (

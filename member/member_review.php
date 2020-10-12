@@ -48,7 +48,7 @@
                             $hospital_name = $row['name'];
                             $regist_day = $row['regist_day'];
                             $star_rating = $row['star_rating'];
-                            $review_content = $row['content'];
+                            $review_comment = $row['comment'];
                             //예약테이블에서 진료일 가져오기
                             ?>
 							<li><span class="col1"><?= $hospital_name ?></span>

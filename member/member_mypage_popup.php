@@ -1,7 +1,7 @@
 <div id="review_pop">
 	<div id="review_pop_content">
 		<div><h1>리뷰 작성 </h1></div>
-		<span><img src='../img/todagtodag3.png' id="review_hospital_logo"><div><h3 id="review_hospital_name">병원이름</h3><p id="review_appointment_date">진료일</p></div>  </span>
+		<span><img src='../img/todagtodag_logo.png' id="review_hospital_logo"><div><h3 id="review_hospital_name">병원이름</h3><p id="review_appointment_date">진료일</p></div>  </span>
 		<p id="star_grade">
 			<span>★</span>
 			<span>★</span>

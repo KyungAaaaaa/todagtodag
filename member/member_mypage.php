@@ -16,7 +16,7 @@
 			<title>토닥토닥</title>
 			<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
 			<link rel="stylesheet" type="text/css" href="./css/mypage.css">
-			<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
+			<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
 			<script src="./js/mypage.js" defer></script>
 			<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		</head>

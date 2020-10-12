@@ -20,7 +20,7 @@
 				<a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital_info.php?hospital_id=<?= $hospital_id ?>">
 					<?php
                         if (strpos($file_type, "image") !== false) echo "<img src='../../admin/data/$file_copied'>";
-                        else echo "<img src='http://" . $_SERVER['HTTP_HOST'] . "/todagtodag/img/todagtodag3.png'>"
+                        else echo "<img src='http://" . $_SERVER['HTTP_HOST'] . "/todagtodag/img/todagtodag_logo.png'>"
                     ?>
 				</a>
 				<h5><?= $hospital_name ?></h5>

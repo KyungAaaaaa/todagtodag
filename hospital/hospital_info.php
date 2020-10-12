@@ -10,21 +10,14 @@
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital_info.js" defer></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
-		<style type="text/css">
-			table {
-				border-spacing: 0;
-			}
-			table td {
-				text-align: center;
-			}
-		</style>
 	</head>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js"></script>
 	<body>
 		<header>
             <?php
                 session_start();
-                include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+				include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; 
+			?>
 		</header>
 		<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png"
 		                              class="to_the_top"></a>
@@ -44,15 +37,41 @@
                     $file_name = $row['file_name_0'];
                     $file_copied = $row['file_copied_0'];
                     $file_type = $row['file_type_0'];
+                    $root = "http://" . $_SERVER['HTTP_HOST'] . "/todagtodag";
                 ?>
 				<div class="hospital_info">
                     <?php
-                        if (strpos($file_type, "image") !== false) echo "<img src='../../admin/data/$file_copied'>";
+                        if (strpos($file_type, "image") !== false) echo "<img src='{$root}/admin/data/$file_copied'>";
                         else echo "<img src='img/hospital.png'>" ?>
 					<div>
 						<h2><?= $row['name'] ?></h2>
                         <?= $row['addr'] ?>
 					</div>
+					<span class='like_btn'>
+                    <?php
+                        $query = "select num from members where `id`='{$userid}'";
+                        $result = mysqli_query($con, $query);
+                        $num_row = mysqli_num_rows($result);
+                        if ($num_row === 0) alert_back("올바르지 않은 접근입니다.");
+                        $row = mysqli_fetch_row($result);
+                        $member_num = $row[0];
+
+                        $query = "select * from interest where `member_num`='{$member_num}' and `hospital_id`='{$hospital_id}'";
+                        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+                        $num_row = mysqli_num_rows($result);
+                        if ($num_row !== 0) {
+                            $row = mysqli_fetch_assoc($result);
+                            echo "<img src='img/like.png' value='like'>
+									<input type='hidden' id='interest_no' name='interest_no' value='{$row['no']}'>";
+                        } else {
+                            echo "<img src='img/unlike.png' value='unlike'>
+								<input type='hidden' id='interest_no' name='interest_no' value=''>";
+                        }
+                    ?>
+
+					</span>
+					<input type='hidden' id='member_num' name='member_num' value='<?= $member_num ?>'><input
+							type='hidden' id='hospital_id' name='hospital_id' value='<?= $hospital_id ?>'>
 				</div>
 				<div class="menu">
 					<ul>

@@ -1,45 +1,72 @@
 .container {
-
-    margin: 5em auto;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	min-width: var(--header--width);
+	margin: 5em auto;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-/*.container:not(:first-child){background-color: #DFDFDF;}*/
-.container h2{font-family: "S-CoreDream-6Bold";}
-.hospital_info{width:60%;font-size: 24px}
-.hospital_info img{width: 75px; margin-right: 20px}
-.hospital_info div{display: inline-block; }
-.menu{width:60%;margin-top: 20px}
-.menu ul{margin:10px;display: flex; border-bottom: 1px solid #d7d7d7
-}
-.menu ul li{margin-right: 40px;font-size: 18px;cursor: pointer;}
-.menu ul .current{font-weight: bolder;padding-bottom:20px;border-bottom: 3px solid var(--main--color)}
-.content{ width:57%;
-   }
-.subject{
-    font-family: "S-CoreDream-5Medium";
-    font-size: 27px;
-    margin-top: 20px;
-margin-bottom: 5px}
-.subject img{width:24px; margin-right: 10px}
+.container h2 {font-family: "S-CoreDream-6Bold";}
+.hospital_info {width: 60%;font-size: 24px;display: flex;flex-direction: row;align-items: center;position: relative}
+.hospital_info img:first-child {width: 75px; margin-right: 20px}
+.hospital_info .like_btn { position: absolute;right: 10px;cursor: pointer}
+.hospital_info .like_btn img {width: 40px;}
+.hospital_info div {display: inline-block; }
+.menu {width: 60%;margin-top: 20px}
+.menu ul {margin: 10px;display: flex; border-bottom: 1px solid #d7d7d7}
+.menu ul li {margin-right: 40px;font-size: 18px;cursor: pointer;}
+.menu ul .current {font-weight: bolder;padding-bottom: 20px;border-bottom: 3px solid var(--main--color)}
+.content { width: 57%;}
+.subject { font-family: "S-CoreDream-5Medium"; font-size: 27px; margin-top: 20px;margin-bottom: 5px}
+.subject img {width: 24px; margin-right: 10px}
 
-table{
-    text-align: center;
-    font-family: "S-CoreDream-3Light";
+table { text-align: center; font-family: "S-CoreDream-3Light"; }
+th { border-bottom: 1px solid black; }
+th, td { width: 130px }
+#map { width: 600px; height: 500px; }
 
-}
-th{  border-bottom: 1px solid black;}
-th,td{width: 130px}
-#map{width:600px;height:500px;}
-
-
-.hospital_review{max-height: 700px;overflow-y: auto}
-.hospital_review p img{width: 27px; margin: 15px 0;}
+.hospital_review {max-height: 700px;overflow-y: auto}
+.hospital_review p img {width: 27px; margin: 15px 0;}
 .hospital_review h4 {display: inline-block}
-.hospital_review .user_info img{width: 20px;  margin-right: 10px}
-.hospital_review .review_content{padding-left: 25px;}
-.hospital_review li{margin: 20px 0; padding-bottom:10px;border-bottom: 1px dashed var(--sub--color);width: 80%}
-.hospital_review .user_info{display: flex; align-items: center}
-.hospital_review .regist_day{font-size: 14px; color: var(--sub--color); margin-top: 5px;}
+.hospital_review .user_info img {width: 20px; margin-right: 10px}
+.hospital_review .review_content {padding-left: 25px;}
+.hospital_review li {margin: 20px 0; padding-bottom: 10px;border-bottom: 1px dashed var(--sub--color);width: 80%}
+.hospital_review .user_info {display: flex; align-items: center}
+.hospital_review .regist_day {font-size: 14px; color: var(--sub--color); margin-top: 5px;}
+
+/* hospital_appointment (appointment 전체를 감싸고 있는 div) */
+
+/* hospital_calander */
+.hospital_calander { float: left; position: relative; width: 250px; height: 350px; }
+.hospital_calander p { margin-top: 9px; font-size: 14px; }
+.hospital_calander input { position: absolute; top: 320px; left: 80px; width: 100px;}
+
+.hospital_calander_head { position: relative; width: 250px; height: 30px; background-color: rgb(44, 55, 68);
+	color: gray;}
+.hospital_calander_year_month { position: absolute; top: 7px; left: 10px; font-size: 14px;}
+.hospital_calander_button { position: absolute; top: 2px; left: 190px;}
+.hospital_calander_button button { background-color: rgb(44, 55, 68); color: gray; border: 1px solid rgb(44, 55, 68);
+	cursor: pointer;}
+.hospital_calander_button button:hover { background-color: gray; color: white;}
+
+.hospital_calander_body { background-color: rgb(44, 55, 68); color: white; font-size: 12px; height: 220px;}
+.hospital_calander_body table { border: 1px solid rgb(44, 55, 68); }
+.hospital_calander_body table td { text-align: center; border: 1px solid rgb(44, 55, 68); padding: 5px;
+	cursor: pointer;}
+.hospital_calander_body table td:hover { background-color: gray; }
+
+/* hospital_reservation_time */
+.hospital_reservation_time { position: relative; float: left; width: 250px; height: 350px;
+	margin-left: 50px; }
+.hospital_reservation_time select { width: 230px; height: 250px; margin-left: 10px; margin-top: 0px;
+	cursor: pointer; font-size: 16px;}
+.hospital_reservation_time p { margin-top: 9px; margin-left: 10px; font-size: 14px; }
+.hospital_reservation_time input { position: absolute; top: 320px; left: 105px; width: 100px; }
+
+/* hospital_reservation_department */
+.hospital_reservation_department { position: relative; float: left; width: 250px; height: 350px;
+	margin-left: 50px; }
+.hospital_reservation_department select { width: 230px; height: 250px; margin-left: 10px; margin-top: 0px;
+	cursor: pointer; font-size: 16px;}
+.hospital_reservation_department p { margin-top: 9px; margin-left: 10px; font-size: 14px; }
+.hospital_reservation_department input { position: absolute; top: 320px; left: 80px; width: 120px;}

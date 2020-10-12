@@ -1,11 +1,8 @@
-@import "../../css/common_var.css";
-
-:root {
-	--right_box_width: 800px;
-}
+@import "../../css/common_font.css";
 
 .container {
-	width: 1000px;
+	width: var(--content--width);
+	min-height: 600px;
 	margin: 2em auto;
 	display: flex;
 	flex-direction: row;
@@ -38,7 +35,7 @@
 .current_category {color: var(--main--color)}
 .current_page {font-weight: bolder;color: black;}
 
-.right_box {width: var(--right_box_width);}
+.right_box { --right_box_width: 800px;width: var(--right_box_width);}
 
 .content {display: flex;flex-direction: column;align-items: center;}
 .content_title {
@@ -66,17 +63,19 @@
 button {cursor: pointer;}
 
 /* ==========예약 조회 =======================*/
-.period {border: 1px solid var(--sub--color);display: flex;flex-direction: row;align-items: center;margin-bottom: 20px;}
-.period button {outline: none; border: 1px solid gray;margin-right: 10px;padding: 4px 6px; background-color: transparent}
-.period p {display: inline-block;font-size: 20px;padding: 10px 20px;border-right: 1px solid var(--sub--color)}
-.period span {padding: 0 20px;}
+.period, .location {border: 1px solid var(--sub--color);display: flex;flex-direction: row;align-items: center;margin-bottom: 20px;}
+.period button, .location button {outline: none; border: 1px solid gray;margin-right: 10px;padding: 4px 6px; background-color: transparent}
+.period p, .location p {display: inline-block;font-size: 20px;padding: 10px 20px;border-right: 1px solid var(--sub--color)}
+.period span, .location span {padding: 0 20px;}
 
-#appointment_list li {position: relative;border: 1px solid #c3c3c3; margin: 7px 0;}
-#appointment_list li span {display: flex;flex-direction: row;padding: 10px}
-#appointment_list li a {margin-left: 20px;margin-right: 250px;}
-#appointment_list li p {font-size: 14px; font-family: "S-CoreDream-4Regular"}
-#appointment_list li button { height: 30px; outline: none;border: none;background-color: var(--main--color);color: white;padding: 4px 10px;position: absolute;bottom: 10px;right: 10px;font-family: "S-CoreDream-5Medium"}
-#appointment_list img, #review_pop_content img {width: 60px; }
+#appointment_list, #interest_list {max-height: 520px;overflow-y: scroll}
+#appointment_list li, #interest_list li {position: relative;border: 1px solid #c3c3c3; margin: 7px 0; width: 700px;}
+#appointment_list li span, #interest_list li span {display: flex;flex-direction: row;padding: 10px}
+#appointment_list li a {margin-left: 20px;}
+#interest_list li a {margin-left: 20px;}
+#appointment_list li p, #interest_list li p {font-size: 14px; font-family: "S-CoreDream-4Regular"}
+#appointment_list li button, #interest_list li button { height: 30px; outline: none;border: none;background-color: var(--main--color);color: white;padding: 4px 10px;position: absolute;bottom: 10px;right: 10px;font-family: "S-CoreDream-5Medium"}
+#appointment_list img, #review_pop_content img, #interest_list img {width: 60px; }
 
 /* ================ 리뷰관리 ====================*/
 #board_list li { padding: 10px 0; border-bottom: 1px solid #6d6d6d; }
@@ -90,7 +89,7 @@ button {cursor: pointer;}
 
 #review_pop {
 	display: none;
-	z-index:999;
+	z-index: 999;
 	width: 100%;
 	height: 100%;
 	/*box-shadow: 5px 5px 25px gray;*/
@@ -109,7 +108,7 @@ button {cursor: pointer;}
 	cursor: pointer;
 }
 #review_pop_content #star_grade span.on {
-	background-position:0 0;
+	background-position: 0 0;
 }
 
 #review_pop_content span {display: flex;flex-direction: row;padding: 10px}
@@ -174,3 +173,5 @@ button {cursor: pointer;}
 #review_pop input.checkbox:checked + label.input-label.radio::before {
 	content: "\f058";
 }
+
+

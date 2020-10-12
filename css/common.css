@@ -1,4 +1,12 @@
-@import "common_var.css";
+@import "common_font.css";
+
+:root{
+    --main--color:#ff4b23;
+    --sub--color: #9f9f9f;
+    --content--width:1000px;
+    --header--width:1500px;
+}
+
 
 /* 마진 패딩 초기화 */
 * {box-sizing: border-box; padding: 0; margin: 0;}
@@ -16,7 +24,7 @@ a:hover { text-decoration:none; color: rgb(44, 55, 68); }
 a:visited { text-decoration:none; color: rgb(44, 55, 68); }
 a:active { text-decoration:none; color: rgb(44, 55, 68); }
 /* 상단 헤더 */
-#top { position: relative; width: 100%; height: 60px; margin: 0 auto;}
+#top { position: relative; min-width: var(--header--width); height: 60px; margin: 0 auto; }
 #top > img { position: absolute; top: 15px; left: 40px; width: 35px;}
 #top h3 {  font-family: "TmonMonsori"; position: absolute; top: 9px; left: 75px; font-size: 36px; margin-left: 5px}
 /*#top h3 {  font-family: "나눔손글씨 펜"; position: absolute; top: 9px; left: 75px; font-size: 36px;}*/

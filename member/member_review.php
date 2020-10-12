@@ -2,7 +2,6 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +42,6 @@
 						<span class="col5">편집</span>
 					</li>
                     <?php
-                        $query = "select `num` from members where id='{$userid}';";
-                        $result = $con->query($query) or die(mysqli_error($con));
-                        $row = mysqli_fetch_assoc($result);
-                        $member_num = $row['num'];
-
                         $query = "select * from review a left join hospital b on a.hospital_id=b.id where member_num={$member_num};";
                         $result = $con->query($query) or die(mysqli_error($con));
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -71,16 +65,9 @@
                     ?>
 				</ul>
 			</div>
-			<!--			</div>-->
-			<!--			</div>-->
-			<!--			</div>-->
-
 		</section>
 		<footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
 		</footer>
-
-		<!--        --><?php //include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/member/member_mypage_popup.php" ?>
 	</body>
-
 </html>

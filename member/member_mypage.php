@@ -27,13 +27,15 @@
 		</header>
 		<section><? }
     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
-    $query = "select `name`,`email`,`regist_day` from members where id='{$userid}';";
+    $query = "select num,`name`,`email`,`regist_day` from members where id='{$userid}';";
     $result = $con->query($query) or die(mysqli_error($con));
     $row = mysqli_fetch_assoc($result);
+    $member_num = $row['num'];
     $member_name = $row['name'];
     $member_email = $row['email'];
     $member_regist_day = $row['regist_day'];
 ?>
+	<input type="hidden" id="member_num" value="<?=$member_num?>">
 	<div class="container">
 	<div class="left_box">
 		<div class="user_info"><p><?= $member_name ?> 님</p>
@@ -69,9 +71,15 @@
 				</li>
                 <?php
                     if (isset($category) && $category === "appointment") { ?>
-				<li class="nav_menu"><span class="nav_title current_category">예약</span> <? } else{ ?>
+				<li class="nav_menu"><span class="nav_title current_category">예약</span> <?
+                    } else{ ?>
 				<li class="nav_menu"><span class="nav_title">예약</span> <? } ?>
-					<ul>   <?php if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "appointment_list")) { ?>
+					<ul>   <?php
+                            if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "interest_list")) { ?>
+								<li><a href="member_interest.php" class="current_page">관심 병원</a></li>
+                            <? } else { ?>
+								<li><a href="member_interest.php">관심 병원</a></li>  <? }
+                            if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "appointment_list")) { ?>
 							<li><a href="member_appointment.php" class="current_page">예약 조회</a></li>
                         <? } else { ?>
 							<li><a href="member_appointment.php">예약 조회</a></li>
@@ -79,12 +87,8 @@
                             if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "review_list")) { ?>
 								<li><a href="member_review.php" class="current_page">리뷰 관리</a></li>
                             <? } else { ?>
-								<li><a href="member_review.php">리뷰 관리</a></li>  <? } ?>
-					</ul>
-				</li>
-				<li class="nav_menu"><span class="nav_title">병원</span>
-					<ul>
-						<li>관심 병원</li>
+								<li><a href="member_review.php">리뷰 관리</a></li>  <? }
+						?>
 					</ul>
 				</li>
 				<li class="nav_menu"><span class="nav_title">#</span>

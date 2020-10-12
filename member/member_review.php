@@ -10,7 +10,7 @@
 		<meta charset="utf-8">
 		<title>토닥토닥</title>
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
-		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag3.png">
+		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
 		<script src="./js/member_form.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="./css/mypage.css">
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
@@ -48,7 +48,7 @@
                             $hospital_name = $row['name'];
                             $regist_day = $row['regist_day'];
                             $star_rating = $row['star_rating'];
-                            $review_content = $row['content'];
+                            $review_comment = $row['comment'];
                             //예약테이블에서 진료일 가져오기
                             ?>
 							<li><span class="col1"><?= $hospital_name ?></span>

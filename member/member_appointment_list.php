@@ -28,7 +28,7 @@
 			<li><span>
                 	<?php
                         if (strpos($file_type, "image") !== false) echo "<img src='{$root}/admin/data/$file_copied'>";
-                        else echo "<img src='{$root}/img/todagtodag3.png'>" ?>
+                        else echo "<img src='{$root}/img/todagtodag_logo.png'>" ?>
                 <a href='#'><h3><?= $row['name'] ?></h3><p>진료일 : 2020.09.20</p>
 	                <input type='hidden' class="hospital_id" value='<?=$row['id']?>'>
 	                <button class="review_write">리뷰 작성</button>

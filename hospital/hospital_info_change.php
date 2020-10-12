@@ -164,7 +164,48 @@ if ($tab === "detail") {
                         echo "</p>";
                         ?>
 
-                        <p><?= $reviews['content'] ?></p>
+                        <p><?= $reviews['comment'] ?></p>
+                        <?
+                       switch ($reviews['kindness']){
+                       	case "1":
+                       		$kindness="불친절해요";
+                       		break;
+					   case "2":
+					   	    $kindness="보통이에요";
+					        break;
+					    case "3":
+					    	$kindness="매우 친절해요";
+					        break;
+					    default:break;
+                       }                       switch ($reviews['wait_time']){
+                       	case "1":
+                       		$wait_time="오래걸려요";
+                       		break;
+					   case "2":
+					   	    $wait_time="보통이에요";
+					        break;
+					    case "3":
+					    	$wait_time="빨라요";
+					        break;
+					    default:break;
+                       }                       switch ($reviews['expense']){
+                       	case "1":
+                       		$expense="비싸요";
+                       		break;
+					   case "2":
+					   	    $expense="보통이에요";
+					        break;
+					    case "3":
+					    	$expense="저렴해요";
+					        break;
+					    default:break;
+                       }
+
+                        ?>
+                        <div class="review_etc">
+                        <div><span>친절</span><span><?=$kindness?></span></div>
+                         <div><span>대기시간</span><span><?=$wait_time?></span></div>
+                          <div><span>진료비</span><span><?=$expense?></div></span></div>
                         <p class="regist_day"><?= $reviews['regist_day'] ?></p>
     </div>
 

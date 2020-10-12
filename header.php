@@ -47,7 +47,7 @@ else $userlevel = "";
 		<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/introduce/introduce.php">소개</a></li>
 		<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital.php">진료/예약</a></li>
 		<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php">건강정보</a></li>
-        <li class="tab_down_menu1"><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/free_list.php">게시판</a>
+        <li class="tab_down_menu1"><a class="board" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/free_list.php">게시판</a>
             <ul class="down_menu1">
                 <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/free_list.php">자유게시판</a></li>
                 <li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/media/media_list.php">영상게시판</a></li>

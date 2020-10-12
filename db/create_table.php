@@ -98,24 +98,24 @@ function create_table($con, $table_name)
                      PRIMARY KEY (`num`)
                      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
-            case 'free':
-                $sql = "CREATE TABLE `free` (
-                            `num` int(11) NOT NULL AUTO_INCREMENT,
-                            `id` char(15) NOT NULL,
-                            `name` char(10) NOT NULL,
-                            `subject` char(200) NOT NULL,
-                            `content` text NOT NULL,
-                            `regist_day` char(20) NOT NULL,
-                            `hit` int(11) NOT NULL,
-                            `file_name_2` char(40) DEFAULT NULL,
-                            `file_type_2` char(40) DEFAULT NULL,
-                            `file_copied_2` char(40) DEFAULT NULL,
-                            `image_name_1` char(40) DEFAULT NULL,
-                            `image_copied_1` char(30) DEFAULT NULL,
-                            `image_type_1` char(30) DEFAULT NULL,
-                            PRIMARY KEY (`num`)
-                          ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-                break;
+            // case 'free':
+            //     $sql = "CREATE TABLE `free` (
+            //                 `num` int(11) NOT NULL AUTO_INCREMENT,
+            //                 `id` char(15) NOT NULL,
+            //                 `name` char(10) NOT NULL,
+            //                 `subject` char(200) NOT NULL,
+            //                 `content` text NOT NULL,
+            //                 `regist_day` char(20) NOT NULL,
+            //                 `hit` int(11) NOT NULL,
+            //                 `file_name_1` char(40) DEFAULT NULL,
+            //                 `file_type_1` char(40) DEFAULT NULL,
+            //                 `file_copied_1` char(40) DEFAULT NULL,
+            //                 `image_name_0` char(40) DEFAULT NULL,
+            //                 `image_copied_0` char(30) DEFAULT NULL,
+            //                 `image_type_0` char(30) DEFAULT NULL,
+            //                 PRIMARY KEY (`num`)
+            //               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+            //     break;
             default:
                 echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";
                 break;

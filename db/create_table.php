@@ -117,7 +117,7 @@ function create_table($con, $table_name)
                           ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
             case 'free_ripple':
-                    $sql = "CREATE TABLE `free_ripple` (
+                $sql = "CREATE TABLE `free_ripple` (
                         `num` int(11) NOT NULL AUTO_INCREMENT,
                         `parent` int(11) NOT NULL,
                         `id` char(15) NOT NULL,
@@ -126,27 +126,38 @@ function create_table($con, $table_name)
                         `regist_day` char(20) DEFAULT NULL,
                         PRIMARY KEY (`num`)
                         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-                    break;
-                case 'interest':
+                break;
             case 'media':
-                        $sql = "CREATE TABLE `media` (
-                                    `num` int(11) NOT NULL AUTO_INCREMENT,
-                                    `id` char(15) NOT NULL,
-                                    `name` char(10) NOT NULL,
-                                    `subject` char(200) NOT NULL,
-                                    `content` text NOT NULL,
-                                    `regist_day` char(20) NOT NULL,
-                                    `hit` int(11) NOT NULL,
-                                    `video_name` char(200),
-                                    PRIMARY KEY (`num`)
-                                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-                        break;
+                $sql = "CREATE TABLE `media` (
+                                        `num` int(11) NOT NULL AUTO_INCREMENT,
+                                        `id` char(15) NOT NULL,
+                                        `name` char(10) NOT NULL,
+                                        `subject` char(200) NOT NULL,
+                                        `content` text NOT NULL,
+                                        `regist_day` char(20) NOT NULL,
+                                        `hit` int(11) NOT NULL,
+                                        `video_name` char(200),
+                                        PRIMARY KEY (`num`)
+                                      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                break;
+            case 'faq':
+                $sql = "CREATE TABLE `faq` (
+                        `num` int(11) NOT NULL AUTO_INCREMENT,
+                        `id` char(15) NOT NULL,
+                        `name` char(10) NOT NULL,
+                        `subject` char(200) NOT NULL,
+                        `content` text NOT NULL,
+                        `regist_day` char(20) NOT NULL,
+                        PRIMARY KEY (`num`)
+                      ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                break;
+            case 'interest':
                 $sql = "CREATE TABLE `interest` (
-  `no` int(11) NOT NULL AUTO_INCREMENT,
-  `member_num` int(11) NOT NULL,
-  `hospital_id` char(10) NOT NULL,
-  PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                                        `no` int(11) NOT NULL AUTO_INCREMENT,
+                                        `member_num` int(11) NOT NULL,
+                                        `hospital_id` char(10) NOT NULL,
+                                        PRIMARY KEY (`no`)
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
             default:
                 echo "<script>alert('해당테이블명이 없습니다. 점검요망!');</script>";

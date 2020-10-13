@@ -3,7 +3,7 @@ body { background-image: url('https://cdn.imweb.me/thumbnail/20190418/5cb7d46548
     background-attachment: fixed; }
 section { background-color: white; }
 
-header { position: relative; color: white; }
+header { position: relative; }
 
 .background_image { height: 100vh; background-color: rgba( 255, 255, 255, 0 ); }
 .background_image #p1 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -500px;

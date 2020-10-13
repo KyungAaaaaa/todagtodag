@@ -14,7 +14,6 @@ else $userlevel = "";
 <div id="top" class="white">
 	<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag_logo_white.png">
 	<? } else { ?>
-	<!--	<div id="top" class="red">-->
 	<div id="top">
 		<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag_logo.png">
 		<? } ?>

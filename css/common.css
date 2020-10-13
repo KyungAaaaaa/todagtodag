@@ -27,6 +27,7 @@ a:link,a:hover,a:visited,a:active { text-decoration:none; color: rgb(44, 55, 68)
 #top h3 {  font-family: "TmonMonsori"; position: absolute; top: 9px; left: 75px; font-size: 36px; margin-left: 5px}
 /*#top h3 {  font-family: "나눔손글씨 펜"; position: absolute; top: 9px; left: 75px; font-size: 36px;}*/
 .white #logo { color: white }
+.white * { color: white }
 /*.red #logo { color: var(--main--color) }*/
 #logo { color: var(--main--color) }
 
@@ -36,7 +37,7 @@ a:link,a:hover,a:visited,a:active { text-decoration:none; color: rgb(44, 55, 68)
     font-size: 16px; }
 
 #top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px;}
-#top #top_menu2 { float: right; margin: 20px 60px 0 0; }
+#top #top_menu2 { float: right; margin: 20px 60px 0 0; font-family: "S-CoreDream-6Bold"}
 #top #top_menu2>li { display: inline-block; margin-left: 60px; }
 /* #top #top_menu2>li>a:hover {
     text-decoration: none;

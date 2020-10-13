@@ -3,7 +3,7 @@ function slideImg() {
     var slideImageBox = slideBox.find(".slide_image_box");
     var slideImages = slideImageBox.find("a");
     var nav = slideBox.find(".slide_nav").find("a");
-    var indicators = slideBox.find(".slide_indicator").find("a");
+    var indicators = $(".slide_indicator").find("a");
 
     var currentIndex = -1;
     var intervalObject;
@@ -34,7 +34,7 @@ function slideImg() {
         intervalObject = setInterval(function () {
             currentIndex = (currentIndex + 1) % slideImages.length;
             setImages(currentIndex);
-        }, 2000)
+        }, 4000)
     }
 
     setImages(0);

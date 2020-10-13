@@ -1,7 +1,24 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
+
 if (isset($_POST['hospital_id'])) $hospital_id = $_POST['hospital_id'];
 if (isset($_POST['user_id'])) $user_id = $_POST['user_id'];
+if (isset($_POST['appointment_date'])) {
+    $appointment_date = $_POST['appointment_date'];
+} else {
+    $appointment_date = 0;
+}
+if (isset($_POST['appointment_time'])) {
+    $appointment_time = $_POST['appointment_time'];
+} else {
+    $appointment_time = 0;
+}
+if (isset($_POST['appointment_department'])) {
+    $appointment_department = $_POST['appointment_department'];
+} else {
+    $appointment_department = 0;
+}
+
 $query = "select * from hospital where id='{$hospital_id}'";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
@@ -204,9 +221,10 @@ if ($tab === "detail") {
 
                         ?>
                         <div class="review_etc">
-                        <div><span>친절</span><span><?=$kindness?></span></div>
-                         <div><span>대기시간</span><span><?=$wait_time?></span></div>
-                          <div><span>진료비</span><span><?=$expense?></div></span></div>
+                            <div><span>친절</span><span><?= $kindness ?></span></div>
+                            <div><span>대기시간</span><span><?= $wait_time ?></span></div>
+                            <div><span>진료비</span><span><?= $expense ?></div></span>
+                        </div>
                         <p class="regist_day"><?= $reviews['regist_day'] ?></p>
     </div>
 
@@ -617,6 +635,11 @@ if ($tab === "detail") {
                     if ($i < 10) {
                 ?>
                         <option value="" id="option<?php echo "{$i}" ?>"><?php echo "0{$i}:00" ?></option>
+                        <?php
+                        $query = "SELECT * from `appointment` where hospital_id ='{$hospital_id}' and appointment_date = '{}' ;";
+                        $result = mysqli_query($con, $query);
+                        $row = mysqli_fetch_array($result);
+                        ?>
                         <script>
                             $("#option<?php echo "{$i}" ?>").click(function() {
                                 $("#calander_data2").val("<?php echo "0{$i}" ?>");
@@ -680,35 +703,105 @@ if ($tab === "detail") {
         <button id="hospital_appointment1">▶ 진료/예약하기</button>
         <button id="hospital_appointment2">▶ 예약정보 초기화</button>
         <?php
-        $query = "SELECT * from members where id='{$user_id}'";
+        $query = "SELECT * from `members` where id='{$user_id}';";
         $result = mysqli_query($con, $query);
         $row = mysqli_fetch_array($result);
         $member_num = $row["num"];
+
+        //hospital_id가 appointment테이블에 존재하는지
+        $query = "SELECT EXISTS (select * from `appointment` where hospital_id = '{$hospital_id}' ) as success;";
+        $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
+        $success = $row["success"];
+
+        //appointment_date가 appointment테이블에 존재하는지
+
+        $query = "SELECT EXISTS (select * from `appointment` where appointment_date = '{$appointment_date}' ) as success2;";
+        $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
+        $success2 = $row["success2"];
+
+        //appointment_time가 appointment테이블에 존재하는지        
+
+        $query = "SELECT EXISTS (select * from `appointment` where appointment_time = '{$appointment_time}' ) as success3;";
+        $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
+        $success3 = $row["success3"];
+
+        //appointment_department가 appointment테이블에 존재하는지        
+        $query = "SELECT EXISTS (select * from `appointment` where appointment_department = '{$appointment_department}' ) as success4;";
+        $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
+        $success4 = $row["success4"];
+
+        mysqli_close($con);
         ?>
         <script>
+            console.log("<?= $hospital_id ?>");
+            console.log("<?= $appointment_date ?>");
+            console.log("<?= $appointment_time ?>");
+            console.log("<?= $appointment_department ?>");
             $("#hospital_appointment1").click(function() {
+                var member_num = "<?= $member_num ?>";
+                var hospital_id = "<?= $hospital_id ?>";
                 var calander_data = $("#calander_data").val();
                 var calander_data2 = $("#calander_data2").val();
                 var calander_data3 = $("#calander_data3").val();
                 var calander_data4 = $("#calander_data4").val();
 
-                if (!(calander_data&&calander_data2&&calander_data3&&calander_data4)) {
-                    if(!calander_data4) {
+                var success = "<?= $success ?>";
+                var success2 = "<?= $success2 ?>";
+                var success3 = "<?= $success3 ?>";
+                var success4 = "<?= $success4 ?>";
+
+                console.log(success);
+                console.log(success2);
+                console.log(success3);
+                console.log(success4);
+
+                $("#hospital_appointment1").attr('disabled', false);
+                $.ajax({
+                        url: 'hospital_info_change.php',
+                        type: 'POST',
+                        data: {
+                            "user_id": "<?= $user_id ?>",
+                            "hospital_id": hospital_id,
+                            "current_tab": "appointment",
+                            "appointment_date": calander_data,
+                            "appointment_time": calander_data2,
+                            "appointment_department": calander_data3,
+                        },
+                        success: function(data) {
+                            $(".content").html(data);
+                        }
+                    })
+                    .done(function() {
+                        console.log("done");
+                    })
+                    .fail(function() {
+                        console.log("error");
+                    })
+                    .always(function() {
+                        console.log("complete");
+                    });
+
+                if (!(calander_data && calander_data2 && calander_data3 && calander_data4)) {
+                    if (!calander_data4) {
                         alert("세부사항을 입력해주세요.");
-                        $("#calander_data4").focus();   
+                        $("#calander_data4").focus();
                     }
-                    if(!calander_data3) {
+                    if (!calander_data3) {
                         alert("진료과목을 선택해주세요.");
-                        $("#calander_data3").focus();
                     }
-                    if(!calander_data2) {
+                    if (!calander_data2) {
                         alert("예약시간을 선택해주세요.");
-                        $("#calander_data2").focus();
                     }
-                    if(!calander_data) {
+                    if (!calander_data) {
                         alert("예약날짜를 선택해주세요.");
-                        $("#calander_data").focus();
                     }
+                    $("#hospital_appointment1").attr('disabled', true);
+                } else if (success == 0 && success2 == 0 && success3 == 0 && success4 == 0) {
+                    alert("해당 날짜와 시간에 이미 예약이 되어있습니다.");
                     $("#hospital_appointment1").attr('disabled', true);
                 } else {
                     $("#hospital_appointment1").attr('disabled', false);
@@ -716,8 +809,8 @@ if ($tab === "detail") {
                             url: 'hospital_appointment.php',
                             type: 'POST',
                             data: {
-                                "member_num": "<?= $member_num ?>",
-                                "hospital_id": "<?= $hospital_id ?>",
+                                "member_num": member_num,
+                                "hospital_id": hospital_id,
                                 "appointment_date": calander_data,
                                 "appointment_time": calander_data2,
                                 "appointment_department": calander_data3,

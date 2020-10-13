@@ -10,10 +10,7 @@
     create_table($con, "review");
     create_table($con, "health_info");
     create_table($con, "interest");
-<<<<<<< HEAD
-=======
     create_table($con, "media");
->>>>>>> 3a02968cd817ac4d479b0de7bb66dc200d72da7f
     create_table($con, "appointment");
 ?>
 

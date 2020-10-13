@@ -49,7 +49,7 @@ if (isset($_GET["page"])) {
   </header>
   <section>
     <div id="admin_border">
-      <div id="snb">
+    <div id="snb">
         <div id="snb_title">
           <h1>관리자 페이지</h1>
         </div>
@@ -62,16 +62,13 @@ if (isset($_GET["page"])) {
           <h2>병원관리</h2>
           <ul>
             <li><a href="admin_hospital.php">병원관리</a></li>
-            <li><a href="admin_board_review.php">후기게시판</a></li>
-            <li><a href="admin_board_together.php">같이할건강</a></li>
           </ul>
 
           <h2>게시글 관리</h2>
           <ul>
             <li><a href="admin_notice.php">공지사항 관리</a></li>
-            <li><a href="admin_program_manage.php">프로그램 관리</a></li>
-            <li><a href="admin_program_payment.php">결제 관리</a></li>
-
+            <li><a href="admin_free.php">자유게시판 관리</a></li>
+            <li><a href="admin_media.php">영상게시판 관리</a></li>
           </ul>
 
           <h2>통계</h2>

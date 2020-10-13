@@ -1,4 +1,4 @@
-body { background-image: url('https://cdn.imweb.me/thumbnail/20190418/5cb7d4654860a.png');
+body { background-image: url('http://127.0.0.1/todagtodag/img/background22.jpg');
     background-size : cover; background-repeat : no-repeat;  background-position : 50% 50%;
     background-attachment: fixed; }
 section { background-color: white; }
@@ -6,10 +6,10 @@ section { background-color: white; }
 header { position: relative; }
 
 .background_image { height: 100vh; background-color: rgba( 255, 255, 255, 0 ); }
-.background_image #p1 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -500px;
-    margin-top: -50px; font-size: 50px; font-weight: bold;}
-.background_image #p2 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -490px;
-    margin-top: 20px; font-size: 20px; }
+.background_image #p1 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -200px;
+    margin-top: -20px; font-size: 50px; font-weight: bold;}
+.background_image #p2 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -190px;
+    margin-top: 50px; font-size: 20px; }
 
 /* 게시판 글쓰기(board_form.php) */
 #board_box { position: relative; width: 800px; margin: 0 auto; height: 100vh; margin-top: 50px;}

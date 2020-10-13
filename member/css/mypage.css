@@ -116,9 +116,10 @@ button {cursor: pointer;}
 	background: url('../../hospital/img/star.png');
 	background-size: auto 100%;
 }
-
-#review_pop_content span {display: flex;flex-direction: row;padding: 10px}
-#review_pop_content div {width: 100%;}
+#review_pop_content div:first-child{text-align: start;}
+#review_pop_content div:first-child>h4{color: white;padding: 15px;background-color: var(--main--color);}
+#review_pop_content .hospital_info {display: flex;flex-direction: row;justify-content:center;padding: 10px;margin-bottom: 20px;}
+#review_pop_content .hospital_info img {width: 50px;height: 50px;}
 #review_pop_content div>h2 {margin-top: 20px;}
 
 #review_pop_content textarea {margin-top:20px;width: 90%;height: 90%;font-family: "S-CoreDream-4Regular"}
@@ -182,5 +183,6 @@ button {cursor: pointer;}
 #review_pop input.checkbox:checked + label.input-label.radio::before {
 	content: "\f058";
 }
+#popup_btn button{padding: 10px 20px;font-size: 16px;border-radius: 20px; border: 1px solid #d5d6e0;background-color: white;font-family: "S-CoreDream-4Regular";margin-right: 10px;}
 
 

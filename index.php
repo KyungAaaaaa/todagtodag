@@ -10,6 +10,8 @@
     create_table($con, "review");
     create_table($con, "health_info");
     create_table($con, "interest");
+    create_table($con, "media");
+    create_table($con, "appointment");
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,9 @@
 
 	<body>
 		<header>
-            <?php include "./header.php"; ?>
+            <?php
+	            $_POST['mode']="white";
+            include "./header.php"; ?>
 		</header>
 		<section>
             <?php include "./home/home.php"; ?>

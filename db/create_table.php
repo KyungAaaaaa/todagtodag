@@ -169,7 +169,7 @@
                     `appointment_department` char(20) DEFAULT NULL,
                     `appointment_detail` char(200) DEFAULT NULL,
                     `appointment_status` char(20) NOT NULL,
-                    `review_no` int(11) NOT NULL,
+                    `review_no` int(11) DEFAULT NULL,
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;";
                     break;

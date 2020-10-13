@@ -10,6 +10,7 @@
     create_table($con, "review");
     create_table($con, "health_info");
     create_table($con, "interest");
+    create_table($con, "appointment");
 ?>
 
 <!DOCTYPE html>

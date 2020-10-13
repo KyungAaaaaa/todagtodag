@@ -98,7 +98,7 @@ if (isset($_GET["page"])) {
           <h2>게시글 관리</h2>
           <ul>
             <li><a href="admin_notice.php">공지사항 관리</a></li>
-            <li><a href="admin_program_manage.php">프로그램 관리</a></li>
+            <li><a href="admin_program_manage.php">게시판 관리</a></li>
             <li><a href="admin_program_payment.php">결제 관리</a></li>
           </ul>
 

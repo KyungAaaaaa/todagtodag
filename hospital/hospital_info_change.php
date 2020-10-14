@@ -234,7 +234,31 @@ if ($tab === "detail") {
     $start_week = date('w', $time); // 1. 시작 요일
     $total_day = date('t', $time); // 2. 현재 달의 총 날짜
     $total_week = ceil(($total_day + $start_week) / 7);  // 3. 현재 달의 총 주차
+
+    $query = "SELECT * from `members` where id='{$user_id}'";
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_array($result);
+    $user_name = $row["name"];
+    $user_phone = $row["phone"];
     ?>
+    <div class="subject"><img src="./img/clock.png">예약자정보</div>
+    <p style="font-size: 14px; margin-bottom: 10px; margin-left: 10px; color: gray;">
+        ※현재 로그인하신 아이디로 찾은 결과입니다.
+    </P>
+    <div class="hospital_memberinfo">
+        <div class="hospital_membername">
+            <p>예약자명 </p>
+            <input type="text" value="<?= $user_name ?>" disabled>
+        </div>
+        <div class="hospital_memberid">
+            <p>예약자아이디 </p>
+            <input type="text" value="<?= $user_id ?>" disabled>
+        </div>
+        <div class="hospital_memberphone">
+            <p>예약자번호 </p>
+            <input type="text" value="<?= $user_phone ?>" disabled>
+        </div>
+    </div>
     <div class="hospital_appointment">
         <div class="hospital_calander">
             <div class="subject"><img src="./img/clock.png">예약가능날짜</div>
@@ -390,8 +414,35 @@ if ($tab === "detail") {
                                     <!-- 시작 요일부터 마지막 날짜까지만 날짜를 보여주도록 -->
                                     <?php if (($n > 1 || $k >= $start_week) && ($total_day >= $n)) : ?>
                                         <!-- 현재 날짜를 보여주고 1씩 더해줌 -->
-                                        <span id="hospital_calander_day<?php echo $n ?>"><?php echo $n++ ?></span>
+                                        <?php
+                                        $regist_day = date("Y-m-d");
+                                        $r = explode("-", $regist_day);
+                                        if ($year > $r[0]) {
+                                        ?>
+                                            <span id="hospital_calander_day<?php echo $n ?>"><?php echo $n++ ?></span>
+                                            <?php
+                                        } else if ($year >= $r[0] && $month >= $r[1]) {
+                                            if ($month > $r[1]) {
+                                            ?>
+                                                <span id="hospital_calander_day<?php echo $n ?>"><?php echo $n++ ?></span>
+                                            <?php
+                                            } else if ($n >= $r[2] && $month === $r[1]) {
+                                            ?>
+                                                <span id="hospital_calander_day<?php echo $n ?>"><?php echo $n++ ?></span>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <span style="color: gray;"><?php echo $n++ ?></span>
+                                            <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <span style="color: gray;"><?php echo $n++ ?></span>
+                                        <?php
+                                        }
+                                        ?>
                                         <script>
+                                            console.log("");
                                             // 1일을 눌렀을때 클릭이벤트 (1일만 이벤트발생 안해서 넣어줌)
                                             $("#hospital_calander_day1").click(function() {
                                                 <?php
@@ -679,15 +730,18 @@ if ($tab === "detail") {
                 ?>
                         <option value="" id="option<?php echo "{$i}" ?>"><?php echo "0{$i}:00" ?></option>
                         <?php
-                        echo "<script>console.log('$hospital_id');</script>";
-                        echo "<script>console.log('$appointment_date');</script>";
-                        echo "<script>console.log('$appointment_department');</script>";
-
                         $query = "SELECT appointment_time from appointment where hospital_id = '$hospital_id' 
                             and appointment_date = '$appointment_date' and appointment_department = ' $appointment_department';";
                         $result = mysqli_query($con, $query);
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<script>document.getElementById('option{$row[0]}').disabled = true;</script>";
+                            echo "
+                                <script>
+                                    var v = document.getElementById('option{$row[0]}').value;
+                                    var v2 = v + '{0$row[0]}:00 reserved';
+                                    document.getElementById('option{$row[0]}').innerHTML = v2;
+                                </script>
+                            ";
                         }
                         ?>
                         <script>
@@ -705,6 +759,13 @@ if ($tab === "detail") {
                         $result = mysqli_query($con, $query);
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<script>document.getElementById('option{$row[0]}').disabled = true;</script>";
+                            echo "
+                                <script>
+                                    var v = document.getElementById('option{$row[0]}').value;
+                                    var v2 = v + '{$row[0]}:00 reserved';
+                                    document.getElementById('option{$row[0]}').innerHTML = v2;
+                                </script>
+                            ";
                         }
                         ?>
                         <script>
@@ -727,7 +788,7 @@ if ($tab === "detail") {
         <p>※진료받고 싶으신 내용을 간략하게 적어주세요.</P>
         <textarea id="calander_data4" placeholder="진료내용을 입력해주세요."></textarea>
     </div>
-
+    
     <div class="hospital_appointment_button">
         <button id="hospital_appointment1">▶ 진료/예약하기</button>
         <button id="hospital_appointment2">▶ 예약정보 초기화</button>
@@ -748,6 +809,11 @@ if ($tab === "detail") {
                 var calander_data3 = $("#calander_data3").val();
                 var calander_data4 = $("#calander_data4").val();
 
+                console.log(calander_data);
+                console.log(calander_data2);
+                console.log(calander_data3);
+                console.log(calander_data4);
+
                 $("#hospital_appointment1").attr('disabled', false);
                 $.ajax({
                         url: 'hospital_check.php',
@@ -759,10 +825,10 @@ if ($tab === "detail") {
                             "appointment_department": calander_data3,
                         },
                         success: function(data) {
-                            if (data == "예약있음") {
+                            if (data === "예약있음") {
                                 alert("해당 날짜와 시간에 예약이 되어있습니다.");
                                 history.go(-1);
-                            } else if (data == "예약없음") {
+                            } else if (data === "예약없음") {
                                 alert("예약이 가능합니다.");
                                 if (!(calander_data && calander_data2 && calander_data3 && calander_data4)) {
                                     if (!calander_data4) {

@@ -66,9 +66,9 @@
     <div id="wrap">
         <div id="col2">
             <div id="title">
-                <h3>건강 정보 > 글쓰기</h3>
+                <h2>건강 정보 > 글쓰기</h2>
             </div>
-            <form name="board_form" action="dml_board.php" method="post" enctype="multipart/form-data">
+            <form name="board_form" action="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/dml_board.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="mode" value="<?= $mode ?>">
                 <input type="hidden" name="num" value="<?= $num ?>">
                 <input type="hidden" name="hit" value="<?= $hit ?>">
@@ -132,7 +132,9 @@
                 </table>
                 <div id="write_button">
                     <input type="image" onclick='document.getElementById("del_file").disabled=false' src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/ok.png">&nbsp;
-                    <a href="./health_info_list.php"><img src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/list.png"></a>
+                    <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/health_info_list.php">
+                        <img src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/list.png">
+                    </a>
                 </div>
                 <!--end of write_button-->
             </form>
@@ -143,6 +145,7 @@
     <!--end of content -->
     </div>
     <!--end of wrap -->
+    <br>
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
     </footer>

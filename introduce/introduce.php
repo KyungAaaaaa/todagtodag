@@ -53,7 +53,7 @@
 						       onclick="location.href='http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/login_form.php'">
 					</a>
 					<a href="#"
-					   style="background-image: url(http://127.0.0.1/todagtodag/img/background18.jpg);"
+					   style="background-image: url(http://127.0.0.1/todagtodag/img/background3.jpg);"
 					   id="slideshow4">
 						<p class="p1">병원 예약 필수 사이트<br>토닥토닥</p>
 						<input type="button" value="홈으로 가기"

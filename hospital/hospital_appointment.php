@@ -14,6 +14,14 @@ $query = "INSERT into `appointment` (member_num, hospital_id, appointment_date, 
     $member_num, '$hospital_id', '$appointment_date', '$appointment_time', ' $appointment_department'
     , '$appointment_detail', 'before', 1);";
 $result = mysqli_query($con, $query);
+
+$query = "SELECT * from `appointment` where member_num = {$member_num} and hospital_id = '{$hospital_id}' 
+    and appointment_date = '{$appointment_date}' and appointment_time = '{$appointment_time}' 
+    and appointment_department = ' {$appointment_department}';";
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_array($result);
+$num = $row["num"];
+
 mysqli_close($con);
 ?>
 
@@ -25,7 +33,7 @@ mysqli_close($con);
         <img src="./img/checked2.png">
         <h2>토닥토닥을 이용해 주셔서 감사합니다.</h2>
         <h1>고객님, <span>진료예약</span>이 <span>완료</span>되었습니다.</h1>
-        <p>고객님이 예약하신 번호는 <span>0000</span> 입니다.</p>
+        <p>고객님이 예약하신 번호는 <span><?php echo "$num" ?></span> 입니다.</p>
         <p>예약정보 확인은 마이페이지/예약조회의<br>"자세히보기"에서 하실 수 있습니다.</p>
         <div class="container_button">
             <button id="container_button1" onclick="location.href = 'http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php';">

@@ -83,24 +83,34 @@ if (isset($_GET["page"])) {
           <h1>관리자 페이지</h1>
         </div>
         <div id="admin_menu_bar">
-          <h2>회원관리</h2><!-- /.menu-title -->
+          <br>
+          <h3>회원관리</h3><!-- /.menu-title -->
           <ul>
             <li><a href="admin_members.php">회원관리</a></li>
           </ul>
 
-          <h2>병원관리</h2>
+          <br>
+          <h3>병원관리</h3>
           <ul>
             <li><a href="admin_hospital.php">병원관리</a></li>
           </ul>
 
-          <h2>게시글 관리</h2>
+          <br>
+          <h3>게시글 관리</h3>
           <ul>
             <li><a href="admin_notice.php">공지사항 관리</a></li>
             <li><a href="admin_free.php">자유게시판 관리</a></li>
             <li><a href="admin_media.php">영상게시판 관리</a></li>
           </ul>
 
-          <h2>통계</h2>
+          <br>
+          <h3>건강정보 관리</h3>
+          <ul>
+            <li><a href="admin_health_info.php">건강정보 등록</a></li>
+          </ul>
+
+          <br>
+          <h3>통계</h3>
           <ul id="sta_ul">
             <li><a href="admin_statistics1.php">매출 분석</a></li>
             <li><a href="admin_statistics2.php">인기 프로그램</a></li>

@@ -54,12 +54,6 @@
         $file_copied_0 = $row['file_copied_1'];
         $day = $row['regist_day'];
 
-        // file 있을 때만 
-        // if (isset($row['file_name_0'])) {
-        //     $file_name_0 = $row['file_name_0'];
-        //     $file_copied_0 = $row['file_copied_0'];
-        //     $file_type_0 = $row['file_type_0'];
-        // }
         mysqli_close($con);
     }
     ?>

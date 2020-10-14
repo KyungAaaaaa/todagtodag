@@ -12,8 +12,11 @@
         if (isset($_POST['expense'])) $expense = $_POST['expense'];
         if (isset($_POST['hospital_id'])) $hospital_id = $_POST['hospital_id'];
         if (isset($_POST['member_num'])) $member_num = $_POST['member_num'];
+        if (isset($_POST['appointment_num'])) $appointment_num = $_POST['appointment_num'];
         $regist_time = date('yy-m-d');
         $query = "insert into review values(null,'{$hospital_id}', {$member_num} ,{$star}, {$kindness},{$wait_time},{$expense}, '{$comment}', '{$regist_time}');";
+        $result = $con->query($query) or die(mysqli_error($con));
+        $query = "update appointment set review_no=(SELECT LAST_INSERT_ID()) where num={$appointment_num}";
         $result = $con->query($query) or die(mysqli_error($con));
         echo "success";
     } elseif ($mode === "delete") {
@@ -21,7 +24,18 @@
         $query = "delete from review where no={$review_no}";
         $result = $con->query($query) or die(mysqli_error($con));
         echo "success";
-    }
+    } elseif ($mode === "detail") {
+        if (isset($_POST['review_no'])) $review_no = $_POST['review_no'];
+        $query = "select * from review where no={$review_no}";
+        $result = $con->query($query);
+        if (mysqli_num_rows($result) !== 0) {
+            $row = mysqli_fetch_assoc($result);
+            echo json_encode($row);
 
+        } else {
+            echo "실행앙ㄴ됌ㅋ";
+        }
+//        echo $review_no;
+    }
 
 ?>

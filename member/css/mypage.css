@@ -80,6 +80,8 @@ button {cursor: pointer;}
 #interest_list li a {margin-left: 20px;}
 #appointment_list li p, #interest_list li p {font-size: 14px; font-family: "S-CoreDream-4Regular"}
 #appointment_list li button, #interest_list li button { height: 30px; outline: none;border: none;background-color: var(--main--color);color: white;padding: 4px 10px;position: absolute;bottom: 10px;right: 10px;font-family: "S-CoreDream-5Medium"}
+#appointment_list li .cancel{height: 27px;width: 90px; position: absolute;bottom: 40px;right: 10px;}
+#appointment_list li .detail{height: 27px;width: 90px;position: absolute;bottom: 10px;right: 10px;}
 #appointment_list img, #review_pop_content img, #interest_list img {width: 60px; }
 
 /* ================ 리뷰관리 ====================*/
@@ -92,6 +94,8 @@ button {cursor: pointer;}
 #board_list .col4 { width: 40px; }
 #board_list .col5 { width: 100px; }
 
+
+/*======================리뷰작성 팝업===============================*/
 #review_pop {
 	display: none;
 	z-index: 999;
@@ -119,6 +123,7 @@ button {cursor: pointer;}
 #review_pop_content div:first-child{text-align: start;}
 #review_pop_content div:first-child>h4{color: white;padding: 15px;background-color: var(--main--color);}
 #review_pop_content .hospital_info {display: flex;flex-direction: row;justify-content:center;padding: 10px;margin-bottom: 20px;}
+#review_pop_content .hospital_info div{text-align: center}
 #review_pop_content .hospital_info img {width: 50px;height: 50px;}
 #review_pop_content div>h2 {margin-top: 20px;}
 

@@ -15,7 +15,7 @@
 		<div><h2>친절</h2>
 			<input type="radio" name="kindness" id="radio0" class="checkbox" value="1">
 			<label for="radio0" class="input-label radio">불친절해요</label>
-			<input type="radio" name="kindness" id="radio1" class="checkbox" value="2" checked>
+			<input type="radio" name="kindness" id="radio1" class="checkbox" value="2" >
 			<label for="radio1" class="input-label radio">친절해요</label>
 			<input type="radio" name="kindness" id="radio2" class="checkbox" value="3">
 			<label for="radio2" class="input-label radio">최고에요</label>
@@ -23,14 +23,14 @@
 		<div><h2>대기 시간</h2>
 			<input type="radio" name="wait_time" id="radio3" class="checkbox" value="1">
 			<label for="radio3" class="input-label radio">오래걸려요</label>
-			<input type="radio" name="wait_time" id="radio4" class="checkbox" value="2" checked>
+			<input type="radio" name="wait_time" id="radio4" class="checkbox" value="2" >
 			<label for="radio4" class="input-label radio">보통이에요</label>
 			<input type="radio" name="wait_time" id="radio5" class="checkbox" value="3">
 			<label for="radio5" class="input-label radio">빨라요</label></div>
 		<div><h2>진료비</h2>
 			<input type="radio" name="expense" id="radio6" class="checkbox" value="1">
 			<label for="radio6" class="input-label radio">비싸요</label>
-			<input type="radio" name="expense" id="radio7" class="checkbox" value="2" checked>
+			<input type="radio" name="expense" id="radio7" class="checkbox" value="2" >
 			<label for="radio7" class="input-label radio">보통이에요</label>
 			<input type="radio" name="expense" id="radio8" class="checkbox" value="3">
 			<label for="radio8" class="input-label radio">저렴해요</label></div>

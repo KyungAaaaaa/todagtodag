@@ -58,7 +58,7 @@ if (isset($_GET["page"])) {
     $items = $_POST["items"];
 
     for ($i = 0; $i < count($items); $i++) {
-      $sql = "delete from notice where num=$items[$i];";
+      $sql = "DELETE from media where num=$items[$i];";
       $result = mysqli_query($con, $sql);
     }
 
@@ -78,7 +78,7 @@ if (isset($_GET["page"])) {
   ?>
   <section>
     <div id="admin_border">
-    <div id="snb">
+      <div id="snb">
         <div id="snb_title">
           <h1>관리자 페이지</h1>
         </div>
@@ -107,9 +107,10 @@ if (isset($_GET["page"])) {
           </ul>
         </div>
       </div><!--  end of sub -->
+
       <div id="content">
-        <h1 id="content_title">게시글 관리 > 공지사항 </h1><br>
-        <form id="delete_board_form" action="admin_notice.php?page=<?= $page ?>" method="post">
+        <h1 id="content_title">게시글 관리 > 영상게시판 </h1><br>
+        <form id="delete_board_form" action="admin_media.php?page=<?= $page ?>" method="post">
           <div id="all_check">
             <input type="checkbox" id="all_agree">
             <span>전체 선택</span>
@@ -130,7 +131,7 @@ if (isset($_GET["page"])) {
               $page = 1;
             }
 
-            $sql = "select * from notice order by num desc";
+            $sql = "select * from media order by num desc";
             $result = mysqli_query($con, $sql);
             $total_record = mysqli_num_rows($result); // 전체 글 수
 
@@ -163,7 +164,7 @@ if (isset($_GET["page"])) {
             ?>
               <li id="board_content">
                 <span class="col1"><?= $number ?></span>
-                <span class="col2"><a href="../notice/notice_view.php?num=<?= $num ?>&page=<?= $page ?>&hit=<?= $hit + 1 ?>"><?= str_cutting($subject, 90) ?></a></span>
+                <span class="col2"><a href="../board/media/media_view.php?num=<?= $num ?>&page=<?= $page ?>&hit=<?= $hit + 1 ?>"><?= str_cutting($subject, 90) ?></a></span>
                 <span class="col3"><?= $id ?> (<?= $name ?>)</span>
                 <span class="col4"><?= $regist_day ?></span>
                 <span class="col5"><?= $hit ?></span>
@@ -199,7 +200,7 @@ if (isset($_GET["page"])) {
             <?php
             if ($total_page >= 2 && $page >= 2) {
               $new_page = $page - 1;
-              echo "<li><a href='admin_notice.php?page=$new_page'>◀ 이전</a> </li>";
+              echo "<li><a href='admin_media.php?page=$new_page'>◀ 이전</a> </li>";
             } else {
               echo "<li>&nbsp;</li>";
             }
@@ -209,13 +210,13 @@ if (isset($_GET["page"])) {
               if ($page == $i) {     // 현재 페이지 번호 링크 안함
                 echo "<li><b> $i </b></li>";
               } else {
-                echo "<li><a href='admin_notice.php?page=$i'>  $i  </a><li>";
+                echo "<li><a href='admin_media.php?page=$i'>  $i  </a><li>";
               }
             }
             if ($total_page >= 2 && $page != $total_page) {
               $new_page = $page + 1;
 
-              echo "<li> <a href='admin_notice.php?page=$new_page'>다음 ▶</a> </li>";
+              echo "<li> <a href='admin_media.php?page=$new_page'>다음 ▶</a> </li>";
             } else {
               echo "<li>&nbsp;</li>";
             }

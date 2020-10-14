@@ -48,7 +48,7 @@ if (isset($_GET["page"])) {
   </header>
   <section>
     <div id="admin_border">
-      <div id="snb">
+    <div id="snb">
         <div id="snb_title">
           <h1>관리자 페이지</h1>
         </div>
@@ -61,16 +61,13 @@ if (isset($_GET["page"])) {
           <h2>병원관리</h2>
           <ul>
             <li><a href="admin_hospital.php">병원관리</a></li>
-            <li><a href="admin_board_review.php">후기게시판</a></li>
-            <li><a href="admin_board_together.php">같이할건강</a></li>
           </ul>
 
           <h2>게시글 관리</h2>
           <ul>
             <li><a href="admin_notice.php">공지사항 관리</a></li>
-            <li><a href="admin_program_manage.php">프로그램 관리</a></li>
-            <li><a href="admin_program_payment.php">결제 관리</a></li>
-
+            <li><a href="admin_free.php">자유게시판 관리</a></li>
+            <li><a href="admin_media.php">영상게시판 관리</a></li>
           </ul>
 
           <h2>통계</h2>
@@ -431,14 +428,16 @@ if (isset($_GET["page"])) {
             echo "<li>&nbsp;</li>";
           }
 
+
+          echo "&nbsp;&nbsp;&nbsp;";
           // 게시판 목록 하단에 페이지 링크 번호 출력
-          for ($i = 1; $i <= $total_page; $i++) {
-            if ($page == $i) {     // 현재 페이지 번호 링크 안함
-              echo "<li><b> $i </b></li>";
-            } else {
-              echo "<li><a href='admin_hospital.php?page=$i'>&nbsp;$i&nbsp;</a><li>";
-            }
-          }
+          // for ($i = 1; $i <= $total_page; $i++) {
+          //   if ($page == $i) {     // 현재 페이지 번호 링크 안함
+          //     echo "<li><b> $i </b></li>";
+          //   } else {
+          //     echo "<li><a href='admin_hospital.php?page=$i'>&nbsp;$i&nbsp;</a><li>";
+          //   }
+          // }
 
           if ($total_page >= 2 && $page != $total_page) {
             $new_page = $page + 1;

@@ -24,7 +24,6 @@
 
 	<body>
 		<header>
-
             <?php $_POST['mode']="white";
                 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
@@ -32,7 +31,7 @@
 			<div class="slideshow">
 				<div class="slideshow_slides">
 					<a href="#"
-					   style="background-image: url(https://cdn.imweb.me/thumbnail/20190516/5cdcfae3db63e.jpg);"
+					   style="background-image: url(http://127.0.0.1/todagtodag/img/background5.jpg);"
 					   id="slideshow1">
 						<p class="p1">건강이 편해지다</p>
 						<p class="p2">병원 예약/접수 필수웹 토닥토닥</p>
@@ -40,13 +39,13 @@
 						       onclick="location.href='http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital.php'">
 					</a>
 					<a href="#"
-					   style="background-image: url(https://cdn.imweb.me/thumbnail/20190520/5ce2129278793.jpg);"
+					   style="background-image: url(http://127.0.0.1/todagtodag/img/background2.jpg);"
 					   id="slideshow2">
 						<p class="p1">사람들이 건강해지는<br>편리한 방법을 만들어 갑니다</p>
 						<input type="button" value="건강정보 확인 하러 가기"
 						       onclick="location.href='http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php'">
 					</a>
-					<a href="#" style="background-image: url(http://127.0.0.1/todagtodag/img/doctor.jpg);"
+					<a href="#" style="background-image: url(http://127.0.0.1/todagtodag/img/background14.jpg);"
 					   id="slideshow3">
 						<p class="p1">CONVENIENT<br>USEFULL<br>BETTER</p>
 						<p class="p2">TODAGTODAG</p>
@@ -54,7 +53,7 @@
 						       onclick="location.href='http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/login_form.php'">
 					</a>
 					<a href="#"
-					   style="background-image: url(https://cdn.imweb.me/thumbnail/20190520/5ce2129a02a0d.jpg);"
+					   style="background-image: url(http://127.0.0.1/todagtodag/img/background18.jpg);"
 					   id="slideshow4">
 						<p class="p1">병원 예약 필수 사이트<br>토닥토닥</p>
 						<input type="button" value="홈으로 가기"

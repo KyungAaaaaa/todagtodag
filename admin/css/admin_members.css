@@ -154,6 +154,7 @@ select {
   border: 1px solid #F23005;
   background-color: #F23005;
   color: white;
+  cursor: pointer;
 }
 
 .butoon_col2 button {
@@ -164,6 +165,7 @@ select {
   border: 1px solid #F23005;
   background-color: #F23005;
   color: white;
+  cursor: pointer;
 }
 
 .butoon_col2 button p {

@@ -1,7 +1,9 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
+
 if (isset($_POST['hospital_id'])) $hospital_id = $_POST['hospital_id'];
 if (isset($_POST['user_id'])) $user_id = $_POST['user_id'];
+
 $query = "select * from hospital where id='{$hospital_id}'";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
@@ -204,9 +206,10 @@ if ($tab === "detail") {
 
                         ?>
                         <div class="review_etc">
-                        <div><span>친절</span><span><?=$kindness?></span></div>
-                         <div><span>대기시간</span><span><?=$wait_time?></span></div>
-                          <div><span>진료비</span><span><?=$expense?></div></span></div>
+                            <div><span>친절</span><span><?= $kindness ?></span></div>
+                            <div><span>대기시간</span><span><?= $wait_time ?></span></div>
+                            <div><span>진료비</span><span><?= $expense ?></div></span>
+                        </div>
                         <p class="regist_day"><?= $reviews['regist_day'] ?></p>
     </div>
 
@@ -602,48 +605,13 @@ if ($tab === "detail") {
             <p>예약선택일 : </p>
             <input type="text" id="calander_data" value="<?= $_POST["calander_data"] ?>" disabled>
         </div>
-        <div class="hospital_appointment_time">
-            <div class="subject">&nbsp;<img src="./img/clock.png">예약가능시간</div>
-            <select size="10">
-                <option value="" disabled>--------시간을 선택하세요---------</option>
-                <?php
-                if (!isset($_POST["operating_time"])) {
-                    $_POST["operating_time"] = "";
-                }
-                $e_operating_time = explode("-", $_POST["operating_time"]);
-                $e_operating_time0 = ceil($e_operating_time[0] / 100);
-                $e_operating_time1 = floor($e_operating_time[1] / 100);
-                for ($i = $e_operating_time0; $i <= $e_operating_time1; $i++) {
-                    if ($i < 10) {
-                ?>
-                        <option value="" id="option<?php echo "{$i}" ?>"><?php echo "0{$i}:00" ?></option>
-                        <script>
-                            $("#option<?php echo "{$i}" ?>").click(function() {
-                                $("#calander_data2").val("<?php echo "0{$i}" ?>");
-                            })
-                        </script>
-                    <?php
-                    } else {
-                    ?>
-                        <option value="" id="option<?php echo "{$i}" ?>"><?php echo "{$i}:00" ?></option>
-                        <script>
-                            $("#option<?php echo "{$i}" ?>").click(function() {
-                                $("#calander_data2").val("<?php echo "{$i}" ?>");
-                            })
-                        </script>
-                <?php
-                    }
-                }
-                ?>
-            </select>
-            <p>예약선택시간 : </p>
-            <input type="text" id="calander_data2" disabled>
-        </div>
         <div class="hospital_appointment_department">
             <div class="subject">&nbsp;<img src="./img/description.png">진료과목</div>
             <select size="10">
                 <option value="" disabled>--------과목을 선택하세요--------------</option>
                 <?php
+                $appointment_date =  $_POST["calander_data"];
+
                 $query = "SELECT `department` from hospital where id='{$hospital_id}'";
                 $result = mysqli_query($con, $query);
                 $row = mysqli_fetch_array($result);
@@ -657,7 +625,32 @@ if ($tab === "detail") {
                         <option value="" id="option<?php echo "{$i}" ?>"><?php echo "{$hospital_department[$i]}" ?></option>
                         <script>
                             $("#option<?php echo "{$i}" ?>").click(function() {
-                                $("#calander_data3").val("<?php echo "{$hospital_department[$i]}" ?>");
+                                $.ajax({
+                                        url: 'hospital_info_change.php',
+                                        type: 'POST',
+                                        data: {
+                                            "hospital_id": "<?= $hospital_id ?>",
+                                            "user_id": "<?= $user_id ?>",
+                                            "current_tab": "appointment",
+                                            "calander_data": "<?= $appointment_date ?>",
+                                            "operating_time": "<?= $operating_time ?>",
+                                            "appointment_department": "<?php echo "{$hospital_department[$i]}" ?>"
+                                        },
+                                        success: function(data) {
+                                            $(".content").html(data);
+                                            $("#calander_data3").val("<?php echo "{$hospital_department[$i]}" ?>");
+                                        }
+                                    })
+                                    .done(function() {
+                                        console.log("done");
+                                    })
+                                    .fail(function() {
+                                        console.log("error");
+                                    })
+                                    .always(function() {
+                                        console.log("complete");
+                                    });
+
                             })
                         </script>
                 <?php
@@ -667,6 +660,65 @@ if ($tab === "detail") {
             </select>
             <p>선택과목 : </p>
             <input type="text" id="calander_data3" disabled>
+        </div>
+        <div class="hospital_appointment_time">
+            <div class="subject">&nbsp;<img src="./img/clock.png">예약가능시간</div>
+            <select size="10">
+                <option value="" disabled>--------시간을 선택하세요---------</option>
+                <?php
+                if (!isset($_POST["operating_time"])) {
+                    $_POST["operating_time"] = "";
+                }
+                $appointment_department =  $_POST["appointment_department"];
+                $e_operating_time = explode("-", $_POST["operating_time"]);
+                $e_operating_time0 = ceil($e_operating_time[0] / 100);
+                $e_operating_time1 = floor($e_operating_time[1] / 100);
+
+                for ($i = $e_operating_time0; $i <= $e_operating_time1; $i++) {
+                    if ($i < 10) {
+                ?>
+                        <option value="" id="option<?php echo "{$i}" ?>"><?php echo "0{$i}:00" ?></option>
+                        <?php
+                        echo "<script>console.log('$hospital_id');</script>";
+                        echo "<script>console.log('$appointment_date');</script>";
+                        echo "<script>console.log('$appointment_department');</script>";
+
+                        $query = "SELECT appointment_time from appointment where hospital_id = '$hospital_id' 
+                            and appointment_date = '$appointment_date' and appointment_department = ' $appointment_department';";
+                        $result = mysqli_query($con, $query);
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo "<script>document.getElementById('option{$row[0]}').disabled = true;</script>";
+                        }
+                        ?>
+                        <script>
+                            $("#option<?php echo "{$i}" ?>").click(function() {
+                                $("#calander_data2").val("<?php echo "0{$i}" ?>");
+                            })
+                        </script>
+                    <?php
+                    } else {
+                    ?>
+                        <option value="" id="option<?php echo "{$i}" ?>"><?php echo "{$i}:00" ?></option>
+                        <?php
+                        $query = "SELECT appointment_time from appointment where hospital_id = '$hospital_id' 
+                            and appointment_date = '$appointment_date' and appointment_department = ' $appointment_department';";
+                        $result = mysqli_query($con, $query);
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo "<script>document.getElementById('option{$row[0]}').disabled = true;</script>";
+                        }
+                        ?>
+                        <script>
+                            $("#option<?php echo "{$i}" ?>").click(function() {
+                                $("#calander_data2").val("<?php echo "{$i}" ?>");
+                            })
+                        </script>
+                <?php
+                    }
+                }
+                ?>
+            </select>
+            <p>예약선택시간 : </p>
+            <input type="text" id="calander_data2" disabled>
         </div>
 
     </div> <!-- hospital_appointment end-->
@@ -680,63 +732,92 @@ if ($tab === "detail") {
         <button id="hospital_appointment1">▶ 진료/예약하기</button>
         <button id="hospital_appointment2">▶ 예약정보 초기화</button>
         <?php
-        $query = "SELECT * from members where id='{$user_id}'";
+        $query = "SELECT * from `members` where id='{$user_id}';";
         $result = mysqli_query($con, $query);
         $row = mysqli_fetch_array($result);
         $member_num = $row["num"];
+
+        mysqli_close($con);
         ?>
         <script>
             $("#hospital_appointment1").click(function() {
+                var member_num = "<?= $member_num ?>";
+                var hospital_id = "<?= $hospital_id ?>";
                 var calander_data = $("#calander_data").val();
                 var calander_data2 = $("#calander_data2").val();
                 var calander_data3 = $("#calander_data3").val();
                 var calander_data4 = $("#calander_data4").val();
 
-                if (!(calander_data&&calander_data2&&calander_data3&&calander_data4)) {
-                    if(!calander_data4) {
-                        alert("세부사항을 입력해주세요.");
-                        $("#calander_data4").focus();   
-                    }
-                    if(!calander_data3) {
-                        alert("진료과목을 선택해주세요.");
-                        $("#calander_data3").focus();
-                    }
-                    if(!calander_data2) {
-                        alert("예약시간을 선택해주세요.");
-                        $("#calander_data2").focus();
-                    }
-                    if(!calander_data) {
-                        alert("예약날짜를 선택해주세요.");
-                        $("#calander_data").focus();
-                    }
-                    $("#hospital_appointment1").attr('disabled', true);
-                } else {
-                    $("#hospital_appointment1").attr('disabled', false);
-                    $.ajax({
-                            url: 'hospital_appointment.php',
-                            type: 'POST',
-                            data: {
-                                "member_num": "<?= $member_num ?>",
-                                "hospital_id": "<?= $hospital_id ?>",
-                                "appointment_date": calander_data,
-                                "appointment_time": calander_data2,
-                                "appointment_department": calander_data3,
-                                "appointment_detail": calander_data4
-                            },
-                            success: function(data) {
-                                $("section").html(data);
+                $("#hospital_appointment1").attr('disabled', false);
+                $.ajax({
+                        url: 'hospital_check.php',
+                        type: 'POST',
+                        data: {
+                            "hospital_id": hospital_id,
+                            "appointment_date": calander_data,
+                            "appointment_time": calander_data2,
+                            "appointment_department": calander_data3,
+                        },
+                        success: function(data) {
+                            if (data == "예약있음") {
+                                alert("해당 날짜와 시간에 예약이 되어있습니다.");
+                                history.go(-1);
+                            } else if (data == "예약없음") {
+                                alert("예약이 가능합니다.");
+                                if (!(calander_data && calander_data2 && calander_data3 && calander_data4)) {
+                                    if (!calander_data4) {
+                                        alert("세부사항을 입력해주세요.");
+                                        $("#calander_data4").focus();
+                                    }
+                                    if (!calander_data3) {
+                                        alert("진료과목을 선택해주세요.");
+                                    }
+                                    if (!calander_data2) {
+                                        alert("예약시간을 선택해주세요.");
+                                    }
+                                    if (!calander_data) {
+                                        alert("예약날짜를 선택해주세요.");
+                                    }
+                                    $("#hospital_appointment1").attr('disabled', true);
+                                } else {
+                                    $("#hospital_appointment1").attr('disabled', false);
+                                    $.ajax({
+                                            url: 'hospital_appointment.php',
+                                            type: 'POST',
+                                            data: {
+                                                "member_num": member_num,
+                                                "hospital_id": hospital_id,
+                                                "appointment_date": calander_data,
+                                                "appointment_time": calander_data2,
+                                                "appointment_department": calander_data3,
+                                                "appointment_detail": calander_data4
+                                            },
+                                            success: function(data) {
+                                                $("section").html(data);
+                                            }
+                                        })
+                                        .done(function() {
+                                            console.log("done");
+                                        })
+                                        .fail(function() {
+                                            console.log("error");
+                                        })
+                                        .always(function() {
+                                            console.log("complete");
+                                        });
+                                }
                             }
-                        })
-                        .done(function() {
-                            console.log("done");
-                        })
-                        .fail(function() {
-                            console.log("error");
-                        })
-                        .always(function() {
-                            console.log("complete");
-                        });
-                }
+                        }
+                    })
+                    .done(function() {
+                        console.log("done");
+                    })
+                    .fail(function() {
+                        console.log("error");
+                    })
+                    .always(function() {
+                        console.log("complete");
+                    });
             })
 
             $("#hospital_appointment2").click(function() {

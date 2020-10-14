@@ -90,7 +90,7 @@
                      `subject` varchar(100) NOT NULL,
                      `content` text NOT NULL,
                      `category` char(50) NOT NULL,
-                     `regist_day` char(20) DEFAULT NULL,
+                     `regist_day` char(20) DEFAULT NULL,햣
                      `hit` int(11) DEFAULT NULL,
                      `file_name_1` char(40) DEFAULT NULL,
                      `file_copied_1` char(30) DEFAULT NULL,
@@ -169,7 +169,7 @@
                     `appointment_department` char(20) DEFAULT NULL,
                     `appointment_detail` char(200) DEFAULT NULL,
                     `appointment_status` char(20) NOT NULL,
-                    `review_no` int(11) NOT NULL,
+                    `review_no` int(11) DEFAULT NULL,
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;";
                     break;

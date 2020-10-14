@@ -491,7 +491,7 @@ if ($tab === "detail") {
                                                             "hospital_id": "<?= $hospital_id ?>",
                                                             "user_id": "<?= $user_id ?>",
                                                             "current_tab": "appointment",
-                                                            "calander_data": "<?php echo "{$year}{$month}01" ?>",
+                                                            "calander_data": "<?php echo "{$year}-{$month}-01" ?>",
                                                             "operating_time": "<?= $operating_time ?>",
                                                         },
                                                         success: function(data) {
@@ -559,7 +559,7 @@ if ($tab === "detail") {
                                                                 "hospital_id": "<?= $hospital_id ?>",
                                                                 "user_id": "<?= $user_id ?>",
                                                                 "current_tab": "appointment",
-                                                                "calander_data": "<?php echo "{$year}{$month}0{$n}" ?>",
+                                                                "calander_data": "<?php echo "{$year}-{$month}-0{$n}" ?>",
                                                                 "operating_time": "<?= $operating_time ?>",
                                                             },
                                                             success: function(data) {
@@ -622,7 +622,7 @@ if ($tab === "detail") {
                                                                 "hospital_id": "<?= $hospital_id ?>",
                                                                 "user_id": "<?= $user_id ?>",
                                                                 "current_tab": "appointment",
-                                                                "calander_data": "<?php echo "{$year}{$month}{$n}" ?>",
+                                                                "calander_data": "<?php echo "{$year}-{$month}-{$n}" ?>",
                                                                 "operating_time": "<?= $operating_time ?>",
                                                             },
                                                             success: function(data) {

@@ -111,7 +111,18 @@
 			</span>
 
 			<span class="content_item"><a href="member_appointment.php">
-					<h4>최근 예약 > </h4></a><p>예약테이블만들어지면 추가하기</p>
+					<h4>최근 예약 > </h4></a>
+				 <?
+                     $query = "select * from appointment a inner join hospital h on a.hospital_id=h.id where member_num={$member_num} order by appointment_date desc limit 4;";
+
+                     $result = $con->query($query) or die(mysqli_error($con));
+                     if (mysqli_num_rows($result) !== 0) {
+                         while ($row = mysqli_fetch_assoc($result)) { ?>
+							 <p><a href='member_appointment.php'><?= $row['name'] ?></p></a>
+                         <? }
+                     } else { ?>
+						 <p>예약내역이 없습니다.</p>
+                     <? } ?>
 			</span>
 		</div>
 
@@ -124,8 +135,7 @@
 			<span class="content_item">
 		<h4><a href="member_interest.php">관심 병원 > </a></h4>
         <?
-            $query = "select * from interest;";
-            $query = "select id,name,addr,interest_no from hospital h inner join (select i.no as interest_no,member_num,hospital_id from interest i inner join members m on i.member_num=m.num) im on h.id=im.hospital_id where member_num=$member_num limit 4;"; //임시
+            $query = "select id,name,addr,interest_no from hospital h inner join (select i.no as interest_no,member_num,hospital_id from interest i inner join members m on i.member_num=m.num) im on h.id=im.hospital_id where member_num=$member_num limit 4;";
 
             $result = $con->query($query) or die(mysqli_error($con));
             if (mysqli_num_rows($result) !== 0) {

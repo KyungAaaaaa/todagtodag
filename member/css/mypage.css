@@ -73,8 +73,8 @@ button {cursor: pointer;}
 .period p, .location p {display: inline-block;font-size: 20px;padding: 10px 20px;border-right: 1px solid var(--sub--color)}
 .period span, .location span {padding: 0 20px;}
 
-#appointment_list, #interest_list {max-height: 520px;overflow-y: scroll}
-#appointment_list li, #interest_list li {position: relative;border: 1px solid #c3c3c3; margin: 7px 0; width: 700px;}
+#appointment_list, #interest_list {max-height: 520px;overflow-y: scroll;}
+#appointment_list li, #interest_list li {position: relative;border: 1px solid #c3c3c3; margin: 7px 10px; width: 700px;background-color: white}
 #appointment_list li span, #interest_list li span {display: flex;flex-direction: row;padding: 10px}
 #appointment_list li a {margin-left: 20px;}
 #interest_list li a {margin-left: 20px;}

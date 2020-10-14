@@ -34,7 +34,7 @@
 	<body>
 		<header>
             <?php
-	            $_POST['mode']="white";
+//	            $_POST['mode']="white";
             include "./header.php"; ?>
 		</header>
 		<section>

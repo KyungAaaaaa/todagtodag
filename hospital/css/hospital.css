@@ -33,3 +33,4 @@ header { position: relative; }
 .hospital_list ul{ height: 600px; overflow-y: scroll; }
 .hospital_list li{ padding: 1em; margin-bottom: 3px; border: 1px solid #bababa; }
 .hospital_list li a { color: black;}
+

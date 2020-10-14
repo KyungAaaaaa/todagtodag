@@ -1,13 +1,18 @@
-header {
-	position: relative;
-	z-index: 2;
+/*header {*/
+/*	position: relative;*/
+/*	z-index: 2;*/
+/*}*/
+/*section {*/
+/*	*/
+/*	position: relative;*/
+/*	top: -60px;*/
+/*	z-index: 1;*/
+/*}*/
+
+element {
+	--main-bg-color: brown;
 }
-section {
-	
-	position: relative;
-	top: -60px;
-	z-index: 1;
-}
+
 
 /* ======================슬라이드 ========================*/
 #home_img_bar {
@@ -69,8 +74,7 @@ section {
 	position: absolute;
 	left: 0;
 	right: 0;
-	/*bottom: -30px;*/
-	top: 570px;
+	top: 630px;
 	text-align: center;
 }
 
@@ -104,13 +108,13 @@ section {
 .search {
 	position: absolute;
 	min-width: var(--header--width);
-	top:410px;
+	top:470px;
 	height: 150px;
 	/*background-color: #000000;*/
 	background-color: rgba( 0, 0, 0, 0.5 );
 	width: 100%;
 }
-.search form {display: flex;flex-direction: row;}
+.search div {display: flex;flex-direction: row;position: relative;width: 600px; height:150px;margin: 0 auto;--search-top:35%;}
 .search input[type=text] {
 	position: absolute;
 	width: 600px;
@@ -119,17 +123,15 @@ section {
 	border-radius: 20px;
 	outline: none;
 	border: none;
-	/*border: 1px solid gray;*/
-	top: 30%;
+	top: var(--search-top);
 	left: 50%;
 	transform: translate(-50%);
-	
 }
 .search input[type=text]:hover { outline: none;}
 .search button {
 	position: absolute;
-	top: 30%;
-	left: 66%;
+	top: var(--search-top);
+	right: 5px;
 	cursor: pointer;
 	width: 45px;
 	height: 45px;

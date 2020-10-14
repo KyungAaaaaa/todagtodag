@@ -4,9 +4,11 @@
     if (isset($_POST['addr_2'])) $addr_2 = $_POST['addr_2'];
     if (isset($_POST['addr_3'])) $addr_3 = $_POST['addr_3'];
 //    $query = "select * from hospital where addr like '%$addr_1%' and addr like '%$addr_2%' and addr like '%$addr_3%' limit 3;";
-    $query = "select * from hospital where addr like '%$addr_1%' and addr like '%$addr_2%' limit 3;";
+    $query = "select * from hospital where addr like '%$addr_1%' and addr like '%$addr_2%' limit 4;";
     $result = $con->query($query) or die(mysqli_error($con));
+    $image=["세로.jpg","세로2.jpg","세로3.jpg","세로4.jpg"];
     if (mysqli_num_rows($result) !== 0) {
+
         while ($row = mysqli_fetch_assoc($result)) {
             $hospital_id = $row['id'];
             $hospital_name = $row['name'];
@@ -14,13 +16,13 @@
             $file_name = $row['file_name_0'];
             $file_copied = $row['file_copied_0'];
             $file_type = $row['file_type_0'];
-
+            $random = array_rand($image);
             ?>
 			<span class="hospital_item">
 				<a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/hospital_info.php?hospital_id=<?= $hospital_id ?>">
 					<?php
                         if (strpos($file_type, "image") !== false) echo "<img src='../../admin/data/$file_copied'>";
-                        else echo "<img src='http://" . $_SERVER['HTTP_HOST'] . "/todagtodag/home/img/세로.jpg'>"
+                        else echo "<img src='http://" . $_SERVER['HTTP_HOST'] . "/todagtodag/home/img/".$image[$random]."'>"
                     ?>
 
 				<h3><?= $hospital_name ?></h3>

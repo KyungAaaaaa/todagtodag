@@ -17,13 +17,10 @@ if (isset($_POST['like_status'])) {
     if ($status === "like") {
         $query = "delete from interest where no={$interest_no}";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
-?>
-        <img src='img/unlike.png' value='unlike'>
-        <input type='hidden' id='interest_no' name='interest_no' value=''>
-        <?php
+        echo "";
         return;
     } else {
-        $query = "insert into interest values (null,$member_num,'$hospital_id')";
+        $query = "insert into interest values (null,{$member_num},'{$hospital_id}')";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
 
         $query = "select * from interest where `member_num`='{$member_num}' and `hospital_id`='{$hospital_id}'";
@@ -31,10 +28,7 @@ if (isset($_POST['like_status'])) {
         $num_row = mysqli_num_rows($result);
         if ($num_row !== 0) {
             $row = mysqli_fetch_assoc($result);
-        ?>
-            <img src='img/like.png' value='like'>
-            <input type='hidden' id='interest_no' name='interest_no' value='<?= $row['no'] ?>'>
-    <?php
+            echo $row['no'];
         }
         return;
     }
@@ -77,19 +71,20 @@ if ($tab === "detail") {
                 </tr>
             </table>
         </div>
-        <div class='hospital_tel'>
-            <div class='subject'><img src='img/call.png'>전화번호</div>
-            <span><?= $row['tel'] ?></span>
-        </div>
-        <div class='hospital_department'>
-            <div class='subject'><img src='img/description.png'>진료과목</div>
-            <?php
-
-            $department = explode(',', $row['department']);
-            for ($i = 0; $i < sizeof($department); $i++) {
-                echo '<span>' . $department[$i] . '</span><br>';
-            }
-            ?>
+		<div id="tal_department">
+			<div class='hospital_department'>
+	            <div class='subject'><img src='img/description.png'>진료과목</div>
+		            <?php
+		            $department = explode(',', $row['department']);
+		            for ($i = 0; $i < sizeof($department); $i++) {
+		                echo '<span>' . $department[$i] . '</span><br>';
+		            }
+		            ?>
+	        </div>
+	        <div class='hospital_tel'>
+	            <div class='subject'><img src='img/call.png'>전화번호</div>
+	            <span><?= $row['tel'] ?></span>
+	        </div>
         </div>
         <div class='hospital_map'>
             <div class='subject'><img src='img/cursor.png'>상세 위치</div>
@@ -127,6 +122,16 @@ if ($tab === "detail") {
 
                     // 마커가 지도 위에 표시되도록 설정합니다
                     marker.setMap(map);
+
+                    var iwContent = '<div style="padding:5px;text-align:center;"> <?= $row["name"] ?> <br> <a href="https://map.kakao.com/link/to/<?=$row["name"]?>,<?= $row["mapy"] . "," . $row["mapx"] ?>" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwPosition = new kakao.maps.LatLng(<?= $row['mapy'] . "," . $row['mapx'] ?>); //인포윈도우 표시 위치입니다
+
+// 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+    position : iwPosition,
+    content : iwContent
+});infowindow.open(map, marker);
+
                 </script>
             </div>
         </div>
@@ -241,6 +246,7 @@ if ($tab === "detail") {
     $user_name = $row["name"];
     $user_phone = $row["phone"];
     ?>
+     <div class='hospital_appointment_container'>
     <div class="subject"><img src="./img/clock.png">예약자정보</div>
     <p style="font-size: 14px; margin-bottom: 10px; margin-left: 10px; color: gray;">
         ※현재 로그인하신 아이디로 찾은 결과입니다.
@@ -250,10 +256,10 @@ if ($tab === "detail") {
             <p>예약자명 </p>
             <input type="text" value="<?= $user_name ?>" disabled>
         </div>
-        <div class="hospital_memberid">
-            <p>예약자아이디 </p>
-            <input type="text" value="<?= $user_id ?>" disabled>
-        </div>
+<!--        <div class="hospital_memberid">-->
+<!--            <p>예약자아이디 </p>-->
+<!--            <input type="text" value="--><?//= $user_id ?><!--" disabled>-->
+<!--        </div>-->
         <div class="hospital_memberphone">
             <p>예약자번호 </p>
             <input type="text" value="<?= $user_phone ?>" disabled>
@@ -653,8 +659,9 @@ if ($tab === "detail") {
                 $_POST["calander_data"] = "";
             }
             ?>
+<div class="select_option">
             <p>예약선택일 : </p>
-            <input type="text" id="calander_data" value="<?= $_POST["calander_data"] ?>" disabled>
+            <input type="text" id="calander_data" value="<?= $_POST["calander_data"] ?>" disabled></div>
         </div>
         <div class="hospital_appointment_department">
             <div class="subject">&nbsp;<img src="./img/description.png">진료과목</div>
@@ -709,8 +716,9 @@ if ($tab === "detail") {
                 }
                 ?>
             </select>
+            <div class="select_option">
             <p>선택과목 : </p>
-            <input type="text" id="calander_data3" disabled>
+            <input type="text" id="calander_data3" disabled></div>
         </div>
         <div class="hospital_appointment_time">
             <div class="subject">&nbsp;<img src="./img/clock.png">예약가능시간</div>
@@ -778,8 +786,9 @@ if ($tab === "detail") {
                 }
                 ?>
             </select>
+            <div class="select_option">
             <p>예약선택시간 : </p>
-            <input type="text" id="calander_data2" disabled>
+            <input type="text" id="calander_data2" disabled></div>
         </div>
 
     </div> <!-- hospital_appointment end-->

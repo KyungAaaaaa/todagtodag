@@ -42,8 +42,15 @@ $appointment_tab.on("click", tab_change);
 // $detail_tab.addClass("current");
 
 
-$(".like_btn").on("click", function () {
-    const $status = $(this).children("img").attr('value');
+$(".like_btn #checkbox").on("click", function () {
+    // const $status = $(this).children("#checkbox:checked").val();
+    if($(this).is(":checked") === true){
+        $status="unlike";
+    }
+
+    if($(this).is(":checked") === false){
+          $status="like";
+    }
     const $interest_no = $('#interest_no').val();
     const $member_num = $('#member_num').val();
     const $hospital_id = $('#hospital_id').val();
@@ -58,7 +65,8 @@ $(".like_btn").on("click", function () {
             interest_no: $interest_no
         },
         success: function (data) {
-            $(".like_btn").html(data);
+        console.log(data)
+            $('#interest_no').val(data);
         }
     })
 });

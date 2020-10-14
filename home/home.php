@@ -3,9 +3,9 @@
 <div id="home_img_bar">
 	<div class="slideBox">
 		<div class="slide_image_box">
-			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_8.jpg"
+			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/Screenshot_2.png"
 			                 alt="첫번째 이미지"></a>
-			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_7.jpg"
+			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/background26.jpg"
 			                 alt="두번째 이미지"></a>
 		</div>
 		<div class="slide_nav">
@@ -26,29 +26,19 @@
 <div class="container">
 	<div class="search">
 		<form action="http://localhost/todagtodag/hospital/hospital.php" method="POST">
-			<input type="text" placeholder="검색어를 입력하세요 ex)병원명.." name="keyword">
-			<button><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/search.png" alt="검색"></button>
+			<div>
+				<input type="text" placeholder="검색어를 입력하세요 ex)병원명.." name="keyword">
+				<button><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/search.png" alt="검색"></button>
+			</div>
 		</form>
 	</div>
 
 	<div class="location">
 		<h1>내 주변 병원</h1><span><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/placeholder.png"></span>
 		<div>
-			<div>	<span class="hospital_item">
-<!--				<a href="http://-->
-                    <? //= $_SERVER['HTTP_HOST'] ?><!--/todagtodag/hospital/hospital_info.php?hospital_id=-->
-                    <? //= $hospital_id ?><!--">-->
-				<a href="#">
-					<img src="./home/img/세로.jpg">
-				<h3>병원이름</h3>
-				<p>병워주소</p>
-				</a>
-			</span>
+			<div>
+
 			</div>
-			<!--			<a href="http://--><? //= $_SERVER['HTTP_HOST'] ?><!--/todagtodag/hospital/hospital.php">-->
-			<!--			<span id="hospital_more">-->
-			<!--				<h2>병원 찾기 ></h2>-->
-			<!--			</span></a>-->
 		</div>
 	</div>
 	<div class="today_health_info">
@@ -81,11 +71,11 @@
 						<p><?= $content ?></p>
 						<span><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/health_info_view.php?num=<?= $num ?>&hit=<?= $hit ?>"><h4>더보기 ></h4></a></span>
 					</div>
-                <? } else {?>
+                <? } else { ?>
 					<div>
 						<p>등록된 건강 정보가 없습니다.</p>
 					</div>
-                    <? } ?>
+                <? } ?>
 		</div>
 
 

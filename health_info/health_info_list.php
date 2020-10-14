@@ -193,15 +193,6 @@ $memo_content = "";
                     echo "<li>&nbsp;</li>";
                 ?>
             </ul>
-
-            <!-- ********************** -->
-            <!-- 하단 글쓰기 버튼 -->
-            <!-- ********************** -->
-            <ul class="buttons">
-                <li>
-                    <button onclick="location.href='health_info_form.php'">글쓰기</button>
-                </li>
-            </ul>
         </div>
         <!-- code_box -->
     </section>

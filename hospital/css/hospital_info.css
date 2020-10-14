@@ -38,7 +38,24 @@ th, td { width: 130px }
 .hospital_review .review_etc div>span:first-child{ display:inline-block;width:70px; font-weight: bolder}
 .hospital_review .regist_day {font-size: 14px; color: var(--sub--color); margin-top: 5px;}
 
+/* hospital_memberinfo */
+.hospital_memberinfo { position: relative; width: 840px; height: 150px; border: 1px solid gray; padding: 20px; 
+    border-radius: 20px;}
+
+.hospital_membername { float: left; margin-left: 30px; margin-top: 40px;}
+.hospital_membername p { float: left; font-size: 20px;}
+.hospital_membername input { float: left; margin-left: 10px; width: 100px; height: 30px; font-size: 20px; }
+
+.hospital_memberid { float: left; margin-left: 20px; margin-top: 40px;}
+.hospital_memberid p { float: left; font-size: 20px;}
+.hospital_memberid input { float: left; margin-left: 10px; width: 100px; height: 30px; font-size: 20px;}
+
+.hospital_memberphone { float: left; margin-left: 20px; margin-top: 40px;}
+.hospital_memberphone p { float: left; font-size: 20px;}
+.hospital_memberphone input { float: left; margin-left: 10px; width: 180px; height: 30px; font-size: 20px;}
+
 /* hospital_appointment (appointment 전체를 감싸고 있는 div) */
+.hospital_appointment { margin-top: 50px; }
 /* hospital_calander */
 .hospital_calander { float: left; position: relative; width: 250px; height: 350px; }
 .hospital_calander p { margin-top: 9px; font-size: 14px; }
@@ -81,9 +98,10 @@ th, td { width: 130px }
 
 
 /* hospital_appointment_detail */
-.hospital_appointment_detail { margin-top: 380px; }
+.hospital_appointment_detail { margin-top: 460px; }
 .hospital_appointment_detail p { margin-left: 10px; margin-bottom: 10px; font-size: 14px; color: gray;}
-.hospital_appointment_detail textarea { width: 840px; height: 200px; resize: none; font-size: 16px; padding: 10px;}
+.hospital_appointment_detail textarea { width: 840px; height: 200px; resize: none; font-size: 16px; padding: 10px;
+    border-radius: 20px ;}
 
 
 /* hospital_appointment_button */

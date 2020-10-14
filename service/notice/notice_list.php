@@ -13,12 +13,8 @@
 
 <body>
 	<header>
-<<<<<<< HEAD
-		<?php $_POST["mode"] = "white"; include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
-=======
 	<?php $_POST['mode']="white";
 		include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
->>>>>>> kss
 		<div class="background_image">
 			<p id="p1">토닥토닥 공지사항을 알려드립니다.</p>
 			<p id="p2">↓ 아래로 드래그 해주세요.</p>

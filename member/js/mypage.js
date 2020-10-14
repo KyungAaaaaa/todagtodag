@@ -34,19 +34,54 @@ $("#all_date").on("click", function () {
 
 //==================================리뷰작성=======================================
 // $("#date_2").val(new Date().toISOString().slice(0,10));
-const $content = $("#review_pop_content");
+const $content = $("#popup_content");
 let $hospital_id = "";
 let $appointment_num = "";
+const $review_content="<div><h4>리뷰 작성 </h4></div>" +
+    "<div class=\"hospital_info\">" +
+    "<div><h1 id=\"review_hospital_name\">병원이름</h1>" +
+    "<p id=\"review_appointment_date\">진료일</p></div>" +
+    "</div>" +
+    "<p id=\"star_grade\">" +
+    "<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></p>"+
+    "<div><h2>친절</h2>" +
+    "<input type=\"radio\" name=\"kindness\" id=\"radio0\" class=\"checkbox\" value=\"1\">" +
+    "<label for=\"radio0\" class=\"input-label radio\">불친절해요</label>" +
+    "<input type=\"radio\" name=\"kindness\" id=\"radio1\" class=\"checkbox\" value=\"2\">" +
+    "<label for=\"radio1\" class=\"input-label radio\">친절해요</label>" +
+    "<input type=\"radio\" name=\"kindness\" id=\"radio2\" class=\"checkbox\" value=\"3\">" +
+    "<label for=\"radio2\" class=\"input-label radio\">최고에요</label>" +
+    "</div>" +
+    "<div><h2>대기 시간</h2>" +
+    "<input type=\"radio\" name=\"wait_time\" id=\"radio3\" class=\"checkbox\" value=\"1\">" +
+    "<label for=\"radio3\" class=\"input-label radio\">오래걸려요</label>" +
+    "<input type=\"radio\" name=\"wait_time\" id=\"radio4\" class=\"checkbox\" value=\"2\">" +
+    "<label for=\"radio4\" class=\"input-label radio\">보통이에요</label>" +
+    "<input type=\"radio\" name=\"wait_time\" id=\"radio5\" class=\"checkbox\" value=\"3\">" +
+    "<label for=\"radio5\" class=\"input-label radio\">빨라요</label></div>" +
+    "<div><h2>진료비</h2>" +
+    "<input type=\"radio\" name=\"expense\" id=\"radio6\" class=\"checkbox\" value=\"1\">" +
+    "<label for=\"radio6\" class=\"input-label radio\">비싸요</label>" +
+    "<input type=\"radio\" name=\"expense\" id=\"radio7\" class=\"checkbox\" value=\"2\">" +
+    "<label for=\"radio7\" class=\"input-label radio\">보통이에요</label>" +
+    "<input type=\"radio\" name=\"expense\" id=\"radio8\" class=\"checkbox\" value=\"3\">" +
+    "<label for=\"radio8\" class=\"input-label radio\">저렴해요</label></div>" +
+    "<p>" +
+    "<textarea cols=\"50\" rows=\"10\" id=\"review_pop_comment\" name=\"review_pop_comment\"" +
+    "          placeholder=\"리뷰를 작성해주세요!\"></textarea>" +
+    "</p>";
+
 
 $(".review_write").on("click", function () {
-    $("#review_pop_content").find("h4").html("리뷰 작성");
+    $("#popup_content").html($review_content);
+    $("#popup_content").find("h4").html("리뷰 작성");
     $("#popup_detail").hide();
     $("#popup_write").show();
+    $("#cancel").hide();
     const $item = $(this).parent();
 
     const $hospital_name = $item.children("h3").text();
     const $date = $item.children("p").first().text();
-    // const $img_src = $item.parent().children("img").attr("src");
     $hospital_id = $item.children(".hospital_id").val();
     $appointment_num = $item.find(".appointment_num").val();
     $("input[type=radio]").attr("disabled", false);
@@ -122,10 +157,14 @@ $(".review_delete").on("click", function () {
 
 //작성한 리뷰 보기
 $(".review_detail").on("click", function () {
-
-    $("#review_pop_content").find("h4").html("작성한 리뷰 보기");
-    $("#popup_write").hide();$("#popup_detail").show();
-    $("#popup_detail").on("click", function () { location.href="member_review.php";})
+    $("#popup_content").html($review_content);
+    $("#popup_content").find("h4").html("작성한 리뷰 보기");
+    $("#popup_write").hide();
+    $("#popup_detail").show();
+    $("#cancel").hide();
+    $("#popup_detail").on("click", function () {
+        location.href = "member_review.php";
+    })
     const $item = $(this).parent();
     const $hospital_name = $item.children("h3").text();
     const $date = $item.children("p").first().text();
@@ -146,8 +185,7 @@ $(".review_detail").on("click", function () {
         },
         success: function (data) {
             const $result = jQuery.parseJSON(data);
-            console.dir($result)
-            console.log($result['comment']);
+            // console.dir($result)
 
             $("#review_pop_comment").val($result['comment']);
 
@@ -197,17 +235,21 @@ $(".review_detail").on("click", function () {
     popup_open();
 
 })
-//작성한 리뷰 보기
+//예약내용 자세히 보기
 $(".detail").on("click", function () {
 
-    $("#review_pop_content").find("h4").html("예약 상세조회");
-    $("#popup_write").hide();$("#popup_detail").show();
-    $("#popup_detail").on("click", function () { location.href="member_review.php";})
+    $("#popup_write").hide();
+    $("#popup_detail").hide();
+    $("#cancel").show();
+    $("#popup_detail").on("click", function () {
+        location.href = "member_review.php";
+    })
     const $item = $(this).parent();
     const $appointment_num = $item.children(".appointment_num").val();
     const $hospital_name = $item.children("h3").text();
     const $date = $item.children("p").first().text();
-
+    const $apend_input="<input type='hidden' class='appointment_num' value='"+$appointment_num+"'>";
+    $("#popup_btn").append($apend_input);
     $content.find("#review_hospital_name").html($hospital_name);
     $content.find("#review_appointment_date").html($date);
 
@@ -215,15 +257,39 @@ $(".detail").on("click", function () {
         type   : "POST",
         url    : "appointment_data.php",
         data   : {
-            mode     : "detail",
+            mode           : "detail",
             appointment_num: $appointment_num
         },
         success: function (data) {
-console.log(data);
+            $("#popup_content").html(data);
         }
     })
 
     popup_open();
+
+})
+
+//예약취소
+$(".cancel").on("click", function () {
+    const $item = $(this).parent();
+    const $appointment_num = $item.children(".appointment_num").val();
+    if (confirm("예약을 취소하시겠습니까?")) {
+        $.ajax({
+            type   : "POST",
+            url    : "appointment_data.php",
+            data   : {
+                mode           : "cancel",
+                appointment_num: $appointment_num
+            },
+            success: function (data) {
+                if (data === "success") {
+                    alert("예약이 취소되었습니다.")
+                    location.reload();
+                }
+            }
+        })
+    }
+
 
 })
 
@@ -244,7 +310,7 @@ function popup_open() {
     });
 
     $("input[type=radio]").prop("checked", false);
-    $("#review_pop").fadeIn();
+    $("#popup").fadeIn();
 }
 
 function popup_close() {
@@ -254,7 +320,7 @@ function popup_close() {
 
     $("body").css("overflow", "auto");
     $("#backgroundSmsLayer").remove();
-    $("#review_pop").fadeOut();
+    $("#popup").fadeOut();
 }
 
 

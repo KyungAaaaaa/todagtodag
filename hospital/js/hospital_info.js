@@ -39,7 +39,7 @@ $detail_tab.on("click", tab_change);
 $review_tab.on("click", tab_change);
 $appointment_tab.on("click", tab_change);
 
-$detail_tab.addClass("current");
+// $detail_tab.addClass("current");
 
 
 $(".like_btn").on("click", function () {

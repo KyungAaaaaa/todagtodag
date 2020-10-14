@@ -35,7 +35,5 @@
         } else {
             echo "실행앙ㄴ됌";
         }
-//        echo $review_no;
     }
-
 ?>

@@ -40,7 +40,7 @@ if (isset($_POST['like_status'])) {
     }
 }
 
-if (isset($_POST['current_tab'])) $tab = $_POST['current_tab'];
+if (isset($_POST['current_tab'])) {$tab = $_POST['current_tab'];}
 else $tab = "detail";
 
 if ($tab === "detail") {

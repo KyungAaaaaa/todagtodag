@@ -88,7 +88,9 @@ session_start();
 					<input type="hidden" name="hospital_id" id="hospital_id" value="<?= $hospital_id ?>">
 					<input type="hidden" name="user_id" id="user_id" value="<?= $userid ?>">
 				</form>
-				<?php include "hospital_info_change.php" ?>
+				<?php
+//				if (isset($_POST['current_tab']))$_POST['current_tab']=;
+					include "hospital_info_change.php" ?>
 			</div>
 	</section>
 	<footer>

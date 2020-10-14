@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css" defer>
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/css/notice.css" defer>
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/css/notice.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
@@ -13,7 +13,12 @@
 
 <body>
 	<header>
+<<<<<<< HEAD
 		<?php $_POST["mode"] = "white"; include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+=======
+	<?php $_POST['mode']="white";
+		include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+>>>>>>> kss
 		<div class="background_image">
 			<p id="p1">토닥토닥 공지사항을 알려드립니다.</p>
 			<p id="p2">↓ 아래로 드래그 해주세요.</p>

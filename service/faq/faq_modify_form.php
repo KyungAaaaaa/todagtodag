@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/css/notice.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/css/faq.css">
 	<script>
 		function check_input() {
 			if (!document.board_form.subject.value) {
@@ -30,9 +30,8 @@
 	<section>
 		<div id="board_box">
 			<h3 id="board_title">
-				공지사항
+				자주 묻는 질문 > 수정
 			</h3>
-			<hr>
 			<?php
 			$num  = $_GET["num"];
 			$page = $_GET["page"];
@@ -40,18 +39,18 @@
 			include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 			include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
 
-			create_table($con, 'notice');
+			create_table($con, 'faq');
 			// $con = mysqli_connect("localhost", "user1", "12345", "sample");
 
-			$sql = "select * from notice where num=$num";
+			$sql = "select * from faq where num=$num";
 			$result = mysqli_query($con, $sql);
 			$row = mysqli_fetch_array($result);
 			$name       = $row["name"];
 			$subject    = $row["subject"];
 			$content    = $row["content"];
-			$file_name  = $row["file_name"];
+			
 			?>
-			<form name="board_form" method="post" action="dmi_notice.php?num=<?= $num ?>&page=<?= $page ?>&mode=modify" enctype="multipart/form-data">
+			<form name="board_form" method="post" action="dmi_faq.php?num=<?= $num ?>&page=<?= $page ?>&mode=modify" enctype="multipart/form-data">
 				<ul id="board_form">
 					<li>
 						<span class="col1">이름 : </span>
@@ -67,14 +66,10 @@
 							<textarea name="content"><?= $content ?></textarea>
 						</span>
 					</li>
-					<li>
-						<span class="col1"> 첨부 파일</span>
-						<span class="col2"><input type="file" name="upfile"></span>
-					</li>
 				</ul>
 				<ul class="buttons">
 					<li><button type="button" onclick="check_input()">수정하기</button></li>
-					<li><button type="button" onclick="location.href='notice_list.php'">목록</button></li>
+					<li><button type="button" onclick="location.href='faq_list.php'">목록</button></li>
 				</ul>
 			</form>
 		</div> <!-- board_box -->

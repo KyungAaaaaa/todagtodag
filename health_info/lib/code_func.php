@@ -1,7 +1,7 @@
 <?php
 function code_delete($id1,$num1,$page1,$page){
   $message="";
-  if($_SESSION['userid']=="admin"||$_SESSION['userid']==$id1){
+  if($_SESSION['user_id']=="admin"||$_SESSION['user_id']==$id1){
     $message='<form style="display:inline" action="'.$page1.'?mode=delete&page='.$page.'" method="post">
     <input type="hidden" name="num" value="'.$num1.'">
     <input type="submit" value="삭제">

@@ -98,11 +98,11 @@ if(isset($postAndget_mode)&&$postAndget_mode=="insert"){
     }
     $upfile_type = $type[0];
   }else{
+    $upfile_name      = "";
+    $upfile_type      = "";
+    $copied_file_name = "";
   }
   
-  $upfile_name      = "";
-  $upfile_type      = "";
-  $copied_file_name = "";
 
     //8 파일의 실제명과 저장되는 명을 삽입한다.
     $sql="INSERT INTO `health_info` VALUES (null,'$q_userid','$q_subject','$q_content','$category','$regist_day',0,'$upfile_name','$copied_file_name','$upfile_type',null,null,null);";

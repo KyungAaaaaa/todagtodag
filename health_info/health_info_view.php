@@ -83,7 +83,7 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css?ver=9">
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=9">
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
-    <script type="text/javascript" src="./js/member_form.js?ver=2"></script>
+    <script type="text/javascript" src="./js/member_form.js" defer></script>
     <title></title>
 </head>
 
@@ -151,7 +151,7 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
                     ?>    
                     <?php
                     //관리자이거나 해당된 작성자일경우 수정, 삭제가 가능하도록 설정
-                    if ($_SESSION['user_id'] == "ksskss" || $_SESSION['user_id'] == $id) {
+                    if ($_SESSION['user_id'] == "admin" || $_SESSION['user_id'] == $id) {
                         echo ('<a href="./health_info_form.php?mode=update&num=' . $q_num . '"><img src="../health_info/img/modify.png"></a>&nbsp;');
                         echo ('<a style="cursor: pointer;"><img src="../health_info/img/delete.png" onclick="check_delete(' . $q_num . ')"></a>&nbsp;');
                     }

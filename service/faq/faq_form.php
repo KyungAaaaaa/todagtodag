@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/css/notice.css">
-	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/notice/js/notice.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/css/faq.css">
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/js/faq.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 			<h3 id="board_title">
 				공지사항 > 글 쓰기
 			</h3>
-			<form name="board_form" method="post" action="dmi_notice.php?mode=insert&id=<?=$userid?>&name=<?=$username?>" enctype="multipart/form-data">
+			<form name="board_form" method="post" action="dmi_faq.php?mode=insert&id=<?=$userid?>&name=<?=$username?>" enctype="multipart/form-data">
 				<ul id="board_form">
 					<li>
 						<span class="col1">이름 : </span>
@@ -44,14 +44,10 @@
 							<textarea name="content"></textarea>
 						</span>
 					</li>
-					<li>
-						<span class="col1"> 첨부 파일</span>
-						<span class="col2"><input type="file" name="upfile"></span>
-					</li>
 				</ul>
 				<ul class="buttons">
 					<li><button type="button" onclick="check_input()">완료</button></li>
-					<li><button type="button" onclick="location.href='notice_list.php'">목록</button></li>
+					<li><button type="button" onclick="location.href='faq_list.php'">목록</button></li>
 				</ul>
 			</form>
 		</div> <!-- board_box -->

@@ -16,8 +16,8 @@
 #board_list li { padding: 10px 0; border-bottom: solid 1px #dddddd; }
 #board_list span { display: inline-block; text-align: center;}
 #board_list .col1 { width: 80px; }
-#board_list .col2 { width: 330px; text-align: left; }
-#board_list .col2_1 { width: 330px; text-align: left; }
+#board_list .col2 { width: 420px; text-align: left; text-align: center; }
+#board_list .col2_1 { width: 420px; text-align: left; }
 #board_list .col3 { width: 100px; }
 #board_list .col4 { width: 40px; }
 #board_list .col5 { width: 180px; }

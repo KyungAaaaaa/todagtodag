@@ -53,7 +53,16 @@
 		<footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
 		</footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/member/member_mypage_popup.php"; ?>
+		<div id="popup">
+			<div id="popup_content">
+			</div>
+			<div id="popup_btn">
+				<button id="cancel" class="cancel">예약취소</button>
+				<button id="popup_detail"> 관리</button>
+				<button id="popup_write"> 등록</button>
+				<button id="close">취소</button>
+			</div>
+		</div>
 	</body>
 
 </html>

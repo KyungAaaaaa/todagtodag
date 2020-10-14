@@ -80,7 +80,9 @@ button {cursor: pointer;}
 #interest_list li a {margin-left: 20px;}
 #appointment_list li p, #interest_list li p {font-size: 14px; font-family: "S-CoreDream-4Regular"}
 #appointment_list li button, #interest_list li button { height: 30px; outline: none;border: none;background-color: var(--main--color);color: white;padding: 4px 10px;position: absolute;bottom: 10px;right: 10px;font-family: "S-CoreDream-5Medium"}
-#appointment_list img, #review_pop_content img, #interest_list img {width: 60px; }
+#appointment_list li .cancel{height: 27px;width: 90px; position: absolute;bottom: 40px;right: 10px;}
+#appointment_list li .detail{height: 27px;width: 90px;position: absolute;bottom: 10px;right: 10px;}
+#appointment_list img, #popup_content img, #interest_list img {width: 60px; }
 
 /* ================ 리뷰관리 ====================*/
 #board_list li { padding: 10px 0; border-bottom: 1px solid #6d6d6d; }
@@ -92,18 +94,20 @@ button {cursor: pointer;}
 #board_list .col4 { width: 40px; }
 #board_list .col5 { width: 100px; }
 
-#review_pop {
+
+/*======================리뷰작성 팝업===============================*/
+#popup {
 	display: none;
 	z-index: 999;
 	width: 100%;
 	height: 100%;
 	/*box-shadow: 5px 5px 25px gray;*/
 }
-#review_pop #review_pop_content { width: 800px;height: 820px;background-color: white;color: black;position: absolute; left: 50%;
+#popup #popup_content { width: 800px;height: 820px;background-color: white;color: black;position: absolute; left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);text-align: center;}
 
-#review_pop_content #star_grade span {
+#popup_content #star_grade span {
 	background: url('../../hospital/img/empty_star.png');
 	background-size: auto 100%;
 	width: 40px;
@@ -112,29 +116,30 @@ button {cursor: pointer;}
 	text-indent: -9999px;
 	cursor: pointer;
 }
-#review_pop_content #star_grade span.on {
+#popup_content #star_grade span.on {
 	background: url('../../hospital/img/star.png');
 	background-size: auto 100%;
 }
-#review_pop_content div:first-child{text-align: start;}
-#review_pop_content div:first-child>h4{color: white;padding: 15px;background-color: var(--main--color);}
-#review_pop_content .hospital_info {display: flex;flex-direction: row;justify-content:center;padding: 10px;margin-bottom: 20px;}
-#review_pop_content .hospital_info img {width: 50px;height: 50px;}
-#review_pop_content div>h2 {margin-top: 20px;}
+#popup_content div:first-child{text-align: start;}
+#popup_content div:first-child>h4{color: white;padding: 15px;background-color: var(--main--color);}
+#popup_content .hospital_info {display: flex;flex-direction: row;justify-content:center;padding: 10px;margin-bottom: 20px;}
+#popup_content .hospital_info div{text-align: center}
+#popup_content .hospital_info img {width: 50px;height: 50px;}
+#popup_content div>h2 {margin-top: 20px;}
 
-#review_pop_content textarea {margin-top:20px;width: 90%;height: 90%;font-family: "S-CoreDream-4Regular"}
+#popup_content textarea {margin-top:20px;width: 90%;height: 90%;font-family: "S-CoreDream-4Regular"}
 
-#review_pop #review_pop_content #popup_btn {position: absolute;left: 50%;
-	bottom: 10px; cursor: pointer;
+#popup #popup_content #popup_btn {position: absolute;left: 50%;
+	bottom: 20px; cursor: pointer;
 	transform: translate(-50%, 0);}
 
 /* 라디오버튼 */
-#review_pop .checkbox[type=checkbox], .checkbox[type=radio] {display: none;}
-#review_pop label.input-label {
+#popup .checkbox[type=checkbox], .checkbox[type=radio] {display: none;}
+#popup label.input-label {
 	display: inline-block;
 	cursor: pointer;
 }
-#review_pop label.input-label::before {
+#popup label.input-label::before {
 	display: inline-block;
 	font-family: FontAwesome;
 	font-size: 30px;
@@ -151,10 +156,10 @@ button {cursor: pointer;}
 	transform: scale3d(0.8, 0.8, 1);
 }
 
-#review_pop label.input-label.radio::before {
+#popup label.input-label.radio::before {
 	content: "\f111";
 }
-#review_pop input.checkbox + label.input-label:hover::before {
+#popup input.checkbox + label.input-label:hover::before {
 	-webkit-transform: scale3d(1, 1, 1);
 	-moz-transform: scale3d(1, 1, 1);
 	-ms-transform: scale3d(1, 1, 1);
@@ -162,7 +167,7 @@ button {cursor: pointer;}
 	transform: scale3d(1, 1, 1);
 }
 
-#review_pop input.checkbox + label.input-label:active::before {
+#popup input.checkbox + label.input-label:active::before {
 	-webkit-transform: scale3d(1.5, 1.5, 1);
 	-moz-transform: scale3d(1.5, 1.5, 1);
 	-ms-transform: scale3d(1.5, 1.5, 1);
@@ -170,7 +175,7 @@ button {cursor: pointer;}
 	transform: scale3d(1.5, 1.5, 1);
 }
 
-#review_pop input.checkbox:checked + label.input-label::before {
+#popup input.checkbox:checked + label.input-label::before {
 	display: inline-block;
 	font-family: FontAwesome;
 	color: #ff3a00;
@@ -180,9 +185,21 @@ button {cursor: pointer;}
 	-o-transform: scale3d(1, 1, 1);
 	transform: scale3d(1, 1, 1);
 }
-#review_pop input.checkbox:checked + label.input-label.radio::before {
+#popup input.checkbox:checked + label.input-label.radio::before {
 	content: "\f058";
 }
+#popup_btn{width: 100%;}
+#popup_btn #popup_detail,#popup_btn #popup_write,#popup_btn #cancel{position: absolute;left: 40%;bottom: 90px;}
+#popup_btn #close{position: absolute;left: 50%;bottom: 90px;}
 #popup_btn button{padding: 10px 20px;font-size: 16px;border-radius: 20px; border: 1px solid #d5d6e0;background-color: white;font-family: "S-CoreDream-4Regular";margin-right: 10px;}
 
+/*자세히 보기 팝업*/
 
+#popup_content #appointment_detail table{ width: 100%;margin-left: 40px; text-align: left; margin-bottom: 20px;}
+#popup_content #appointment_detail h2{display:inline-block;width:750px;text-align: left;margin-left: 20px; border-bottom: 2px solid var(--sub--color);padding-bottom: 10px;margin-bottom:10px; }
+#popup_content #appointment_detail th,td{ padding-bottom: 10px;}
+#popup_content #appointment_detail td{ font-family: "S-CoreDream-4Regular"}
+#popup_content #appointment_detail th{ font-family: "S-CoreDream-5Medium"}
+#popup_content #appointment_detail ul{ width: 90%;text-align: left;margin-left: 30px;font-size: 14px;font-family: "S-CoreDream-4Regular";color: #5f5f5f}
+#popup_content #appointment_detail li{padding-bottom: 10px;}
+#popup_content #appointment_detail li::before{content: "· ";}

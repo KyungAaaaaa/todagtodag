@@ -42,17 +42,17 @@
 						<span class="col5">편집</span>
 					</li>
                     <?php
-                        $query = "select * from review a left join hospital b on a.hospital_id=b.id where member_num={$member_num};";
+                        $query = "select DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,name,no,regist_day,star_rating from appointment a inner join (select * from review r inner join hospital h on r.hospital_id=h.id) rhjoin on a.review_no=rhjoin.no  where a.member_num={$member_num};";
                         $result = $con->query($query) or die(mysqli_error($con));
                         while ($row = mysqli_fetch_assoc($result)) {
                             $hospital_name = $row['name'];
                             $regist_day = $row['regist_day'];
                             $star_rating = $row['star_rating'];
-                            $review_comment = $row['comment'];
-                            //예약테이블에서 진료일 가져오기
+                            $appointment_date = $row['appointment_date'];
+
                             ?>
 							<li><span class="col1"><?= $hospital_name ?></span>
-								<span class="col2"><?= $regist_day ?></span>
+								<span class="col2"><?= $appointment_date ?></span>
 								<span class="col3"><?= $regist_day ?></span>
 								<span class="col4"><?= $star_rating ?></span>
 								<span class="col5">

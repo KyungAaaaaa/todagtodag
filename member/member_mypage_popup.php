@@ -3,7 +3,11 @@
 		<div><h4>리뷰 작성 </h4></div>
 		<div class="hospital_info">
 <!--			<img src='../img/todagtodag_logo.png' id="review_hospital_logo">-->
-			<div><h1 id="review_hospital_name">병원이름</h1><p id="review_appointment_date">진료일</p></div>  </div>
+			<div><h1 id="review_hospital_name">병원이름</h1><p id="review_appointment_date">진료일</p></div>
+
+		</div>
+
+
 		<p id="star_grade">
 			<span>★</span>
 			<span>★</span>
@@ -34,8 +38,11 @@
 			<label for="radio7" class="input-label radio">보통이에요</label>
 			<input type="radio" name="expense" id="radio8" class="checkbox" value="3">
 			<label for="radio8" class="input-label radio">저렴해요</label></div>
-		<p><textarea cols="50" rows="10" id="review_pop_comment" name="review_pop_comment" placeholder="리뷰를 작성해주세요!"></textarea></p>
+		<p>
+			<textarea cols="50" rows="10" id="review_pop_comment" name="review_pop_comment" placeholder="리뷰를 작성해주세요!"></textarea>
+		</p>
 		<div id="popup_btn">
+			<button id="popup_detail"> 관리</button>
 			<button id="popup_write"> 등록</button>
 			<button id="close">취소</button>
 		</div>

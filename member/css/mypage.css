@@ -188,6 +188,10 @@ button {cursor: pointer;}
 #review_pop input.checkbox:checked + label.input-label.radio::before {
 	content: "\f058";
 }
+#popup_btn{width: 100%;}
+#popup_btn #popup_detail{position: absolute;left: 40%;bottom: 20px;}
+#popup_btn #popup_write{position: absolute;left: 40%;bottom: 20px;}
+#popup_btn #close{position: absolute;left: 50%;bottom: 20px;}
 #popup_btn button{padding: 10px 20px;font-size: 16px;border-radius: 20px; border: 1px solid #d5d6e0;background-color: white;font-family: "S-CoreDream-4Regular";margin-right: 10px;}
 
 

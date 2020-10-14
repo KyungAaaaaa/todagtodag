@@ -39,6 +39,9 @@ let $hospital_id = "";
 let $appointment_num = "";
 
 $(".review_write").on("click", function () {
+    $("#review_pop_content").find("h4").html("리뷰 작성");
+    $("#popup_detail").hide();
+    $("#popup_write").show();
     const $item = $(this).parent();
 
     const $hospital_name = $item.children("h3").text();
@@ -82,6 +85,7 @@ $("#popup_write").on("click", function () {
             if (data === "success") {
                 alert("등록이 완료되었습니다.")
                 popup_close();
+                location.reload();
             } else {
                 alert("리뷰가 등록되지 않았습니다. 관리자에게 문의하세요");
                 console.log(data)
@@ -118,6 +122,10 @@ $(".review_delete").on("click", function () {
 
 //작성한 리뷰 보기
 $(".review_detail").on("click", function () {
+
+    $("#review_pop_content").find("h4").html("작성한 리뷰 보기");
+    $("#popup_write").hide();$("#popup_detail").show();
+    $("#popup_detail").on("click", function () { location.href="member_review.php";})
     const $item = $(this).parent();
     const $hospital_name = $item.children("h3").text();
     const $date = $item.children("p").first().text();
@@ -125,9 +133,10 @@ $(".review_detail").on("click", function () {
 
     $content.find("#review_hospital_name").html($hospital_name);
     $content.find("#review_appointment_date").html($date);
-    // $("input[type=radio]").prop("checked", false)
+
     $("input[type=radio]").attr("disabled", true);
     $("#review_pop_comment").attr("readonly", true);
+    $("#star_grade").children("span").removeClass("on");
     $.ajax({
         type   : "POST",
         url    : "review_write.php",
@@ -140,7 +149,7 @@ $(".review_detail").on("click", function () {
             console.dir($result)
             console.log($result['comment']);
 
-            $("#review_pop_comment").html($result['comment']);
+            $("#review_pop_comment").val($result['comment']);
 
             const $star = $("#star_grade").children("span");
             let k = 0;
@@ -151,38 +160,66 @@ $(".review_detail").on("click", function () {
             })
             switch ($result['kindness']) {
                 case '1':
-                    $("#radio0").attr('checked', true);
+                    $("#radio0").prop('checked', true);
                     break;
                 case '2':
-                    $("#radio1").attr('checked', true);
+                    $("#radio1").prop('checked', true);
                     break;
                 case '3':
-                    $("#radio2").attr('checked', true);
+                    $("#radio2").prop('checked', true);
                     break;
             }
             switch ($result['wait_time']) {
                 case '1':
-                    $("#radio3").attr('checked', true);
+                    $("#radio3").prop('checked', true);
                     break;
                 case '2':
-                    $("#radio4").attr('checked', true);
+                    $("#radio4").prop('checked', true);
                     break;
                 case '3':
-                    $("#radio5").attr('checked', true);
+                    $("#radio5").prop('checked', true);
                     break;
             }
             switch ($result['expense']) {
                 case '1':
-                    $("#radio6").attr('checked', true);
+                    $("#radio6").prop('checked', true);
                     break;
                 case '2':
-                    $("#radio7").attr('checked', true);
+                    $("#radio7").prop('checked', true);
                     break;
                 case '3':
-                    $("#radio8").attr('checked', true);
+                    $("#radio8").prop('checked', true);
                     break;
             }
+        }
+    })
 
+    popup_open();
+
+})
+//작성한 리뷰 보기
+$(".detail").on("click", function () {
+
+    $("#review_pop_content").find("h4").html("예약 상세조회");
+    $("#popup_write").hide();$("#popup_detail").show();
+    $("#popup_detail").on("click", function () { location.href="member_review.php";})
+    const $item = $(this).parent();
+    const $appointment_num = $item.children(".appointment_num").val();
+    const $hospital_name = $item.children("h3").text();
+    const $date = $item.children("p").first().text();
+
+    $content.find("#review_hospital_name").html($hospital_name);
+    $content.find("#review_appointment_date").html($date);
+
+    $.ajax({
+        type   : "POST",
+        url    : "appointment_data.php",
+        data   : {
+            mode     : "detail",
+            appointment_num: $appointment_num
+        },
+        success: function (data) {
+console.log(data);
         }
     })
 

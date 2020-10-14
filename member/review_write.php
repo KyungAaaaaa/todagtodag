@@ -33,7 +33,7 @@
             echo json_encode($row);
 
         } else {
-            echo "실행앙ㄴ됌ㅋ";
+            echo "실행앙ㄴ됌";
         }
 //        echo $review_no;
     }

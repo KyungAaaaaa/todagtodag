@@ -33,13 +33,7 @@
 
 	<body>
 		<header>
-<<<<<<< HEAD
-            <?php
-//	            $_POST['mode']="white";
-            include "./header.php"; ?>
-=======
             <?php include "./header.php"; ?>
->>>>>>> jjk
 		</header>
 		<section>
             <?php include "./home/home.php"; ?>

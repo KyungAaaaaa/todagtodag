@@ -8,17 +8,18 @@
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/css/notice.css" defer>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 </head>
 
 <body>
 	<header>
-		<?php $_POST["mode"]="white"; include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+		<?php $_POST["mode"] = "white";
+		include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		<div class="background_image">
-            <p id="p1">토닥토닥 게시판을 알려드립니다.</p>
-            <p id="p2">↓ 아래로 드래그 해주세요.</p>
-        </div>
+			<p id="p1">토닥토닥 게시판을 알려드립니다.</p>
+			<p id="p2">↓ 아래로 드래그 해주세요.</p>
+		</div>
 	</header>
 	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>

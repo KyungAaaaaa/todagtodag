@@ -3,15 +3,19 @@
 <div id="home_img_bar">
 	<div class="slideBox">
 		<div class="slide_image_box">
-			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_8.jpg"
-			                 alt="첫번째 이미지"></a>
-			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_7.jpg"
-			                 alt="두번째 이미지"></a>
+			<a href="#" style="background-image: url(http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_8.jpg);">
+				<p class="p1">진료/예약 많이 불편하고 힘드시죠?</p>
+				<p class="p2">병원 찾기부터 웹사이트 접수/예약까지</p>		
+			</a>
+			<a href="#" style="background-image: url(http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_7.jpg);">
+				<p class="p1">저희 토닥토닥이 진료/예약을 도와드리겠습니다!</p>
+				<p class="p2">언제 어디서든 원하는 시간, 병원을 예약할 수 있습니다</p>
+			</a>
 		</div>
-		<div class="slide_nav">
+		<!-- <div class="slide_nav">
 			<a href="#" id="prev">prev</a>
 			<a href="#" id="next">next</a>
-		</div>
+		</div> -->
 
 	</div>
 </div>
@@ -26,11 +30,11 @@
 <div class="container">
 	<div class="search">
 		<form action="http://localhost/todagtodag/hospital/hospital.php" method="POST">
-			<input type="text" placeholder="검색어를 입력하세요 ex)병원명.." name="keyword">
+			<input type="text" placeholder=" 검색어를 입력하세요 ex)병원명.." name="keyword">
 			<button><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/search.png" alt="검색"></button>
 		</form>
 	</div>
-
+	<br>
 	<div class="location">
 		<h1>내 주변 병원</h1><span><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/placeholder.png"></span>
 		<div>
@@ -41,7 +45,7 @@
 				<a href="#">
 					<img src="./home/img/세로.jpg">
 				<h3>병원이름</h3>
-				<p>병워주소</p>
+				<p>병원주소</p>
 				</a>
 			</span>
 			</div>

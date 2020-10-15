@@ -3,15 +3,19 @@
 <div id="home_img_bar">
 	<div class="slideBox">
 		<div class="slide_image_box">
-			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/Screenshot_2.png"
-			                 alt="첫번째 이미지"></a>
-			<a href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/background26.jpg"
-			                 alt="두번째 이미지"></a>
+			<a href="#" style="background-image: url(http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_8.jpg);">
+				<p class="p1">진료/예약 많이 불편하고 힘드시죠?</p>
+				<p class="p2">병원 찾기부터 웹사이트 접수/예약까지</p>		
+			</a>
+			<a href="#" style="background-image: url(http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_7.jpg);">
+				<p class="p1">저희 토닥토닥이 진료/예약을 도와드리겠습니다!</p>
+				<p class="p2">언제 어디서든 원하는 시간, 병원을 예약할 수 있습니다</p>
+			</a>
 		</div>
-		<div class="slide_nav">
+		<!-- <div class="slide_nav">
 			<a href="#" id="prev">prev</a>
 			<a href="#" id="next">next</a>
-		</div>
+		</div> -->
 
 	</div>
 </div>
@@ -32,7 +36,7 @@
 			</div>
 		</form>
 	</div>
-
+	<br>
 	<div class="location">
 		<h1>내 주변 병원</h1><span><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/placeholder.png"></span>
 		<div>

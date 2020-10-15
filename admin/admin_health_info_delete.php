@@ -58,7 +58,7 @@ if (isset($_GET["page"])) {
     $items = $_POST["items"];
 
     for ($i = 0; $i < count($items); $i++) {
-      $sql = "DELETE from media where num=$items[$i];";
+      $sql = "DELETE from `health_info` where num=$items[$i];";
       $result = mysqli_query($con, $sql);
     }
 
@@ -108,7 +108,6 @@ if (isset($_GET["page"])) {
           <ul>
             <li><a href="admin_health_info.php">건강정보 등록</a></li>
             <li><a href="admin_health_info_delete.php">건강정보 삭제</a></li>
-
           </ul>
 
           <br>
@@ -143,7 +142,7 @@ if (isset($_GET["page"])) {
               $page = 1;
             }
 
-            $sql = "select * from media order by num desc";
+            $sql = "SELECT * from `health_info` order by num desc";
             $result = mysqli_query($con, $sql);
             $total_record = mysqli_num_rows($result); // 전체 글 수
 
@@ -169,15 +168,15 @@ if (isset($_GET["page"])) {
               // 하나의 레코드 가져오기
               $num            = $row["num"];
               $id             = $row["id"];
-              $name           = $row["name"];
+            //   $name           = $row["name"];
               $subject        = $row["subject"];
               $regist_day     = $row["regist_day"];
               $hit            = $row["hit"];
             ?>
               <li id="board_content">
                 <span class="col1"><?= $number ?></span>
-                <span class="col2"><a href="../board/media/media_view.php?num=<?= $num ?>&page=<?= $page ?>&hit=<?= $hit + 1 ?>"><?= str_cutting($subject, 90) ?></a></span>
-                <span class="col3"><?= $id ?> (<?= $name ?>)</span>
+                <span class="col2"><a href="../health_info/health_info_view.php?num=<?= $num ?>&page=<?= $page ?>&hit=<?= $hit + 1 ?>"><?= str_cutting($subject, 90) ?></a></span>
+                <span class="col3"><?= $id ?></span>
                 <span class="col4"><?= $regist_day ?></span>
                 <span class="col5"><?= $hit ?></span>
                 <div class="checkbox_div">
@@ -212,7 +211,7 @@ if (isset($_GET["page"])) {
             <?php
             if ($total_page >= 2 && $page >= 2) {
               $new_page = $page - 1;
-              echo "<li><a href='admin_media.php?page=$new_page'>◀ 이전</a> </li>";
+              echo "<li><a href='admin_health_info_delete.php?page=$new_page'>◀ 이전</a> </li>";
             } else {
               echo "<li>&nbsp;</li>";
             }
@@ -222,13 +221,13 @@ if (isset($_GET["page"])) {
               if ($page == $i) {     // 현재 페이지 번호 링크 안함
                 echo "<li><b> $i </b></li>";
               } else {
-                echo "<li><a href='admin_media.php?page=$i'>  $i  </a><li>";
+                echo "<li><a href='admin_health_info_delete.php?page=$i'>  $i  </a><li>";
               }
             }
             if ($total_page >= 2 && $page != $total_page) {
               $new_page = $page + 1;
 
-              echo "<li> <a href='admin_media.php?page=$new_page'>다음 ▶</a> </li>";
+              echo "<li> <a href='admin_health_info_delete.php?page=$new_page'>다음 ▶</a> </li>";
             } else {
               echo "<li>&nbsp;</li>";
             }

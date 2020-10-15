@@ -6,6 +6,9 @@
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/css/notice.css">
+	<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 	<script>
 		function check_input() {
 			if (!document.board_form.subject.value) {
@@ -25,14 +28,17 @@
 
 <body>
 	<header>
-		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+		<?php $_POST["mode"] = "white";
+		include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		<div class="background_image">
-            <p id="p1">토닥토닥 게시판을 알려드립니다.</p>
-            <p id="p2">↓ 아래로 드래그 해주세요.</p>
-        </div>
+			<p id="p1">토닥토닥 게시판을 알려드립니다.</p>
+			<p id="p2">↓ 아래로 드래그 해주세요.</p>
+		</div>
 	</header>
+	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>
 		<div id="board_box">
+			<br><br><br>
 			<h3 id="board_title">
 				공지사항 > 수정
 			</h3>
@@ -73,15 +79,15 @@
 					</li>
 					<li>
 						<?php
-						if($file_name === '') {
+						if ($file_name === '') {
 						?>
-						<span class="col1"> 첨부 파일</span>
-						<span class="col2"><input type="file" name="upfile"></span>
+							<span class="col1"> 첨부 파일</span>
+							<span class="col2"><input type="file" name="upfile"></span>
 						<?php
 						} else {
 						?>
-						<span class="col1"> 첨부 파일</span>
-						<span class="col2" onclick="location.href='free_click.php?num=<?= $num ?>&page=<?= $page ?>'" ><?= $file_name ?></span>
+							<span class="col1"> 첨부 파일</span>
+							<span class="col2" onclick="location.href='free_click.php?num=<?= $num ?>&page=<?= $page ?>'"><?= $file_name ?></span>
 						<?php
 						}
 						?>

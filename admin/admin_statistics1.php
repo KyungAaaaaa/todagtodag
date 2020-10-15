@@ -34,18 +34,40 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
     for ($i = 0; $i < 12; $i++) {
       $array[$i] = $today;
       // 데이터 셋팅
-      $sql = "SELECT * from members where regist_day = '$array[$i]';";
+      $sql = "SELECT * from `members` where regist_day = '$array[$i]';";
       $result = mysqli_query($con, $sql);
       $row = mysqli_num_rows($result); // 전체 글 수
       $array2[$i] = $row;
       $today++;
     }
     ?>
+
+    <?php
+    // 날짜 셋팅
+    $array3 = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    $array4 = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    $today = date("Y-m-d");
+    for ($i = 0; $i < 12; $i++) {
+      $array3[$i] = $today;
+      // 데이터 셋팅
+      $sql = "SELECT * from `appointment` where appointment_date = '$array3[$i]';";
+      $result = mysqli_query($con, $sql);
+      $row = mysqli_num_rows($result); // 전체 글 수
+      $array4[$i] = $row;
+      $today++;
+    }
+    ?>
+
+
     <script>
       var arr1 = <?php echo  json_encode($array); ?>;
       var arr2 = <?php echo  json_encode($array2); ?>;
+      var arr3 = <?php echo  json_encode($array3); ?>;
+      var arr4 = <?php echo  json_encode($array4); ?>;
       console.log(arr1);
       console.log(arr2);
+      console.log(arr3);
+      console.log(arr4);
     </script>
     <div id="admin_border">
       <div id="snb">
@@ -77,18 +99,20 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
           <h3>건강정보 관리</h3>
           <ul>
             <li><a href="admin_health_info.php">건강정보 등록</a></li>
+            <li><a href="admin_health_info_delete.php">건강정보 삭제</a></li>
           </ul>
 
           <br>
           <h3>통계</h3>
           <ul id="sta_ul">
-            <li><a href="admin_statistics1.php">매출 분석</a></li>
-            <li><a href="admin_statistics2.php">인기 프로그램</a></li>
+            <li><a href="admin_statistics1.php">가입/예약 분석</a></li>
+            <li><a href="admin_statistics2.php">인기 건강정보</a></li>
           </ul>
         </div>
       </div><!--  end of sub -->
+
       <div id="content">
-        <h3>통계 > 월별 가입수</h3><br>
+        <h3>통계 > 일별 가입수</h3><br>
 
         <div id="container" style="height: 480px; width: 750px; margin-left:20px;"></div>
 
@@ -98,7 +122,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
               type: 'line'
             },
             title: {
-              text: 'Monthly Signup'
+              text: 'Daily Signup'
             },
             xAxis: {
               categories: [
@@ -130,8 +154,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
               name: '가입수',
               data: [
                 <?php
-                for ($i = 0; $i < count($array); $i++) {
-                  if ($i < count($array) - 1) {
+                for ($i = 0; $i < count($array2); $i++) {
+                  if ($i < count($array2) - 1) {
                     echo "" . $array2[$i] . ",";
                   } else {
                     echo "" . $array2[$i] . "";
@@ -144,7 +168,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
         </script>
         <br><br>
 
-        <h3>통계 > 가게별 매출</h3><br>
+        <h3>통계 > 일별 예약수</h3><br>
 
         <figure class="highcharts-figure">
           <div id="container2" style="height: 480px; width:750px; margin-left:20px;"></div>
@@ -156,16 +180,16 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
               type: 'column'
             },
             title: {
-              text: 'Revenue by Shop'
+              text: 'Daily Reservaion'
             },
             xAxis: {
               categories: [
                 <?php
-                for ($i = 0; $i < count($array); $i++) {
-                  if ($i < count($array) - 1) {
-                    echo "'" . $array[$i] . "',";
+                for ($i = 0; $i < count($array3); $i++) {
+                  if ($i < count($array3) - 1) {
+                    echo "'" . $array3[$i] . "',";
                   } else {
-                    echo "'" . $array[$i] . "'";
+                    echo "'" . $array3[$i] . "'";
                   }
                 }
                 ?>
@@ -175,7 +199,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
             yAxis: {
               min: 0,
               title: {
-                text: '매출액 (만원)'
+                text: '예약건수'
               }
             },
             tooltip: {
@@ -193,9 +217,17 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
               }
             },
             series: [{
-              name: 'SHOP',
+              name: '예약건수',
               data: [
-                1, 2, 3, 4, 5, 6
+                <?php
+                for ($i = 0; $i < count($array4); $i++) {
+                  if ($i < count($array4) - 1) {
+                    echo "" . $array4[$i] . ",";
+                  } else {
+                    echo "" . $array4[$i] . "";
+                  }
+                }
+                ?>
               ]
             }]
           });

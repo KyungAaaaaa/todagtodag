@@ -26,7 +26,7 @@ header { position: relative; color: white; }
 #board_box .buttons li { display: inline; }
 #board_box .buttons button { width: 80px; height: 30px; font-size: 14px; border: 1px solid rgb(44, 55, 68); background-color: white; 
     color: rgb(44, 55, 68); cursor: pointer; border-radius: 20px;}
-#board_box .buttons button:hover { background-color: rgb(44, 55, 68); color: white; border: 1px solid rgb(44, 55, 68); }
+#board_box .buttons li button:hover { background-color: rgb(44, 55, 68); color: white; border: 1px solid rgb(44, 55, 68); }
 
 /* 게시판 목록보기(board_list.php) */
 #board_list li { padding: 10px 0; border-bottom: solid 1px #dddddd; }
@@ -49,6 +49,12 @@ header { position: relative; color: white; }
 #view_content .col2 { float: right; }
 #view_content li:nth-child(2) {	padding: 15px 15px 80px 15px; border-bottom: solid 1px #cccccc; }
 #view_content li:nth-child(3) button { padding: 5px 20px; margin: 15px 0 40px 720px; cursor: pointer; }
+#ripple { padding: 15px; }
+#ripple #ripple_head{ position: relative; margin-top: 5px;}
+#ripple #ripple_head #span1{ font-weight: bold;}
+#ripple #ripple_head #span2{ position: absolute; top: 5px; left: 635px; font-size: 14px; color: gray;}
+#ripple #ripple_content{ margin-bottom: 10px; color: darkslategray; font-size: 14px; margin-top: 5px;}
+#ripple #ripple_insert #ripple_textarea textarea { width: 770px; height: 70px; resize: none; margin-top: 10px;}
 
 #youTubePlayer1 {position:relative;width:100%;
     /* padding-bottom:56.25%; */

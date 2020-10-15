@@ -180,3 +180,7 @@ background: rgb(251, 252, 253) none repeat scroll 0% 0%;
 cursor: pointer;
 box-sizing: border-box;
 }
+
+.items:hover {
+	background-color: lightgray;
+}

@@ -27,6 +27,10 @@
     line-height: 1; 
     vertical-align: top;
 }
+.icon:hover {
+    opacity: 0.7;
+}
+
 .search_bar {
     -moz-box-flex: 1; 
     flex-grow: 1; 
@@ -39,6 +43,11 @@
     appearance: none;
     box-sizing: border-box; 
 }
+
+.search_bar:focus {
+    outline: none;
+}
+
 .search_tag {
     max-width: 728px;
     padding-left: 20px;
@@ -147,6 +156,7 @@ box-sizing: border-box;
 list-style: outside none none;
 box-sizing: border-box;
 }
+
 .items {
     color: inherit;
 text-decoration: inherit;
@@ -166,6 +176,10 @@ line-height: 3em;
 background: rgb(251, 252, 253) none repeat scroll 0% 0%;
 cursor: pointer;
 box-sizing: border-box;
+}
+
+.items:hover {
+    background-color: lightgray;
 }
 
 .info_list {

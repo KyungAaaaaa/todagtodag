@@ -31,7 +31,7 @@
 			<div class="slideshow">
 				<div class="slideshow_slides">
 					<a href="#"
-					   style="background-image: url(http://127.0.0.1/todagtodag/img/background5.jpg);"
+					   style="background-image: url(http://127.0.0.1/todagtodag/img/background5.jpg); outline: none;"
 					   id="slideshow1">
 						<p class="p1">건강이 편해지다</p>
 						<p class="p2">병원 예약/접수 필수웹 토닥토닥</p>

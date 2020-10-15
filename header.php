@@ -27,7 +27,7 @@ else $userlevel = "";
 				<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/login_form.php">로그인</a></li>
 			<?php
 			} else {
-				$logged = $username . "(" . $userid . ")님  [Level:" . $userlevel . "]";
+				$logged = $username . "(" . $userid . ")님 환영합니다.";
 			?>
 				<li><?= $logged ?></li>
 				<li><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/login/logout.php">로그아웃</a></li>

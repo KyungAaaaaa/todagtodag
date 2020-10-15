@@ -21,17 +21,27 @@ header { position: relative; }
 .menu { position: relative; cursor: pointer; margin-top: 30px; margin-bottom: 80px; margin-right: 80px; 
     font-size: 18px; }
 .menu #h_area1 { width: 150px; height: 50px; font-size: 20px; border-radius: 20px; cursor: pointer; }
+.menu #h_area1:hover { background-color: lightgray; }
+.menu #h_area1:focus { background-color: lightgray; outline: none;}
 .menu #h_area2 { width: 150px; height: 50px; font-size: 20px; border-radius: 20px; cursor: pointer; }
+.menu #h_area2:hover { background-color: lightgray; }
+.menu #h_area2:focus { background-color: lightgray; outline: none; }
 .menu #department { width: 150px; height: 50px; font-size: 20px; border-radius: 20px; cursor: pointer; }
+.menu #department:hover { background-color: lightgray; }
+.menu #department:focus { background-color: lightgray; outline: none; }
 .menu #search { width: 200px; height: 50px; font-size: 20px; border-radius: 20px; text-align: center;
     cursor: pointer; }
+.menu #search:hover { background-color: lightgray; }
+.menu #search:focus { background-color: lightgray; outline: none; }
 .menu #btn { position: absolute; top: 8px; left: 690px; height: 50px; cursor: pointer;}
 .menu #btn img { width: 30px; height: 30px; }
+.menu #btn img:hover { opacity: 0.7; }
 
 /* hospital_list */
 .hospital_list{ width: 1000px; margin-bottom: 80px; }
 .hospital_list ul{ height: 600px; overflow-y: scroll; }
 .hospital_list li{ display:flex;align-items:center;padding: 1em; margin: 0 10px 3px 0; border: 1px solid #bababa;position: relative }
+.hospital_list li:hover{ background-color: lightgray; }
 .hospital_list li a { color: black;}
 .hospital_list li span { display:flex;text-align: right;position: absolute;right: 30px; font-family: "S-CoreDream-5Medium"}
 .hospital_list li span img{ width: 25px;height: 25px; margin-right: 5px;}

@@ -3,7 +3,7 @@
 <div id="home_img_bar">
 	<div class="slideBox">
 		<div class="slide_image_box">
-			<a href="ㅉ#" style="background-image: url(http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_8.jpg);">
+			<a href="#" style="background-image: url(http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/banner_8.jpg);">
 				<p class="p1">진료/예약 많이 불편하고 힘드시죠?</p>
 				<p class="p2">병원 찾기부터 웹사이트 접수/예약까지</p>		
 			</a>

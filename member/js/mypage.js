@@ -14,7 +14,7 @@ $("#select_date").on("click", function () {
             period_mode: "select_date"
         },
         success: function (data) {
-            $("#appointment_list").html(data);
+            $("#appointment_list").load(data);
         }
     })
 })
@@ -24,9 +24,10 @@ $("#all_date").on("click", function () {
         url    : "member_appointment_list.php",
         data   : {},
         success: function (data) {
+            console.log(data)
             $("#date_1").val(null);
             $("#date_2").val(null);
-            $("#appointment_list").html(data);
+            $("#appointment_list").load(data);
         }
     })
 })
@@ -37,13 +38,13 @@ $("#all_date").on("click", function () {
 const $content = $("#popup_content");
 let $hospital_id = "";
 let $appointment_num = "";
-const $review_content="<div><h4>리뷰 작성 </h4></div>" +
+const $review_content = "<div><h4>리뷰 작성 </h4></div>" +
     "<div class=\"hospital_info\">" +
     "<div><h1 id=\"review_hospital_name\">병원이름</h1>" +
     "<p id=\"review_appointment_date\">진료일</p></div>" +
     "</div>" +
     "<p id=\"star_grade\">" +
-    "<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></p>"+
+    "<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></p>" +
     "<div><h2>친절</h2>" +
     "<input type=\"radio\" name=\"kindness\" id=\"radio0\" class=\"checkbox\" value=\"1\">" +
     "<label for=\"radio0\" class=\"input-label radio\">불친절해요</label>" +
@@ -70,6 +71,12 @@ const $review_content="<div><h4>리뷰 작성 </h4></div>" +
     "<textarea cols=\"50\" rows=\"10\" id=\"review_pop_comment\" name=\"review_pop_comment\"" +
     "          placeholder=\"리뷰를 작성해주세요!\"></textarea>" +
     "</p>";
+    // +"<div id='popup_btn'>\n" +
+    // "    <button id='cancel' class='cancel'>예약취소</button>\n" +
+    // "    <button id='popup_detail'> 관리</button>\n" +
+    // "    <button id='popup_write'> 등록</button>\n" +
+    // "    <button id='close'>취소</button>\n" +
+    // "</div>";
 
 
 $(".review_write").on("click", function () {
@@ -248,22 +255,32 @@ $(".detail").on("click", function () {
     const $appointment_num = $item.children(".appointment_num").val();
     const $hospital_name = $item.children("h3").text();
     const $date = $item.children("p").first().text();
-    const $apend_input="<input type='hidden' class='appointment_num' value='"+$appointment_num+"'>";
+    const $apend_input = "<input type='hidden' class='appointment_num' value='" + $appointment_num + "'>";
     $("#popup_btn").append($apend_input);
     $content.find("#review_hospital_name").html($hospital_name);
     $content.find("#review_appointment_date").html($date);
 
-    $.ajax({
-        type   : "POST",
-        url    : "appointment_data.php",
-        data   : {
-            mode           : "detail",
-            appointment_num: $appointment_num
-        },
-        success: function (data) {
-            $("#popup_content").html(data);
-        }
-    })
+    $("#popup_content").load("appointment_data.php", {mode: "detail", appointment_num: $appointment_num}, function (data, statusTxt, xhr) {
+        console.log(data);
+    });
+
+    // $.ajax({
+    //     type   : "POST",
+    //     url    : "appointment_data.php",
+    //     data   : {
+    //         mode           : "detail",
+    //         appointment_num: $appointment_num
+    //     },
+    //     success: function (data) {
+    //         console.log(data);
+    //         const result = decodeURI(( $.trim(data))); console.log(result);
+    //         // $(data).trim();
+    //
+    //
+    //
+    //     }
+    //
+    // })
 
     popup_open();
 

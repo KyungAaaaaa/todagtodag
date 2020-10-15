@@ -31,6 +31,15 @@
 			<div class="container">
                 <?php
                     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
+                    if (!$userid) {
+                        echo("<script>
+							alert('로그인 후 이용해주세요');
+							location.href='/todagtodag/login/login_form.php';
+							</script>
+						");
+                        exit;
+                    }
+
                     if (isset($_GET['hospital_id'])) $hospital_id = $_GET['hospital_id'];
                     else alert_back("올바르지 않은 접근입니다.");
 
@@ -55,7 +64,7 @@
 					</div>
 					<span class='like_btn'>
 					<?php
-                        					$query = "select num from members where `id`='{$userid}'";
+                        $query = "select num from members where `id`='{$userid}'";
                         $result = mysqli_query($con, $query);
                         $num_row = mysqli_num_rows($result);
                         if ($num_row === 0) alert_back("올바르지 않은 접근입니다.");

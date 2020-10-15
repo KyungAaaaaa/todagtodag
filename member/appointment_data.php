@@ -53,6 +53,10 @@ from appointment a inner join members m on a.member_num=m.num) a on h.id=a.hospi
 					</li>
 				</ul>
 			</div>
+<!--	        <div id='popup_btn'>-->
+<!--		        <button id='cancel' class='cancel'>예약취소</button>-->
+<!--		        <button id='close'>취소</button>-->
+<!--	        </div>-->
             <?php
         } else {
             echo "실행앙ㄴ됌";

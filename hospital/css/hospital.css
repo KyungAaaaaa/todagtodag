@@ -31,6 +31,8 @@ header { position: relative; }
 /* hospital_list */
 .hospital_list{ width: 1000px; margin-bottom: 80px; }
 .hospital_list ul{ height: 600px; overflow-y: scroll; }
-.hospital_list li{ padding: 1em; margin-bottom: 3px; border: 1px solid #bababa; }
+.hospital_list li{ display:flex;align-items:center;padding: 1em; margin: 0 10px 3px 0; border: 1px solid #bababa;position: relative }
 .hospital_list li a { color: black;}
+.hospital_list li span { display:flex;text-align: right;position: absolute;right: 30px; font-family: "S-CoreDream-5Medium"}
+.hospital_list li span img{ width: 25px;height: 25px; margin-right: 5px;}
 

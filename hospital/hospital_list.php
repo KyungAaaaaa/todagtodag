@@ -17,18 +17,19 @@
 
     function select_area($area_1, $area_2, $search, $department, $con)
     {
-        $query = "select id,name,addr from hospital where addr like '%{$area_1} {$area_2}%' and (addr like '%{$search}%' or name like '%{$search}%') and department like '%{$department}%';";
+
+        $query = "select id,name,addr,ifnull(avg,0.0) as avg from hospital left join (select hospital_id,round(AVG(star_rating),1) as avg from review group by hospital_id) r on hospital.id = r.hospital_id where addr like '%{$area_1} {$area_2}%' and (addr like '%{$search}%' or name like '%{$search}%') and department like '%{$department}%';";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         echo json_encode(mysqli_fetch_all($result));
     }
 
     function select_area2($search, $con)
     {
-        $query = "select id,name,addr from hospital where addr like'%{$search}%' or name like'%{$search}%';";
+        $query = "select id,name,addr,ifnull(avg,0.0) as avg from hospital left join (select hospital_id,round(AVG(star_rating),1) as avg from review group by hospital_id) r on hospital.id = r.hospital_id where addr like'%{$search}%' or name like'%{$search}%';";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         $str = "";
         while ($row = mysqli_fetch_assoc($result)) {
-            $str = "<li><a href='hospital_info.php?hospital_id={$row['id']}'><h3>{$row['name']}</h3>{$row['addr']}</a></li>";
+            $str = "<li><a href='hospital_info.php?hospital_id={$row['id']}'><h3>{$row['name']}</h3>{$row['addr']}</a><span><img src='img/yellow_star.png'>{$row['avg']}</span></li>";
             echo $str;
         }
         if ($str === "") echo "<li>찾으시는 병원이 존재하지 않습니다.</li>";

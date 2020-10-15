@@ -129,9 +129,12 @@ button {cursor: pointer;}
 
 #popup_content textarea {margin-top:20px;width: 90%;height: 90%;font-family: "S-CoreDream-4Regular"}
 
-#popup #popup_content #popup_btn {position: absolute;left: 50%;
-	bottom: 20px; cursor: pointer;
-	transform: translate(-50%, 0);}
+#popup #popup_btn {width: 800px;left: 50%;
+	position: absolute;
+	bottom: 10%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;}
 
 /* 라디오버튼 */
 #popup .checkbox[type=checkbox], .checkbox[type=radio] {display: none;}
@@ -189,8 +192,8 @@ button {cursor: pointer;}
 	content: "\f058";
 }
 #popup_btn{width: 100%;}
-#popup_btn #popup_detail,#popup_btn #popup_write,#popup_btn #cancel{position: absolute;left: 40%;bottom: 90px;}
-#popup_btn #close{position: absolute;left: 50%;bottom: 90px;}
+#popup_btn #popup_detail,#popup_btn #popup_write,#popup_btn #cancel{}
+#popup_btn #close{}
 #popup_btn button{padding: 10px 20px;font-size: 16px;border-radius: 20px; border: 1px solid #d5d6e0;background-color: white;font-family: "S-CoreDream-4Regular";margin-right: 10px;}
 
 /*자세히 보기 팝업*/

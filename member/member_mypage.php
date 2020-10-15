@@ -23,9 +23,18 @@
 
 		<body>
 		<header>
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+            <?php
+                include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
 		<section><? }
+		    if (!$userid) {
+		        echo("<script>
+							alert('로그인 후 이용해주세요');
+							location.href='/todagtodag/login/login_form.php';
+							</script>
+						");
+             exit;
+             }
     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
     $query = "select num,`name`,`email`,`regist_day` from members where id='{$userid}';";
     $result = $con->query($query) or die(mysqli_error($con));

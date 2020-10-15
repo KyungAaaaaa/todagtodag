@@ -46,9 +46,10 @@ $("#btn").on("click", function () {
             },
             success: function (data) {
                 const $result = jQuery.parseJSON(data);
+                console.dir($result);
                 let $str = "";
                 for (let $i in $result) {
-                    $str += `<li><a href='hospital_info.php?hospital_id=${$result[$i][0]}'><h3>${$result[$i][1]}</h3>${$result[$i][2]}</a></li>`;
+                    $str += `<li><a href='hospital_info.php?hospital_id=${$result[$i][0]}'><h3>${$result[$i][1]}</h3>${$result[$i][2]}</a><span><img src='img/yellow_star.png'>${$result[$i][3]}</span></li>`;
                 }
                 if ($str==="")$str="<li>찾으시는 병원이 존재하지 않습니다.</li>";
                 $(".hospital_list").find("ul").html($str);

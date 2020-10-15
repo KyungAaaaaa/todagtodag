@@ -19,6 +19,14 @@
 			<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
 			<script src="./js/mypage.js" defer></script>
 			<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
+			<script type="text/javascript">
+                $(document).ready(function () {
+                    $('*').click(function () {
+                        // 아래 코드가 실행되는 시점에 js 파일의 기능 실행
+                        $.getScript('mypage.js');console.log("asd")
+                    });
+                });
+			</script>
 		</head>
 
 		<body>

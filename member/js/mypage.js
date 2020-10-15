@@ -5,31 +5,14 @@ $(".my_page").on("click", function () {
 $member_num = $("#member_num").val();
 // =============  예약조회  =========================
 $("#select_date").on("click", function () {
-    $.ajax({
-        type   : "POST",
-        url    : "member_appointment_list.php",
-        data   : {
-            date_1     : $("#date_1").val(),
-            date_2     : $("#date_2").val(),
-            period_mode: "select_date"
-        },
-        success: function (data) {
-            $("#appointment_list").load(data);
-        }
-    })
+    $("#appointment_list").load("member_appointment_list.php", {
+        date_1: $("#date_1").val(), date_2: $("#date_2").val(), period_mode: "select_date"
+    }, function (data, statusTxt, xhr) {    });
+
 })
 $("#all_date").on("click", function () {
-    $.ajax({
-        type   : "POST",
-        url    : "member_appointment_list.php",
-        data   : {},
-        success: function (data) {
-            console.log(data)
-            $("#date_1").val(null);
-            $("#date_2").val(null);
-            $("#appointment_list").load(data);
-        }
-    })
+    $("#appointment_list").load("member_appointment_list.php", {}, function (data, statusTxt, xhr) {    });
+
 })
 
 
@@ -71,15 +54,15 @@ const $review_content = "<div><h4>리뷰 작성 </h4></div>" +
     "<textarea cols=\"50\" rows=\"10\" id=\"review_pop_comment\" name=\"review_pop_comment\"" +
     "          placeholder=\"리뷰를 작성해주세요!\"></textarea>" +
     "</p>";
-    // +"<div id='popup_btn'>\n" +
-    // "    <button id='cancel' class='cancel'>예약취소</button>\n" +
-    // "    <button id='popup_detail'> 관리</button>\n" +
-    // "    <button id='popup_write'> 등록</button>\n" +
-    // "    <button id='close'>취소</button>\n" +
-    // "</div>";
+// +"<div id='popup_btn'>\n" +
+// "    <button id='cancel' class='cancel'>예약취소</button>\n" +
+// "    <button id='popup_detail'> 관리</button>\n" +
+// "    <button id='popup_write'> 등록</button>\n" +
+// "    <button id='close'>취소</button>\n" +
+// "</div>";
 
 
-$(".review_write").on("click", function () {
+$(document).on("click", ".review_write",function () {
     $("#popup_content").html($review_content);
     $("#popup_content").find("h4").html("리뷰 작성");
     $("#popup_detail").hide();
@@ -108,7 +91,7 @@ $(".review_write").on("click", function () {
 
 })
 
-$("#popup_write").on("click", function () {
+$(document).on("click","#popup_write", function () {
     $.ajax({
         type   : "POST",
         url    : "review_write.php",
@@ -136,12 +119,12 @@ $("#popup_write").on("click", function () {
     })
 })
 
-$("#close").on("click", function () {
+$(document).on("click","#close", function () {
     popup_close();
 });
 
 //리뷰삭제
-$(".review_delete").on("click", function () {
+$(document).on("click",".review_delete", function () {
     const $this_span = $(this).parent();
     const $review_id = $this_span.find(".review_no").val();
     if (confirm("리뷰를 삭제하시겠습니까?") === true) {
@@ -163,7 +146,7 @@ $(".review_delete").on("click", function () {
 })
 
 //작성한 리뷰 보기
-$(".review_detail").on("click", function () {
+$(document).on("click",".review_detail", function () {
     $("#popup_content").html($review_content);
     $("#popup_content").find("h4").html("작성한 리뷰 보기");
     $("#popup_write").hide();
@@ -243,7 +226,7 @@ $(".review_detail").on("click", function () {
 
 })
 //예약내용 자세히 보기
-$(".detail").on("click", function () {
+$(document).on("click",".detail", function () {
 
     $("#popup_write").hide();
     $("#popup_detail").hide();
@@ -260,34 +243,17 @@ $(".detail").on("click", function () {
     $content.find("#review_hospital_name").html($hospital_name);
     $content.find("#review_appointment_date").html($date);
 
-    $("#popup_content").load("appointment_data.php", {mode: "detail", appointment_num: $appointment_num}, function (data, statusTxt, xhr) {
-        console.log(data);
+    $("#popup_content").load("appointment_data.php", {
+        mode           : "detail",
+        appointment_num: $appointment_num
+    }, function (data, statusTxt, xhr) {
     });
-
-    // $.ajax({
-    //     type   : "POST",
-    //     url    : "appointment_data.php",
-    //     data   : {
-    //         mode           : "detail",
-    //         appointment_num: $appointment_num
-    //     },
-    //     success: function (data) {
-    //         console.log(data);
-    //         const result = decodeURI(( $.trim(data))); console.log(result);
-    //         // $(data).trim();
-    //
-    //
-    //
-    //     }
-    //
-    // })
-
     popup_open();
 
 })
 
 //예약취소
-$(".cancel").on("click", function () {
+$(document).on("click",".cancel", function () {
     const $item = $(this).parent();
     const $appointment_num = $item.children(".appointment_num").val();
     if (confirm("예약을 취소하시겠습니까?")) {

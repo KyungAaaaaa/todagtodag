@@ -248,7 +248,7 @@
                     $address2 = $address[1];
                     $address3 = $address[2];
 
-	                $_POST['mode']='mode';
+	                $_POST['mode']='modify';
 	                $_POST['category']='member';
                     include "member_mypage.php";
                 } else {

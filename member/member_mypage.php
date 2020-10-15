@@ -19,14 +19,6 @@
 			<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
 			<script src="./js/mypage.js" defer></script>
 			<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
-			<script type="text/javascript">
-                $(document).ready(function () {
-                    $('*').click(function () {
-                        // 아래 코드가 실행되는 시점에 js 파일의 기능 실행
-                        $.getScript('mypage.js');console.log("asd")
-                    });
-                });
-			</script>
 		</head>
 
 		<body>
@@ -35,14 +27,14 @@
                 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		</header>
 		<section><? }
-		    if (!$userid) {
-		        echo("<script>
+    if (!$userid) {
+        echo("<script>
 							alert('로그인 후 이용해주세요');
 							location.href='/todagtodag/login/login_form.php';
 							</script>
 						");
-             exit;
-             }
+        exit;
+    }
     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
     $query = "select num,`name`,`email`,`regist_day` from members where id='{$userid}';";
     $result = $con->query($query) or die(mysqli_error($con));
@@ -55,7 +47,9 @@
 	<input type="hidden" id="member_num" value="<?= $member_num ?>">
 	<div class="container">
 	<div class="left_box">
-		<div class="user_info"><p><?= $member_name ?> 님</p>
+		<div class="member_info">
+			<img src="img/profile_1.png">
+			<p id="member_name"><?= $member_name ?> 님</p>
 			<p><?= $member_email ?></p>
 			<p>가입 <?= $member_regist_day ?></p>
 		</div>
@@ -69,20 +63,20 @@
 				<li class="nav_menu"><span class="nav_title">내 정보</span>
                     <? } ?>
 					<ul>
-                        <?php if ((isset($category) && $category === "member") && (isset($mode) && $mode = "modify")) { ?>
+                        <?php if ((isset($category) && $category === "member") && (isset($mode) && $mode === "modify")) { ?>
 							<li><a href="member_form.php?mode=modify" class="current_page">내 정보 수정</a></li>
                         <? } else { ?>
 							<li><a href="member_form.php?mode=modify">내 정보 수정</a></li>
                         <? }
                             if ((isset($category) && $category === "member") && (isset($mode) && $mode === "post")) { ?>
-								<li><a href="#" class="current_page">작성 글</a></li>
+								<li><a href="member_free_board.php" class="current_page">작성 글</a></li>
                             <? } else { ?>
-								<li><a href="#">작성 글</a></li>
+								<li><a href="member_free_board.php">작성 글</a></li>
                             <? } ?>
                         <?php if ((isset($category) && $category === "member") && (isset($mode) && $mode === "comment")) { ?>
-							<li><a href="#" class="current_page">작성 댓글</a></li>
+							<li><a href="member_ripple.php" class="current_page">작성 댓글</a></li>
                         <? } else { ?>
-							<li><a href="#">작성 댓글</a></li>
+							<li><a href="member_ripple.php">작성 댓글</a></li>
                         <? } ?>
 					</ul>
 				</li>
@@ -108,11 +102,11 @@
                         ?>
 					</ul>
 				</li>
-				<li class="nav_menu"><span class="nav_title">#</span>
-					<ul>
-						<li>#</li>
-					</ul>
-				</li>
+<!--				<li class="nav_menu"><span class="nav_title">#</span>-->
+<!--					<ul>-->
+<!--						<li>#</li>-->
+<!--					</ul>-->
+<!--				</li>-->
 			</ul>
 		</div>
 	</div>
@@ -123,8 +117,8 @@
 		<h1 class="content_title">메인</h1>
 		<div class="content_layout">
 			<span class="content_item">
-				<h4><a href="member_form.php?mode=modify">내 프로필</a></h4>
-					<p>뭘 쓰지..?</p>
+				<h4><a href="member_form.php?mode=modify">내 프로필</h4></a>
+				<p>뭘 쓰지..?</p>
 			</span>
 
 			<span class="content_item"><a href="member_appointment.php">
@@ -135,7 +129,7 @@
                      $result = $con->query($query) or die(mysqli_error($con));
                      if (mysqli_num_rows($result) !== 0) {
                          while ($row = mysqli_fetch_assoc($result)) { ?>
-							 <p><a href='member_appointment.php'><?= $row['name'] ?></p></a>
+							 <p><a href='member_appointment.php'><?= $row['name'] ?></a></p>
                          <? }
                      } else { ?>
 						 <p>예약내역이 없습니다.</p>
@@ -145,8 +139,18 @@
 
 		<div class="content_layout">
 		<span class="content_item">
-				<h4><a href="#">최근 글 > </h4></a>
-			<p>게시판완성되면 추가하기~</p>
+				<h4><a href="member_free_board.php">최근 글 > </a></h4>
+			 <?
+                 $query = "select * from free where id='{$userid}' order by regist_day desc limit 4;";
+
+                 $result = $con->query($query) or die(mysqli_error($con));
+                 if (mysqli_num_rows($result) !== 0) {
+                     while ($row = mysqli_fetch_assoc($result)) { ?>
+						 <p><a href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/board/free/free_view.php?num=<?= $row['num'] ?>&page=1'><?= $row['subject'] ?></a></p>
+                     <? }
+                 } else { ?>
+					 <p>예약내역이 없습니다.</p>
+                 <? } ?>
 		</span>
 
 			<span class="content_item">
@@ -157,15 +161,15 @@
             $result = $con->query($query) or die(mysqli_error($con));
             if (mysqli_num_rows($result) !== 0) {
                 while ($row = mysqli_fetch_assoc($result)) { ?>
-			        <p><a href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/hospital/hospital_info.php?hospital_id=<?= $row["id"] ?>'><?= $row['name'] ?></p></a>
+			        <p><a href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/hospital/hospital_info.php?hospital_id=<?= $row["id"] ?>'><?= $row['name'] ?></a></p>
                 <? }
             } else { ?>
 		        <p>관심 병원을 추가해보세요!</p>
             <? } ?>
 			</span>
 		</div>
-		<span class="content_item"><h4><a href="#">최근 문의 내역 > </a></h4>
-		<p>문의게시판 완성되면추가</p>
+		<span class="content_item"><h4><a href="#">최근 문의 내역 > </h4></a>
+			<p>문의게시판 완성되면추가</p>
 		</span>
 
 		</div>

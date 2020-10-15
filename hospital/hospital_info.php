@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/hospital_info.css">
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/css/like.css">
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		<script src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=4a9b86a6ef0cefc3bf4d293322310ba3&libraries=services"></script>
 		<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/hospital/js/hospital_info.js" defer></script>
@@ -77,61 +78,16 @@
                         if ($num_row !== 0) {
                             $row = mysqli_fetch_assoc($result);
                             echo "<input type='hidden' id='interest_no' name='interest_no' value='{$row['no']}'>
-<input type='checkbox' id='checkbox' checked>
-";
+                                    <i class='far fa-thumbs-up press'></i>
+									<span class='press'>♥</span>";
                         } else {
-                            echo "<input type='hidden' id='interest_no' name='interest_no' value=''>
-<input type='checkbox' id='checkbox' >
-";
+                            echo "<input type='hidden' id='interest_no' name='interest_no' value=''> 
+									<i class='far fa-thumbs-up'></i>
+									<span>♥</span>";
                         }
                     ?>
-
-				<label for="checkbox">
-					<svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
-						<g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">
-							<path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z"
-							      id="heart" fill="#AAB8C2"/>
-							<circle id="main-circ" fill="#E2264D" opacity="0" cx="29.5" cy="29.5" r="1.5"/>
-
-							<g id="grp7" opacity="0" transform="translate(7 6)">
-								<circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/>
-								<circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/>
-							</g>
-
-							<g id="grp6" opacity="0" transform="translate(0 28)">
-								<circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/>
-								<circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/>
-							</g>
-
-							<g id="grp3" opacity="0" transform="translate(52 28)">
-								<circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/>
-								<circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/>
-							</g>
-
-							<g id="grp2" opacity="0" transform="translate(44 6)">
-								<circle id="oval2" fill="#CC8EF5" cx="5" cy="6" r="2"/>
-								<circle id="oval1" fill="#CC8EF5" cx="2" cy="2" r="2"/>
-							</g>
-
-							<g id="grp5" opacity="0" transform="translate(14 50)">
-								<circle id="oval1" fill="#91D2FA" cx="6" cy="5" r="2"/>
-								<circle id="oval2" fill="#91D2FA" cx="2" cy="2" r="2"/>
-							</g>
-
-							<g id="grp4" opacity="0" transform="translate(35 50)">
-								<circle id="oval1" fill="#F48EA7" cx="6" cy="5" r="2"/>
-								<circle id="oval2" fill="#F48EA7" cx="2" cy="2" r="2"/>
-							</g>
-
-							<g id="grp1" opacity="0" transform="translate(24)">
-								<circle id="oval1" fill="#9FC7FA" cx="2.5" cy="3" r="2"/>
-								<circle id="oval2" fill="#9FC7FA" cx="7.5" cy="2" r="2"/>
-							</g>
-						</g>
-					</svg>
-				</label>
 				</span>
-									<input type='hidden' id='member_num' name='member_num' value='<?=$member_num ?>'>
+					<input type='hidden' id='member_num' name='member_num' value='<?= $member_num ?>'>
 					<input type='hidden' id='hospital_id' name='hospital_id' value='<?= $hospital_id ?>'>
 				</div>
 				<div class="menu">
@@ -143,11 +99,9 @@
 				</div>
 				<div class="content">
 					<form method="post">
-<!--						<input type="hidden" name="hospital_id" id="hospital_id" value="--><?//= $hospital_id ?><!--">-->
 						<input type="hidden" name="user_id" id="user_id" value="<?= $userid ?>">
 					</form>
                     <?php
-                        //				if (isset($_POST['current_tab']))$_POST['current_tab']=;
                         include "hospital_info_change.php" ?>
 				</div>
 		</section>

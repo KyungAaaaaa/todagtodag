@@ -2,12 +2,11 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
     if (isset($_POST['mode'])) $mode = $_POST['mode'];
     if (isset($_POST['appointment_num'])) $appointment_num = $_POST['appointment_num'];
+
     if ($mode === "detail") {
-
-
         $query = "select h.name as hospital_name,addr,tel,a.name as member_name,num,appointment_date,appointment_time from hospital h inner join 
-(select a.num,name,DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,appointment_time,hospital_id 
-from appointment a inner join members m on a.member_num=m.num) a on h.id=a.hospital_id where num={$appointment_num}";
+					(select a.num,name,DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,appointment_time,hospital_id 
+					from appointment a inner join members m on a.member_num=m.num) a on h.id=a.hospital_id where num={$appointment_num}";
         $result = $con->query($query) or die(mysqli_error($con));
         if (mysqli_num_rows($result) !== 0) {
             $row = mysqli_fetch_assoc($result);
@@ -53,10 +52,6 @@ from appointment a inner join members m on a.member_num=m.num) a on h.id=a.hospi
 					</li>
 				</ul>
 			</div>
-<!--	        <div id='popup_btn'>-->
-<!--		        <button id='cancel' class='cancel'>예약취소</button>-->
-<!--		        <button id='close'>취소</button>-->
-<!--	        </div>-->
             <?php
         } else {
             echo "실행앙ㄴ됌";

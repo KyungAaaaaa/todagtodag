@@ -23,6 +23,11 @@
         if (isset($_POST['review_no'])) $review_no = $_POST['review_no'];
         $query = "delete from review where no={$review_no}";
         $result = $con->query($query) or die(mysqli_error($con));
+
+        $result=$con->query("select num from appointment where review_no={$review_no};");
+        $row=mysqli_fetch_row($result);
+        $query = "update appointment set review_no=null where num={$row[0]}";
+        $result = $con->query($query) or die(mysqli_error($con));
         echo "success";
     } elseif ($mode === "detail") {
         if (isset($_POST['review_no'])) $review_no = $_POST['review_no'];

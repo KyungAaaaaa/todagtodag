@@ -14,7 +14,7 @@
 		<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
 		<link rel="stylesheet" href="./css/mypage.css">
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<!--		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">-->
 
 		<script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
 		<script src="./js/member_form.js" charset="utf-8"></script>

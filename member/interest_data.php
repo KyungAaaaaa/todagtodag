@@ -19,7 +19,7 @@
                         if (strpos($file_type, "image") !== false) echo "<img src='{$root}/admin/data/$file_copied'>";
                         else echo "<img src='{$root}/hospital/img/hospital.png'>" ?>
                 <a href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/hospital/hospital_info.php?hospital_id=<?= $row["id"] ?>'><h3><?= $row['name'] ?></h3><p><?= $row['addr'] ?></p></a>
-	                <a><button>예약하기</button></a>
+	                <a href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/hospital/hospital_info.php?hospital_id=<?= $row["id"] ?>'><button>예약하기</button></a>
 				</span>
 			</li>
             <?php

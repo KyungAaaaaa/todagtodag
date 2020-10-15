@@ -14,7 +14,7 @@
 		<script src="./js/member_form.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="./css/mypage.css">
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+		<!--		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">-->
 		<script src="./js/mypage.js" defer></script>
 	</head>
 
@@ -24,26 +24,26 @@
 		</header>
 		<section>
             <?php
-                $_POST['mode'] = 'review_list';
-                $_POST['category'] = 'appointment';
+                $_POST['mode'] = 'comment';
+                $_POST['category'] = 'member';
+
                 include "member_mypage.php";
 
             ?>
 			<div class="content_title">
-				<h1> 리뷰 관리 </h1></div>
-			<div>
-				<div class="title">작성한 후기</div>
-				<ul id="review_list">
+				<h1>작성 댓글</h1></div>
+				<ul id="ripple_list">
 					<li>
-						<span class="col1">병원명</span>
-						<span class="col2">진료일</span>
-						<span class="col3">작성일</span>
-						<span class="col4">별점</span>
-						<span class="col5"></span>
+						<span class="col1"></span>
+						<span class="col2">내용</span>
+						<span class="col3"></span>
+						<span class="col4">작성일</span>
 					</li>
-                    <?php $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-                        $query = "select DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,name,no,regist_day,star_rating from appointment a inner join (select * from review r inner join hospital h on r.hospital_id=h.id) rhjoin on a.review_no=rhjoin.no  where a.member_num={$member_num};";
+                    <?php
+                        $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+                        $query = "select fr.num as ripple_num,fr.content,fr.parent,fr.id,fr.regist_day,subject from free_ripple fr inner join free f on fr.parent=f.num where fr.id='{$userid}' order by fr.regist_day desc ;";
                         $result = $con->query($query) or die(mysqli_error($con));
+
                         if (mysqli_num_rows($result)) {
                             $total_record = mysqli_num_rows($result);
 
@@ -64,31 +64,30 @@
                             for ($i = $truncated_num; $i < $truncated_num + $scale && $i < $total_record; $i++) {
                                 mysqli_data_seek($result, $i);
                                 $row = mysqli_fetch_array($result);
-                                $hospital_name = $row['name'];
+                                $parent = $row['parent'];
+                                $content = $row['content'];
                                 $regist_day = $row['regist_day'];
-                                $star_rating = $row['star_rating'];
-                                $appointment_date = $row['appointment_date'];
-
                                 ?>
-								<li >
-									<input type="hidden" class="review_no" value=<?= $row['no'] ?>>
-									<a class="review_detail">
-									<span class="col1"><?= $hospital_name ?></span>
-									<span class="col2"><?= $appointment_date ?></span>
-									<span class="col3"><?= $regist_day ?></span>
-									<span class="col4"><?= $star_rating ?></span></a>
-									<span class="col5">
-									<button class="review_delete">삭제</button>
-								</span>
+								<li>
+									<input type="hidden" class="ripple_num" value="<?= $row['ripple_num'] ?>">
+									<span class="col1"><input type="checkbox" name="ripple_check"></span>
+									<span class="col2"><?= $content ?></span>
+									<span class="col3"><a
+												href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/board/free/free_view.php?num=<?= $row['parent'] ?>&page=1'>원문보기 ▷</a></span>
+									<span class="col4"><?= $regist_day ?></span>
 								</li>
                                 <?php
+                                $number--;
                             }
                         } else {
-                            echo "작성한 리뷰가 없습니다";
+                            echo "작성한 댓글이 없습니다";
                             $total_page = 0;
                         }
                     ?>
 				</ul>
+			<div>
+				<input type="checkbox" id="all_check""><label for="all_check">전체 선택</label>
+				<button id="delete_ripple">선택 삭제</button>
 			</div>
 			<ul class="page_num">
                 <?php
@@ -118,15 +117,5 @@
 		<footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
 		</footer>
-		<div id="popup">
-			<div id="popup_content">
-			</div>
-			<div id="popup_btn">
-<!--				<button id="cancel" class="cancel">예약취소</button>-->
-<!--				<button id="popup_detail"> 관리</button>-->
-<!--				<button id="popup_write"> 등록</button>-->
-				<button id="close">닫기</button>
-			</div>
-		</div>
 	</body>
 </html>

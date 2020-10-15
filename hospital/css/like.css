@@ -1,264 +1,324 @@
 
-.like_btn h1 {
-	font-size: 14px;
-	font-weight: 400;
-	margin: 10px 0 0 0;
-	color: #888888;
+/*.like_btn h1 {*/
+/*	font-size: 14px;*/
+/*	font-weight: 400;*/
+/*	margin: 10px 0 0 0;*/
+/*	color: #888888;*/
+/*}*/
+
+/*.like_btn a {*/
+/*	font-size: 12px;*/
+/*	font-weight: bold;*/
+/*	margin-top: 10px;*/
+/*	display: inline-block;*/
+/*	text-decoration: none;*/
+/*	color: #008A68;*/
+/*}*/
+
+/*.like_btn svg {*/
+/*	cursor: pointer;*/
+/*	overflow: visible;*/
+/*	width: 60px;*/
+/*}*/
+
+/*.like_btn svg #heart {*/
+/*	transform-origin: center;*/
+/*	animation: animateHeartOut .3s linear forwards;*/
+/*}*/
+
+/*.like_btn svg #main-circ {*/
+/*	transform-origin: 29.5px 29.5px;*/
+/*}*/
+
+
+/*.like_btn #checkbox {*/
+/*	display: none;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #heart {*/
+/*	transform: scale(0.2);*/
+/*	fill: #E2264D;*/
+/*	animation: animateHeart .3s linear forwards .25s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #main-circ {*/
+/*	transition: all 2s;*/
+/*	animation: animateCircle .3s linear forwards;*/
+/*	opacity: 1;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp1 {*/
+/*	opacity: 1;*/
+/*	transition: .1s all .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp1 #oval1 {*/
+/*	transform: scale(0) translate(0, -30px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: .5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp1 #oval2 {*/
+/*	transform: scale(0) translate(10px, -50px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: 1.5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp2 {*/
+/*	opacity: 1;*/
+/*	transition: .1s all .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp2 #oval1 {*/
+/*	transform: scale(0) translate(30px, -15px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: .5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp2 #oval2 {*/
+/*	transform: scale(0) translate(60px, -15px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: 1.5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp3 {*/
+/*	opacity: 1;*/
+/*	transition: .1s all .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp3 #oval1 {*/
+/*	transform: scale(0) translate(30px, 0px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: .5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp3 #oval2 {*/
+/*	transform: scale(0) translate(60px, 10px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: 1.5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp4 {*/
+/*	opacity: 1;*/
+/*	transition: .1s all .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp4 #oval1 {*/
+/*	transform: scale(0) translate(30px, 15px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: .5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp4 #oval2 {*/
+/*	transform: scale(0) translate(40px, 50px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: 1.5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp5 {*/
+/*	opacity: 1;*/
+/*	transition: .1s all .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp5 #oval1 {*/
+/*	transform: scale(0) translate(-10px, 20px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: .5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp5 #oval2 {*/
+/*	transform: scale(0) translate(-60px, 30px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: 1.5s transform .3s;*/
+/*}*/
+
+/*.like_btn #checkbox:checked + label svg #grp6 {*/
+/*	opacity: 1;*/
+/*	transition: .1s all .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp6 #oval1 {*/
+/*	transform: scale(0) translate(-30px, 0px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: .5s transform .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp6 #oval2 {*/
+/*	transform: scale(0) translate(-60px, -5px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: 1.5s transform .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp7 {*/
+/*	opacity: 1;*/
+/*	transition: .1s all .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp7 #oval1 {*/
+/*	transform: scale(0) translate(-30px, -15px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: .5s transform .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp7 #oval2 {*/
+/*	transform: scale(0) translate(-55px, -30px);*/
+/*	transform-origin: 0 0 0;*/
+/*	transition: 1.5s transform .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp2 {*/
+/*	opacity: 1;*/
+/*	transition: .1s opacity .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp3 {*/
+/*	opacity: 1;*/
+/*	transition: .1s opacity .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp4 {*/
+/*	opacity: 1;*/
+/*	transition: .1s opacity .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp5 {*/
+/*	opacity: 1;*/
+/*	transition: .1s opacity .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp6 {*/
+/*	opacity: 1;*/
+/*	transition: .1s opacity .3s;*/
+/*}*/
+
+/*#checkbox:checked + label svg #grp7 {*/
+/*	opacity: 1;*/
+/*	transition: .1s opacity .3s;*/
+/*}*/
+
+/*@keyframes animateCircle {*/
+/*	40% {*/
+/*		transform: scale(10);*/
+/*		opacity: 1;*/
+/*		fill: #DD4688;*/
+/*	}*/
+/*	55% {*/
+/*		transform: scale(11);*/
+/*		opacity: 1;*/
+/*		fill: #D46ABF;*/
+/*	}*/
+/*	65% {*/
+/*		transform: scale(12);*/
+/*		opacity: 1;*/
+/*		fill: #CC8EF5;*/
+/*	}*/
+/*	75% {*/
+/*		transform: scale(13);*/
+/*		opacity: 1;*/
+/*		fill: transparent;*/
+/*		stroke: #CC8EF5;*/
+/*		stroke-width: .5;*/
+/*	}*/
+/*	85% {*/
+/*		transform: scale(17);*/
+/*		opacity: 1;*/
+/*		fill: transparent;*/
+/*		stroke: #CC8EF5;*/
+/*		stroke-width: .2;*/
+/*	}*/
+/*	95% {*/
+/*		transform: scale(18);*/
+/*		opacity: 1;*/
+/*		fill: transparent;*/
+/*		stroke: #CC8EF5;*/
+/*		stroke-width: .1;*/
+/*	}*/
+/*	100% {*/
+/*		transform: scale(19);*/
+/*		opacity: 1;*/
+/*		fill: transparent;*/
+/*		stroke: #CC8EF5;*/
+/*		stroke-width: 0;*/
+/*	}*/
+/*}*/
+
+/*@keyframes animateHeart {*/
+/*	0% {*/
+/*		transform: scale(0.2);*/
+/*	}*/
+/*	40% {*/
+/*		transform: scale(1.2);*/
+/*	}*/
+/*	100% {*/
+/*		transform: scale(1);*/
+/*	}*/
+/*}*/
+
+/*@keyframes animateHeartOut {*/
+/*	0% {*/
+/*		transform: scale(1.4);*/
+/*	}*/
+/*	100% {*/
+/*		transform: scale(1);*/
+/*	}*/
+/*}*/
+
+
+.hospital_info i {
+	cursor:pointer;
+	padding:10px 12px 8px;
+	background:#fff;
+	border-radius:50%;
+	display:inline-block;
+	margin:0 0 15px;
+	color:#aaa;
+	transition:.2s;
 }
 
-.like_btn a {
-	font-size: 12px;
-	font-weight: bold;
-	margin-top: 10px;
-	display: inline-block;
-	text-decoration: none;
-	color: #008A68;
+.hospital_info i:hover {
+	color:#666;
 }
 
-.like_btn svg {
-	cursor: pointer;
-	overflow: visible;
-	width: 60px;
+.hospital_info i:before {
+	font-family:fontawesome;
+	font-style:normal;
 }
 
-.like_btn svg #heart {
-	transform-origin: center;
-	animation: animateHeartOut .3s linear forwards;
+.hospital_info span:not(.like_btn) {
+	position: absolute;
+	bottom:70px;
+	left:0;
+	right:0;
+	visibility: hidden;
+	transition:.6s;
+	z-index:-2;
+	font-size:2px;
+	color:transparent;
+	font-weight:400;
 }
 
-.like_btn svg #main-circ {
-	transform-origin: 29.5px 29.5px;
+.hospital_info i.press {
+	animation: size .4s;
+	color: #8591ff;
 }
 
-
-.like_btn #checkbox {
-	display: none;
+.hospital_info span.press {
+	margin-left: 17px;
+	bottom:80px;
+	font-size:14px;
+	visibility:visible;
+	animation: fade 1s;
 }
 
-.like_btn #checkbox:checked + label svg #heart {
-	transform: scale(0.2);
-	fill: #E2264D;
-	animation: animateHeart .3s linear forwards .25s;
+@keyframes fade {
+	0% {color:transparent;}
+	50% {color:#e23b3b;}
+	100% {color:transparent;}
 }
 
-.like_btn #checkbox:checked + label svg #main-circ {
-	transition: all 2s;
-	animation: animateCircle .3s linear forwards;
-	opacity: 1;
-}
-
-.like_btn #checkbox:checked + label svg #grp1 {
-	opacity: 1;
-	transition: .1s all .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp1 #oval1 {
-	transform: scale(0) translate(0, -30px);
-	transform-origin: 0 0 0;
-	transition: .5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp1 #oval2 {
-	transform: scale(0) translate(10px, -50px);
-	transform-origin: 0 0 0;
-	transition: 1.5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp2 {
-	opacity: 1;
-	transition: .1s all .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp2 #oval1 {
-	transform: scale(0) translate(30px, -15px);
-	transform-origin: 0 0 0;
-	transition: .5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp2 #oval2 {
-	transform: scale(0) translate(60px, -15px);
-	transform-origin: 0 0 0;
-	transition: 1.5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp3 {
-	opacity: 1;
-	transition: .1s all .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp3 #oval1 {
-	transform: scale(0) translate(30px, 0px);
-	transform-origin: 0 0 0;
-	transition: .5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp3 #oval2 {
-	transform: scale(0) translate(60px, 10px);
-	transform-origin: 0 0 0;
-	transition: 1.5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp4 {
-	opacity: 1;
-	transition: .1s all .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp4 #oval1 {
-	transform: scale(0) translate(30px, 15px);
-	transform-origin: 0 0 0;
-	transition: .5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp4 #oval2 {
-	transform: scale(0) translate(40px, 50px);
-	transform-origin: 0 0 0;
-	transition: 1.5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp5 {
-	opacity: 1;
-	transition: .1s all .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp5 #oval1 {
-	transform: scale(0) translate(-10px, 20px);
-	transform-origin: 0 0 0;
-	transition: .5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp5 #oval2 {
-	transform: scale(0) translate(-60px, 30px);
-	transform-origin: 0 0 0;
-	transition: 1.5s transform .3s;
-}
-
-.like_btn #checkbox:checked + label svg #grp6 {
-	opacity: 1;
-	transition: .1s all .3s;
-}
-
-#checkbox:checked + label svg #grp6 #oval1 {
-	transform: scale(0) translate(-30px, 0px);
-	transform-origin: 0 0 0;
-	transition: .5s transform .3s;
-}
-
-#checkbox:checked + label svg #grp6 #oval2 {
-	transform: scale(0) translate(-60px, -5px);
-	transform-origin: 0 0 0;
-	transition: 1.5s transform .3s;
-}
-
-#checkbox:checked + label svg #grp7 {
-	opacity: 1;
-	transition: .1s all .3s;
-}
-
-#checkbox:checked + label svg #grp7 #oval1 {
-	transform: scale(0) translate(-30px, -15px);
-	transform-origin: 0 0 0;
-	transition: .5s transform .3s;
-}
-
-#checkbox:checked + label svg #grp7 #oval2 {
-	transform: scale(0) translate(-55px, -30px);
-	transform-origin: 0 0 0;
-	transition: 1.5s transform .3s;
-}
-
-#checkbox:checked + label svg #grp2 {
-	opacity: 1;
-	transition: .1s opacity .3s;
-}
-
-#checkbox:checked + label svg #grp3 {
-	opacity: 1;
-	transition: .1s opacity .3s;
-}
-
-#checkbox:checked + label svg #grp4 {
-	opacity: 1;
-	transition: .1s opacity .3s;
-}
-
-#checkbox:checked + label svg #grp5 {
-	opacity: 1;
-	transition: .1s opacity .3s;
-}
-
-#checkbox:checked + label svg #grp6 {
-	opacity: 1;
-	transition: .1s opacity .3s;
-}
-
-#checkbox:checked + label svg #grp7 {
-	opacity: 1;
-	transition: .1s opacity .3s;
-}
-
-@keyframes animateCircle {
-	40% {
-		transform: scale(10);
-		opacity: 1;
-		fill: #DD4688;
-	}
-	55% {
-		transform: scale(11);
-		opacity: 1;
-		fill: #D46ABF;
-	}
-	65% {
-		transform: scale(12);
-		opacity: 1;
-		fill: #CC8EF5;
-	}
-	75% {
-		transform: scale(13);
-		opacity: 1;
-		fill: transparent;
-		stroke: #CC8EF5;
-		stroke-width: .5;
-	}
-	85% {
-		transform: scale(17);
-		opacity: 1;
-		fill: transparent;
-		stroke: #CC8EF5;
-		stroke-width: .2;
-	}
-	95% {
-		transform: scale(18);
-		opacity: 1;
-		fill: transparent;
-		stroke: #CC8EF5;
-		stroke-width: .1;
-	}
-	100% {
-		transform: scale(19);
-		opacity: 1;
-		fill: transparent;
-		stroke: #CC8EF5;
-		stroke-width: 0;
-	}
-}
-
-@keyframes animateHeart {
-	0% {
-		transform: scale(0.2);
-	}
-	40% {
-		transform: scale(1.2);
-	}
-	100% {
-		transform: scale(1);
-	}
-}
-
-@keyframes animateHeartOut {
-	0% {
-		transform: scale(1.4);
-	}
-	100% {
-		transform: scale(1);
-	}
+@keyframes size {
+	0% {padding:10px 12px 8px;}
+	50% {padding:14px 16px 12px;
+		margin-top:-4px;}
+	100% {padding:10px 12px 8px;}
 }

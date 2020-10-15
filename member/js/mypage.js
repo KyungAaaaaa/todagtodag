@@ -11,7 +11,10 @@ $("#select_date").on("click", function () {
 
 })
 $("#all_date").on("click", function () {
-    $("#appointment_list").load("member_appointment_list.php", {}, function (data, statusTxt, xhr) {    });
+    $("#appointment_list").load("member_appointment_list.php", {}, function (data, statusTxt, xhr) {
+        $("#date_1").val("");
+        $("#date_2").val("")
+    });
 
 })
 
@@ -94,7 +97,7 @@ $(document).on("click", ".review_write",function () {
 $(document).on("click","#popup_write", function () {
     $.ajax({
         type   : "POST",
-        url    : "review_write.php",
+        url    : "review_data.php",
         data   : {
             mode           : "insert",
             hospital_id    : $hospital_id,
@@ -125,12 +128,12 @@ $(document).on("click","#close", function () {
 
 //리뷰삭제
 $(document).on("click",".review_delete", function () {
-    const $this_span = $(this).parent();
+    const $this_span = $(this).parent().parent();
     const $review_id = $this_span.find(".review_no").val();
     if (confirm("리뷰를 삭제하시겠습니까?") === true) {
         $.ajax({
             type   : "POST",
-            url    : "review_write.php",
+            url    : "review_data.php",
             data   : {
                 mode     : "delete",
                 review_no: $review_id
@@ -138,7 +141,8 @@ $(document).on("click",".review_delete", function () {
             success: function (data) {
                 if (data === "success") {
                     alert("삭제되었습니다.")
-                    $this_span.parent().remove();
+                    $this_span.remove();
+                    location.reload();
                 }
             }
         })
@@ -168,7 +172,7 @@ $(document).on("click",".review_detail", function () {
     $("#star_grade").children("span").removeClass("on");
     $.ajax({
         type   : "POST",
-        url    : "review_write.php",
+        url    : "review_data.php",
         data   : {
             mode     : "detail",
             review_no: $review_no
@@ -276,6 +280,36 @@ $(document).on("click",".cancel", function () {
 
 })
 
+//댓글 일괄 삭제
+$(document).on("click","#delete_ripple", function () {
+    let $check_array=[];
+
+    $("input:checkbox[name=ripple_check]").each(function() {
+        if($(this).is(":checked") === true) {
+            $check_array.push( $(this).parent().parent().children(".ripple_num").val());
+        }
+    });
+
+    if (confirm("댓글을 삭제하시겠습니까?")) {
+        $.ajax({
+            type   : "POST",
+            url    : "ripple_data.php",
+            data   : {
+                ripple_num_array:$check_array
+            },
+            success: function (data) {
+                    alert("선택하신 댓글이 삭제되었습니다.")
+                location.reload();
+            }
+        })
+    }
+
+
+})
+
+$(document).on("click","#all_check",function (){
+    $("input:checkbox[name=ripple_check]").prop("checked", true);
+})
 
 function popup_open() {
     $("body").css("overflow", "hidden");
@@ -347,7 +381,7 @@ function cat1_change(key, sel) {
 $("#btn").on("click", function () {
     $.ajax({
         type   : "POST",
-        url    : "interest.php",
+        url    : "interest_data.php",
         data   : {
             area_1    : $('#h_area1 option:selected').attr('value2'),
             area_2    : $('#h_area2 option:selected').attr('value'),
@@ -362,7 +396,7 @@ $("#btn").on("click", function () {
 $("#all_btn").on("click", function () {
     $.ajax({
         type   : "POST",
-        url    : "interest.php",
+        url    : "interest_data.php",
         data   : {
             member_num: $("#member_num").val()
         },

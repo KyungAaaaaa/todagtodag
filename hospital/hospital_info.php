@@ -77,12 +77,12 @@
                         if ($num_row !== 0) {
                             $row = mysqli_fetch_assoc($result);
                             echo "<input type='hidden' id='interest_no' name='interest_no' value='{$row['no']}'>
-<input type='checkbox' id='checkbox' checked>
-";
+							<input type='checkbox' id='checkbox' checked>
+							";
                         } else {
                             echo "<input type='hidden' id='interest_no' name='interest_no' value=''>
-<input type='checkbox' id='checkbox' >
-";
+							<input type='checkbox' id='checkbox' >
+							";
                         }
                     ?>
 

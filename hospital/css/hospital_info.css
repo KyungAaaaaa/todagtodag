@@ -50,8 +50,8 @@ th, td { width: 130px }
 .hospital_review .regist_day {font-size: 14px; color: var(--sub--color); margin-top: 5px;}
 
 /* hospital_memberinfo */
-.hospital_memberinfo { position: relative; width: 840px; height: 150px; border: 1px solid gray; padding: 20px;
-	border-radius: 20px;}
+.hospital_memberinfo { position: relative; width: 840px; height: 150px; border: 1px solid white; padding: 20px;
+	background-color: white;}
 
 .hospital_membername { float: left; margin-left: 30px; margin-top: 40px;}
 .hospital_membername p { float: left; font-size: 20px;}
@@ -103,7 +103,7 @@ th, td { width: 130px }
 .hospital_appointment_time { position: relative; float: left; width: 250px; height: 350px;
 	margin-left: 50px; }
 .hospital_appointment_time select { width: 230px; height: 250px; margin-left: 10px; margin-top: 0px;
-	cursor: pointer; font-size: 16px;}
+	cursor: pointer; font-size: 16px; }
 /*.hospital_appointment_time p { margin-top: 9px; margin-left: 10px; font-size: 14px; }*/
 /*.hospital_appointment_time input { position: absolute; top: 320px; left: 105px; width: 100px; }*/
 
@@ -118,11 +118,11 @@ th, td { width: 130px }
 /* hospital_appointment_detail */
 /*.hospital_appointment_detail { margin-top: 460px; }*/
 .hospital_appointment_detail p { margin-left: 10px; margin-bottom: 10px; font-size: 14px; color: gray;}
-.hospital_appointment_detail textarea { width: 840px; height: 200px; resize: none; font-size: 16px; padding: 10px;
-	border-radius: 20px;}
+.hospital_appointment_detail textarea { width: 840px; height: 200px; resize: none; font-size: 16px; padding: 10px; 
+border: 1px solid white; }
 
 /* hospital_appointment_button */
-.hospital_appointment_button { text-align: center; margin-top: 80px;}
+.hospital_appointment_button { text-align: center; margin-top: 50px; margin-bottom: 30px;}
 .hospital_appointment_button #hospital_appointment1 {
 	width: 300px;
 	height: 100px;

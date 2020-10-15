@@ -94,6 +94,7 @@ if (isset($_SESSION["user_id"])) {
           <ul id="sta_ul">
             <li><a href="admin_statistics1.php">가입/예약 분석</a></li>
             <li><a href="admin_statistics2.php">인기 건강정보</a></li>
+            <li><a href="admin_statistics3.php">회원별 매출</a></li>
           </ul>
         </div>
       </div><!--  end of sub -->

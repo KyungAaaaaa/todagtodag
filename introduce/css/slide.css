@@ -86,6 +86,10 @@ section {
     background-color:#F23005;
 }
 
+#slideshow1 input:focus{
+    outline: none;
+}
+
 
 /* slideshow2 태그 */
 #slideshow2 .p1,#slideshow4 .p1 {
@@ -118,6 +122,9 @@ section {
 
 #slideshow2 input:hover{
     background-color:#F23005;
+}
+#slideshow2 input:focus{
+    outline: none;
 }
 
 /* slideshow3 태그 */
@@ -169,6 +176,10 @@ section {
     background-color:#F23005;
 }
 
+#slideshow3 input:focus{
+    outline: none;
+}
+
 /* slideshow4 태그 */ 
 #slideshow4 .p1{
     position: absolute;
@@ -203,7 +214,9 @@ section {
     background-color:#F23005;
 }
 
-
+#slideshow4 input:focus{
+    outline: none;
+}
 
 /* 이미지 스프라이트 처리 */
 .slideshow_nav a.prev {

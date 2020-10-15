@@ -269,7 +269,7 @@ if (isset($_GET["page"])) {
             //숫자 0 " " '0' null 0.0   $a = array()
             if (!empty($file_copied_0) && $file_type_0 == "image") {
               //이미지 정보를 가져오기 위한 함수 width, height, type
-              $image_info = getimagesize("../data/" . $file_copied_0);
+              $image_info = getimagesize("./data/" . $file_copied_0);
               $image_width = $image_info[0];
               $image_height = $image_info[1];
               $image_type = $image_info[2];
@@ -292,12 +292,12 @@ if (isset($_GET["page"])) {
                       ?>
                         <td class="td1">이미지파일</td>
                         <td colspan="3" class="td2">
-                          <img src='../data/<?= $file_copied_0 ?>' width='<?= $image_width ?>' style='width: 100px; height: 100px;'><br>
+                          <img src='./data/<?= $file_copied_0 ?>' width='<?= $image_width ?>' style='width: 100px; height: 100px;'><br>
                         </td>
                       <?php
                         //파일이 없으면 파일명이랑 저장버튼 보여주기
                       } else if (!empty($_SESSION['user_id']) && !empty($file_copied_0)) {
-                        $file_path = "../data/" . $file_copied_0;
+                        $file_path = "./data/" . $file_copied_0;
                         $file_size = filesize($file_path);
                       ?>
                         <td class="td1">첨부파일</td>

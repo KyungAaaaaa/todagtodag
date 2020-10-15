@@ -3,7 +3,7 @@
 	min-width: var(--header--width);
 	height: 560px;
 	text-align: center;
-	background-color: #2092aa;
+	background-color: white;
 	
 }
 
@@ -34,32 +34,33 @@
     background-repeat: no-repeat;
     background-size: cover;
 	background-position: 50% 50%;
-	opacity: 0.9;
 }
 
 .slide_image_box .p1 {
 	position: absolute;
-    width: 700px;
+    width: 1000px;
     height: 50px;
 	text-align: center;
 	font-family: "S-CoreDream-6Bold";
-	font-size: 30px;
+	font-size: 40px;
+	color: white;
     left: 50%;
     top: 50%;
-    margin-left: -350px;
+    margin-left: -500px;
     margin-top: -60px;
 }
 
 .slide_image_box .p2 {
     position: absolute;
-    width: 500px;
+    width: 1000px;
     height: 50px;
 	text-align: center;
 	font-family: "S-CoreDream-6Bold";
 	font-size: 20px;
+	color: white;
     left: 50%;
     top: 50%;
-    margin-left: -250px;
+    margin-left: -500px;
     margin-top: -5px;
 }
 
@@ -71,7 +72,6 @@
 	top: 40%;
 	transform: translate(-50%);
 	background: url('../img/sprites.png') no-repeat;
-
 	text-indent: -9999em;
 }
 
@@ -155,6 +155,7 @@
 	border: none;
 }
 .search button img { width: 25px; height: 25px;}
+.search button img:hover {opacity: 0.7;}
 
 /*===============메인 컨텐츠 =====================*/
 .container>div:not(:first-child){width: 100%}
@@ -169,6 +170,7 @@
 .location > div > div {display: inline-flex;flex-direction: row;}
 .location > div > div > p {line-height: 230px;}
 .location .hospital_item { text-align:right;position:relative;margin-top: 20px;display: inline-block;width: calc(var(--content--width) / 4 - 10px);height: 280px;margin-left: 14px;border-radius: 30px;overflow: hidden;}
+.location .hospital_item:hover {opacity: 0.7;}
 .location .hospital_item img {z-index:1;width: 100%;height: 100%; }
 .location .hospital_item h3{z-index:5;position: absolute;right:20px;top: 160px; color: white;}
 .location .hospital_item p {z-index:4;position: absolute;right:20px;bottom: 20px;font-size: 13px;color: white;display: inline-block;width: 80%;}
@@ -180,6 +182,7 @@
 .today_health_info .content img {width: 250px;height: 180px;}
 .today_health_info .content > div {position: relative; margin-left: 20px}
 .today_health_info .content > div span{position: absolute; right: 10px;bottom: 5px; cursor: pointer;}
+.today_health_info .content > div span:hover {opacity: 0.7;}
 .today_health_info .content > div > h2 {margin-bottom: 20px;}
 .today_health_info .content > div > p {
 	width: 730px;
@@ -200,7 +203,9 @@
 .two_content{display: flex;flex-direction: row; padding-bottom: 30px}
 .notice {margin-right:20px; }
 .notice>h1,.FAQ>h1{display: inline-block;width:400px }
-.FAQ {padding-left:20px;border-left: 1px solid black}
+.notice a:hover {opacity: 0.7;}
+.FAQ {padding-left:20px;border-left: 1px solid #d5d6e0}
 .notice ,.FAQ{width:50%;}
+.FAQ a:hover {opacity: 0.7;}
 .notice .content div a{width:100%;position: relative;}
 .notice .content div a>span{position: absolute; right: 0;}

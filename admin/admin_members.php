@@ -78,6 +78,7 @@ if (isset($_GET["page"])) {
           <h3>건강정보 관리</h3>
           <ul>
             <li><a href="admin_health_info.php">건강정보 등록</a></li>
+            <li><a href="admin_health_info_delete.php">건강정보 삭제</a></li>
           </ul>
 
           <br>

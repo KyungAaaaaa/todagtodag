@@ -61,7 +61,7 @@ th, td { width: 130px }
 .hospital_memberid p { float: left; font-size: 20px;}
 .hospital_memberid input { float: left; margin-left: 10px; width: 100px; height: 30px; font-size: 20px;}
 
-
+select,textarea{font-family: "S-CoreDream-3Light"}
 /* hospital_appointment (appointment 전체를 감싸고 있는 div) */
 .hospital_appointment_container {display: flex;	flex-direction: column;	align-items: center;margin-top: 20px;}
 .hospital_appointment { margin-top: 50px; display: flex;}

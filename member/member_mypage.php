@@ -102,11 +102,11 @@
                         ?>
 					</ul>
 				</li>
-<!--				<li class="nav_menu"><span class="nav_title">#</span>-->
-<!--					<ul>-->
-<!--						<li>#</li>-->
-<!--					</ul>-->
-<!--				</li>-->
+				<li class="nav_menu"><span class="nav_title">게시판</span>
+					<ul>
+						<li>#</li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>

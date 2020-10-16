@@ -7,7 +7,8 @@ $member_num = $("#member_num").val();
 $("#select_date").on("click", function () {
     $("#appointment_list").load("member_appointment_list.php", {
         date_1: $("#date_1").val(), date_2: $("#date_2").val(), period_mode: "select_date"
-    }, function (data, statusTxt, xhr) {    });
+    }, function (data, statusTxt, xhr) {
+    });
 
 })
 $("#all_date").on("click", function () {
@@ -65,7 +66,7 @@ const $review_content = "<div><h4>리뷰 작성 </h4></div>" +
 // "</div>";
 
 
-$(document).on("click", ".review_write",function () {
+$(document).on("click", ".review_write", function () {
     $("#popup_content").html($review_content);
     $("#popup_content").find("h4").html("리뷰 작성");
     $("#popup_detail").hide();
@@ -94,7 +95,7 @@ $(document).on("click", ".review_write",function () {
 
 })
 
-$(document).on("click","#popup_write", function () {
+$(document).on("click", "#popup_write", function () {
     $.ajax({
         type   : "POST",
         url    : "review_data.php",
@@ -123,12 +124,12 @@ $(document).on("click","#popup_write", function () {
 })
 
 //팝업창 닫기
-$(document).on("click","#close", function () {
+$(document).on("click", "#close", function () {
     popup_close();
 });
 
 //리뷰삭제
-$(document).on("click",".review_delete", function () {
+$(document).on("click", ".review_delete", function () {
     const $this_span = $(this).parent().parent();
     const $review_id = $this_span.find(".review_no").val();
     if (confirm("리뷰를 삭제하시겠습니까?") === true) {
@@ -151,7 +152,7 @@ $(document).on("click",".review_delete", function () {
 })
 
 //작성한 리뷰 보기
-$(document).on("click",".review_detail", function () {
+$(document).on("click", ".review_detail", function () {
     $("#popup_content").html($review_content);
     $("#popup_content").find("h4").html("작성한 리뷰 보기");
     $("#popup_write").hide();
@@ -231,7 +232,7 @@ $(document).on("click",".review_detail", function () {
 
 })
 //예약내용 자세히 보기
-$(document).on("click",".detail", function () {
+$(document).on("click", ".detail", function () {
 
     $("#popup_write").hide();
     $("#popup_detail").hide();
@@ -258,7 +259,7 @@ $(document).on("click",".detail", function () {
 })
 
 //예약취소
-$(document).on("click",".cancel", function () {
+$(document).on("click", ".cancel", function () {
     const $item = $(this).parent();
     const $appointment_num = $item.children(".appointment_num").val();
     if (confirm("예약을 취소하시겠습니까?")) {
@@ -282,12 +283,12 @@ $(document).on("click",".cancel", function () {
 })
 
 //댓글 일괄 삭제
-$(document).on("click","#delete_ripple", function () {
-    let $check_array=[];
+$(document).on("click", "#delete_ripple", function () {
+    let $check_array = [];
 
-    $("input:checkbox[name=ripple_check]").each(function() {
-        if($(this).is(":checked") === true) {
-            $check_array.push( $(this).parent().parent().children(".ripple_num").val());
+    $("input:checkbox[name=ripple_check]").each(function () {
+        if ($(this).is(":checked") === true) {
+            $check_array.push($(this).parent().parent().children(".ripple_num").val());
         }
     });
 
@@ -296,10 +297,10 @@ $(document).on("click","#delete_ripple", function () {
             type   : "POST",
             url    : "ripple_data.php",
             data   : {
-                ripple_num_array:$check_array
+                ripple_num_array: $check_array
             },
             success: function (data) {
-                    alert("선택하신 댓글이 삭제되었습니다.")
+                alert("선택하신 댓글이 삭제되었습니다.")
                 location.reload();
             }
         })
@@ -309,11 +310,11 @@ $(document).on("click","#delete_ripple", function () {
 })
 
 //댓글관리 페이지 전체선택 이벤트
-$(document).on("change","#all_check",function (){
+$(document).on("change", "#all_check", function () {
     if ($(this).is(":checked"))
-    $("input:checkbox[name=ripple_check]").prop("checked", true);
+        $("input:checkbox[name=ripple_check]").prop("checked", true);
     else
-    $("input:checkbox[name=ripple_check]").prop("checked", false);
+        $("input:checkbox[name=ripple_check]").prop("checked", false);
 })
 
 

@@ -160,7 +160,7 @@
 /*===============메인 컨텐츠 =====================*/
 .container>div:not(:first-child){width: 100%}
 .location, .today_health_info ,.two_content{ --content--height:360px; height: var(--content--height);}
-.location, .today_health_info ,.two_content{ border-bottom: 1px solid #d5d6e0;margin-bottom: 30px;}
+.location, .today_health_info{ border-bottom: 1px solid #d5d6e0;margin-bottom: 30px;}
 .location h1, .today_health_info h1 ,.two_content h1{font-family: "S-CoreDream-6Bold"}
 .location > h1 {display: inline-block;}
 .location > span {margin-left: 30px;}

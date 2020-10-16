@@ -1,12 +1,11 @@
 @import "common_font.css";
 
-:root{
-    --main--color:#ff4b23;
-    --sub--color: #9f9f9f;
-    --content--width:1000px;
-    --header--width:1500px;
+:root {
+	--main--color: #ff4b23;
+	--sub--color: #9f9f9f;
+	--content--width: 1000px;
+	--header--width: 1500px;
 }
-
 
 /* 마진 패딩 초기화 */
 * {box-sizing: border-box; padding: 0; margin: 0;}
@@ -14,166 +13,116 @@
 /* 페이지 기본 글꼴과 크기 설정 */
 /*body { font-family: "Noto Sans KR";   font-size: 18px; }*/
 body {font-size: 18px; font-family: "S-CoreDream-3Light";}
-input{font-family: "S-CoreDream-3Light";}
+input {font-family: "S-CoreDream-3Light";}
 img { border: 0;}
 ul { list-style-type: none; }
 /* <a> 태그 기본 설정 */
 a { display: inline-block; text-decoration: none; }
-.white a:link,.white a:hover,.white a:visited,.white a:active { text-decoration:none; color: white;}
-a:link,a:hover,a:visited,a:active { text-decoration:none; color: rgb(44, 55, 68); }
+.white a:link, .white a:hover, .white a:visited, .white a:active { text-decoration: none; color: white;}
+a:link, a:hover, a:visited, a:active { text-decoration: none; color: rgb(44, 55, 68); }
 /* 상단 헤더 */
 #top { position: relative; min-width: var(--header--width); height: 60px; margin: 0 auto; }
 #top > img { position: absolute; top: 13px; left: 40px; width: 35px;}
-#top h3 {  font-family: "TmonMonsori"; position: absolute; top: 10px; left: 75px; font-size: 36px; margin-left: 5px}
+#top h3 { font-family: "TmonMonsori"; position: absolute; top: 10px; left: 75px; font-size: 36px; margin-left: 5px}
 /*#top h3 {  font-family: "나눔손글씨 펜"; position: absolute; top: 9px; left: 75px; font-size: 36px;}*/
 .white #logo { color: white }
 .white * { color: white }
 /*.red #logo { color: var(--main--color) }*/
 #logo { color: var(--main--color) }
 
-.white >#top_menu { float: right; margin: 11px 60px 0 0; border-radius: 30px; border: 1px solid white;
-    font-size: 16px; }
+.white > #top_menu { float: right; margin: 11px 60px 0 0; border-radius: 30px; border: 1px solid white;
+	font-size: 16px; }
 #top_menu { float: right; margin: 11px 60px 0 0; border-radius: 30px; border: 1px solid rgb(44, 55, 68);
-    font-size: 16px; }
+	font-size: 16px; }
 
 #top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px;}
 #top #top_menu2 { float: right; margin: 20px 60px 0 0; font-family: "S-CoreDream-6Bold"}
-#top #top_menu2>li { display: inline-block; margin-left: 60px; }
+#top #top_menu2 > li { display: inline-block; margin-left: 60px; }
 /* #top #top_menu2>li>a:hover {
     text-decoration: none;
     border-bottom: 4px solid #f1896a;
 } */
 
-.tab_down_menu1 {
-    position: relative;
-    display: inline-block;
-    margin-left: -5.5px;
-    /* width: 60px; */
-}
+.tab_down_menu1 { position: relative; display: inline-block; margin-left: -5.5px;}
 
-.tab_down_menu1>ul a {
-    width: 110px;
-    display: block;
-    text-align: center;
-    line-height: 30px;
-    color: black;
+.tab_down_menu1 > ul a { width: 110px; display: block; text-align: center; line-height: 30px; color: black; text-decoration: none; background-repeat: no-repeat; background-size: 0% 90%; transition: background-size 0.8s;}
+.tab_down_menu1 > ul > li :hover { background-position: 50% bottom; background-size: 80% 80%; background-image: linear-gradient(transparent 80%, #f1896a 60%);}
+.tab_down_menu1 > ul { position: absolute; display: none; z-index: 999; top: 20px; left: -28px; margin-top: 20px;}
+.tab_down_menu1 .down_menu1 > li { display: block; color: black; margin-left: 0px; margin-bottom: 5px;}
 
-    text-decoration: none;
-    background-repeat:  no-repeat;
-    background-size: 0% 90%;
-    transition: background-size 0.8s;
-}
-.tab_down_menu1>ul>li :hover {
-    background-position: 50% bottom;
-    background-size: 80% 80%;
-    background-image: linear-gradient(transparent 80%, #f1896a 60%);
-}
-.tab_down_menu1>ul {
-    position: absolute;
-    display: none;
-    z-index: 999;
-    top: 20px;
-    left: -28px;
-    margin-top: 20px;
-    /* border-bottom: 0.5px solid #cccccc;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; */
-}
-.tab_down_menu1 .down_menu1>li{
-    display: block;
-    color: black;
-    margin-left: 0px;
-    margin-bottom: 5px;
-}
-
-.tab_down_menu2 {
-    position: relative;
-    display: inline-block;
-    margin-left: -5.5px;
-}
-.tab_down_menu2 ul{
-    position: absolute;
-    display: none;
-    z-index: 999;
-    top: 20px;
-    left: -30px;
-    margin-top: 20px;
-    /* background-color: white; */
-    /* background-image: url("../img/todagtodag_logo.png"); */
-    /* border-bottom: 0.5px solid #cccccc;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; */
-}
-.tab_down_menu2 .down_menu2 li{
-    display: block;
-    color: black;
-    margin-left: 0px;
-    margin-bottom: 5px;
-}
-.tab_down_menu2 ul a {
-    width: 130px;
-    display: block;
-    text-align: center;
-    line-height: 30px;
-    color: black;
-
-    text-decoration: none;
-    background-repeat:  no-repeat;
-    background-size: 0% 90%;
-    transition: background-size 0.8s;
-}
-.tab_down_menu2 ul li :hover {
-    background-position: 50% bottom;
-    background-size: 80% 80%;
-    background-image: linear-gradient(transparent 80%, #f1896a 60%);
+.tab_down_menu2 { position: relative; display: inline-block; margin-left: -5.5px;}
+.tab_down_menu2 ul { position: absolute; display: none; z-index: 999; top: 20px; left: -30px; margin-top: 20px;}
+.tab_down_menu2 .down_menu2 li { display: block; color: black; margin-left: 0; margin-bottom: 5px;}
+.tab_down_menu2 ul a { width: 130px; display: block; text-align: center; line-height: 30px; color: black;text-decoration: none; background-repeat: no-repeat; background-size: 0% 90%; transition: background-size 0.8s;}
+.tab_down_menu2 ul li :hover { background-position: 50% bottom; background-size: 80% 80%; background-image: linear-gradient(transparent 80%, #f1896a 60%);
 }
 
 /* 하단 푸터 */
-footer { height: 100%; background-color: rgb(44, 55, 68);}
-#footer_content {position: relative; width: 100%; color: white; padding: 40px;}
-#footer_logo { font-family: 'TmonMonsori'; font-size: 36px; margin-bottom: 30px; margin-left: 40px;}
-#footer_logo img {position: absolute; top: 42px; left: 40px;  width: 35px; }
-#footer_logo_side { position: absolute; top: 40px; right: 60px; font-size: 20px; color: white; }
-#footer_logo_side > a { font-size: 20px; color: #dddddd; text-decoration: underline;}
-.footer_text { font-size: 18px;font-family: "S-CoreDream-2ExtraLight";}
-.footer_text #footer_text1 { margin-bottom: 20px; font-size: 20px; font-weight: bold; }
-.footer_text #footer_text2 { margin-bottom: 40px; font-size: 14px; color: gray;}
-.footer_text #footer_text3 { font-size: 14px;}
+/*footer { min-width: var(--header--width);height: 200px; background-color: rgb(44, 55, 68);}*/
+footer { min-width: var(--header--width);height: 200px;
+	/*background-color: #003458;*/
+	background-color: rgb(44, 55, 68);
+	border-top: 1px solid #c3c3c3;
+}
+footer a:hover {text-decoration: underline;}
+footer div {margin-right: 30px;}
+#footer_content {display: flex;align-items: center;justify-content: center;height: 100%;}
+#footer_content * {color: #d4d4d4}
+#footer_logo {display: flex; }
+#footer_logo p{ color:white;font-family: 'TmonMonsori'; font-size: 30px; }
+#footer_logo img {width: 35px;height: 35px;padding: 5px}
+#footer_text {font-size: 13px;}
+#service {margin-left: 500px}
+#contact img {width: 17px;height: 17px;margin-left: 3px;cursor: pointer;}
+#service, #contact {display: flex;flex-direction: column}
+#service h4, #contact h4 {color:white;margin-bottom: 20px}
+#service > a, #contact > div {font-size: 13px;height: 25px}
+#contact > div {display: flex;position: relative;}
+#contact > div > p {width: 100px}
+#contact span.email {display: inline-block; position: absolute;right: -215px;text-align: center;  animation: fade-in 1s;
+	animation-fill-mode: forwards;}
+#contact span::after {content: ""; position: absolute; left: 0; margin-left: -20px; border-width: 10px; border-style: solid; border-color: transparent #ffffff transparent transparent;}
+#contact span { color: black; width: 200px; height: 20px; background-color: white; border-radius: 0 10px 10px 0; display: none; }
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 
+@keyframes fade-out {
+	from {
+		opacity: 1;
+		
+	}
+	to {
+		opacity: 0;
+	}
+}
 /* 맨위로 버튼 */
 a#btn_top {
-    color: red;
-    position: fixed;
-    display: none;
-    z-index: 999;
-    border: 1px solid #cccccc;
-    border-radius: 40px;
-    background-color: white;
-    font-weight: bolder;
-    bottom: calc(28% - 30px);
-    right: 30px;
-    width: 40px;
-    height: 41px;
+	color: red;
+	position: fixed;
+	display: none;
+	z-index: 999;
+	border: 1px solid #cccccc;
+	border-radius: 40px;
+	background-color: white;
+	font-weight: bolder;
+	bottom: calc(28% - 30px);
+	right: 30px;
+	width: 40px;
+	height: 41px;
 }
-a#btn_top .to_the_top {
-    margin-left: 2.5px;
-    margin-top: 3px;
-}
-
-
+a#btn_top .to_the_top { margin-left: 2.5px; margin-top: 3px;}
 
 /*스크롤바 전체*/
-ul::-webkit-scrollbar{
-    width: 8px;
-}
-
+ul::-webkit-scrollbar { width: 8px;}
 /*스크롤바 막대*/
-ul::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: var(--main--color);
-}
-
+ul::-webkit-scrollbar-thumb { border-radius: 5px; background-color: var(--main--color);}
 /*스크롤바 여백*/
-ul::-webkit-scrollbar-track {
-    background-color: #00ff0000;	/*투명*/
-}
+ul::-webkit-scrollbar-track { background-color: transparent; }
+
+

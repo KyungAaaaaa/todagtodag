@@ -332,11 +332,11 @@
 											<option value="011">011</option>
 										</select>
 										-
-										<input type="number" name="phone_two" id="phone_two"
+										<input type="text" name="phone_two" id="phone_two"
 										       placeholder=" 0000 " maxlength="4"
 										       oninput="maxLengthCheck(this);">
 										-
-										<input type="number" name="phone_three" id="phone_three"
+										<input type="text" name="phone_three" id="phone_three"
 										       placeholder=" 0000 " maxlength="4"
 										       oninput="maxLengthCheck(this);">
                                         <?php
@@ -347,10 +347,10 @@
 											<option value="011">011</option>
 										</select>
 										-
-										<input type="number" name="phone_two" id="phone_two" maxlength="4"
+										<input type="text" name="phone_two" id="phone_two" maxlength="4"
 										       onkeyup="max_length_check(this)" value="<?= $phone2 ?>">
 										-
-										<input type="number" name="phone_three" id="phone_three"
+										<input type="text" name="phone_three" id="phone_three"
 										       maxlength="4" onkeyup="max_length_check(this)"
 										       value="<?= $phone3 ?>">
                                         <?php
@@ -426,7 +426,7 @@
                             if ($mode === "") {
                                 ?>
 								<div id="address">
-									<input type="number" name="address_one" id="address_one"
+									<input type="text" name="address_one" id="address_one"
 									       placeholder=" 우편번호 " onclick="address_input();">
 									<input type="text" name="address_two" id="address_two"
 									       placeholder=" 주소 ">
@@ -439,7 +439,7 @@
                             } else {
                                 ?>
 								<div id="address">
-									<input type="number" name="address_one" id="address_one"
+									<input type="text" name="address_one" id="address_one"
 									       value="<?= $address1 ?>" onclick="address_input();">
 									<input type="text" name="address_two" id="address_two"
 									       value="<?= $address2 ?>" onclick="address_input();">

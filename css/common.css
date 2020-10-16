@@ -19,8 +19,8 @@ img { border: 0;}
 ul { list-style-type: none; }
 /* <a> 태그 기본 설정 */
 a { display: inline-block; text-decoration: none; }
-.white a:link,.white a:hover,.white a:visited,.white a:active { text-decoration:none; color: white;}
-a:link,a:hover,a:visited,a:active { text-decoration:none; color: rgb(44, 55, 68); }
+.white a:link, .white a:hover, .white a:visited,.white a:active { text-decoration:none; color: white;}
+a:link, a:hover, a:visited,a:active { text-decoration:none; color: rgb(44, 55, 68); }
 /* 상단 헤더 */
 #top { position: relative; min-width: var(--header--width); height: 60px; margin: 0 auto; }
 #top > img { position: absolute; top: 13px; left: 40px; width: 35px;}
@@ -63,6 +63,7 @@ a:link,a:hover,a:visited,a:active { text-decoration:none; color: rgb(44, 55, 68)
     background-size: 0% 90%;
     transition: background-size 0.8s;
 }
+
 .tab_down_menu1>ul>li :hover {
     background-position: 50% bottom;
     background-size: 80% 80%;

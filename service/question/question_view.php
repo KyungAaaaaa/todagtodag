@@ -4,31 +4,21 @@
 <head>
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css" defer>
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/board/free/css/notice.css?ver=1" defer>
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/css/notice.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<<<<<<< HEAD
-	<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
-=======
->>>>>>> kss
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 </head>
 
 <body>
 	<header>
-		<?php $_POST["mode"] = "white";
-		include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
-		<div class="background_image">
-			<p id="p1">토닥토닥 게시판을 알려드립니다.</p>
-			<p id="p2">↓ 아래로 드래그 해주세요.</p>
-		</div>
+		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 	</header>
 	<section>
 		<div id="board_box">
-			<br><br><br>
-			<h3>
-				자유게시판
+			<h3 class="title">
+				문의게시판
 			</h3>
 			<?php
 			$num  = $_GET["num"];
@@ -36,13 +26,13 @@
 
 			include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 			include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
-			include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/board/free/free_func.php";
+			include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/service/question/question_func.php";
 
-			create_table($con, 'free');
-			create_table($con, 'free_ripple');
+			create_table($con, 'question');
+			create_table($con, 'question_ripple');
 			// $con = mysqli_connect("localhost", "user1", "12345", "sample");
 
-			$sql = "select * from free where num=$num";
+			$sql = "select * from question where num=$num";
 			$result = mysqli_query($con, $sql);
 
 			$row = mysqli_fetch_array($result);
@@ -75,7 +65,7 @@
 			}
 
 			$new_hit = $hit + 1;
-			$sql = "update free set hit=$new_hit where num=$num";
+			$sql = "update question set hit=$new_hit where num=$num";
 			mysqli_query($con, $sql);
 
 			?>
@@ -96,19 +86,15 @@
 						echo "
                         ▷ 첨부파일 : $file_name &nbsp; [ $file_size Byte ]
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href='free_download.php?num=$num&real_name=$real_name&file_name=$file_name&file_type=$file_type'>[저장]</a><br><br>";
+                        <a href='question_download.php?num=$num&real_name=$real_name&file_name=$file_name&file_type=$file_type'>[저장]</a><br><br>";
 					}
 					?>
 					<?= $content ?>
 				</li>
 			</ul>
 			<ul id="ripple">
-<<<<<<< HEAD
-				<li style="font-weight: bold;">댓글</li>
-=======
->>>>>>> kss
 				<?php
-				$sql = "select * from free_ripple where parent='$num' ";
+				$sql = "select * from question_ripple where parent='$num' ";
 				$ripple_result = mysqli_query($con, $sql);
 				while ($ripple_row = mysqli_fetch_array($ripple_result)) {
 					$ripple_num = $ripple_row['num'];
@@ -119,15 +105,10 @@
 					$ripple_content = str_replace("\n", "<br>", $ripple_content);
 					$ripple_content = str_replace(" ", "&nbsp;", $ripple_content);
 				?>
-<<<<<<< HEAD
-
-					<li id="ripple_head"><span id="span1"><?= $ripple_id ?></span><span id="span2"><?= $ripple_date ?></span></li>
-=======
 					<li><?= $ripple_id . "&nbsp;&nbsp;" . $ripple_date ?></li>
->>>>>>> kss
 					<li id="mdi_del">
 						<?php
-						$message = free_ripple_delete($ripple_id, $ripple_num, 'dmi_free.php', $page, $hit, $num);
+						$message = question_ripple_delete($ripple_id, $ripple_num, 'dmi_question.php', $page, $hit, $num);
 						echo $message;
 						?>
 					</li>
@@ -138,7 +119,7 @@
 				} //end of while
 				mysqli_close($con);
 				?>
-				<form name="ripple_form" action="dmi_free.php?mode=insert_ripple" method="post">
+				<form name="ripple_form" action="dmi_question.php?mode=insert_ripple" method="post">
 					<input type="hidden" name="parent" value="<?= $num ?>">
 					<input type="hidden" name="hit" value="<?= $hit ?>">
 					<input type="hidden" name="page" value="<?= $page ?>">
@@ -148,27 +129,17 @@
 					</div>
 					<!--end of ripple_insert -->
 				</form>
-<<<<<<< HEAD
-			</ul>
-			<ul class="buttons">
-				<li><button onclick="location.href='free_list.php?page=<?= $page ?>'">목록</button></li>
-				<li><button onclick="location.href='free_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
-				<li><button onclick="location.href='dmi_free.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
-				<li><button onclick="location.href='free_form.php'">글쓰기</button></li>
-			</ul>
-=======
 		</div>
 		<!--end of ripple2  -->
 		</div>
 		<!--end of ripple  -->
 		</ul>
 		<ul class="buttons">
-			<li><button onclick="location.href='free_list.php?page=<?= $page ?>'">목록</button></li>
-			<li><button onclick="location.href='free_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
-			<li><button onclick="location.href='dmi_free.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
-			<li><button onclick="location.href='free_form.php'">글쓰기</button></li>
+			<li><button onclick="location.href='question_list.php?page=<?= $page ?>'">목록</button></li>
+			<li><button onclick="location.href='question_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
+			<li><button onclick="location.href='dmi_question.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
+			<li><button onclick="location.href='question_form.php'">글쓰기</button></li>
 		</ul>
->>>>>>> kss
 		</div> <!-- board_box -->
 	</section>
 	<footer>

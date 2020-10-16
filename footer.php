@@ -1,8 +1,9 @@
 <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/common.js" defer></script>
 <div id="footer_content">
 	<div id="footer_logo">
-		<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag_logo_white.png">
-		<p>토닥토닥</p>
+		<a href="http://github.com/jk77621/todagtodag"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/todagtodag_logo_white.png">
+			<p>토닥토닥</p>
+		</a>
 
 	</div>
 	<div id="footer_text">

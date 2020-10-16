@@ -67,7 +67,7 @@ footer a:hover {text-decoration: underline;}
 footer div {margin-right: 30px;}
 #footer_content {display: flex;align-items: center;justify-content: center;height: 100%;}
 #footer_content * {color: #d4d4d4}
-#footer_logo {display: flex; }
+#footer_logo>a {display: flex; }
 #footer_logo p { color: white;font-family: 'TmonMonsori'; font-size: 30px; }
 #footer_logo img {width: 35px;height: 35px;padding: 5px}
 #footer_text {font-size: 13px;}

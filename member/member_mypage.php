@@ -67,44 +67,54 @@
 							<li><a href="member_form.php?mode=modify" class="current_page">내 정보 수정</a></li>
                         <? } else { ?>
 							<li><a href="member_form.php?mode=modify">내 정보 수정</a></li>
-                        <? }
-                            if ((isset($category) && $category === "member") && (isset($mode) && $mode === "post")) { ?>
-								<li><a href="member_free_board.php" class="current_page">작성 글</a></li>
-                            <? } else { ?>
-								<li><a href="member_free_board.php">작성 글</a></li>
-                            <? } ?>
-                        <?php if ((isset($category) && $category === "member") && (isset($mode) && $mode === "comment")) { ?>
-							<li><a href="member_ripple.php" class="current_page">작성 댓글</a></li>
-                        <? } else { ?>
-							<li><a href="member_ripple.php">작성 댓글</a></li>
                         <? } ?>
+
 					</ul>
 				</li>
                 <?php
                     if (isset($category) && $category === "appointment") { ?>
-				<li class="nav_menu"><span class="nav_title current_category">예약</span> <?
-                        } else{ ?>
+			<li class="nav_menu"><span class="nav_title current_category">예약</span> <?
+                } else{ ?>
 				<li class="nav_menu"><span class="nav_title">예약</span> <? } ?>
 					<ul>   <?php
-                            if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "interest_list")) { ?>
+                            if ((isset($category) && $category === "appointment") && (isset($mode) && $mode === "interest_list")) { ?>
 								<li><a href="member_interest.php" class="current_page">관심 병원</a></li>
                             <? } else { ?>
 								<li><a href="member_interest.php">관심 병원</a></li>  <? }
-                            if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "appointment_list")) { ?>
+                            if ((isset($category) && $category === "appointment") && (isset($mode) && $mode === "appointment_list")) { ?>
 								<li><a href="member_appointment.php" class="current_page">예약 조회</a></li>
                             <? } else { ?>
 								<li><a href="member_appointment.php">예약 조회</a></li>
                             <? }
-                            if ((isset($category) && $category == "appointment") && (isset($mode) && $mode === "review_list")) { ?>
+                            if ((isset($category) && $category === "appointment") && (isset($mode) && $mode === "review_list")) { ?>
 								<li><a href="member_review.php" class="current_page">리뷰 관리</a></li>
                             <? } else { ?>
-								<li><a href="member_review.php">리뷰 관리</a></li>  <? }
-                        ?>
+								<li><a href="member_review.php">리뷰 관리</a></li>
+                            <? } ?>
 					</ul>
 				</li>
-				<li class="nav_menu"><span class="nav_title">게시판</span>
+                <?php
+                    if (isset($category) && $category === "board") { ?>
+				<li class="nav_menu"><span class="nav_title current_category">게시판</span>
+                    <? } else{ ?>
+				<li class="nav_menu"><span class="nav_title">게시판</span> <? } ?>
 					<ul>
-						<li>#</li>
+                        <?php
+                            if ((isset($category) && $category === "board") && (isset($mode) && $mode === "post")) { ?>
+								<li><a href="member_board.php" class="current_page">작성 글</a></li>
+                            <? } else { ?>
+								<li><a href="member_board.php">작성 글</a></li>
+                            <? } ?>
+                        <?php if ((isset($category) && $category === "board") && (isset($mode) && $mode === "comment")) { ?>
+							<li><a href="member_ripple.php" class="current_page">작성 댓글</a></li>
+                        <? } else { ?>
+							<li><a href="member_ripple.php">작성 댓글</a></li>
+                        <? }
+                            if ((isset($category) && $category === "board") && (isset($mode) && $mode === "question")) { ?>
+								<li><a href="member_question.php" class="current_page">문의 내역</a></li>
+                            <? } else { ?>
+								<li><a href="member_question.php">문의 내역</a></li>
+                            <? } ?>
 					</ul>
 				</li>
 			</ul>
@@ -139,7 +149,7 @@
 
 		<div class="content_layout">
 		<span class="content_item">
-				<h4><a href="member_free_board.php">최근 글 > </a></h4>
+				<h4><a href="member_board.php">최근 글 > </a></h4>
 			 <?
                  $query = "select * from free where id='{$userid}' order by regist_day desc limit 4;";
 
@@ -169,7 +179,16 @@
 			</span>
 		</div>
 		<span class="content_item"><h4><a href="#">최근 문의 내역 > </h4></a>
-			<p>문의게시판 완성되면추가</p>
+			 <?
+                 $query = "select * from question where id='{$userid}' order by regist_day desc limit 4;";
+                 $result = $con->query($query) or die(mysqli_error($con));
+                 if (mysqli_num_rows($result) !== 0) {
+                     while ($row = mysqli_fetch_assoc($result)) { ?>
+						 <p><a href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/service/question/question_view.php?num=<?= $row["num"] ?>&page=1'><?= $row['subject'] ?></a></p>
+                     <? }
+                 } else { ?>
+					 <p>문의 내역이 존재하지 않습니다</p>
+                 <? } ?>
 		</span>
 
 		</div>

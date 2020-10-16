@@ -14,7 +14,6 @@
 		<script src="./js/member_form.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="./css/mypage.css">
 		<link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 		<script src="./js/mypage.js" defer></script>
 	</head>
 
@@ -24,25 +23,28 @@
 		</header>
 		<section>
             <?php
-                $_POST['mode'] = 'review_list';
-                $_POST['category'] = 'appointment';
-                include "member_mypage.php";
+                $_POST['mode'] = 'question';
+                $_POST['category'] = 'board';
 
-            ?>
+                include "member_mypage.php"; ?>
 			<div class="content_title">
-				<h1> 리뷰 관리 </h1></div>
+				<h1> 문의 내역</h1></div>
 			<div>
-				<ul id="review_list">
+				<ul id="question_list">
 					<li>
-						<span class="col1">병원명</span>
-						<span class="col2">진료일</span>
+						<span class="col1">제목</span>
+						<span class="col2">답변여부</span>
 						<span class="col3">작성일</span>
-						<span class="col4">별점</span>
-						<span class="col5"></span>
+						<span class="col4"></span>
 					</li>
-                    <?php $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-//                        $query = "select DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,name,no,regist_day,star_rating from appointment a inner join (select * from review r inner join hospital h on r.hospital_id=h.id) rhjoin on a.review_no=rhjoin.no  where a.member_num={$member_num};";
-                        $query = "select appointment_date,name,no,regist_day,star_rating from appointment a inner join (select * from review r inner join hospital h on r.hospital_id=h.id) rhjoin on a.review_no=rhjoin.no  where a.member_num={$member_num};";
+                    <?php
+                        $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+                        $query = "select id from members where num={$member_num};";
+                        $result = $con->query($query) or die(mysqli_error($con));
+                        $row = mysqli_fetch_assoc($result);
+
+                        $query = "select * from question where id='{$userid}' order by regist_day desc;";
+                        $query = "select q.num,q.id,subject,regist_day,ifnull(parent,'X') as ripple from question q left join (select parent from question_ripple where id='admin' group by parent) qr on qr.parent=q.num where q.id='{$userid}' order by regist_day desc;";
                         $result = $con->query($query) or die(mysqli_error($con));
                         if (mysqli_num_rows($result)) {
                             $total_record = mysqli_num_rows($result);
@@ -64,27 +66,25 @@
                             for ($i = $truncated_num; $i < $truncated_num + $scale && $i < $total_record; $i++) {
                                 mysqli_data_seek($result, $i);
                                 $row = mysqli_fetch_array($result);
-                                $hospital_name = $row['name'];
+                                $subject = $row['subject'];
                                 $regist_day = $row['regist_day'];
-                                $star_rating = $row['star_rating'];
-                                $appointment_date = $row['appointment_date'];
-
+                                $ripple = $row['ripple']==='1'?'O':'X';
+//                                $ripple = $row['ripple'];
                                 ?>
-								<li >
-									<input type="hidden" class="review_no" value=<?= $row['no'] ?>>
-									<a class="review_detail">
-									<span class="col1"><?= $hospital_name ?></span>
-									<span class="col2"><?= $appointment_date ?></span>
-									<span class="col3"><?= $regist_day ?></span>
-									<span class="col4"><?= $star_rating ?></span></a>
-									<span class="col5">
-									<button class="review_delete">삭제</button>
-								</span>
+								<li>
+									<a href='http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/service/question/question_view.php?num=<?= $row['num'] ?>&page=1'>
+										<span class="col1"><?= $subject ?></span>
+										<span class="col2"><?= $ripple ?></span>
+										<span class="col3"><?= $regist_day ?></span></a>
+									<span class="col4">	<input type="hidden" class="review_no"
+									                              value=<?= $row['num'] ?>><a
+												href="http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/service/question/question_modify_form.php?num=<?= $row['num'] ?>&page=1">
+										<button class="post_modify">수정</button></a></span>
 								</li>
                                 <?php
                             }
                         } else {
-                            echo "작성한 리뷰가 없습니다";
+                            echo "작성한 글이 없습니다";
                             $total_page = 0;
                         }
                     ?>
@@ -118,15 +118,5 @@
 		<footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
 		</footer>
-		<div id="popup">
-			<div id="popup_content">
-			</div>
-			<div id="popup_btn">
-<!--				<button id="cancel" class="cancel">예약취소</button>-->
-<!--				<button id="popup_detail"> 관리</button>-->
-<!--				<button id="popup_write"> 등록</button>-->
-				<button id="close">닫기</button>
-			</div>
-		</div>
 	</body>
 </html>

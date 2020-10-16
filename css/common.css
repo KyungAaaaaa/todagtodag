@@ -35,7 +35,8 @@ a:link, a:hover, a:visited, a:active { text-decoration: none; color: rgb(44, 55,
 #top_menu { float: right; margin: 11px 60px 0 0; border-radius: 30px; border: 1px solid rgb(44, 55, 68);
 	font-size: 16px; }
 
-#top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px;}
+#top #top_menu li { display: inline-block; margin: 10px 30px 10px 30px; }
+#top #top_menu li a:hover { color: #ff4b23; font-weight: bold; }
 #top #top_menu2 { float: right; margin: 20px 60px 0 0; font-family: "S-CoreDream-6Bold"}
 #top #top_menu2 > li { display: inline-block; margin-left: 60px; }
 /* #top #top_menu2>li>a:hover {

@@ -4,9 +4,15 @@
     if (isset($_POST['appointment_num'])) $appointment_num = $_POST['appointment_num'];
 
     if ($mode === "detail") {
+//        $query = "select h.name as hospital_name,addr,tel,a.name as member_name,num,appointment_date,appointment_time from hospital h inner join
+//					(select a.num,name,DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,appointment_time,hospital_id
+//					from appointment a inner join members m on a.member_num=m.num) a on h.id=a.hospital_id where num={$appointment_num}";
+
         $query = "select h.name as hospital_name,addr,tel,a.name as member_name,num,appointment_date,appointment_time from hospital h inner join 
-					(select a.num,name,DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,appointment_time,hospital_id 
+					(select a.num,name,appointment_date,appointment_time,hospital_id 
 					from appointment a inner join members m on a.member_num=m.num) a on h.id=a.hospital_id where num={$appointment_num}";
+
+        
         $result = $con->query($query) or die(mysqli_error($con));
         if (mysqli_num_rows($result) !== 0) {
             $row = mysqli_fetch_assoc($result);

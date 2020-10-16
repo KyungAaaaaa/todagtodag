@@ -247,11 +247,11 @@ var infowindow = new kakao.maps.InfoWindow({
     $user_phone = $row["phone"];
     ?>
      <div class='hospital_appointment_container'>
+    <div class="hospital_memberinfo">
     <div class="subject"><img src="./img/clock.png">예약자정보</div>
     <p style="font-size: 14px; margin-bottom: 10px; margin-left: 10px; color: gray;">
         ※현재 로그인하신 아이디로 찾은 결과입니다.
     </P>
-    <div class="hospital_memberinfo">
         <div class="hospital_membername">
             <p>예약자명 </p>
             <input type="text" value="<?= $user_name ?>" disabled>
@@ -902,7 +902,7 @@ var infowindow = new kakao.maps.InfoWindow({
                 $("#calander_data4").val("");
             })
         </script>
-    </div>
+    </div></div>
 <?php
 }
 ?>

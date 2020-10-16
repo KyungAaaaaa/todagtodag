@@ -13,6 +13,7 @@
         if (isset($_POST['hospital_id'])) $hospital_id = $_POST['hospital_id'];
         if (isset($_POST['member_num'])) $member_num = $_POST['member_num'];
         if (isset($_POST['appointment_num'])) $appointment_num = $_POST['appointment_num'];
+        if(isset($comment)||isset($star)||isset($kindness)||isset($wait_time)||isset($expense)) {echo "모든 항목을 입력하세요"; return;}
         $regist_time = date('yy-m-d');
         $query = "insert into review values(null,'{$hospital_id}', {$member_num} ,{$star}, {$kindness},{$wait_time},{$expense}, '{$comment}', '{$regist_time}');";
         $result = $con->query($query) or die(mysqli_error($con));

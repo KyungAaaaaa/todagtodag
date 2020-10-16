@@ -115,13 +115,14 @@ $(document).on("click","#popup_write", function () {
                 popup_close();
                 location.reload();
             } else {
-                alert("리뷰가 등록되지 않았습니다. 관리자에게 문의하세요");
+                alert(data);
                 console.log(data)
             }
         }
     })
 })
 
+//팝업창 닫기
 $(document).on("click","#close", function () {
     popup_close();
 });
@@ -307,9 +308,14 @@ $(document).on("click","#delete_ripple", function () {
 
 })
 
-$(document).on("click","#all_check",function (){
+//댓글관리 페이지 전체선택 이벤트
+$(document).on("change","#all_check",function (){
+    if ($(this).is(":checked"))
     $("input:checkbox[name=ripple_check]").prop("checked", true);
+    else
+    $("input:checkbox[name=ripple_check]").prop("checked", false);
 })
+
 
 function popup_open() {
     $("body").css("overflow", "hidden");

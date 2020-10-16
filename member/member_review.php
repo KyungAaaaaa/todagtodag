@@ -42,7 +42,8 @@
 						<span class="col5"></span>
 					</li>
                     <?php $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-                        $query = "select DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,name,no,regist_day,star_rating from appointment a inner join (select * from review r inner join hospital h on r.hospital_id=h.id) rhjoin on a.review_no=rhjoin.no  where a.member_num={$member_num};";
+//                        $query = "select DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d ') as appointment_date,name,no,regist_day,star_rating from appointment a inner join (select * from review r inner join hospital h on r.hospital_id=h.id) rhjoin on a.review_no=rhjoin.no  where a.member_num={$member_num};";
+                        $query = "select appointment_date,name,no,regist_day,star_rating from appointment a inner join (select * from review r inner join hospital h on r.hospital_id=h.id) rhjoin on a.review_no=rhjoin.no  where a.member_num={$member_num};";
                         $result = $con->query($query) or die(mysqli_error($con));
                         if (mysqli_num_rows($result)) {
                             $total_record = mysqli_num_rows($result);

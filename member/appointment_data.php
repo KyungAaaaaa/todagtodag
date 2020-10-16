@@ -54,13 +54,17 @@
 			</div>
             <?php
         } else {
-            echo "실행앙ㄴ됌";
+            echo "실행안됌!";
         }
 
 
     } elseif ($mode === "cancel") {
-        $query = "update appointment set `appointment_status`='cancel' where num={$appointment_num}";
-        $result = $con->query($query) or die(mysqli_error($con));
+        $query = "update appointment set `appointment_status`='cancel', `appointment_date`='', `appointment_time`='' where num={$appointment_num}";
+		$result = $con->query($query) or die(mysqli_error($con));
+        $query = "drop procedure `hospital_procedure{$appointment_num}`;";
+		$result = $con->query($query) or die(mysqli_error($con));
+        $query = "drop event `hospital_scheduler{$appointment_num}`;";
+		$result = $con->query($query) or die(mysqli_error($con));
         echo "success";
     }
 ?>

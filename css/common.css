@@ -54,8 +54,7 @@ a:link, a:hover, a:visited, a:active { text-decoration: none; color: rgb(44, 55,
 .tab_down_menu2 ul { position: absolute; display: none; z-index: 999; top: 20px; left: -30px; margin-top: 20px;}
 .tab_down_menu2 .down_menu2 li { display: block; color: black; margin-left: 0; margin-bottom: 5px;}
 .tab_down_menu2 ul a { width: 130px; display: block; text-align: center; line-height: 30px; color: black;text-decoration: none; background-repeat: no-repeat; background-size: 0% 90%; transition: background-size 0.8s;}
-.tab_down_menu2 ul li :hover { background-position: 50% bottom; background-size: 80% 80%; background-image: linear-gradient(transparent 80%, #f1896a 60%);
-}
+.tab_down_menu2 ul li :hover { background-position: 50% bottom; background-size: 80% 80%; background-image: linear-gradient(transparent 80%, #f1896a 60%);}
 
 /* 하단 푸터 */
 /*footer { min-width: var(--header--width);height: 200px; background-color: rgb(44, 55, 68);}*/
@@ -69,38 +68,25 @@ footer div {margin-right: 30px;}
 #footer_content {display: flex;align-items: center;justify-content: center;height: 100%;}
 #footer_content * {color: #d4d4d4}
 #footer_logo {display: flex; }
-#footer_logo p{ color:white;font-family: 'TmonMonsori'; font-size: 30px; }
+#footer_logo p { color: white;font-family: 'TmonMonsori'; font-size: 30px; }
 #footer_logo img {width: 35px;height: 35px;padding: 5px}
 #footer_text {font-size: 13px;}
 #service {margin-left: 500px}
 #contact img {width: 17px;height: 17px;margin-left: 3px;cursor: pointer;}
 #service, #contact {display: flex;flex-direction: column}
-#service h4, #contact h4 {color:white;margin-bottom: 20px}
+#service h4, #contact h4 {color: white;margin-bottom: 20px}
 #service > a, #contact > div {font-size: 13px;height: 25px}
 #contact > div {display: flex;position: relative;}
 #contact > div > p {width: 100px}
-#contact span.email {display: inline-block; position: absolute;right: -215px;text-align: center;  animation: fade-in 1s;
+#contact span.email {display: inline-block; position: absolute;right: -215px;text-align: center; animation: fade-in 1s;
 	animation-fill-mode: forwards;}
 #contact span::after {content: ""; position: absolute; left: 0; margin-left: -20px; border-width: 10px; border-style: solid; border-color: transparent #ffffff transparent transparent;}
 #contact span { color: black; width: 200px; height: 20px; background-color: white; border-radius: 0 10px 10px 0; display: none; }
 @keyframes fade-in {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
-@keyframes fade-out {
-	from {
-		opacity: 1;
-		
-	}
-	to {
-		opacity: 0;
-	}
-}
 /* 맨위로 버튼 */
 a#btn_top {
 	color: red;

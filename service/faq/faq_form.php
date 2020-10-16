@@ -5,7 +5,10 @@
 	<meta charset="utf-8">
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
-	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/css/faq.css">
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/css/notice.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/js/faq.js"></script>
 </head>
 

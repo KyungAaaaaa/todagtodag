@@ -64,14 +64,14 @@
                     <a href="#" class="prev">prev</a>
                     <a href="#" class="next">next</a>
                 </div> -->
-				<div class="slideshow_indicator">
+				<!-- <div class="slideshow_indicator">
 					<ul>
 						<li><a href="#" class="active"></a></li>
 						<li><a href="#"></a></li>
 						<li><a href="#"></a></li>
 						<li><a href="#"></a></li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</section>
 	</body>

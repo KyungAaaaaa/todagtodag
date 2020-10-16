@@ -4,8 +4,8 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
 
-create_table($con, 'free');
-create_table($con, 'free_ripple');
+create_table($con, 'question');
+create_table($con, 'question_ripple');
 
 if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
     $userid = $_GET["id"];
@@ -23,11 +23,13 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
 
     $subject = $_POST["subject"];
     $content = $_POST["content"];
+    $read_pw = $_POST["read_pw"];
     $hit = 0;
     // $subject = htmlspecialchars($subject, ENT_QUOTES);
     // $content = htmlspecialchars($content, ENT_QUOTES);
     $subject = test_input($subject);
     $content = test_input($content);
+    $read_pw = test_input($read_pw);
 
     $regist_day = date("Y-m-d (H:i)");  // 현재의 '년-월-일-시-분'을 저장
 
@@ -86,9 +88,9 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
     // $upfile_name = iconv("utf-8","cp949",$upfile_name);
     // $upfile_name = iconv("utf-8","euc-kr",$upfile_name);
 
-    $sql = "insert into free (id, name, subject, content, regist_day, hit,  file_name_0, file_type_0, file_copied_0) ";
+    $sql = "insert into question (id, name, subject, content, regist_day, hit,  file_name_0, file_type_0, file_copied_0, read_pw) ";
     $sql .= "values('$userid', '$username', '$subject', '$content', '$regist_day', 0, ";
-    $sql .= "'$upfile_name', '$upfile_type', '$copied_file_name')";
+    $sql .= "'$upfile_name', '$upfile_type', '$copied_file_name', $read_pw)";
     mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
 
     // echo "<script>alert('{$upfile_name}');</script>";
@@ -96,7 +98,7 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
 
     echo "
 	   <script>
-	    location.href = 'free_list.php?hit=$hit';
+	    location.href = 'question_list.php?hit=$hit';
 	   </script>
 	";
 } else if (isset($_GET["mode"]) && $_GET["mode"] === "modify") {
@@ -105,6 +107,7 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
 
     $subject = $_POST["subject"];
     $content = $_POST["content"];
+    $read_pw = $_POST["read_pw"];
 
     if (isset($_FILES["upfile"])) {
         $upload_dir = "./data/";
@@ -158,11 +161,11 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
                 ");
                 exit;
             }
-            $sql = "update free set subject='$subject', content='$content', file_name_0='$upfile_name', file_type_0='$upfile_type', file_copied_0='$copied_file_name' ";
+            $sql = "update question set subject='$subject', content='$content', file_name_0='$upfile_name', file_type_0='$upfile_type', file_copied_0='$copied_file_name', read_pw='$read_pw' ";
             $sql .= " where num=$num";
             mysqli_query($con, $sql);
         } else {
-            $sql = "select * from free where num = $num";
+            $sql = "select * from question where num = $num";
             $result = mysqli_query($con, $sql);
             $row = mysqli_fetch_array($result);
 
@@ -177,12 +180,12 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
             $upfile_type      = "";
             $copied_file_name = "";
 
-            $sql = "update free set subject='$subject', content='$content', file_name_0='$upfile_name', file_type_0='$upfile_type', file_copied_0='$copied_file_name' ";
+            $sql = "update question set subject='$subject', content='$content', file_name_0='$upfile_name', file_type_0='$upfile_type', file_copied_0='$copied_file_name', read_pw='$read_pw' ";
             $sql .= " where num=$num";
             mysqli_query($con, $sql);
         }
     } else {
-        $sql = "update free set subject='$subject', content='$content' ";
+        $sql = "update question set subject='$subject', content='$content', read_pw='$read_pw' ";
         $sql .= " where num=$num";
         mysqli_query($con, $sql);
     }
@@ -191,14 +194,14 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
 
     echo "
 	      <script>
-	          location.href = 'free_list.php?page=$page';
+	          location.href = 'question_list.php?page=$page';
 	      </script>
       ";
 } else if (isset($_GET["mode"]) && $_GET["mode"] === "delete") {
     $num   = $_GET["num"];
     $page   = $_GET["page"];
 
-    $sql = "select * from free where num = $num";
+    $sql = "select * from question where num = $num";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
 
@@ -209,14 +212,14 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
         unlink($file_path);
     }
 
-    $sql = "delete from free where num = $num";
+    $sql = "delete from question where num = $num";
 
     mysqli_query($con, $sql);
     mysqli_close($con);
 
     echo "
 	     <script>
-	         location.href = 'free_list.php?page=$page';
+	         location.href = 'question_list.php?page=$page';
 	     </script>
 	   ";
 }else if(isset($_GET["mode"])&&$_GET["mode"]=="insert_ripple"){
@@ -235,7 +238,7 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
     $rowcount=mysqli_num_rows($result);
 
     if(!$rowcount){
-      echo "<script>alert('로그인 후 이용하세요.');history.go(-1);</script>";
+      echo "<script>alert('없는 아이디!!');history.go(-1);</script>";
       exit;
     }else{
       $content = test_input($_POST["ripple_content"]);
@@ -247,13 +250,13 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
       $q_parent = mysqli_real_escape_string($con, $parent);
       $regist_day=date("Y-m-d (H:i)");
 
-      $sql="INSERT INTO `free_ripple` VALUES (null,'$q_parent','$q_userid','$q_username', '$q_content','$regist_day')";
+      $sql="INSERT INTO `question_ripple` VALUES (null,'$q_parent','$q_userid','$q_username', '$q_content','$regist_day')";
       $result = mysqli_query($con,$sql);
       if (!$result) {
         die('Error: ' . mysqli_error($con));
       }
       mysqli_close($con);
-      echo "<script>location.href='./free_view.php?num=$parent&page=$page&hit=$hit';</script>";
+      echo "<script>location.href='./question_view.php?num=$parent&page=$page&hit=$hit';</script>";
     }//end of if rowcount
   }else if(isset($_GET["mode"])&&$_GET["mode"]=="delete_ripple"){
     $page= test_input($_GET["page"]);
@@ -262,13 +265,13 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
     $parent = test_input($_POST["parent"]);
     $q_num = mysqli_real_escape_string($con, $num);
 
-    $sql ="DELETE FROM `free_ripple` WHERE num=$q_num";
+    $sql ="DELETE FROM `question_ripple` WHERE num=$q_num";
     $result = mysqli_query($con,$sql);
     if (!$result) {
       die('Error: ' . mysqli_error($con));
     }
     mysqli_close($con);
-    echo "<script>location.href='./free_view.php?num=$parent&page=$page&hit=$hit';</script>";
+    echo "<script>location.href='./question_view.php?num=$parent&page=$page&hit=$hit';</script>";
 
   }//end of if insert
 

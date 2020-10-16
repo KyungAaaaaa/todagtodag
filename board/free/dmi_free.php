@@ -235,7 +235,7 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
     $rowcount=mysqli_num_rows($result);
 
     if(!$rowcount){
-      echo "<script>alert('없는 아이디!!');history.go(-1);</script>";
+      echo "<script>alert('로그인 후 이용하세요.');history.go(-1);</script>";
       exit;
     }else{
       $content = test_input($_POST["ripple_content"]);

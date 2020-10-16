@@ -2,6 +2,15 @@ button, input[type=button], input[type=submit] {
   cursor: pointer;
 }
 
+#content_title p {
+  display: inline-block;
+  font-size: 20px;
+  color: #ddd;
+  float: right;
+  padding-top: 8px;
+  font-weight: bold;
+}
+
 #board_list li { padding: 10px 0; border-bottom: solid 1px #dddddd; }
 #board_list span { display: inline-block; text-align: center;}
 #board_list .col1 { width: 45px; }

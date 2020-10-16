@@ -3,7 +3,7 @@ body { background-image: url('http://127.0.0.1/todagtodag/img/background22.jpg')
     background-attachment: fixed; }
 section { background-color: white; }
 
-header { position: relative; }
+header { position: relative; color: rgb(44, 55, 68); }
 
 .background_image { height: 100vh; background-color: rgba( 255, 255, 255, 0 ); }
 .background_image #p1 { position: absolute; top: 50%; left: 50%; color: white; margin-left: -200px;

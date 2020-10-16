@@ -125,6 +125,9 @@
                     </tr>
                 </table>
                 <div id="write_button">
+                    <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/admin/admin_members.php" style="position: absolute; top: 405px; left: 650px;">
+                        <img src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/icon_prev.png">
+                    </a>
                     <input type="image" onclick='document.getElementById("del_file").disabled=false' src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/ok.png">&nbsp;
                     <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/health_info_list.php">
                         <img src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/list.png">

@@ -14,7 +14,7 @@ if (isset($_SESSION["user_id"])) {
 
 <head>
   <meta charset="utf-8">
-  <title>HELF :: 관리자페이지</title>
+  <title>토닥토닥 :: 관리자페이지</title>
   <link rel="stylesheet" type="text/css" href="./css/admin.css">
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
   <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
@@ -80,6 +80,8 @@ if (isset($_SESSION["user_id"])) {
             <li><a href="admin_notice.php">공지사항 관리</a></li>
             <li><a href="admin_free.php">자유게시판 관리</a></li>
             <li><a href="admin_media.php">영상게시판 관리</a></li>
+            <li><a href="admin_faq.php">FAQ 관리</a></li>
+            <li><a href="admin_question.php">문의게시판 관리</a></li>
           </ul>
 
           <br>
@@ -94,7 +96,6 @@ if (isset($_SESSION["user_id"])) {
           <ul id="sta_ul">
             <li><a href="admin_statistics1.php">가입/예약 분석</a></li>
             <li><a href="admin_statistics2.php">인기 건강정보</a></li>
-            <li><a href="admin_statistics3.php">회원별 매출</a></li>
           </ul>
         </div>
       </div><!--  end of sub -->

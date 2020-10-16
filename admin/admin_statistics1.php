@@ -7,7 +7,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 
 <head>
   <meta charset="utf-8">
-  <title>HELF :: 관리자페이지</title>
+  <title>토닥토닥 :: 관리자페이지</title>
   <link rel="stylesheet" type="text/css" href="./css/admin.css">
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
   <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
@@ -93,6 +93,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
             <li><a href="admin_notice.php">공지사항 관리</a></li>
             <li><a href="admin_free.php">자유게시판 관리</a></li>
             <li><a href="admin_media.php">영상게시판 관리</a></li>
+            <li><a href="admin_faq.php">FAQ 관리</a></li>
+            <li><a href="admin_question.php">문의게시판 관리</a></li>
           </ul>
 
           <br>

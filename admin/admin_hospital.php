@@ -17,7 +17,7 @@ if (isset($_GET["page"])) {
   <title>토닥토닥 :: 관리자페이지</title>
   <link rel="stylesheet" type="text/css" href="./css/admin.css?ver=4">
   <link rel="stylesheet" type="text/css" href="./css/admin_members.css?ver=6">
-  <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag2.png">
+  <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
   <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
@@ -71,6 +71,8 @@ if (isset($_GET["page"])) {
             <li><a href="admin_notice.php">공지사항 관리</a></li>
             <li><a href="admin_free.php">자유게시판 관리</a></li>
             <li><a href="admin_media.php">영상게시판 관리</a></li>
+            <li><a href="admin_faq.php">FAQ 관리</a></li>
+            <li><a href="admin_question.php">문의게시판 관리</a></li>
           </ul>
 
           <br>
@@ -83,8 +85,8 @@ if (isset($_GET["page"])) {
           <br>
           <h3>통계</h3>
           <ul id="sta_ul">
-            <li><a href="admin_statistics1.php">매출 분석</a></li>
-            <li><a href="admin_statistics2.php">인기 프로그램</a></li>
+            <li><a href="admin_statistics1.php">가입/예약 분석</a></li>
+            <li><a href="admin_statistics2.php">인기 건강정보</a></li>
           </ul>
         </div>
       </div><!--  end of sub -->

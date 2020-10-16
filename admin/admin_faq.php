@@ -15,10 +15,10 @@ if (isset($_GET["page"])) {
 <head>
   <meta charset="utf-8">
   <title>토닥토닥 :: 관리자페이지</title>
-  <link rel="stylesheet" type="text/css" href="./css/admin.css?ver=5">
-  <link rel="stylesheet" type="text/css" href="./css/admin_notice.css?ver=5">
+  <link rel="stylesheet" type="text/css" href="./css/admin.css">
+  <link rel="stylesheet" type="text/css" href="./css/admin_notice.css">
   <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
-  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css?ver=5">
+  <link rel="stylesheet" type="text/css" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/css/common.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 
   <script src="http://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
@@ -58,7 +58,7 @@ if (isset($_GET["page"])) {
     $items = $_POST["items"];
 
     for ($i = 0; $i < count($items); $i++) {
-      $sql = "DELETE from free where num=$items[$i];";
+      $sql = "DELETE from `faq` where num=$items[$i];";
       $result = mysqli_query($con, $sql);
     }
 
@@ -123,7 +123,7 @@ if (isset($_GET["page"])) {
 
       <div id="content">
         <h1 id="content_title">게시글 관리 > 자유게시판<p>제목을 클릭하시면 수정/삭제페이지로 이동합니다.</p></h1><br>
-        <form id="delete_board_form" action="admin_free.php?page=<?= $page ?>" method="post">
+        <form id="delete_board_form" action="admin_faq.php?page=<?= $page ?>" method="post">
           <div id="all_check">
             <input type="checkbox" id="all_agree">
             <span>전체 선택</span>
@@ -135,7 +135,6 @@ if (isset($_GET["page"])) {
               <span class="col2">제목</span>
               <span class="col3">아이디 (이름)</span>
               <span class="col4">작성일</span>
-              <span class="col5">조회</span>
             </li>
             <?php
             if (isset($_GET["page"])) {
@@ -144,7 +143,7 @@ if (isset($_GET["page"])) {
               $page = 1;
             }
 
-            $sql = "select * from free order by num desc";
+            $sql = "SELECT * from `faq` order by num desc";
             $result = mysqli_query($con, $sql);
             $total_record = mysqli_num_rows($result); // 전체 글 수
 
@@ -173,14 +172,12 @@ if (isset($_GET["page"])) {
               $name           = $row["name"];
               $subject        = $row["subject"];
               $regist_day     = $row["regist_day"];
-              $hit            = $row["hit"];
             ?>
               <li id="board_content">
                 <span class="col1"><?= $number ?></span>
-                <span class="col2"><a href="../board/free/free_view.php?num=<?= $num ?>&page=<?= $page ?>&hit=<?= $hit + 1 ?>"><?= str_cutting($subject, 90) ?></a></span>
+                <span class="col2"><a href="../service/faq/faq_view.php?num=<?= $num ?>&page=<?= $page ?>&hit=<?= $hit + 1 ?>"><?= str_cutting($subject, 90) ?></a></span>
                 <span class="col3"><?= $id ?> (<?= $name ?>)</span>
                 <span class="col4"><?= $regist_day ?></span>
-                <span class="col5"><?= $hit ?></span>
                 <div class="checkbox_div">
                   <span>선택삭제&nbsp;</span>
                   <input type="checkbox" name="items[]" value="<?= $num ?>">
@@ -213,7 +210,7 @@ if (isset($_GET["page"])) {
             <?php
             if ($total_page >= 2 && $page >= 2) {
               $new_page = $page - 1;
-              echo "<li><a href='admin_free.php?page=$new_page'>◀ 이전</a> </li>";
+              echo "<li><a href='admin_faq.php?page=$new_page'>◀ 이전</a> </li>";
             } else {
               echo "<li>&nbsp;</li>";
             }
@@ -223,13 +220,13 @@ if (isset($_GET["page"])) {
               if ($page == $i) {     // 현재 페이지 번호 링크 안함
                 echo "<li><b> $i </b></li>";
               } else {
-                echo "<li><a href='admin_free.php?page=$i'>  $i  </a><li>";
+                echo "<li><a href='admin_faq.php?page=$i'>  $i  </a><li>";
               }
             }
             if ($total_page >= 2 && $page != $total_page) {
               $new_page = $page + 1;
 
-              echo "<li> <a href='admin_free.php?page=$new_page'>다음 ▶</a> </li>";
+              echo "<li> <a href='admin_faq.php?page=$new_page'>다음 ▶</a> </li>";
             } else {
               echo "<li>&nbsp;</li>";
             }

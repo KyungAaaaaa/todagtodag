@@ -6,20 +6,22 @@
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css" defer>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/css/notice.css" defer>
+	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/css/mypage.css" defer>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<link rel="shortcut icon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/js/read_access.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/js/read_access.js" defer></script>
 </head>
 
 <body>
 	<header>
-		<?php $_POST["mode"]="white"; include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
-		<div class="background_image">
+		<?php
+		include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+		<!-- <div class="background_image">
             <p id="p1">토닥토닥 게시판을 알려드립니다.</p>
             <p id="p2">↓ 아래로 드래그 해주세요.</p>
-        </div>
+        </div> -->
 	</header>
 	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>
@@ -86,13 +88,21 @@
 				?>
 					<li>
 						<span class="col1"><?= $number ?></span>
-						<?php 
-							if($userid == "admin"){
-							?>
-							<span class="col2_1"><a href="question_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
-							<?php } else { ?>
-								<span class="col2_1"><a href="password.php?num=<?= $num ?>&page=<?= $page ?>&read_pw=<?=$read_pw?>" class="trigger_user_login"><?= $subject ?></a></span>
-							<?php } ?>
+						<?php
+						if ($userid == "admin") {
+						?>
+							<span class="col2_1" id="col2_1"><a href="question_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
+						<?php } else { ?>
+							<!-- <span class="col2_1"><a href="password.php?num=<?= $num ?>&page=<?= $page ?>&read_pw=<?= $read_pw ?>" class="trigger_user_login"><?= $subject ?></a></span> -->
+							<span class="col2_1" id="col2_1" style="cursor: pointer;"><?= $subject ?></span>
+							<script>
+								$("#col2_1").on("click", function() {
+
+									popup_open();
+
+								})
+							</script>
+						<?php } ?>
 						<span class="col3"><?= $name ?></span>
 						<span class="col4"><?= $file_image ?></span>
 						<span class="col5"><?= $regist_day ?></span>
@@ -151,6 +161,42 @@
 	<footer>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>
 	</footer>
+	<div id="popup">
+		<div id="popup_content">
+		</div>
+		<div id="popup_btn">
+			<div>
+				<h2>비밀번호</h2>
+				<input type="tel" id="read_pw" maxlength="4" style="-webkit-text-security: disc;">
+			</div>
+			<button id="popup_write"> 확인</button>
+			<script>
+				$("#popup_write").on("click", function() {
+					var $pass = $("#read_pw").val();
+					console.log($pass);
+					if ($pass) {
+						$.ajax({
+							type: "POST",
+							url: "password.php",
+							data: {
+								num: <?=$num?>,
+								page: <?=$page?>,
+								pass: $pass
+							},
+							success: function(data) {
+								if (data === "fail") {
+									alert("비밀번호 불일치");
+									location.href = 'question_list.php';
+								}
+								else {location.href = 'question_view.php?page=<?=$page?>&num=<?=$num?>';}
+							}
+						})
+					}
+				})
+			</script>
+			<button id="close">취소</button>
+		</div>
+	</div>
 </body>
 
 </html>

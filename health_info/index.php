@@ -37,7 +37,12 @@ if(isset($_GET['page'])){
         <div class="health_info">
             <div class="info_main">
                 <h2>어떤 건강정보를 찾으시나요?</h2>
-                <p>총 <em style="color: red;">1024개</em> 의 건강정보 컨텐츠가 있습니다.</p>
+                <?php 
+                    $num_sql = "SELECT * from health_info";
+                    $num_result = mysqli_query($con, $num_sql);
+                    $num_row = mysqli_num_rows($num_result);
+                ?>
+                <p>총 <em style="color: red;"><?=$num_row?></em> 의 건강정보 컨텐츠가 있습니다.</p>
             </div>
             <form class="search" action="./health_info_list.php" method="GET">
                 <div class="info_search">

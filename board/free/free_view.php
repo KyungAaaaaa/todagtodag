@@ -103,10 +103,7 @@
 				</li>
 			</ul>
 			<ul id="ripple">
-<<<<<<< HEAD
 				<li style="font-weight: bold;">댓글</li>
-=======
->>>>>>> kss
 				<?php
 				$sql = "select * from free_ripple where parent='$num' ";
 				$ripple_result = mysqli_query($con, $sql);
@@ -119,12 +116,7 @@
 					$ripple_content = str_replace("\n", "<br>", $ripple_content);
 					$ripple_content = str_replace(" ", "&nbsp;", $ripple_content);
 				?>
-<<<<<<< HEAD
-
 					<li id="ripple_head"><span id="span1"><?= $ripple_id ?></span><span id="span2"><?= $ripple_date ?></span></li>
-=======
-					<li><?= $ripple_id . "&nbsp;&nbsp;" . $ripple_date ?></li>
->>>>>>> kss
 					<li id="mdi_del">
 						<?php
 						$message = free_ripple_delete($ripple_id, $ripple_num, 'dmi_free.php', $page, $hit, $num);
@@ -148,7 +140,6 @@
 					</div>
 					<!--end of ripple_insert -->
 				</form>
-<<<<<<< HEAD
 			</ul>
 			<ul class="buttons">
 				<li><button onclick="location.href='free_list.php?page=<?= $page ?>'">목록</button></li>
@@ -156,19 +147,6 @@
 				<li><button onclick="location.href='dmi_free.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
 				<li><button onclick="location.href='free_form.php'">글쓰기</button></li>
 			</ul>
-=======
-		</div>
-		<!--end of ripple2  -->
-		</div>
-		<!--end of ripple  -->
-		</ul>
-		<ul class="buttons">
-			<li><button onclick="location.href='free_list.php?page=<?= $page ?>'">목록</button></li>
-			<li><button onclick="location.href='free_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
-			<li><button onclick="location.href='dmi_free.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
-			<li><button onclick="location.href='free_form.php'">글쓰기</button></li>
-		</ul>
->>>>>>> kss
 		</div> <!-- board_box -->
 	</section>
 	<footer>

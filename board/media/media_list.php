@@ -75,7 +75,7 @@
 					<li>
 						<span class="col1"><?= $number ?></span>
 						<span class="col2_1"><a href="media_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
-						<span class="col3"><?= $name ?></span>
+						<span class="col3"><?= $id ?></span>
 						<span class="col5"><?= $regist_day ?></span>
 						<span class="col6"><?= $hit ?></span>
 					</li>

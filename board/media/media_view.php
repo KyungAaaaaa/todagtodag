@@ -58,7 +58,7 @@
 			<ul id="view_content">
 				<li>
 					<span class="col1"><b>제목 :</b> <?= $subject ?></span>
-					<span class="col2"><?= $name ?> | <?= $regist_day ?></span>
+					<span class="col2"><?= $id ?> | <?= $regist_day ?></span>
 				</li>
 				<li>
 					<p id="youTubePlayer1">

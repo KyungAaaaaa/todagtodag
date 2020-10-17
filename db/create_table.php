@@ -135,9 +135,6 @@ function create_table($con, $table_name)
                   `file_name_1` char(40) DEFAULT NULL,
                   `file_copied_1` char(30) DEFAULT NULL,
                   `file_type_1` char(30) DEFAULT NULL,
-                  `image_name_0` char(40) DEFAULT NULL,
-                  `image_copied_0` char(30) DEFAULT NULL,
-                  `image_type_0` char(30) DEFAULT NULL,
                   PRIMARY KEY (`num`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;

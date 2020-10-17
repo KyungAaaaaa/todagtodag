@@ -2,16 +2,7 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
-    include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
-    create_table($con, "members");
-    create_table($con, "hospital");
-    create_table($con, "notice");
-    create_table($con, "review");
-    create_table($con, "health_info");
-    create_table($con, "interest");
-    create_table($con, "media");
-    create_table($con, "appointment");
+    include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_statement.php";
 ?>
 
 <!DOCTYPE html>

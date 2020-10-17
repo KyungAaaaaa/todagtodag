@@ -17,6 +17,7 @@ function create_trigger($con, $trigger_name) {
             for each row
             begin
             alter table appointment auto_increment = 1223;
+            set global event_scheduler = on;
             end";
         break;
       case 'deleted_members':
@@ -41,6 +42,17 @@ function create_trigger($con, $trigger_name) {
             curdate());
             end";
         break;
+      case 'canceled_appointment':
+          $sql = "CREATE trigger canceled_appointment
+            after update
+            on appointment
+            for each row
+            begin
+            insert into canceled_appointment values (old.member_num, old.hospital_id, old.appointment_date,
+            old.appointment_time, old.appointment_department, old.appointment_detail, old.appointment_status
+            old.review_no, curdate());
+            end";
+        break;  
       default:
         echo "<script>alert('해당트리거명이 없습니다. 점검요망!');</script>";
         break;

@@ -122,7 +122,7 @@ if (isset($_GET["page"])) {
       </div><!--  end of sub -->
 
       <div id="content">
-        <h1 id="content_title">게시글 관리 > 자유게시판<p>제목을 클릭하시면 수정/삭제페이지로 이동합니다.</p></h1><br>
+        <h1 id="content_title">게시글 관리 > 문의게시판<p>제목을 클릭하시면 수정/삭제페이지로 이동합니다.</p></h1><br>
         <form id="delete_board_form" action="admin_question.php?page=<?= $page ?>" method="post">
           <div id="all_check">
             <input type="checkbox" id="all_agree">
@@ -148,7 +148,7 @@ if (isset($_GET["page"])) {
             $result = mysqli_query($con, $sql);
             $total_record = mysqli_num_rows($result); // 전체 글 수
 
-            $scale = 20;
+            $scale = 15;
 
             // 전체 페이지 수($total_page) 계산
             if ($total_record % $scale == 0) {

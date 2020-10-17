@@ -130,6 +130,10 @@ function user_delete($con, $delete_id)
 {
     $sql = "DELETE from `hospital` where id = '$delete_id';";
     mysqli_query($con, $sql);
+    $sql = "DELETE from `appointment` where hospital_id = '$delete_id';";
+    mysqli_query($con, $sql);
+    $sql = "DELETE from `review` where hospital_id = '$delete_id';";
+    mysqli_query($con, $sql);
     mysqli_close($con);
 }
 

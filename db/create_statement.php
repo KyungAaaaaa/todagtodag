@@ -20,6 +20,8 @@ create_table($con, "free_ripple");
 create_table($con, "question");
 create_table($con, "question_ripple");
 
+create_procedure($con, 'members_procedure');
+create_procedure($con, 'appointment_procedure');
 create_procedure($con, 'media_procedure');
 
 create_trigger($con, 'appointment_init');

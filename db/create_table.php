@@ -30,7 +30,7 @@ function create_table($con, $table_name)
                     PRIMARY KEY (`num`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
-            case 'members':
+            case 'deleted_members':
                 $sql = "CREATE TABLE `deleted_members` (
                     `num` int(11) NOT NULL AUTO_INCREMENT,
                     `id` char(15) NOT NULL,
@@ -84,6 +84,31 @@ function create_table($con, $table_name)
                     PRIMARY KEY (`id`)
                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
                 break;
+            case 'deleted_hospital':
+                $sql = "CREATE TABLE `deleted_hospital` (
+                    `id` char(10) NOT NULL,
+                    `name` char(50) NOT NULL,
+                    `addr` varchar(200) NOT NULL,
+                    `tel` char(15) NOT NULL,
+                    `department` text,
+                    `mon` char(10) DEFAULT NULL,
+                    `tue` char(10) DEFAULT NULL,
+                    `wed` char(10) DEFAULT NULL,
+                    `thu` char(10) DEFAULT NULL,
+                    `fri` char(10) DEFAULT NULL,
+                    `sat` char(10) DEFAULT NULL,
+                    `sun` char(10) DEFAULT NULL,
+                    `holiday` char(10) DEFAULT NULL,
+                    `mapx` char(25) NOT NULL,
+                    `mapy` char(25) NOT NULL,
+                    `map_description` char(100) DEFAULT NULL,
+                    `file_name_0` char(40) DEFAULT NULL,
+                    `file_copied_0` char(30) DEFAULT NULL,
+                    `file_type_0` char(30) DEFAULT NULL,
+                    `deleted_date` date,
+                    PRIMARY KEY (`id`)
+                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                break;    
             case 'review':
                 $sql = "CREATE TABLE `review` (
                   `no` int(11) NOT NULL AUTO_INCREMENT,

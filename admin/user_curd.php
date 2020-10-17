@@ -69,7 +69,7 @@
       echo "
          <script>
           alert('탈퇴되었습니다.');
-          location.href = 'admin_user.php';
+          location.href = 'admin_members.php';
          </script>
        ";
       break;

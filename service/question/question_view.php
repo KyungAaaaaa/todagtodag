@@ -93,6 +93,7 @@
 				</li>
 			</ul>
 			<ul id="ripple">
+			<li style="font-weight: bold;">댓글</li>
 				<?php
 				$sql = "select * from question_ripple where parent='$num' ";
 				$ripple_result = mysqli_query($con, $sql);
@@ -105,7 +106,7 @@
 					$ripple_content = str_replace("\n", "<br>", $ripple_content);
 					$ripple_content = str_replace(" ", "&nbsp;", $ripple_content);
 				?>
-					<li><?= $ripple_id . "&nbsp;&nbsp;" . $ripple_date ?></li>
+				<li id="ripple_head"><span id="span1"><?= $ripple_id ?></span><span id="span2"><?= $ripple_date ?></span></li>
 					<li id="mdi_del">
 						<?php
 						$message = question_ripple_delete($ripple_id, $ripple_num, 'dmi_question.php', $page, $hit, $num);
@@ -129,10 +130,6 @@
 					</div>
 					<!--end of ripple_insert -->
 				</form>
-		</div>
-		<!--end of ripple2  -->
-		</div>
-		<!--end of ripple  -->
 		</ul>
 		<ul class="buttons">
 			<li><button onclick="location.href='question_list.php?page=<?= $page ?>'">목록</button></li>

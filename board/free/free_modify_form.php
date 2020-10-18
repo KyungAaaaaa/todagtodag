@@ -40,7 +40,7 @@
 		<div id="board_box">
 			<br><br><br>
 			<h3 id="board_title">
-				자유게시판 > 수정
+				자유게시판  > 수정
 			</h3>
 			<?php
 			$num  = $_GET["num"];

@@ -125,18 +125,17 @@
 			<ul class="buttons">
 				<li><button onclick="location.href='free_list.php'">목록</button></li>
 				<li>
-					<button onclick="location.href='free_form.php'">글쓰기</button>
-					<!-- <?php
+					<?php
 							if ($userid) {
 							?>
-						<button onclick="location.href='notice_form.php'">글쓰기</button>
+						<button onclick="location.href='free_form.php'">글쓰기</button>
 					<?php
 							} else {
 					?>
 						<a href="javascript:alert('로그인 후 이용해 주세요!')"><button>글쓰기</button></a>
 					<?php
 							}
-					?> -->
+					?>
 				</li>
 			</ul>
 		</div> <!-- board_box -->

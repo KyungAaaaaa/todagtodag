@@ -149,15 +149,15 @@ if (isset($_GET["mode"]) && $_GET["mode"] === "insert") {
             }
         }
 
-            if (!move_uploaded_file($upfile_tmp_name, $uploaded_file)) { // 파일복사, 붙여넣기를 프로그램으로 구현
-                echo ("
-                    <script>
-                    alert('파일을 지정한 디렉토리에 복사하는데 실패했습니다.');
-                    history.go(-1)
-                    </script>
-                ");
-                exit;
-            }
+            // if (!move_uploaded_file($upfile_tmp_name, $uploaded_file)) { // 파일복사, 붙여넣기를 프로그램으로 구현
+            //     echo ("
+            //         <script>
+            //         alert('파일을 지정한 디렉토리에 복사하는데 실패했습니다.');
+            //         history.go(-1)
+            //         </script>
+            //     ");
+            //     exit;
+            // }
             $sql = "update free set subject='$subject', content='$content', file_name_0='$upfile_name', file_type_0='$upfile_type', file_copied_0='$copied_file_name' ";
             $sql .= " where num=$num";
             mysqli_query($con, $sql);

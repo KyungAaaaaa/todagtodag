@@ -17,6 +17,7 @@
 	</header>
 	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>
+	<br><br><br>
 		<div id="board_box">
 			<h3>
 				영상게시판
@@ -74,7 +75,7 @@
 				?>
 					<li>
 						<span class="col1"><?= $number ?></span>
-						<span class="col2_1"><a href="media_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
+						<span class="col2_1"><a href="media_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?>&nbsp;<img src="./img/media.png"></a></span>
 						<span class="col3"><?= $id ?></span>
 						<span class="col5"><?= $regist_day ?></span>
 						<span class="col6"><?= $hit ?></span>

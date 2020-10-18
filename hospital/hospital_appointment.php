@@ -10,6 +10,14 @@ if (isset($_POST["appointment_department"])) $appointment_department = $_POST["a
 if (isset($_POST["appointment_detail"])) $appointment_detail = $_POST["appointment_detail"];
 $appointment_detail = str_replace("\n", "\\n", $appointment_detail);
 
+// PK 초기값 세팅
+$query = "alter table appointment auto_increment = 1223;";
+$result = mysqli_query($con, $query);
+
+// 이벤트 스케쥴러 on
+$query = "set global event_scheduler = on;";
+$result = mysqli_query($con, $query);
+
 // 진료/예약 데이터 넣기
 $query = "INSERT into `appointment` (member_num, hospital_id, appointment_date, appointment_time
     , appointment_department, appointment_detail, appointment_status) values (

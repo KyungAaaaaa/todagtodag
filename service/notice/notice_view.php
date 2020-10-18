@@ -7,17 +7,22 @@
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/css/notice.css">
 	<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 
 </head>
 
 <body>
 	<header>
-		<?php $_POST["mode"] = "white";  include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
+		<?php $_POST["mode"] = "white";
+		include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 		<div class="background_image">
 			<p id="p1">토닥토닥 공지사항을 알려드립니다.</p>
 			<p id="p2">↓ 아래로 드래그 해주세요.</p>
 		</div>
 	</header>
+	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>
 		<div id="board_box">
 			<br><br><br>
@@ -76,9 +81,45 @@
 			</ul>
 			<ul class="buttons">
 				<li><button onclick="location.href='notice_list.php?page=<?= $page ?>'">목록</button></li>
-				<li><button onclick="location.href='notice_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
-				<li><button onclick="location.href='dmi_notice.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
-				<li><button onclick="location.href='notice_form.php'">글쓰기</button></li>
+				<li>
+					<?php
+					if ($userid === "admin") {
+					?>
+						<button onclick="location.href='notice_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button>
+					<?php
+					} else {
+					?>
+						<button style="display: none;">수정</button>
+					<?php
+					}
+					?>
+				</li>
+				<li>
+					<?php
+					if ($userid === "admin") {
+					?>
+						<button onclick="location.href='dmi_notice.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button>
+					<?php
+					} else {
+					?>
+						<button style="display: none;">삭제</button>
+					<?php
+					}
+					?>
+				</li>
+				<li>
+					<?php
+					if ($userid === "admin") {
+					?>
+						<button onclick="location.href='notice_form.php'">글쓰기</button>
+					<?php
+					} else {
+					?>
+						<button style="display: none;">글쓰기</button>
+					<?php
+					}
+					?>
+				</li>
 			</ul>
 		</div> <!-- board_box -->
 	</section>

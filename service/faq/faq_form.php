@@ -29,7 +29,7 @@
 	<section>
 		<div id="board_box">
 			<h3 id="board_title">
-				공지사항 > 글 쓰기
+				자주 묻는 질문 > 글 쓰기
 			</h3>
 			<form name="board_form" method="post" action="dmi_faq.php?mode=insert&id=<?=$userid?>&name=<?=$username?>" enctype="multipart/form-data">
 				<ul id="board_form">

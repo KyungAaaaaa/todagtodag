@@ -27,7 +27,8 @@ create_procedure($con, 'notice_procedure');
 create_procedure($con, 'faq_procedure');
 create_procedure($con, 'question_procedure');
 create_procedure($con, 'free_procedure');
-//create_procedure($con, 'health_info_procedure');
+create_procedure($con, 'health_info_procedure');
+// create_procedure($con, 'health_info_procedure1');
 
 create_trigger($con, 'appointment_init');
 create_trigger($con, 'deleted_members');

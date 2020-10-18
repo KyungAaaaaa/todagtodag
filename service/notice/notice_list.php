@@ -123,18 +123,17 @@
 			<ul class="buttons">
 				<li><button onclick="location.href='notice_list.php'">목록</button></li>
 				<li>
-					<button onclick="location.href='notice_form.php'">글쓰기</button>
-					<!-- <?php
-							if ($userid) {
+					<?php
+							if ($userid === "admin") {
 							?>
 						<button onclick="location.href='notice_form.php'">글쓰기</button>
 					<?php
 							} else {
 					?>
-						<a href="javascript:alert('로그인 후 이용해 주세요!')"><button>글쓰기</button></a>
+						<button style="display: none;">글쓰기</button>
 					<?php
 							}
-					?> -->
+					?>
 				</li>
 			</ul>
 		</div> <!-- board_box -->

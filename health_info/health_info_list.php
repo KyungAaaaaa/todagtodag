@@ -81,7 +81,7 @@ $memo_content = "";
                     <li class="category"><a class="items" href='./health_info_list.php?category=정신과'>정신과</a></li>
                     <li class="category"><a class="items" href='./health_info_list.php?category=산부인과'>산부인과</a></li>
                     <li class="category"><a class="items" href='./health_info_list.php?category=생활건강'>생활건강</a></li>
-                    <li class="category"><a class="items" href='./health_info_list.php?category=코로나'>코로나</a></li>
+                    <li class="category"><a class="items" href='http://ncov.mohw.go.kr/'>코로나</a></li>
                 </ul>
             </div>  
         <div class="list_box">

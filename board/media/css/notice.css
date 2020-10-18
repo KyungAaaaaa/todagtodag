@@ -32,8 +32,8 @@ header { position: relative; color: rgb(44, 55, 68); }
 #board_list li { padding: 10px 0; border-bottom: solid 1px #dddddd; }
 #board_list span { display: inline-block; text-align: center;}
 #board_list .col1 { width: 80px; }
-#board_list .col2 { width: 330px; text-align: left; }
-#board_list .col2_1 { width: 330px; text-align: left; }
+#board_list .col2 { width: 570px; text-align: center; }
+#board_list .col2_1 { width: 570px; text-align: left; }
 #board_list .col2_1 a { color: black;}
 #board_list .col3 { width: 100px; }
 #board_list .col4 { width: 40px; }
@@ -43,7 +43,7 @@ header { position: relative; color: rgb(44, 55, 68); }
 #page_num li { display: inline; }
 
 /* 게시판 내용보기(board_view.php) */
-#board_box { width: 800px; margin: 0 auto; }
+#board_box { width: 1000px; margin: 0 auto; }
 #board_box .title { margin-top: 30px; padding: 10px; border-bottom: solid 2px #516e7f; font-size: 20px; }
 #view_content li:nth-child(1) {	padding: 15px; border-bottom: solid 1px #aaaaaa; }
 #view_content .col2 { float: right; }

@@ -85,7 +85,6 @@
                                 <option value="정신과" <?php if ($category == '정신과') echo "SELECTED"; ?>>정신과</option>
                                 <option value="산부인과" <?php if ($category == '산부인과') echo "SELECTED"; ?>>산부인과</option>
                                 <option value="생활건강" <?php if ($category == '생활건강') echo "SELECTED"; ?>>생활건강</option>
-                                <option value="코로나" <?php if ($category == '코로나') echo "SELECTED"; ?>>코로나</option>
                             </select>
                         </td>
                     </tr>

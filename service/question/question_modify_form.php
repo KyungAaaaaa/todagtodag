@@ -20,7 +20,7 @@
 	<section>
 		<div id="board_box">
 			<h3 id="board_title">
-				공지사항 > 수정
+				문의게시판 > 수정
 			</h3>
 			<?php
 			$num  = $_GET["num"];

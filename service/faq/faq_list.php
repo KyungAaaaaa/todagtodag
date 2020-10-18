@@ -7,8 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/css/notice.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 </head>
 
 <body>
@@ -113,18 +113,17 @@
 			<ul class="buttons">
 				<li><button onclick="location.href='faq_list.php'">목록</button></li>
 				<li>
-					<button onclick="location.href='faq_form.php'">글쓰기</button>
-					<!-- <?php
-							if ($userid) {
-							?>
-						<button onclick="location.href='notice_form.php'">글쓰기</button>
 					<?php
-							} else {
+					if ($userid === "admin") {
 					?>
-						<a href="javascript:alert('로그인 후 이용해 주세요!')"><button>글쓰기</button></a>
+						<button onclick="location.href='faq_form.php'">글쓰기</button>
 					<?php
-							}
-					?> -->
+					} else {
+					?>
+						<button style="display: none;">글쓰기</button>
+					<?php
+					}
+					?>
 				</li>
 			</ul>
 		</div> <!-- board_box -->

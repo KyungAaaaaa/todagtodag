@@ -84,6 +84,9 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
     <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/css/health_info.css?ver=9">
     <link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
     <script type="text/javascript" src="./js/member_form.js" defer></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
     <title></title>
 </head>
 
@@ -91,12 +94,12 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
     <header>
         <?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
     </header>
-    
+    <a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
     <div id="wrap">
         <div id="content">
             <div id="col2">
                 <div id="title">
-                    <h3><div class="col2"><?= $subject ?></div></h3>
+                    <h1><div class="col2"><?= $subject ?></div></h1>
                 </div>
                 <div class="clear"></div>
                 <div id="write_form_title"></div>
@@ -151,12 +154,12 @@ if (isset($postAndget_num) && !empty($postAndget_num)) {
                     ?>    
                     <?php
                     //관리자이거나 해당된 작성자일경우 수정, 삭제가 가능하도록 설정
-                    if ($_SESSION['user_id'] == "admin" || $_SESSION['user_id'] == $id) {
+                    if ($_SESSION['user_id'] == "admin") {
                         echo ('<a href="./health_info_form.php?mode=update&num=' . $q_num . '"><img src="../health_info/img/modify.png"></a>&nbsp;');
                         echo ('<a style="cursor: pointer;"><img src="../health_info/img/delete.png" onclick="check_delete(' . $q_num . ')"></a>&nbsp;');
                     }
                     //로그인하는 유저에게 글쓰기 기능을 부여함.
-                    if (!empty($_SESSION['user_id'])) {
+                    if (!empty($_SESSION['admin'])) {
                         echo '<a href="health_info_form.php"><img src="../health_info/img/write.png"></a>';
                     }
                     ?>

@@ -43,7 +43,6 @@
 
         echo "
       <script>
-        alert('가입되셨습니다.');
         location.href = '../index.php';
       </script>
     ";

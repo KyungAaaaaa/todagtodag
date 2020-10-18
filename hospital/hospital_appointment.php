@@ -12,24 +12,24 @@ $appointment_detail = str_replace("\n", "\\n", $appointment_detail);
 
 // PK 초기값 세팅
 $query = "alter table appointment auto_increment = 1223;";
-$result = mysqli_query($con, $query);
+mysqli_query($con,$query) or die('Error: '.mysqli_error($con));
 
 // 이벤트 스케쥴러 on
 $query = "set global event_scheduler = on;";
-$result = mysqli_query($con, $query);
+mysqli_query($con,$query) or die('Error: '.mysqli_error($con));
 
 // 진료/예약 데이터 넣기
 $query = "INSERT into `appointment` (member_num, hospital_id, appointment_date, appointment_time
     , appointment_department, appointment_detail, appointment_status) values (
     $member_num, '$hospital_id', '$appointment_date', '$appointment_time', ' $appointment_department'
     , '$appointment_detail', 'before');";
-$result = mysqli_query($con, $query);
+mysqli_query($con,$query) or die('Error: '.mysqli_error($con));
 
 // 예약된 번호 가져오기
 $query = "SELECT * from `appointment` where member_num = {$member_num} and hospital_id = '{$hospital_id}' 
     and appointment_date = '{$appointment_date}' and appointment_time = '{$appointment_time}' 
     and appointment_department = ' {$appointment_department}';";
-$result = mysqli_query($con, $query);
+$result = mysqli_query($con,$query) or die('Error: '.mysqli_error($con));
 $row = mysqli_fetch_array($result);
 $num = $row["num"];
 
@@ -44,12 +44,6 @@ do
 call hospital_procedure{$num}();";
 
 $result=mysqli_query($con,$query) or die('Error: '.mysqli_error($con));
-
-if ($result) {
-    echo "<script>alert('hospital_procedure{$num} 이벤트스케쥴러가 생성되었습니다.');</script>";
-} else {
-    echo "이벤트스케쥴러 생성 중 실패원인" . mysqli_error($con);
-}
 
 mysqli_close($con);
 ?>

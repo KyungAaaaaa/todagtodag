@@ -6,7 +6,7 @@ $member_num = $("#member_num").val();
 // =============  예약조회  =========================
 $("#select_date").on("click", function () {
     $("#appointment_list").load("member_appointment_list.php", {
-        date_1: $("#date_1").val(), date_2: $("#date_2").val(), period_mode: "select_date"
+        date_1: $("#date_1").val(), date_2: $("#date_2").val(), period_mode: "select_date",member_num:$member_num
     }, function (data, statusTxt, xhr) {
     });
 

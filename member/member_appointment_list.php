@@ -2,6 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
     $period_mode = "all";
     if (isset($_POST['period_mode'])) $period_mode = $_POST['period_mode'];
+    if (isset($_POST['member_num'])) $member_num = $_POST['member_num'];
 
     //기간을 선택해서 조회할때
     if ($period_mode === "select_date") {
@@ -12,7 +13,7 @@
 
             $query = "select num,appointment_date as `date`,file_name_0,file_copied_0,file_type_0,name,id,
 		            appointment_time,appointment_department,appointment_detail,appointment_status,review_no from appointment a left join hospital h on a.hospital_id=h.id 
-					where appointment_date between date(DATE_FORMAT('{$date1}','%Y%m%d')) and date(DATE_FORMAT('{$date2}','%Y%m%d')) order by `date` desc;";
+					where (appointment_date between date(DATE_FORMAT('{$date1}','%Y%m%d')) and date(DATE_FORMAT('{$date2}','%Y%m%d'))) and a.member_num={$member_num} order by `date` desc;";
 
             $result = $con->query($query) or die(mysqli_error($con));
             if (mysqli_num_rows($result) !== 0) {
@@ -71,7 +72,7 @@
 //       appointment_time,appointment_department,appointment_detail,appointment_status,review_no from appointment a left join hospital h on a.hospital_id=h.id order by `date` desc;";
 
         $query = "select num,appointment_date as `date`,file_name_0,file_copied_0,file_type_0,name,id,
-       appointment_time,appointment_department,appointment_detail,appointment_status,review_no from appointment a left join hospital h on a.hospital_id=h.id order by `date` desc;";
+       appointment_time,appointment_department,appointment_detail,appointment_status,review_no from appointment a left join hospital h on a.hospital_id=h.id where a.member_num={$member_num} order by `date` desc;";
         $result = $con->query($query);
         if (mysqli_num_rows($result) !== 0) {
             while ($row = mysqli_fetch_assoc($result)) {

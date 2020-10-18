@@ -1,5 +1,5 @@
 @import "../../css/common_font.css";
-section{min-height: 620px;}
+section {min-height: 620px;}
 .container {
 	width: var(--content--width);
 	min-height: 600px;
@@ -26,8 +26,8 @@ section{min-height: 620px;}
 .member_info p { font-size: 13px;}
 .member_info > #member_name {font-family: "S-CoreDream-5Medium";font-size: 20px;}
 .member_info > p:last-child {color: var(--sub--color);}
-.member_info img {border: 1px solid var(--sub--color);	border-radius: 100px;width: 100px;height: 100px;padding: 10px;}
-
+.member_info img {border: 1px solid var(--sub--color); border-radius: 100px;width: 100px;height: 100px;padding: 10px;}
+#info_modify{text-align: right;font-size: 13px;margin-top: 25px;}
 .nav_list {padding: 0 10px;margin-top: 30px;}
 .nav_menu {margin-bottom: 30px;}
 .nav_menu ul {margin-left: 20px;}
@@ -92,8 +92,8 @@ button {cursor: pointer;}
 
 /* ================ 리뷰관리 ====================*/
 .title {font-family: "S-CoreDream-6Bold";font-size: 20px;}
-#review_list li, #post_list li, #ripple_list li,#media_list li,#question_list li {display: flex; border-bottom: 1px solid #6d6d6d;font-size: 17px;}
-#review_list li button, #post_list li button, #ripple_list li button, #delete_ripple,#media_list li button,#question_list li button{height: 30px; outline: none;border: none;background-color: var(--main--color);color: white;padding: 2px 7px;font-family: "S-CoreDream-5Medium"}
+#review_list li, #post_list li, #ripple_list li, #media_list li, #question_list li {display: flex; border-bottom: 1px solid #6d6d6d;font-size: 17px;}
+#review_list li button, #post_list li button, #ripple_list li button, #delete_ripple, #media_list li button, #question_list li button {height: 30px; outline: none;border: none;background-color: var(--main--color);color: white;padding: 2px 7px;font-family: "S-CoreDream-5Medium"}
 #post_list li button {margin-right: 5px;}
 #review_list li:first-child, #post_list li:first-child, #media_list li:first-child, #question_list li:first-child {padding: 6px 0;border-top: 3px solid black; background-color: #c6c5c5; font-family: "S-CoreDream-4Regular";}
 #review_list span, #post_list span, #ripple_list span, #media_list span, #question_list span { display: inline-block; text-align: center;line-height: 40px;}
@@ -104,22 +104,22 @@ button {cursor: pointer;}
 #review_list .col4 { width: 40px; }
 #review_list .col5 { width: 100px; }
 
-.review_detail{cursor: pointer}
+.review_detail {cursor: pointer}
 
 /*=============작성글 관리 ========================*/
 
-#post_list ,#media_list { height: 200px; }
-#post_list .col1{ width: 200px; }
-#post_list .col2{ width: 60px; }
-#post_list .col3{ width: 60px; }
+#post_list, #media_list { height: 200px; }
+#post_list .col1 { width: 250px; }
+#post_list .col2 { width: 60px; }
+#post_list .col3 { width: 60px; }
 #post_list .col4 { width: 250px; }
 #post_list .col5 { width: 130px; }
 
-#media_list .col1,#question_list .col1 { width: 130px; }
-#media_list .col2 ,#question_list .col2{ width: 130px; }
-#media_list .col3 ,#question_list .col3{ width: 300px; }
-#media_list .col4,#question_list .col4{ width: 130px; }
-#question_list{ height: 500px}
+#media_list .col1, #question_list .col1 { width: 270px;height: 28px; overflow: hidden; }
+#media_list .col2, #question_list .col2 { width: 60px; }
+#media_list .col3, #question_list .col3 { width: 300px; }
+#media_list .col4, #question_list .col4 { width: 130px; }
+#question_list { height: 500px}
 /*=============댓글 관리 ========================*/
 #delete_ripple {margin-left: 530px;}
 #ripple_list { height: 470px}

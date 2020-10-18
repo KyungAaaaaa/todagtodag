@@ -128,7 +128,15 @@
 		<div class="content_layout">
 			<span class="content_item">
 				<h4><a href="member_form.php?mode=modify">내 프로필</h4></a>
-				<p>뭘 쓰지..?</p>
+				<?php
+                    $query = "select * from members where num={$member_num};";
+                    $result = $con->query($query) or die(mysqli_error($con));
+                    if (mysqli_num_rows($result) !== 0) {
+                        $row = mysqli_fetch_assoc($result); ?>
+						<p>휴대폰 번호 : <?= $row['phone'] ?></p>
+						<p>주소 : <?= $row['address'] ?></p>
+	                    <div id="info_modify"><a href="member_form.php?mode=modify">내정보 수정하기 > </a></div>
+                    <? } ?>
 			</span>
 
 			<span class="content_item"><a href="member_appointment.php">
@@ -175,7 +183,8 @@
             <? } ?>
 			</span>
 		</div>
-		<span class="content_item"><a href="http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/member/member_question.php"><h4>최근 문의 내역 > </h4></a>
+		<span class="content_item"><a
+					href="http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/member/member_question.php"><h4>최근 문의 내역 > </h4></a>
 			 <?
                  $query = "select * from question where id='{$userid}' order by regist_day desc limit 4;";
                  $result = $con->query($query) or die(mysqli_error($con));

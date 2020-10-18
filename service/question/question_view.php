@@ -6,6 +6,7 @@
 	<title>토닥토닥</title>
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/css/notice.css">
+	<link rel="shortcut icon" href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/todagtodag/img/todagtodag_logo.png">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
@@ -73,7 +74,7 @@
 			<ul id="view_content">
 				<li>
 					<span class="col1"><b>제목 :</b> <?= $subject ?></span>
-					<span class="col2"><?= $name ?> | <?= $regist_day ?></span>
+					<span class="col2"><?= $id ?> | <?= $regist_day ?></span>
 				</li>
 				<li>
 					<?php
@@ -136,7 +137,7 @@
 			<li><button onclick="location.href='question_list.php?page=<?= $page ?>'">목록</button></li>
 			<li>
 					<?php
-					if ($userid === "admin"|| $userid === isset($_SESSION['user_id'])) {
+					if ($userid === "admin"|| $userid === $id) {
 					?>
 						<button onclick="location.href='question_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button>
 					<?php
@@ -149,7 +150,7 @@
 				</li>
 				<li>
 					<?php
-					if ($userid === "admin"|| $userid === isset($_SESSION['user_id'])) {
+					if ($userid === "admin"|| $userid === $id) {
 					?>
 						<button onclick="location.href='dmi_question.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button>
 					<?php

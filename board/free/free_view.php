@@ -21,6 +21,7 @@
 			<p id="p2">↓ 아래로 드래그 해주세요.</p>
 		</div>
 	</header>
+	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>
 		<div id="board_box">
 			<br><br><br>

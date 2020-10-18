@@ -248,13 +248,14 @@
                     $address2 = $address[1];
                     $address3 = $address[2];
 
-	                $_POST['mode']='modify';
-	                $_POST['category']='member';
+                    $_POST['mode'] = 'modify';
+                    $_POST['category'] = 'member';
                     include "member_mypage.php";
                 } else {
                     $mode = "";
                 }
                 if ($mode === "") {
+                	if ($userid){alert_back("잘못된 접근입니다");}
                     ?>
 					<div id="title_member">
 						<h1>회원가입</h1>
@@ -483,13 +484,13 @@
                         ?>
 						<div id="button">
 							<div id="cancel">
-								<? if ($mode==="modify"){?>
+                                <? if ($mode === "modify"){ ?>
 								<a href="member_mypage.php">
-									<?}else{?>
-									<a href="http://<?=$_SERVER['HTTP_HOST']?>/todagtodag/index.php">
-										<?}?>
-									<p>취 소</p>
-								</a>
+                                    <? }else{ ?>
+									<a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php">
+                                        <? } ?>
+										<p>취 소</p>
+									</a>
 							</div>
                             <?php
                                 if ($mode === "") {
@@ -511,15 +512,8 @@
 						</div>
 					</form>
 				</div>
+				<div id="">회원탈퇴</div>
 			</div>
-
-			</div>
-			</div>
-			</div>
-			</div>
-			</div>
-			</div>
-
 		</section>
 		<footer>
             <?php include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/footer.php"; ?>

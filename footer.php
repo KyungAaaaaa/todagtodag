@@ -22,19 +22,19 @@
 	<div id="contact">
 		<h4>기타 문의</h4>
 		<div>
-			<p>JJK</p>
+			<p>JaeKwang</p>
 			<a href="https://github.com/jk77621">
 				<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/github_white.png"></a>
-			<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/gmail_white.png" class="email_btn"><span>kyungaaaaaa1223@gmail.com</span>
+			<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/gmail_white.png" class="email_btn"><span>jk77621@naver.com</span>
 		</div>
 		<div>
-			<p>GSS</p>
+			<p>KSS</p>
 			<a href="https://github.com/dkfmzkwp">
 				<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/github_white.png"></a>
-			<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/gmail_white.png" class="email_btn"><span>kyungaaaaaa1223@gmail.com</span>
+			<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/gmail_white.png" class="email_btn"><span>kss7545@gmail.com</span>
 		</div>
 		<div>
-			<p>KyungAh</p>
+			<p>KyungAaaaaa</p>
 			<a href="https://github.com/KyungAaaaaa">
 				<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/github_white.png"></a>
 			<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/gmail_white.png" class="email_btn"><span>kyungaaaaaa1223@gmail.com</span>

@@ -60,7 +60,7 @@ mysqli_close($con);
             <button id="container_button1" onclick="location.href = 'http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/index.php';">
                 홈으로 가기
             </button>
-            <button id="container_button2">자세히 보기</button>
+            <a href="http://<?=$_SERVER['HTTP_HOST']?>/todagtodag/member/member_appointment.php"><button id="container_button2">자세히 보기</button></a>
         </div>
     </div>
 </div>

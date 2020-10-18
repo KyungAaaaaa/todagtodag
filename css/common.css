@@ -24,7 +24,6 @@ a:link, a:hover, a:visited, a:active { text-decoration: none; color: rgb(44, 55,
 #top { position: relative; min-width: var(--header--width); height: 60px; margin: 0 auto; }
 #top > img { position: absolute; top: 13px; left: 40px; width: 35px;}
 #top h3 { font-family: "TmonMonsori"; position: absolute; top: 10px; left: 75px; font-size: 36px; margin-left: 5px}
-/*#top h3 {  font-family: "나눔손글씨 펜"; position: absolute; top: 9px; left: 75px; font-size: 36px;}*/
 .white #logo { color: white }
 .white * { color: white }
 /*.red #logo { color: var(--main--color) }*/

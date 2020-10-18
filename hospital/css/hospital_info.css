@@ -22,7 +22,7 @@
 .menu ul {width: 60%; margin: 10px auto 0 auto;display: flex; }
 .menu ul li {margin-right: 40px;font-size: 18px;cursor: pointer;}
 .menu ul .current {font-weight: bolder;padding-bottom: 20px;border-bottom: 3px solid var(--main--color)}
-.content { width: 100%;background-color: var(--content-color); padding-bottom: 20px;}
+.content {height: 750px;overflow-y:scroll;width: 100%;background-color: var(--content-color); padding-bottom: 20px;}
 .subject { font-family: "S-CoreDream-5Medium"; font-size: 27px; margin-bottom: 5px}
 .subject img {width: 24px; margin-right: 10px}
 .hospital_operating_ours,.hospital_tel,.hospital_department,.hospital_map{margin-top:20px;padding:12px;background-color: white}
@@ -35,7 +35,7 @@ th { border-bottom: 1px solid black; }
 th, td { width: 130px }
 #map { width: 100%; height: 500px; }
 
-.hospital_review {height: 100vh; overflow-y: auto}
+.hospital_review {}
 .hospital_review p img {width: 27px; margin: 15px 0;}
 .hospital_review h4 {display: inline-block}
 .hospital_review .user_info img {width: 20px; margin-right: 10px}
@@ -55,7 +55,7 @@ th, td { width: 130px }
 
 .hospital_membername,.hospital_memberphone { float: left; margin-left: 30px; }
 .hospital_membername p ,.hospital_memberphone p{ float: left; font-size: 20px;}
-.hospital_membername input,.hospital_memberphone input { float: left; margin-left: 10px; width: 100px; height: 30px; font-size: 20px; }
+.hospital_membername input,.hospital_memberphone input { float: left; margin-left: 10px; height: 30px; font-size: 20px; }
 
 .hospital_memberid { float: left; margin-left: 20px; margin-top: 40px;}
 .hospital_memberid p { float: left; font-size: 20px;}

@@ -150,9 +150,7 @@
 		<div class="content_layout">
 		<span class="content_item">
 				<h4><a href="member_board.php">최근 글 > </a></h4>
-			 <?
-                 $query = "select * from free where id='{$userid}' order by regist_day desc limit 4;";
-
+			 <? $query = "select * from free where id='{$userid}' order by regist_day desc limit 4;";
                  $result = $con->query($query) or die(mysqli_error($con));
                  if (mysqli_num_rows($result) !== 0) {
                      while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -162,7 +160,6 @@
 					 <p>예약내역이 없습니다.</p>
                  <? } ?>
 		</span>
-
 			<span class="content_item">
 		<h4><a href="member_interest.php">관심 병원 > </a></h4>
         <?
@@ -178,7 +175,7 @@
             <? } ?>
 			</span>
 		</div>
-		<span class="content_item"><h4><a href="#">최근 문의 내역 > </h4></a>
+		<span class="content_item"><a href="http://<?= $_SERVER["HTTP_HOST"] ?>/todagtodag/member/member_question.php"><h4>최근 문의 내역 > </h4></a>
 			 <?
                  $query = "select * from question where id='{$userid}' order by regist_day desc limit 4;";
                  $result = $con->query($query) or die(mysqli_error($con));

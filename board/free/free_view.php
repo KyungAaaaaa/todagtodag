@@ -143,7 +143,7 @@
 				<li><button onclick="location.href='free_list.php?page=<?= $page ?>'">목록</button></li>
 				<li>
 					<?php
-					if ($userid === "admin"|| isset($_SESSION['user_id'])) {
+					if ($userid === "admin"|| $userid === isset($_SESSION['user_id'])) {
 					?>
 						<button onclick="location.href='free_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button>
 					<?php
@@ -156,7 +156,7 @@
 				</li>
 				<li>
 					<?php
-					if ($userid === "admin"|| isset($_SESSION['user_id'])) {
+					if ($userid === "admin"|| $userid === isset($_SESSION['user_id'])) {
 					?>
 						<button onclick="location.href='dmi_free.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button>
 					<?php

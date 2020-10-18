@@ -7,16 +7,16 @@
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/css/common.css">
 	<link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/css/notice.css">
 	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/question/js/notice.js" defer></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/btn_top.js" defer></script>
+	<script src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/js/drop_down.js" defer></script>
 </head>
 
 <body>
 	<header>
 		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
-		<div class="background_image">
-            <p id="p1">토닥토닥 게시판을 알려드립니다.</p>
-            <p id="p2">↓ 아래로 드래그 해주세요.</p>
-        </div>
 	</header>
+	<br><br><br>
 	<section>
 		<div id="board_box">
 			<h3 id="board_title">

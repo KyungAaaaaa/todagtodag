@@ -33,12 +33,14 @@ if (isset($_SESSION["user_id"])) {
   </header>
   <section id="sec1">
     <?php
-    $sql = "SELECT * from `health_info` order by hit desc";
-    $result = mysqli_query($con, $sql);
     $array = array();
     $array2 = array();
     $array3 = array();
-    $count = "";
+    $array4 = array();
+    $array5 = array();
+
+    $sql = "SELECT * from `health_info` order by hit desc";
+    $result = mysqli_query($con, $sql);
 
     for ($i = 0; $row = mysqli_fetch_array($result); $i++) {
       $array[$i] = $row["category"];
@@ -47,13 +49,136 @@ if (isset($_SESSION["user_id"])) {
     }
     ?>
 
+    <?php
+    $sql = "SELECT hit from health_info where category = '치과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[0] = "치과";
+    $array5[0] = $total;
+
+    $sql = "SELECT hit from health_info where category = '안과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[1] = "안과";
+    $array5[1] = $total;
+
+    $sql = "SELECT hit from health_info where category = '정형외과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[2] = "정형외과";
+    $array5[2] = $total;
+
+    $sql = "SELECT hit from health_info where category = '피부과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[3] = "피부과";
+    $array5[3] = $total;
+
+    $sql = "SELECT hit from health_info where category = '소아과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[4] = "소아과";
+    $array5[4] = $total;
+
+    $sql = "SELECT hit from health_info where category = '내과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[5] = "내과";
+    $array5[5] = $total;
+
+    $sql = "SELECT hit from health_info where category = '비뇨기과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[6] = "비뇨기과";
+    $array5[6] = $total;
+
+    $sql = "SELECT hit from health_info where category = '이비인후과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[7] = "이비인후과";
+    $array5[7] = $total;
+
+    $sql = "SELECT hit from health_info where category = '외과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[8] = "외과";
+    $array5[8] = $total;
+
+    $sql = "SELECT hit from health_info where category = '신경외과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[9] = "신경외과";
+    $array5[9] = $total;
+
+    $sql = "SELECT hit from health_info where category = '정신과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[10] = "정신과";
+    $array5[10] = $total;
+
+    $sql = "SELECT hit from health_info where category = '산부인과';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[11] = "산부인과";
+    $array5[11] = $total;
+
+    $sql = "SELECT hit from health_info where category = '생활건강';";
+    $result = mysqli_query($con, $sql);
+    $total = 0;
+    while ($row = mysqli_fetch_array($result)) {
+      $total += intval($row[0]);
+    }
+    $array4[12] = "생활건강";
+    $array5[12] = $total;
+    ?>
+
     <script>
       var arr1 = <?php echo  json_encode($array); ?>;
       var arr2 = <?php echo  json_encode($array2); ?>;
       var arr3 = <?php echo  json_encode($array3); ?>;
+      var arr4 = <?php echo  json_encode($array4); ?>;
+      var arr5 = <?php echo  json_encode($array5); ?>;
       console.log(arr1);
       console.log(arr2);
       console.log(arr3);
+      console.log(arr4);
+      console.log(arr5);
     </script>
     <div id="admin_border">
 
@@ -153,11 +278,11 @@ if (isset($_SESSION["user_id"])) {
               name: 'Share',
               data: [
                 <?php
-                for ($i = 0; $i < count($array); $i++) {
-                  if ($i == count($array) - 1) {
-                    echo "{ name: '" . $array[$i] . "', y:" . $array3[$i] . "} ";
+                for ($i = 0; $i < count($array4); $i++) {
+                  if ($i == count($array4) - 1) {
+                    echo "{ name: '" . $array4[$i] . "', y:" . $array5[$i] . "} ";
                   } else {
-                    echo "{ name: '" . $array[$i] . "', y:" . $array3[$i] . "}, ";
+                    echo "{ name: '" . $array4[$i] . "', y:" . $array5[$i] . "}, ";
                   }
                 }
                 ?>
@@ -184,7 +309,6 @@ if (isset($_SESSION["user_id"])) {
               <p class="r3"><?= $array2[$i] ?></p>
               <p class="r4"><?= $array3[$i] ?></p>
             <?php
-
               echo "</li>";
             }
             ?>

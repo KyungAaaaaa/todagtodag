@@ -16,12 +16,7 @@ function hospital_create_procedure($con, $procedure_name, $num){
     BEGIN
         UPDATE `appointment` set appointment_status = 'success' where num = {$num};
     END";
-
-    if(mysqli_query($con,$sql)){
-      echo "<script>alert('$procedure_name 프로시저가 생성되었습니다.');</script>";
-    }else{
-      echo "프로시저 생성 중 실패원인".mysqli_error($con);
-    }
+    mysqli_query($con,$sql) or die('Error: '.mysqli_error($con));
   }//end of if flag
 
 }//end of function

@@ -62,7 +62,6 @@
 					<span class="col2"><?= $id ?> | <?= $regist_day ?></span>
 				</li>
 				<li>
-					
 					<p align="middle">
 					<iframe width="740" height="440" src="https://www.youtube.com/embed/<?=$video_name?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	
@@ -74,9 +73,49 @@
 			</ul>
 			<ul class="buttons">
 				<li><button onclick="location.href='media_list.php?page=<?= $page ?>'">목록</button></li>
-				<li><button onclick="location.href='media_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
+
+				<li>
+					<?php
+					if ($userid === "admin"|| isset($_SESSION['user_id'])) {
+					?>
+						<button onclick="location.href='media_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button>
+					<?php
+					} else {
+					?>
+						<button style="display: none;">수정</button>
+					<?php
+					}
+					?>
+				</li>
+				<li>
+					<?php
+					if ($userid === "admin"|| isset($_SESSION['user_id'])) {
+					?>
+						<button onclick="location.href='dml_board.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button>
+					<?php
+					} else {
+					?>
+						<button style="display: none;">삭제</button>
+					<?php
+					}
+					?>
+				</li>
+				<li>
+					<?php 
+					if(isset($_SESSION['user_id'])){ 
+					?>
+						<button onclick="location.href='media_form.php'">글쓰기</button>
+					<?php
+					} else {
+					?>
+					<button style="display: none;">글쓰기</button>
+					<?php 
+					}
+					?>
+				</li>
+				<!-- <li><button onclick="location.href='media_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
 				<li><button onclick="location.href='dml_board.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
-				<li><button onclick="location.href='media_form.php'">글쓰기</button></li>
+				<li><button onclick="location.href='media_form.php'">글쓰기</button></li> -->
 			</ul>
 		</div> <!-- board_box -->
 	</section>

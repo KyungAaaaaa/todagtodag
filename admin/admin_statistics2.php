@@ -175,7 +175,7 @@ if (isset($_SESSION["user_id"])) {
               <p class="r4">조회</p>
             </li>
             <?php
-            for ($i = 0; $i < count($array2); $i++) {
+            for ($i = 0; $i < 10; $i++) {
               echo "<li>";
               $rank = $i + 1;
             ?>

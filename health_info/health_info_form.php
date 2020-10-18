@@ -81,7 +81,7 @@
                                 <option value="비뇨기과" <?php if ($category == '비뇨기과') echo "SELECTED"; ?>>비뇨기과</option>
                                 <option value="이비인후과" <?php if ($category == '이비인후과') echo "SELECTED"; ?>>이비인후과</option>
                                 <option value="외과" <?php if ($category == '외과') echo "SELECTED"; ?>>외과</option>
-                                <option value="신경과" <?php if ($category == '신경외과') echo "SELECTED"; ?>>신경외과</option>
+                                <option value="신경외과" <?php if ($category == '신경외과') echo "SELECTED"; ?>>신경외과</option>
                                 <option value="정신과" <?php if ($category == '정신과') echo "SELECTED"; ?>>정신과</option>
                                 <option value="산부인과" <?php if ($category == '산부인과') echo "SELECTED"; ?>>산부인과</option>
                                 <option value="생활건강" <?php if ($category == '생활건강') echo "SELECTED"; ?>>생활건강</option>

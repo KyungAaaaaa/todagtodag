@@ -19,10 +19,12 @@ if (!$num_match) {
 } else {
   $row = mysqli_fetch_array($result);
   $db_pass = $row["password"];
+  $db_pass = base64_decode($db_pass);
 
   if ($password != $db_pass) {
     echo ("
             <script>
+              console.log('$db_pass');
               window.alert('비밀번호가 틀립니다!')
               history.go(-1)
             </script>

@@ -3,6 +3,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_table.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_procedure.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/create_trigger.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/drop_procedure_scheduler.php";
 
 create_table($con, "members");
 create_table($con, "deleted_members");
@@ -29,7 +30,8 @@ create_procedure($con, 'question_procedure');
 create_procedure($con, 'free_procedure');
 //create_procedure($con, 'health_info_procedure');
 
-create_trigger($con, 'appointment_init');
 create_trigger($con, 'deleted_members');
 create_trigger($con, 'deleted_hospital');
+create_trigger($con, 'canceled_appointment');
+drop_procedure_scheduler($con);
 ?>

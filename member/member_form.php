@@ -80,14 +80,14 @@
 
             // 가입버튼 눌렀을 때
             function action_signup() {
-                document.member_form.action = "member_insert.php";
+                document.member_form.action = "member_data.php";
                 document
                     .member_form
                     .submit();
             }
 
             function action_update() {
-                document.member_form.action = "member_insert.php?type=update";
+                document.member_form.action = "member_data.php?type=update";
                 document
                     .member_form
                     .submit();

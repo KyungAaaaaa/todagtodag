@@ -116,7 +116,7 @@ $(document).on("click", "#popup_write", function () {
                 popup_close();
                 location.reload();
             } else {
-                alert(data);
+                alert("모든 항목을 입력하세요");
                 console.log(data)
             }
         }

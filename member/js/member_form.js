@@ -382,7 +382,7 @@ $(document).on("click", "#member_delete", function () {
     if (confirm("회원 탈퇴를 하시겠습니까?")) {
         $.ajax({
             type   : "POST",
-            url    : "member_insert.php?type=delete",
+            url    : "member_data.php?type=delete",
             data   : {member_num: $("#member_num").val()},
             success: function () {
                 location.href="../index.php";

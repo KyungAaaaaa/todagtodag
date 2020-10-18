@@ -134,9 +134,48 @@
 		</ul>
 		<ul class="buttons">
 			<li><button onclick="location.href='question_list.php?page=<?= $page ?>'">목록</button></li>
-			<li><button onclick="location.href='question_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
+			<li>
+					<?php
+					if ($userid === "admin"|| isset($_SESSION['user_id'])) {
+					?>
+						<button onclick="location.href='question_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button>
+					<?php
+					} else {
+					?>
+						<button style="display: none;">수정</button>
+					<?php
+					}
+					?>
+				</li>
+				<li>
+					<?php
+					if ($userid === "admin"|| isset($_SESSION['user_id'])) {
+					?>
+						<button onclick="location.href='dmi_question.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button>
+					<?php
+					} else {
+					?>
+						<button style="display: none;">삭제</button>
+					<?php
+					}
+					?>
+				</li>
+				<li>
+					<?php 
+					if(isset($_SESSION['user_id'])){ 
+					?>
+						<button onclick="location.href='question_form.php'">글쓰기</button>
+					<?php
+					} else {
+					?>
+					<button style="display: none;">글쓰기</button>
+					<?php 
+					}
+					?>
+				</li>
+			<!-- <li><button onclick="location.href='question_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button></li>
 			<li><button onclick="location.href='dmi_question.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button></li>
-			<li><button onclick="location.href='question_form.php'">글쓰기</button></li>
+			<li><button onclick="location.href='question_form.php'">글쓰기</button></li> -->
 		</ul>
 		</div> <!-- board_box -->
 	</section>

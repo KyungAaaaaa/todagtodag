@@ -91,12 +91,12 @@
 						<?php
 						if ($userid == "admin") {
 						?>
-							<span class="col2_1" id="col2_1"><a href="question_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
+							<span class="col2_1" id="col2_1"><a href="question_view.php?num=<?= $row["num"] ?>&page=<?= $page ?>"><?= $subject ?></a>&nbsp;<img src="./img/002721753.gif"></span>
 						<?php } else { ?>
 							<!-- <span class="col2_1"><a href="password.php?num=<?= $num ?>&page=<?= $page ?>&read_pw=<?= $read_pw ?>" class="trigger_user_login"><?= $subject ?></a></span> -->
-							<span class="col2_1" id="col2_1" style="cursor: pointer;"><?= $subject ?></span>
+							<span class="col2_1" id="col2_1" style="cursor: pointer;"><?= $subject ?>&nbsp;<img src="./img/002721753.gif"></span>
 							<script>
-								$("#col2_1").on("click", function() {
+								$(document).on("click","#col2_1", function() {
 
 									popup_open();
 
@@ -142,18 +142,17 @@
 			<ul class="buttons">
 				<li><button onclick="location.href='question_list.php'">목록</button></li>
 				<li>
-					<button onclick="location.href='question_form.php'">글쓰기</button>
-					<!-- <?php
+					<?php
 							if ($userid) {
 							?>
-						<button onclick="location.href='notice_form.php'">글쓰기</button>
+						<button onclick="location.href='question_form.php'">글쓰기</button>
 					<?php
 							} else {
 					?>
 						<a href="javascript:alert('로그인 후 이용해 주세요!')"><button>글쓰기</button></a>
 					<?php
 							}
-					?> -->
+					?>
 				</li>
 			</ul>
 		</div> <!-- board_box -->
@@ -173,13 +172,12 @@
 			<script>
 				$("#popup_write").on("click", function() {
 					var $pass = $("#read_pw").val();
-					console.log($pass);
 					if ($pass) {
 						$.ajax({
 							type: "POST",
 							url: "password.php",
 							data: {
-								num: <?=$num?>,
+								num: <?=$row["num"]?>,
 								page: <?=$page?>,
 								pass: $pass
 							},
@@ -188,7 +186,7 @@
 									alert("비밀번호 불일치");
 									location.href = 'question_list.php';
 								}
-								else {location.href = 'question_view.php?page=<?=$page?>&num=<?=$num?>';}
+								else {location.href = 'question_view.php?page=<?=$page?>&num=<?=$row["num"]?>';}
 							}
 						})
 					}

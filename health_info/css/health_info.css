@@ -307,7 +307,7 @@ cursor: pointer;
     position: relative; height: 50px; margin: 10px;
 }
 .contentBox h3 {
-    margin-left: 10px; overflow: hidden; font-size: 32px;
+    margin-left: 10px; overflow: hidden; font-size: 36px;
 }
 .contentBox .content_explain{
     text-align: left; 

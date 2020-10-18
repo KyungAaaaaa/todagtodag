@@ -26,9 +26,10 @@
     position: relative; height: 50px; margin: 10px;
 }
 .list_box .contentBox h3{
-	margin-left: 10px; overflow: hidden; font-size: 28px;
+	margin-left: 10px; overflow: hidden; font-size: 28px; margin-top: 10px;
 }
 .list_box .contentBox .content_explain{
+	margin-top: 10px;
 	text-align: left; 
 	position: absolute; 
 	width: 245px; 

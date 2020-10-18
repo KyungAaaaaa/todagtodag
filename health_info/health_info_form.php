@@ -106,7 +106,7 @@
                             <?php
                             // 업데이트를 할지 삽입을 할지
                             if ($mode == "insert") {
-                                echo '<input type="file" name="upfile" >이미지(3MB)파일(1MB)';
+                                echo '<input type="file" name="upfile" multiple>이미지(3MB)파일(1MB)';
                             } else if ($mode == "update") {
                             ?>
                                 <input type="file" name="upfile" onclick='document.getElementById("del_file").checked=true; document.getElementById("del_file").disabled=true'>

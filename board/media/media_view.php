@@ -16,6 +16,7 @@
 	<header>
 		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 	</header>
+	<br><br><br>
 	<section>
 		<div id="board_box">
 			<h3 class="title">

@@ -110,13 +110,30 @@ function create_procedure($con, $procedure_name)
         $sql = "
             CREATE PROCEDURE `faq_procedure`()
             BEGIN
-            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','제목','내용','2020-10-17 (15:02)');
-            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','제목','내용','2020-10-17 (15:02)');
-            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','제목','내용','2020-10-17 (15:02)');
-            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','제목','내용','2020-10-17 (15:02)');
-            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','제목','내용','2020-10-17 (15:02)');
-            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','제목','내용','2020-10-17 (15:02)');
-            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','제목','내용','2020-10-17 (15:02)');
+            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','예약 하려는 병원이 안보입니다.',
+'토닥토닥 예약서비스를 이용하는 병원만 예약이 가능합니다.\\n
+예약 가능한 병원을 찾으시려면 메인페이지 상단에\\n
+진료/예약 페이지에서 원하시는 병원을 검색하실수 있습니다.','2020-10-17 (15:02)');
+            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','당일 사용자취소의 경우도 예약 불이행으로 불이익을 받는건가요?',
+'당일 예약인경우 예약시간이 지난 상태에서 취소 불가능하고,\\n
+당일 예약시간 이전에 취소하시면 불이익이 없습니다.','2020-10-17 (15:02)');
+            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','관심병원 등록은 어떻게 하나요?',
+'관심 병원 등록 방법은\\n
+로그인 한 후 진료/예약 페이지에서 원하는 병원을 클릭한 후\\n
+우측 상단에 엄지버튼을 누르면 등록됩니다.','2020-10-17 (15:02)');
+            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','예약 취소는 언제 까지 가능한가요?',
+'예약시간 이전까지 취소가능하지만,\\n
+병원마다 상이하므로 자세한 사항은 해당 병원으로 문의하시기 바랍니다.','2020-10-17 (15:02)');
+            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','예약하고 병원에 갔는데 예약이 안되어 있다고 합니다.',
+'예약 시, 반드시 -진료/예약하기- 버튼을 누르셔야합니다\\n
+예약실패의 경우가 있을수 있으니 반드시 예약성공 후 표기되는 예약 번호를 확인하시고 병원에 방문하시기 바랍니다.','2020-10-17 (15:02)');
+            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','예약 취소는 어떻게 하나요?',
+'예약 취소는 반드시 예약하신 시간 이전에 하여 주시기 바랍니다.\\n
+로그인 후 우측 상단에 마이페이지 > 좌측 메뉴에서 예약 조회를 선택합니다.\\n
+예약하신 항목에 예약 취소 버튼을 누르시면 예약을 취소 하실수 있습니다,.','2020-10-17 (15:02)');
+            INSERT INTO `faq` (`id`,`name`,`subject`,`content`,`regist_day`) VALUES ('admin','관리자','회원가입 후 로그인이 되지 않습니다.',
+'회원가입시 고객님의 정보를 보호하기 위한 uNetTrust Co. LTd 에서 배포하는 보안 프로그램을 반드시 설치하시기 바랍니다.\\n
+보안 프로그램을 반드시 설치하셔야만 회원가입을 하신후 서비스를 이용하실 수 있습니다.','2020-10-17 (15:02)');
             END";
         break;
 
@@ -124,22 +141,6 @@ function create_procedure($con, $procedure_name)
         $sql = "
             CREATE PROCEDURE `question_procedure`()
             BEGIN
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
-            INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
             INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
             INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');
             INSERT INTO `question` (`id`,`name`,`subject`,`content`,`regist_day`,`hit`,`read_pw`) VALUES ('ksskss','고성식','제목','내용','2020-10-17 (15:00)','8','1357');

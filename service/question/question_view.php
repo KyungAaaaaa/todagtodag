@@ -16,6 +16,7 @@
 		<?php include  $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/header.php"; ?>
 	</header>
 	<section>
+	<br><br><br>
 		<div id="board_box">
 			<h3 class="title">
 				문의게시판

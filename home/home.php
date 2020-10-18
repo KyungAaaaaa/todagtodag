@@ -78,7 +78,7 @@
                     else echo "<img src='{$root}/hospital/img/hospital.png' style='border-radius: 30px; margin-left: 10px; width: calc(var(--content--width) / 4 - 10px); height: 280px;'>";
                 ?></a>
 				<div> <a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/health_info_view.php?page=1&num=<?= $num ?>&hit=<?= $hit ?>"><h2><?= $subject ?></h2>
-					<p><?= $content ?></p></a>
+					<p><?= str_replace("\n", "<br>", $content) ?></p></a>
 
 			<span><a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/index.php"><h4>더보기 ></h4></a></span>
 		</div>
@@ -107,7 +107,7 @@
                         ?>
 						<div>
 							<a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/notice/notice_view.php?num=<?= $num ?>&page=1">
-                                <?= $subject ?><span><?= $regist_day ?></span>
+                                <span><?= $subject ?></span><span><?= $regist_day ?></span>
 							</a></div>
                         <?
                     }
@@ -130,7 +130,7 @@
                         ?>
 						<div>
 							<a href="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/service/faq/faq_view.php?num=<?= $num ?>&page=1">
-                                <?= $subject ?><span><?= $regist_day ?></span>
+								<span><?= $subject ?></span><span><?= $regist_day ?></span>
 							</a></div>
                         <?
                     }

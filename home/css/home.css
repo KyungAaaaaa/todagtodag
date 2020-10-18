@@ -129,7 +129,11 @@
 .notice > h1, .FAQ > h1 {display: inline-block;width: 400px;}
 .FAQ {padding-left: 20px;border-left: 1px solid #d5d6e0}
 .notice, .FAQ {width: 50%;}
-.content div a {width: 100%;position: relative;}
-.content div a > span {position: absolute; right: 0; }
+.content div a {width: 100%;position: relative;padding: 1px;}
+.content div a > span:not(:first-child) {position: absolute; right: 0; }
+.content div a > span:first-child {display:inline-block;max-width: 280px;overflow: hidden;text-overflow: ellipsis;
+	white-space: normal;height: 23px;
+	line-height: 1.2;    -webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;    word-wrap: break-word;}
 
 .notice a:hover, .FAQ a:hover, .today_health_info .content div a:hover, .location .hospital_item:hover,.search button img:hover {opacity: 0.7;}

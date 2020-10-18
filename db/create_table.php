@@ -20,21 +20,21 @@ function create_table($con, $table_name)
                 $sql = "CREATE TABLE `members` (
                     `num` int(11) NOT NULL AUTO_INCREMENT,
                     `id` char(15) NOT NULL,
-                    `password` char(15) NOT NULL,
+                    `password` char(100) NOT NULL,
                     `name` char(10) NOT NULL,
                     `phone` char(13) NOT NULL,
                     `email` char(80) DEFAULT NULL,
-                    `address` char(50),
+                    `address` char(50) DEFAULT NULL,
                     `regist_day` char(20) NOT NULL,
                     `level` int(11) DEFAULT NULL,
                     PRIMARY KEY (`num`)
-                  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+                  ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;";
                 break;
             case 'deleted_members':
                 $sql = "CREATE TABLE `deleted_members` (
                     `num` int(11) NOT NULL AUTO_INCREMENT,
                     `id` char(15) NOT NULL,
-                    `password` char(15) NOT NULL,
+                    `password` char(100) NOT NULL,
                     `name` char(10) NOT NULL,
                     `phone` char(13) NOT NULL,
                     `email` char(80) DEFAULT NULL,

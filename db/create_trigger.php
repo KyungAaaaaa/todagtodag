@@ -1,7 +1,7 @@
 <?php
 function create_trigger($con, $trigger_name) {
   $flag = "NO";
-  $sql = "SHOW TRIGGERS;";
+  $sql = "SHOW TRIGGERs where `trigger` = '$trigger_name';";
   $result = mysqli_query($con, $sql) or die('Error: ' . mysqli_error($con));
 
   if (mysqli_num_rows($result) > 0) {
@@ -10,16 +10,6 @@ function create_trigger($con, $trigger_name) {
 
   if ($flag === "NO") {
     switch ($trigger_name) {
-      case 'appointment_init':
-        $sql = "CREATE trigger appointment
-            before insert
-            on appointment
-            for each row
-            begin
-            alter table appointment auto_increment = 1223;
-            set global event_scheduler = on;
-            end";
-        break;
       case 'deleted_members':
         $sql = "CREATE trigger deleted_members
             after delete
@@ -48,8 +38,8 @@ function create_trigger($con, $trigger_name) {
             on appointment
             for each row
             begin
-            insert into canceled_appointment values (old.member_num, old.hospital_id, old.appointment_date,
-            old.appointment_time, old.appointment_department, old.appointment_detail, old.appointment_status
+            insert into canceled_appointment values (old.num, old.member_num, old.hospital_id, old.appointment_date,
+            old.appointment_time, old.appointment_department, old.appointment_detail, old.appointment_status,
             old.review_no, curdate());
             end";
         break;  
@@ -63,6 +53,5 @@ function create_trigger($con, $trigger_name) {
       echo "트리거 생성 중 실패원인" . mysqli_error($con);
     }
   } //end of if flag
-
 }//end of function
 ?>

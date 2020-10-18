@@ -207,7 +207,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
             tooltip: {
               headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
               pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} 만원</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.f} 건</b></td></tr>',
               footerFormat: '</table>',
               shared: true,
               useHTML: true

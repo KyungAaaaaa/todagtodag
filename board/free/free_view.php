@@ -80,7 +80,7 @@
 			<ul id="view_content">
 				<li>
 					<span class="col1"><b>제목 :</b> <?= $subject ?></span>
-					<span class="col2"><?= $name ?> | <?= $regist_day ?></span>
+					<span class="col2"><?= $id ?> | <?= $regist_day ?></span>
 				</li>
 				<li>
 					<?php
@@ -143,7 +143,7 @@
 				<li><button onclick="location.href='free_list.php?page=<?= $page ?>'">목록</button></li>
 				<li>
 					<?php
-					if ($userid === "admin"|| $userid === isset($_SESSION['user_id'])) {
+					if ($userid === "admin"|| $userid === $id) {
 					?>
 						<button onclick="location.href='free_modify_form.php?num=<?= $num ?>&page=<?= $page ?>'">수정</button>
 					<?php
@@ -156,7 +156,7 @@
 				</li>
 				<li>
 					<?php
-					if ($userid === "admin"|| $userid === isset($_SESSION['user_id'])) {
+					if ($userid === "admin"|| $userid === $id) {
 					?>
 						<button onclick="location.href='dmi_free.php?num=<?= $num ?>&page=<?= $page ?>&mode=delete'">삭제</button>
 					<?php

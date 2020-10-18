@@ -25,7 +25,7 @@
 	<a id="btn_top" href="#"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/back_to_top.png" class="to_the_top"></a>
 	<section>
 		<div id="board_box">
-			<br><br><br>
+			<br><br><br><br><br>
 			<h3>
 				공지사항
 			</h3>

@@ -30,7 +30,7 @@
 	?>
 	<section>
 		<div id="board_box">
-			<br><br><br>
+			<br><br><br><br><br>
 			<h3 id="board_title">
 				공지사항 > 글 쓰기
 			</h3>

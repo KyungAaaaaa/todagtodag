@@ -86,7 +86,7 @@
 					<li>
 						<span class="col1"><?= $number ?></span>
 						<span class="col2_1"><a href="free_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= $subject ?></a></span>
-						<span class="col3"><?= $name ?></span>
+						<span class="col3"><?= $id ?></span>
 						<span class="col4"><?= $file_image ?></span>
 						<span class="col5"><?= $regist_day ?></span>
 						<span class="col6"><?= $hit ?></span>

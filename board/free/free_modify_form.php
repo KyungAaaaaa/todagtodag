@@ -82,7 +82,7 @@
 						if ($file_name === '') {
 						?>
 							<span class="col1"> 첨부 파일</span>
-							<span class="col2"><input type="file" name="upfile"></span>
+							<span class="col2"><input type="file" name="upfile" multiple="multiple"></span>
 						<?php
 						} else {
 						?>

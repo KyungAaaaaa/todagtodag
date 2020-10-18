@@ -28,7 +28,7 @@
 			<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/gmail_white.png" class="email_btn"><span>jk77621@naver.com</span>
 		</div>
 		<div>
-			<p>KSS</p>
+			<p>Bad_Ctrl</p>
 			<a href="https://github.com/dkfmzkwp">
 				<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/github_white.png"></a>
 			<img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/img/gmail_white.png" class="email_btn"><span>kss7545@gmail.com</span>

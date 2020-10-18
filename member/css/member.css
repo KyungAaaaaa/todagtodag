@@ -332,3 +332,5 @@ pz {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+#member_delete{cursor: pointer; text-align: right}

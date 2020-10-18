@@ -255,7 +255,9 @@
                     $mode = "";
                 }
                 if ($mode === "") {
-                	if ($userid){alert_back("잘못된 접근입니다");}
+                    if ($userid) {
+                        alert_back("잘못된 접근입니다");
+                    }
                     ?>
 					<div id="title_member">
 						<h1>회원가입</h1>
@@ -512,7 +514,10 @@
 						</div>
 					</form>
 				</div>
-				<div id="">회원탈퇴</div>
+                <?php
+                    if ($mode !== "") {
+                        ?>
+						<div id="member_delete">회원탈퇴</div><? } ?>
 			</div>
 		</section>
 		<footer>

@@ -2,11 +2,10 @@
 .list_box{
     position: relative; width: 945px; height: 1080px; margin: 0 auto;
 }
-
-.list_box > h2{
+.list_box div h2{
 	margin-left: 15px;
 	margin-top: 70px;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 	font-size: 56px;
 }
 /* 이미지가 포함된 list들 각 하나 */
@@ -185,3 +184,41 @@ box-sizing: border-box;
 .items:hover {
 	background-color: #e7e7e7;
 }
+
+.search {width: 400px; box-sizing: border-box; position: absolute;
+			top: 30px; left: 55%;
+}
+
+.info_search {
+     border: 1px solid black;
+     border-radius: 30px; 
+     height: 40px; 
+     display: flex; 
+     box-sizing: border-box;
+    }
+.search_btn {
+    flex-basis: 64px; 
+    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+    cursor: pointer; 
+    appearance: none; 
+    border: medium none; 
+    font-size: inherit; 
+    color: inherit; 
+	}
+	
+	.search_bar {
+		-moz-box-flex: 1; 
+		flex-grow: 1; 
+		background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+		width: 100%; 
+		height: 100%; 
+		font-size: inherit; 
+		color: inherit; 
+		border: medium none; 
+		appearance: none;
+		box-sizing: border-box; 
+	}
+	
+	.search_bar:focus {
+		outline: none;
+	}

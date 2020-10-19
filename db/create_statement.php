@@ -9,7 +9,6 @@ create_table($con, "members");
 create_table($con, "deleted_members");
 create_table($con, "hospital");
 create_table($con, "deleted_hospital");
-create_table($con, "canceled_appointment");
 create_table($con, "notice");
 create_table($con, "review");
 create_table($con, "health_info");
@@ -34,6 +33,5 @@ create_procedure($con, 'health_info_procedure');
 
 create_trigger($con, 'deleted_members');
 create_trigger($con, 'deleted_hospital');
-create_trigger($con, 'canceled_appointment');
 drop_procedure_scheduler($con);
 ?>

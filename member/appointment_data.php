@@ -65,7 +65,7 @@
 
 
     } elseif ($mode === "cancel") {
-        $query = "update appointment set `appointment_status`='cancel', `appointment_date`='', `appointment_time`='' where num={$appointment_num}";
+        $query = "update appointment set `appointment_status`='cancel', `appointment_time`='' where num={$appointment_num}";
 		$result = $con->query($query) or die(mysqli_error($con));
         $query = "drop procedure `hospital_procedure{$appointment_num}`;";
 		$result = $con->query($query) or die(mysqli_error($con));

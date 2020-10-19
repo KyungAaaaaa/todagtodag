@@ -210,21 +210,6 @@ function create_table($con, $table_name)
                   PRIMARY KEY (`num`)
                 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;";
                 break;
-            case 'canceled_appointment':
-                $sql = "CREATE TABLE `canceled_appointment` (
-                  `num` int(11) NOT NULL AUTO_INCREMENT,
-                  `member_num` int(11) NOT NULL,
-                  `hospital_id` char(10) NOT NULL,
-                  `appointment_date` char(20) NOT NULL,
-                  `appointment_time` char(10) NOT NULL,
-                  `appointment_department` char(20) DEFAULT NULL,
-                  `appointment_detail` char(200) DEFAULT NULL,
-                  `appointment_status` char(20) NOT NULL,
-                  `review_no` int(11) DEFAULT NULL,
-                  `canceled_date` date,
-                  PRIMARY KEY (`num`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;";
-                break;
             case 'question':
                 $sql = "CREATE TABLE `question` (
                   `num` int(11) NOT NULL AUTO_INCREMENT,

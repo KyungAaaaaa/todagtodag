@@ -132,9 +132,11 @@
                     $query = "select * from members where num={$member_num};";
                     $result = $con->query($query) or die(mysqli_error($con));
                     if (mysqli_num_rows($result) !== 0) {
-                        $row = mysqli_fetch_assoc($result); ?>
+						$row = mysqli_fetch_assoc($result); 
+						$address = explode("$",$row['address']);
+						?>
 						<p>휴대폰 번호 : <?= $row['phone'] ?></p>
-						<p>주소 : <?= $row['address'] ?></p>
+						<p>주소 : <?= $address[0] ?> <?= $address[1] ?> <?= $address[2] ?></p>
 	                    <div id="info_modify"><a href="member_form.php?mode=modify">내정보 수정하기 > </a></div>
                     <? } ?>
 			</span>

@@ -116,7 +116,7 @@ button {cursor: pointer;}
 #post_list .col5 { width: 130px; }
 
 #media_list .col1, #question_list .col1 { width: 270px;height: 28px; overflow: hidden; }
-#media_list .col2, #question_list .col2 { width: 60px; }
+#media_list .col2, #question_list .col2 { width: 80px; }
 #media_list .col3, #question_list .col3 { width: 300px; }
 #media_list .col4, #question_list .col4 { width: 130px; }
 #question_list { height: 500px}

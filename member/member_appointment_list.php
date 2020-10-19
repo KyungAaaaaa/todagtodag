@@ -68,9 +68,6 @@
         }
 
     } elseif ($period_mode === "all") {
-//        $query = "select num,DATE_FORMAT(STR_TO_DATE(appointment_date, '%Y%m%d'),'%Y-%m-%d') as `date`,file_name_0,file_copied_0,file_type_0,name,id,
-//       appointment_time,appointment_department,appointment_detail,appointment_status,review_no from appointment a left join hospital h on a.hospital_id=h.id order by `date` desc;";
-
         $query = "select num,appointment_date as `date`,file_name_0,file_copied_0,file_type_0,name,id,
        appointment_time,appointment_department,appointment_detail,appointment_status,review_no from appointment a left join hospital h on a.hospital_id=h.id where a.member_num={$member_num} order by `date` desc;";
         $result = $con->query($query);

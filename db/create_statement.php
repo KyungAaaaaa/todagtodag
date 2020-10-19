@@ -9,6 +9,7 @@ create_table($con, "members");
 create_table($con, "deleted_members");
 create_table($con, "hospital");
 create_table($con, "deleted_hospital");
+create_table($con, "canceled_appointment");
 create_table($con, "notice");
 create_table($con, "review");
 create_table($con, "health_info");

@@ -230,7 +230,7 @@ if (isset($_GET["page"])) {
           }
 
           //한 페이지 당 보여줄 갯수
-          $scale = 20;
+          $scale = 15;
 
           // 전체 페이지 수($total_page) 계산
           if ($total_record % $scale == 0) {

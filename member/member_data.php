@@ -48,12 +48,31 @@
     ";
     } elseif ($type === "delete") {
         if (isset($_POST['member_num'])) $member_num = $_POST['member_num'];
+        $query="select * from members where num={$member_num}";
+        $result=$con->query($query) or die(mysqli_error($con));
+        $row=mysqli_fetch_assoc($result);
+
+
         $query="delete from members where num={$member_num}";
         $result=$con->query($query) or die(mysqli_error($con));
         session_start();
         unset($_SESSION["user_id"]);
         unset($_SESSION["user_name"]);
         unset($_SESSION["user_level"]);
+        $query = "DELETE from `appointment` where member_num = '$member_num';";
+        mysqli_query($con, $query);
+        $query = "DELETE from `interest` where member_num = '$member_num';";
+        mysqli_query($con, $query);
+        $query = "DELETE from `review` where member_num = '$member_num';";
+        mysqli_query($con, $query);
+        $query = "DELETE from `free` where id = '{$row['id']}';";
+        mysqli_query($con, $query);
+        $query = "DELETE from `free_ripple` where id = '{$row['id']}';";
+        mysqli_query($con, $query);
+        $query = "DELETE from `question` where id = '{$row['id']}';";
+        mysqli_query($con, $query);
+        $query = "DELETE from `question_ripple` where id = '{$row['id']}';";
+        mysqli_query($con, $query);
     } else {
         $id = $_POST["id"];
         $password = $_POST["password"];

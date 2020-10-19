@@ -28,7 +28,7 @@ function create_trigger($con, $trigger_name) {
             begin
             insert into deleted_hospital values (old.id, old.name, old.addr, old.tel, old.department, 
             old.mon, old.tue, old.wed, old.thu, old.fri, old.sat, old.sun, old.holiday, old.mapx,
-            old.mapy, old.map_description, old.file_name_0, old_file_copied_0, old.file_type_0,
+            old.mapy, old.map_description, old.file_name_0, old.file_copied_0, old.file_type_0,
             curdate());
             end";
         break;

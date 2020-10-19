@@ -854,7 +854,6 @@ if ($tab === "detail") {
                                     alert("해당 날짜와 시간에 예약이 되어있습니다.");
                                     history.go(-1);
                                 } else if (data === "예약없음") {
-                                    alert("예약이 가능합니다.");
                                     if (!(calander_data && calander_data2 && calander_data3 && calander_data4)) {
                                         if (!calander_data4) {
                                             alert("세부사항을 입력해주세요.");

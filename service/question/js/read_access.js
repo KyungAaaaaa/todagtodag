@@ -19,7 +19,9 @@ function popup_open() {
         "opacity"         : "0.3"
 
     });
-
+    $(".buttons").css({
+        "display"         : "none"
+    })
     $("input[type=radio]").prop("checked", false);
     $("#popup").fadeIn();
 }
@@ -27,7 +29,9 @@ function popup_open() {
 function popup_close() {
     $("#star_grade").children("span").removeClass("on");
 
-    // $content.find("textarea").val("");
+    $(".buttons").css({
+        "display"         : ""
+    })
 
     $("body").css("overflow", "auto");
     $("#backgroundSmsLayer").remove();

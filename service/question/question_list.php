@@ -89,7 +89,7 @@
 					<li>
 						<span class="col1"><?= $number ?></span>
 						<?php
-						if ($userid == "admin") {
+						if ($userid == "admin" || $userid == $id) {
 						?>
 							<span class="col2_1" id="col2_1"><a href="question_view.php?num=<?= $row["num"] ?>&page=<?= $page ?>"><?= $subject ?></a>&nbsp;<img src="./img/002721753.gif"></span>
 						<?php } else { ?>
@@ -164,9 +164,9 @@
 		<div id="popup_content">
 		</div>
 		<div id="popup_btn">
+			<h4>비밀번호 : </h4>
 			<div>
-				<h2>비밀번호</h2>
-				<input type="tel" id="read_pw" maxlength="4" style="-webkit-text-security: disc;">
+				<input type="password" id="read_pw" maxlength="4" style="-webkit-text-security: disc;">
 			</div>
 			<button id="popup_write"> 확인</button>
 			<script>
@@ -183,7 +183,7 @@
 							},
 							success: function(data) {
 								if (data === "fail") {
-									alert("비밀번호 불일치");
+									alert("비밀번호가 다릅니다.");
 									location.href = 'question_list.php';
 								}
 								else {location.href = 'question_view.php?page=<?=$page?>&num=<?=$row["num"]?>';}

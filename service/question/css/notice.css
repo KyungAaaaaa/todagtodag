@@ -57,3 +57,4 @@ header { position: relative; color: rgb(44, 55, 68); }
 #ripple #ripple_head #span2{ position: absolute; top: 5px; left: 635px; font-size: 14px; color: gray;}
 #ripple #ripple_content{ margin-bottom: 10px; color: darkslategray; font-size: 14px; margin-top: 5px;}
 #ripple #ripple_insert #ripple_textarea textarea { width: 770px; height: 70px; resize: none; margin-top: 10px;}
+

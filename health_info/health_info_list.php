@@ -85,10 +85,16 @@ $memo_content = "";
                 </ul>
             </div>  
         <div class="list_box">
-            <h2>건강 정보</h2>
+            <div><h2>건강 정보</h2></div>
+            <form class="search" action="./health_info_list.php" method="GET">
+                <div class="info_search">
+                    <button class="search_btn"><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/health_info/img/icon_search.png" alt="검색" class="icon"></button>
+                    <input class="search_bar" type="search" name="search" placeholder="찾으시는 건강정보를 입력하세요">
+                    <input type="hidden" name="mode" value="search">
+                </div>
+            </form>
             <ul id="image_list">
                 <?php
-                // db의 code table 내용을 가져옴
                 if (isset($_GET['category'])) {
                     $category_1 = $_GET['category'];
                     $sql = "SELECT * from `health_info` where category='{$category_1}' order by num desc;";

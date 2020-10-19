@@ -28,6 +28,17 @@
 			<h3>
 				자유게시판
 			</h3>
+			<form class="search" action="free_list.php?mode=search" method="POST">
+				<div class="info_search">
+					<select name="find">
+						<option value="subject">제목</option>
+						<option value="content">내용</option>
+						<option value="id">작성자</option>
+					</select>
+					<input type="text" name="search">
+					<input type="submit" value="검색">
+				</div>
+			</form>
 			<ul id="board_list">
 				<li>
 					<span class="col1">번호</span>
@@ -50,7 +61,15 @@
 				create_table($con, 'free_ripple');
 				// $con = mysqli_connect("localhost", "user1", "12345", "sample");
 
-				$sql = "select * from free order by num desc";
+				if(isset($_GET["mode"])&&$_GET["mode"]=="search"){
+					$find = $_POST["find"];
+					$search = $_POST["search"];
+					$q_search = mysqli_real_escape_string($con,$search);
+					$sql = "SELECT * from `free` where $find like '%$q_search%' order by num desc;";
+				}else{
+					$sql = "SELECT * from free order by num desc;";
+				}
+
 				$result = mysqli_query($con, $sql);
 				$total_record = mysqli_num_rows($result); // 전체 글 수
 

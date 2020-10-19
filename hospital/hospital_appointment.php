@@ -10,9 +10,9 @@ if (isset($_POST["appointment_department"])) $appointment_department = $_POST["a
 if (isset($_POST["appointment_detail"])) $appointment_detail = $_POST["appointment_detail"];
 $appointment_detail = str_replace("\n", "\\n", $appointment_detail);
 
-// PK 초기값 세팅
-$query = "alter table appointment auto_increment = 1223;";
-mysqli_query($con,$query) or die('Error: '.mysqli_error($con));
+// // PK 초기값 세팅
+// $query = "alter table appointment auto_increment = 1223;";
+// mysqli_query($con,$query) or die('Error: '.mysqli_error($con));
 
 // 이벤트 스케쥴러 on
 $query = "set global event_scheduler = on;";

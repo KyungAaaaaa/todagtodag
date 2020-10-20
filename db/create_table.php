@@ -130,7 +130,7 @@ function create_table($con, $table_name)
                   `subject` varchar(100) NOT NULL,
                   `content` text NOT NULL,
                   `category` char(50) NOT NULL,
-                  `regist_day` char(20) DEFAULT NULL,햣
+                  `regist_day` char(20) DEFAULT NULL,
                   `hit` int(11) DEFAULT NULL,
                   `file_name_1` char(40) DEFAULT NULL,
                   `file_copied_1` char(30) DEFAULT NULL,

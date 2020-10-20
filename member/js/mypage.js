@@ -12,7 +12,7 @@ $("#select_date").on("click", function () {
 
 })
 $("#all_date").on("click", function () {
-    $("#appointment_list").load("member_appointment_list.php", {}, function (data, statusTxt, xhr) {
+    $("#appointment_list").load("member_appointment_list.php", {member_num:$member_num}, function (data, statusTxt, xhr) {
         $("#date_1").val("");
         $("#date_2").val("")
     });

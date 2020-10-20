@@ -174,7 +174,7 @@ switch ($mode) {
         user_delete($con, $delete_id);
         echo "
          <script>
-          alert('탈퇴되었습니다.');
+          alert('삭제되었습니다.');
           location.href = 'admin_hospital.php';
          </script>
         ";

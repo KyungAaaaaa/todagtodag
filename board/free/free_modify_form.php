@@ -70,7 +70,7 @@
 					</li>
 					<li>
 						<span class="col1">제목 : </span>
-						<span class="col2"><input name="subject" type="text" value="<?= $subject ?>"></span>
+						<span class="col2"><input autocomplete="off" name="subject" type="text" value="<?= $subject ?>"></span>
 					</li>
 					<li id="text_area">
 						<span class="col1">내용 : </span>

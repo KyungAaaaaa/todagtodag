@@ -175,7 +175,7 @@ if (isset($_GET["page"])) {
             ?>
               <li id="board_content">
                 <span class="col1"><?= $number ?></span>
-                <span class="col2"><a href="../service/faq/faq_view.php?num=<?= $num ?>&page=<?= $page ?>&hit=<?= $hit + 1 ?>"><?= str_cutting($subject, 90) ?></a></span>
+                <span class="col2"><a href="../service/faq/faq_view.php?num=<?= $num ?>&page=<?= $page ?>"><?= str_cutting($subject, 90) ?></a></span>
                 <span class="col3"><?= $id ?> (<?= $name ?>)</span>
                 <span class="col4"><?= $regist_day ?></span>
                 <div class="checkbox_div">

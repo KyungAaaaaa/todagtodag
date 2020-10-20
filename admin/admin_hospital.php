@@ -112,14 +112,7 @@ if (isset($_GET["page"])) {
           $ch = curl_init();
           $url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire'; /*URL*/
           $queryParams = '?' . urlencode('ServiceKey') . '=r5SONxjKf67vRjWSB5VkCHjhlvpWtAAcXV8IEJumquZL3SfuS9eazbphf2%2BSprq0iO6PVT1MVcC70enAwCeLOA%3D%3D'; /*Service Key*/
-          //                $queryParams .= '&' . urlencode('Q0') . '=' . urlencode('서울특별시'); /**/
-          //                $queryParams .= '&' . urlencode('Q1') . '=' . urlencode('강남구'); /**/
           $queryParams .= '&' . urlencode('QZ') . '=' . urlencode('B'); /**/
-          //                $queryParams .= '&' . urlencode('QD') . '=' . urlencode('D001'); /**/
-          //                $queryParams .= '&' . urlencode('QT') . '=' . urlencode('1'); /**/
-          //                $queryParams .= '&' . urlencode('QN') . '=' . urlencode('삼성병원'); /**/
-          //                $queryParams .= '&' . urlencode('ORD') . '=' . urlencode('NAME'); /**/
-          //                $queryParams .= '&' . urlencode('pageNo') . '=' . urlencode('1'); /**/
           $queryParams .= '&' . urlencode('numOfRows') . '=' . urlencode('1'); /**/
 
 
@@ -165,7 +158,6 @@ if (isset($_GET["page"])) {
           }
           $hpid = $con->query("select id from hospital;");
           while ($row = mysqli_fetch_row($hpid)) {
-            //                        $query = "select EXISTS (select department from hospital where id='$row[0]') as success;";
             $query = "select count(department) from hospital where id='$row[0]';";
             $result = mysqli_query($con, $query) or die(mysqli_error($con));
             $row2 = mysqli_fetch_row($result);

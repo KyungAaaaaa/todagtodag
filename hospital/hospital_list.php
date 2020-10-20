@@ -17,8 +17,7 @@
 
     function select_area($area_1, $area_2, $search, $department, $con)
     {
-
-        $query = "select id,name,addr,ifnull(avg,0.0) as avg from hospital left join (select hospital_id,round(AVG(star_rating),1) as avg from review group by hospital_id) r on hospital.id = r.hospital_id where addr like '%{$area_1} {$area_2}%' and (addr like '%{$search}%' or name like '%{$search}%') and department like '%{$department}%';";
+        $query = "select id,name,addr,ifnull(avg,0.0) as avg from hospital left join (select hospital_id,round(AVG(star_rating),1) as avg from review group by hospital_id) r on hospital.id = r.hospital_id where addr like '%{$area_1} {$area_2}%' and (name like '%{$search}%') and department like '%{$department}%';";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         echo json_encode(mysqli_fetch_all($result));
     }

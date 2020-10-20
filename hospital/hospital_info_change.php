@@ -260,17 +260,17 @@ if ($tab === "detail") {
             </P>
             <div class="hospital_membername">
                 <p>예약자명 </p>
-                <input type="text" value="<?= $user_name ?>" disabled>
+                <input  autocomplete="off" type="text" value="<?= $user_name ?>" disabled>
             </div>
             <!--        <div class="hospital_memberid">-->
             <!--            <p>예약자아이디 </p>-->
-            <!--            <input type="text" value="-->
+            <!--            <input  autocomplete="off" type="text" value="-->
             <?//= $user_id ?>
             <!--" disabled>-->
             <!--        </div>-->
             <div class="hospital_memberphone">
                 <p>예약자번호 </p>
-                <input type="text" value="<?= $user_phone ?>" disabled>
+                <input  autocomplete="off" type="text" value="<?= $user_phone ?>" disabled>
             </div>
         </div>
         <div class="hospital_appointment">
@@ -669,7 +669,7 @@ if ($tab === "detail") {
                 ?>
                 <div class="select_option">
                     <p>예약선택일 : </p>
-                    <input type="text" id="calander_data" value="<?= $_POST["calander_data"] ?>" disabled>
+                    <input  autocomplete="off" type="text" id="calander_data" value="<?= $_POST["calander_data"] ?>" disabled>
                 </div>
             </div>
             <div class="hospital_appointment_department">
@@ -727,7 +727,7 @@ if ($tab === "detail") {
                 </select>
                 <div class="select_option">
                     <p>선택과목 : </p>
-                    <input type="text" id="calander_data3" disabled>
+                    <input  autocomplete="off" type="text" id="calander_data3" disabled>
                 </div>
             </div>
             <div class="hospital_appointment_time">
@@ -803,7 +803,7 @@ if ($tab === "detail") {
                 </select>
                 <div class="select_option">
                     <p>예약선택시간 : </p>
-                    <input type="text" id="calander_data2" disabled>
+                    <input  autocomplete="off" type="text" id="calander_data2" disabled>
                 </div>
             </div>
 

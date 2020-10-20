@@ -76,7 +76,7 @@ if (isset($_GET["mode"])&&$_GET["mode"]=="insert") {
 					</li>
 					<li>
 						<span class="col1">유튜브 링크</span>
-						<span class="col2"><input type="text" name="video_name" value="<?=$video_name?>" placeholder="ex) https://www.youtube.com/watch?v=NyW4ypaqDhs"></span>
+						<span class="col2"><input  autocomplete="off" type="text" name="video_name" value="<?=$video_name?>" placeholder="ex) https://www.youtube.com/watch?v=NyW4ypaqDhs"></span>
 					</li>
 				</ul>
 				<ul class="buttons">

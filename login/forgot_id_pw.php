@@ -208,8 +208,8 @@ $page = $_GET["page"];
             <p>이름과 이메일을 입력해주세요</p>
             <p class="point_p">가입하실때 입력하셨던 정보여야 합니다!</p>
             <br>
-            <input type="text" id="find_id_name" name="find_id_name" placeholder=" 이름 입력 "> <br>
-            <input type="text" id="find_id_email" name="find_id_email" placeholder=" 이메일 입력"> <br>
+            <input  autocomplete="off" type="text" id="find_id_name" name="find_id_name" placeholder=" 이름 입력 "> <br>
+            <input  autocomplete="off" type="text" id="find_id_email" name="find_id_email" placeholder=" 이메일 입력"> <br>
             <br>
             <input id="find_id_button" type="button" value="아이디 찾기">
           <?php
@@ -219,7 +219,7 @@ $page = $_GET["page"];
             <p>아이디와 휴대폰번호를 입력해주세요</p>
             <p class="point_p">가입하실때 입력하셨던 정보여야 합니다!</p>
             <br>
-            <input type="text" id="find_password_id" name="find_password_id" placeholder=" 아이디 입력 "> <br>
+            <input  autocomplete="off" type="text" id="find_password_id" name="find_password_id" placeholder=" 아이디 입력 "> <br>
             <div id="phone_input">
               <select name="phone_one" id="phone_one">
                 <option value="010" selected> 010 </option>
@@ -229,7 +229,7 @@ $page = $_GET["page"];
               <input type="number" name="phone_three" id="phone_three" placeholder=" 0000 ">
             </div>
             <input id="find_password_button" type="button" name="" value=" 인증번호 발송 "> <br>
-            <input type="text" id="password_certification" name="password_certification" placeholder=" 인증번호 입력 "> <br>
+            <input  autocomplete="off" type="text" id="password_certification" name="password_certification" placeholder=" 인증번호 입력 "> <br>
             <input id="password_certification_button" type="button" name="" value="확인"> <br>
           <?php
           } else {

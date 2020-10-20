@@ -6,6 +6,7 @@ $("#close").on("click", function () {
 })
 
 function popup_open() {
+
     $("body").css("overflow", "hidden");
     $("body").append("<div id='backgroundSmsLayer'></div>");
     $("#backgroundSmsLayer").css({
@@ -22,7 +23,6 @@ function popup_open() {
     $(".buttons").css({
         "display"         : "none"
     })
-    $("input[type=radio]").prop("checked", false);
     $("#popup").fadeIn();
 }
 

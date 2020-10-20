@@ -34,7 +34,7 @@
 	<div class="search">
 		<form action="http://localhost/todagtodag/hospital/hospital.php" method="POST">
 			<div>
-				<input type="text" placeholder="검색어를 입력하세요 ex)병원명.." name="keyword">
+				<input  autocomplete="off" type="text" placeholder="검색어를 입력하세요 ex)병원명.." name="keyword">
 				<button><img src="http://<?= $_SERVER['HTTP_HOST'] ?>/todagtodag/home/img/search.png" alt="검색"></button>
 			</div>
 		</form>

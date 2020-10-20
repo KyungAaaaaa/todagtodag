@@ -47,7 +47,7 @@
 					</li>
 					<li id="read_pw">
 						<span class="col1">비밀번호 : </span>
-						<span class="col2"><input type="text" name="read_pw"></span>
+						<span class="col2"><input  autocomplete="off" type="text" name="read_pw"></span>
 					</li>
 					<li>
 						<span class="col1">제목 : </span>

@@ -60,7 +60,7 @@
       </div>
       <div id="login_form">
         <form name="login_form" action="login.php" method="post">
-          <input type="text" id="id" name="id" placeholder=" 아이디 입력 "> <br>
+          <input  autocomplete="off" type="text" id="id" name="id" placeholder=" 아이디 입력 "> <br>
           <input type="password" id="password" name="password" placeholder=" 비밀번호 입력 "> <br>
           <div id="login_button">
             <a href="#" onclick="check_input()">

@@ -73,7 +73,7 @@
 					</li>
 					<li>
 						<span class="col1">동영상 URL</span>
-						<span class="col2"><input type="text" name="video_name" value="<?=$video_name?>"></span>
+						<span class="col2"><input  autocomplete="off" type="text" name="video_name" value="<?=$video_name?>"></span>
 					</li>
 				</ul>
 				<ul class="buttons">

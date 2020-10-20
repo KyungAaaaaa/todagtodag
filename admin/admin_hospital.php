@@ -317,54 +317,54 @@ if (isset($_GET["page"])) {
                       <td class="td1">번호</td>
                       <td class="td2"><span><?= $id ?></span><input type="hidden" value="<?= $id ?>" id="modify_id_<?= $i ?>"></td>
                       <td class="td1">병원명</td>
-                      <td class="td2"><input type="text" value="<?= $name ?>" id="modify_name_<?= $i ?>"></td>
+                      <td class="td2"><input  autocomplete="off" type="text" value="<?= $name ?>" id="modify_name_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">주소</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $addr ?>" id="modify_addr_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $addr ?>" id="modify_addr_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">전화번호</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $tel ?>" id="modify_tel_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $tel ?>" id="modify_tel_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">부서</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $department ?>" id="modify_department_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $department ?>" id="modify_department_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1" colspan="4">운영시간</td>
                     </tr>
                     <tr>
                       <td class="td1">월</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $mon ?>" id="modify_mon_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $mon ?>" id="modify_mon_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">화</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $tue ?>" id="modify_tue_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $tue ?>" id="modify_tue_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">수</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $wed ?>" id="modify_wed_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $wed ?>" id="modify_wed_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">목</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $thu ?>" id="modify_thu_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $thu ?>" id="modify_thu_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">금</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $fri ?>" id="modify_fri_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $fri ?>" id="modify_fri_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">토</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $sat ?>" id="modify_sat_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $sat ?>" id="modify_sat_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">일</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $sun ?>" id="modify_sun_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $sun ?>" id="modify_sun_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">휴일</td>
-                      <td colspan="3" class="td3"><input type="text" value="<?= $holiday ?>" id="modify_holiday_<?= $i ?>"></td>
+                      <td colspan="3" class="td3"><input  autocomplete="off" type="text" value="<?= $holiday ?>" id="modify_holiday_<?= $i ?>"></td>
                     </tr>
                     <tr>
                       <td class="td1">파일업로드</td>

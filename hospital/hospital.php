@@ -78,11 +78,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/todagtodag/db/db_connector.php";
 					</select>
 					<?php
 					if (isset($keyword)) { ?>
-						<input type='text' value='<?= $keyword ?>' name='search' id='search'>
+						<input  autocomplete="off" type='text' value='<?= $keyword ?>' name='search' id='search'>
 					<?php
 					} else {
 					?>
-						<input type='text' placeholder='검색어를 입력하세요' name='search' id='search'>
+						<input  autocomplete="off" type='text' placeholder='검색어를 입력하세요' name='search' id='search'>
 					<?php } ?>
 					<span id="btn"><img src="../home/img/search.png"></span>
 				</div>

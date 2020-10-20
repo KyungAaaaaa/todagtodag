@@ -51,7 +51,7 @@ $(document).ready(function() {
   });
 
   $("#option_plus").click(function(){
-    var html = `<li><input type="text" name="choose[]" class="option_choose" value="" placeholder=" 옵션명을 입력하세요. "> &
+    var html = `<li><input  autocomplete="off" type="text" name="choose[]" class="option_choose" value="" placeholder=" 옵션명을 입력하세요. "> &
     <input type="number" name="price[]" class="price_choose" value="" placeholder=" 가격을 입력하세요. "> 원</li>`;
     $("#ul_plus").append(html);
     child++;

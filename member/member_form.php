@@ -276,7 +276,7 @@
                         <?php
                             if ($mode === "") {
                                 ?>
-								<input type="text" name="id" id="input_id" placeholder=" 아이디 입력 ">
+								<input  autocomplete="off" type="text" name="id" id="input_id" placeholder=" 아이디 입력 ">
 								<br>
 								<p id="input_id_confirm"></p>
 								<input type="password" name="password" id="input_password"
@@ -289,7 +289,7 @@
                                 <?php
                             } else {
                                 ?>
-								<input type="text" name="id" id="input_id" value="<?= $userid ?>"
+								<input  autocomplete="off" type="text" name="id" id="input_id" value="<?= $userid ?>"
 								       readonly="readonly">
 								<br>
 								<p id="input_id_confirm"></p>
@@ -307,18 +307,18 @@
                         <?php
                             if ($hidden_kakao_name) {
                                 ?>
-								<input type="text" name="name" id="input_name"
+								<input  autocomplete="off" type="text" name="name" id="input_name"
 								       value=<?= $hidden_kakao_name ?> readonly>
 								<br>
                                 <?php
                             } else if ($mode) {
                                 ?>
-								<input type="text" name="name" id="input_name" value="<?= $name ?>">
+								<input  autocomplete="off" type="text" name="name" id="input_name" value="<?= $name ?>">
 								<br>
                                 <?php
                             } else {
                                 ?>
-								<input type="text" name="name" id="input_name" placeholder=" 이름 입력 ">
+								<input  autocomplete="off" type="text" name="name" id="input_name" placeholder=" 이름 입력 ">
 								<br>
                                 <?php
                             }
@@ -335,11 +335,11 @@
 											<option value="011">011</option>
 										</select>
 										-
-										<input type="text" name="phone_two" id="phone_two"
+										<input  autocomplete="off" type="text" name="phone_two" id="phone_two"
 										       placeholder=" 0000 " maxlength="4"
 										       oninput="maxLengthCheck(this);">
 										-
-										<input type="text" name="phone_three" id="phone_three"
+										<input  autocomplete="off" type="text" name="phone_three" id="phone_three"
 										       placeholder=" 0000 " maxlength="4"
 										       oninput="maxLengthCheck(this);">
                                         <?php
@@ -350,10 +350,10 @@
 											<option value="011">011</option>
 										</select>
 										-
-										<input type="text" name="phone_two" id="phone_two" maxlength="4"
+										<input  autocomplete="off" type="text" name="phone_two" id="phone_two" maxlength="4"
 										       onkeyup="max_length_check(this)" value="<?= $phone2 ?>">
 										-
-										<input type="text" name="phone_three" id="phone_three"
+										<input  autocomplete="off" type="text" name="phone_three" id="phone_three"
 										       maxlength="4" onkeyup="max_length_check(this)"
 										       value="<?= $phone3 ?>">
                                         <?php
@@ -364,7 +364,7 @@
                                 if ($mode === "") {
                             ?>
 							<div id="phone_certification_check">
-								<input type="text" id="input_phone_certification"
+								<input  autocomplete="off" type="text" id="input_phone_certification"
 								       placeholder=" 문자 인증 번호 입력 ">
 								<div id="phone_certification_check_button">
 									<a href="#" id="input_phone_certification_check">
@@ -387,10 +387,10 @@
                                 <?php
                                     if ($hidden_kakao_email) {
                                         ?>
-									<input type="text" name="email_one" id="email_one"
+									<input  autocomplete="off" type="text" name="email_one" id="email_one"
 									       value="<?= $hidden_kakao_email_one ?>" readonly>
 										@
-									<input type="text" name="email_two" id="email_two"
+									<input  autocomplete="off" type="text" name="email_two" id="email_two"
 									       value="<?= $hidden_kakao_email_two ?>" readonly>
 										<script type="text/javascript">
                                             signup_duplicate_check();
@@ -398,18 +398,18 @@
                                     <?php
                                         } else if ($mode) {
                                     ?>
-									<input type="text" name="email_one" id="email_one"
+									<input  autocomplete="off" type="text" name="email_one" id="email_one"
 									       value="<?= $email1 ?>">
 										@
-									<input type="text" name="email_two" id="email_two"
+									<input  autocomplete="off" type="text" name="email_two" id="email_two"
 									       value="<?= $email2 ?>">
                                         <?php
                                     } else {
                                         ?>
-									<input type="text" name="email_one" id="email_one"
+									<input  autocomplete="off" type="text" name="email_one" id="email_one"
 									       placeholder=" 이메일 입력 ">
 										@
-									<input type="text" name="email_two" id="email_two">
+									<input  autocomplete="off" type="text" name="email_two" id="email_two">
                                         <?php
                                     }
                                 ?>
@@ -429,11 +429,11 @@
                             if ($mode === "") {
                                 ?>
 								<div id="address">
-									<input type="text" name="address_one" id="address_one"
+									<input  autocomplete="off" type="text" name="address_one" id="address_one"
 									       placeholder=" 우편번호 " onclick="address_input();">
-									<input type="text" name="address_two" id="address_two"
+									<input  autocomplete="off" type="text" name="address_two" id="address_two"
 									       placeholder=" 주소 ">
-									<input type="text" name="address_three" id="address_three"
+									<input  autocomplete="off" type="text" name="address_three" id="address_three"
 									       placeholder=" 상세주소 ">
 									<br>
 									<p id="input_address_confirm"></p>
@@ -442,11 +442,11 @@
                             } else {
                                 ?>
 								<div id="address">
-									<input type="text" name="address_one" id="address_one"
+									<input  autocomplete="off" type="text" name="address_one" id="address_one"
 									       value="<?= $address1 ?>" onclick="address_input();">
-									<input type="text" name="address_two" id="address_two"
+									<input  autocomplete="off" type="text" name="address_two" id="address_two"
 									       value="<?= $address2 ?>" onclick="address_input();">
-									<input type="text" name="address_three" id="address_three"
+									<input  autocomplete="off" type="text" name="address_three" id="address_three"
 									       value="<?= $address3 ?>">
 									<br>
 									<p id="input_address_confirm"></p>

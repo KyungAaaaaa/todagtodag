@@ -57,14 +57,16 @@
 ![image](https://user-images.githubusercontent.com/63944004/96737499-b423e300-13f8-11eb-968c-35be0f22316f.png)
 ![image](https://user-images.githubusercontent.com/63944004/96737577-caca3a00-13f8-11eb-9547-ccf1d8c4a4ba.png)
 
-###게시판
+
+### 게시판
+
 1. 자유게시판
 ![image](https://user-images.githubusercontent.com/63944004/96737650-dfa6cd80-13f8-11eb-8a5a-ad8254ccf6c0.png)
 
 2. 영상게시판
 ![image](https://user-images.githubusercontent.com/63944004/96737657-e2092780-13f8-11eb-9083-efcbc0243d66.png)
 
-###고객 센터
+### 고객 센터
 1. 공지사항 & FAQ
 ![image](https://user-images.githubusercontent.com/63944004/96737847-154bb680-13f9-11eb-9615-b4b206c80e04.png)
 2. 문의게시판
